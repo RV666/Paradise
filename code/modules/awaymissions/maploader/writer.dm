@@ -183,7 +183,7 @@
 		// Remove useless info
 		yeah -= "type"
 		if(yeah.len)
-			var/json_stuff = json_encode(yeah)
+			var/json_stuff = r_json_encode(yeah)
 			attributes += var_to_dmm(json_stuff, "map_json_data")
 	if(attributes.len == 0)
 		return

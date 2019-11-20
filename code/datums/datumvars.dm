@@ -435,7 +435,8 @@
 
 	usr << browse(html, "window=variables[refid];size=475x650")
 
-#define VV_HTML_ENCODE(thing) ( sanitize ? html_encode(thing) : thing )
+#define VV_HTML_ENCODE_R(thng) ( has_ru_letters(thng) ? rhtml_encode(thng) : html_encode(thng) )
+#define VV_HTML_ENCODE(thing) ( sanitize ? VV_HTML_ENCODE_R(thing) : thing )
 /proc/debug_variable(name, value, level, var/datum/DA = null, sanitize = TRUE)
 	var/header
 	if(DA)
@@ -548,7 +549,7 @@
 			to_chat(usr, "This can only be used on instances of type /mob")
 			return
 
-		var/new_name = reject_bad_name(sanitize(copytext(input(usr,"What would you like to name this mob?","Input a name",M.real_name) as text|null,1,MAX_NAME_LEN)))
+		var/new_name = reject_bad_name(sanitize_russian(copytext(input(usr,"What would you like to name this mob?","Input a name",M.real_name) as text|null,1,MAX_NAME_LEN)))
 		if( !new_name || !M )	return
 
 		message_admins("Admin [key_name_admin(usr)] renamed [key_name_admin(M)] to [new_name].")

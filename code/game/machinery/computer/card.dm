@@ -389,7 +389,7 @@ var/time_last_changed_position = 0
 				if(!job_in_department(SSjobs.GetJob(t1)))
 					return 0
 				if(t1 == "Custom")
-					var/temp_t = sanitize(copytext(input("Enter a custom job assignment.","Assignment"),1,MAX_MESSAGE_LEN))
+					var/temp_t = sanitize_russian(copytext(input("Enter a custom job assignment.","Assignment"),1,MAX_MESSAGE_LEN))
 					//let custom jobs function as an impromptu alt title, mainly for sechuds
 					if(temp_t && modify)
 						SSjobs.log_job_transfer(modify.registered_name, modify.getRankAndAssignment(), temp_t, scan.registered_name)

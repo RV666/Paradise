@@ -200,7 +200,7 @@
 		S.message = stars(S.message, pr)
 
 /proc/slur(phrase, var/list/slurletters = ("'"))//use a different list as an input if you want to make robots slur with $#@%! characters
-	phrase = html_decode(phrase)
+	phrase = rhtml_decode(phrase)
 	var/leng=lentext(phrase)
 	var/counter=lentext(phrase)
 	var/newphrase=""
@@ -221,10 +221,10 @@
 			//if(13)	newletter="<small>[newletter]</small>"
 		newphrase+="[newletter]"
 		counter-=1
-	return newphrase
+	return LTR255_ANSI_UNIC(newphrase)
 
 /proc/stutter(n)
-	var/te = html_decode(n)
+	var/te = rhtml_decode(n)
 	var/t = ""//placed before the message. Not really sure what it's for.
 	n = length(n)//length of the entire word
 	var/p = null
@@ -244,10 +244,10 @@
 						n_letter = text("[n_letter]-[n_letter]")
 		t = text("[t][n_letter]")//since the above is ran through for each letter, the text just adds up back to the original word.
 		p++//for each letter p is increased to find where the next letter will be.
-	return sanitize(copytext(t,1,MAX_MESSAGE_LEN))
+	return sanitize_russian(copytext(t,1,MAX_MESSAGE_LEN))
 
 /proc/robostutter(n) //for robutts
-	var/te = html_decode(n)
+	var/te = rhtml_decode(n)
 	var/t = ""//placed before the message. Not really sure what it's for.
 	n = length(n)//length of the entire word
 	var/p = null
@@ -268,7 +268,7 @@
 						n_letter = text("[n_letter]-[n_letter]")
 		t = text("[t][n_letter]")//since the above is ran through for each letter, the text just adds up back to the original word.
 		p++//for each letter p is increased to find where the next letter will be.
-	return sanitize(copytext(t,1,MAX_MESSAGE_LEN))
+	return sanitize_russian(copytext(t,1,MAX_MESSAGE_LEN))
 
 
 /proc/Gibberish(t, p)//t is the inputted message, and any value higher than 70 for p will cause letters to be replaced instead of added
@@ -294,7 +294,7 @@
 
 
 proc/muffledspeech(phrase)
-	phrase = html_decode(phrase)
+	phrase = rhtml_decode(phrase)
 	var/leng=lentext(phrase)
 	var/counter=lentext(phrase)
 	var/newphrase=""
@@ -309,7 +309,7 @@ proc/muffledspeech(phrase)
 			newletter = "m"
 		newphrase+="[newletter]"
 		counter-=1
-	return newphrase
+	return LTR255_ANSI_UNIC(newphrase)
 
 /proc/muffledspeech_all(list/message_pieces)
 	for(var/datum/multilingual_say_piece/S in message_pieces)
@@ -609,7 +609,7 @@ var/list/intents = list(INTENT_HELP,INTENT_DISARM,INTENT_GRAB,INTENT_HARM)
 		rename_character(oldname, newname)
 
 /proc/cultslur(n) // Inflicted on victims of a stun talisman
-	var/phrase = html_decode(n)
+	var/phrase = rhtml_decode(n)
 	var/leng = lentext(phrase)
 	var/counter=lentext(phrase)
 	var/newphrase=""
@@ -647,7 +647,7 @@ var/list/intents = list(INTENT_HELP,INTENT_DISARM,INTENT_GRAB,INTENT_HARM)
 			if(5)
 				newletter="glor"
 		newphrase+="[newletter]";counter-=1
-	return newphrase
+	return LTR255_ANSI_UNIC(newphrase)
 
 /mob/proc/get_preference(toggleflag)
 	if(!client)

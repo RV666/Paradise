@@ -100,7 +100,7 @@
 	if(!usr.is_literate())
 		to_chat(usr, "<span class='notice'>You don't know how to read.</span>")
 		return
-	var/n_name = sanitize(copytext(input(usr, "What would you like to label the paper?", "Paper Labelling", name) as text, 1, MAX_MESSAGE_LEN))
+	var/n_name = sanitize_russian(copytext(input(usr, "What would you like to label the paper?", "Paper Labelling", name) as text, 1, MAX_MESSAGE_LEN))
 	if((loc == usr && usr.stat == 0))
 		name = "[(n_name ? text("[n_name]") : initial(name))]"
 	if(name != "paper")
@@ -214,7 +214,7 @@
 
 
 /obj/item/paper/proc/parsepencode(var/t, var/obj/item/pen/P, mob/user as mob)
-	t = pencode_to_html(html_encode(t), usr, P, TRUE, TRUE, TRUE, deffont, signfont, crayonfont)
+	t = pencode_to_html(rhtml_encode(t), usr, P, TRUE, TRUE, TRUE, deffont, signfont, crayonfont)
 	return t
 
 /obj/item/paper/proc/populatefields()

@@ -1,5 +1,5 @@
-/mob/living/carbon/human/say(var/message, var/sanitize = TRUE, var/ignore_speech_problems = FALSE, var/ignore_atmospherics = FALSE)
-	..(message, sanitize = sanitize, ignore_speech_problems = ignore_speech_problems, ignore_atmospherics = ignore_atmospherics)	//ohgod we should really be passing a datum here.
+/mob/living/carbon/human/say(var/message, var/sanitize_russian = TRUE, var/ignore_speech_problems = FALSE, var/ignore_atmospherics = FALSE)
+	..(message, sanitize_russian = sanitize_russian, ignore_speech_problems = ignore_speech_problems, ignore_atmospherics = ignore_atmospherics)	//ohgod we should really be passing a datum here.
 
 /mob/living/carbon/human/GetAltName()
 	if(name != GetVoice())

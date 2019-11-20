@@ -294,7 +294,7 @@
 			voice_holder.active = FALSE
 			to_chat(usr, "<font color='blue'>You disable the speech synthesiser.</font>")
 		if("Set Name")
-			var/raw_choice = sanitize(input(usr, "Please enter a new name.")  as text|null, MAX_NAME_LEN)
+			var/raw_choice = sanitize_russian(input(usr, "Please enter a new name.")  as text|null, MAX_NAME_LEN)
 			if(!raw_choice)
 				return FALSE
 			voice_holder.voice = raw_choice

@@ -56,7 +56,7 @@
 			playsound(loc, 'sound/items/poster_ripped.ogg', 50, 1)
 
 	else if(istype(W, /obj/item/pen))
-		var/str = copytext(sanitize(input(user,"Label text?","Set label","")),1,MAX_NAME_LEN)
+		var/str = copytext(sanitize_russian(input(user,"Label text?","Set label","")),1,MAX_NAME_LEN)
 		if(!str || !length(str))
 			to_chat(user, "<span class='notice'>Invalid text.</span>")
 			return
@@ -126,7 +126,7 @@
 			playsound(loc, 'sound/items/poster_ripped.ogg', 50, 1)
 
 	else if(istype(W, /obj/item/pen))
-		var/str = copytext(sanitize(input(user,"Label text?","Set label","")),1,MAX_NAME_LEN)
+		var/str = copytext(sanitize_russian(input(user,"Label text?","Set label","")),1,MAX_NAME_LEN)
 		if(!str || !length(str))
 			to_chat(user, "<span class='notice'>Invalid text.</span>")
 			return
@@ -389,7 +389,7 @@
 /obj/item/shippingPackage/attackby(obj/item/O, mob/user, params)
 	if(sealed)
 		if(istype(O, /obj/item/pen))
-			var/str = copytext(sanitize(input(user,"Intended recipient?","Address","")),1,MAX_NAME_LEN)
+			var/str = copytext(sanitize_russian(input(user,"Intended recipient?","Address","")),1,MAX_NAME_LEN)
 			if(!str || !length(str))
 				to_chat(user, "<span class='notice'>Invalid text.</span>")
 				return

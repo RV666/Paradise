@@ -252,13 +252,13 @@
 						active1.fields["name"] = t1
 				if("id")
 					if(istype(active1, /datum/data/record))
-						var/t1 = copytext(trim(sanitize(input("Please input id:", "Secure. records", active1.fields["id"], null) as text)), 1, MAX_MESSAGE_LEN)
+						var/t1 = copytext(trim(sanitize_russian(input("Please input id:", "Secure. records", active1.fields["id"], null) as text)), 1, MAX_MESSAGE_LEN)
 						if(!t1 || incapable || active1 != a1)
 							return 1
 						active1.fields["id"] = t1
 				if("fingerprint")
 					if(istype(active1, /datum/data/record))
-						var/t1 = copytext(trim(sanitize(input("Please input fingerprint hash:", "Secure. records", active1.fields["fingerprint"], null) as text)), 1, MAX_MESSAGE_LEN)
+						var/t1 = copytext(trim(sanitize_russian(input("Please input fingerprint hash:", "Secure. records", active1.fields["fingerprint"], null) as text)), 1, MAX_MESSAGE_LEN)
 						if(!t1 || incapable || active1 != a1)
 							return 1
 						active1.fields["fingerprint"] = t1
@@ -286,7 +286,7 @@
 						setTemp("<span class='bad'>You do not have the required rank to do this!</span>")
 				if("species")
 					if(istype(active1, /datum/data/record))
-						var/t1 = copytext(trim(sanitize(input("Please enter race:", "General records", active1.fields["species"], null) as message)), 1, MAX_MESSAGE_LEN)
+						var/t1 = copytext(trim(sanitize_russian(input("Please enter race:", "General records", active1.fields["species"], null) as message)), 1, MAX_MESSAGE_LEN)
 						if(!t1 || incapable || active1 != a1)
 							return 1
 						active1.fields["species"] = t1

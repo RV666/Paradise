@@ -672,13 +672,13 @@ proc/dd_sortedObjectList(list/incoming)
 	return "[src]"
 
 /obj/machinery/dd_SortValue()
-	return "[sanitize(name)]"
+	return "[sanitize_russian(name)]"
 
 /obj/machinery/camera/dd_SortValue()
 	return "[c_tag]"
 
 /datum/alarm/dd_SortValue()
-	return "[sanitize(last_name)]"
+	return "[sanitize_russian(last_name)]"
 
 //Picks from the list, with some safeties, and returns the "default" arg if it fails
 #define DEFAULTPICK(L, default) ((istype(L, /list) && L:len) ? pick(L) : default)

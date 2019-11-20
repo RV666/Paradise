@@ -131,6 +131,7 @@ Hotkey-Mode: (hotkey-mode must be on)
 \tQ = drop
 \tE = equip
 \tR = throw
+\tC = stop pulling
 \tM = me
 \tT = say
 \tO = OOC

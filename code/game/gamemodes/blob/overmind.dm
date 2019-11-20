@@ -75,7 +75,7 @@
 /mob/camera/blob/proc/blob_talk(message)
 	log_say("(BLOB) [message]", src)
 
-	message = trim(copytext(sanitize(message), 1, MAX_MESSAGE_LEN))
+	message = trim(copytext(sanitize_russian(message), 1, MAX_MESSAGE_LEN))
 
 	if(!message)
 		return

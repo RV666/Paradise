@@ -686,7 +686,7 @@ var/list/slot_equipment_priority = list( \
 	set category = "IC"
 
 	msg = copytext(msg, 1, MAX_MESSAGE_LEN)
-	msg = sanitize_simple(html_encode(msg), list("\n" = "<BR>"))
+	msg = sanitize_simple(rhtml_encode(msg), list("\n" = "<BR>"))
 
 	var/combined = length(memory + msg)
 	if(mind && (combined < MAX_PAPER_MESSAGE_LEN))
@@ -701,7 +701,7 @@ var/list/slot_equipment_priority = list( \
 	msg = copytext(msg, 1, MAX_MESSAGE_LEN)
 
 	if(sane)
-		msg = sanitize(msg)
+		msg = sanitize_russian(msg)
 
 	if(length(memory) == 0)
 		memory += msg
@@ -719,7 +719,7 @@ var/list/slot_equipment_priority = list( \
 
 	if(msg != null)
 		msg = copytext(msg, 1, MAX_MESSAGE_LEN)
-		msg = html_encode(msg)
+		msg = rhtml_encode(msg)
 
 		flavor_text = msg
 
@@ -727,7 +727,7 @@ var/list/slot_equipment_priority = list( \
 	if(flavor_text && flavor_text != "")
 		var/msg = replacetext(flavor_text, "\n", " ")
 		if(lentext(msg) <= 40 || !shrink)
-			return "<span class='notice'>[html_encode(msg)]</span>" //Repeat after me, "I will not give players access to decoded HTML."
+			return "<span class='notice'>[rhtml_encode(msg)]</span>" //Repeat after me, "I will not give players access to decoded HTML."
 		else
 			return "<span class='notice'>[copytext_preserve_html(msg, 1, 37)]... <a href='byond://?src=[UID()];flavor_more=1'>More...</a></span>"
 
@@ -1015,6 +1015,8 @@ var/list/slot_equipment_priority = list( \
 					continue
 				if(is_type_in_list(A, shouldnt_see) || !A.simulated)
 					continue
+				if(has_ru_letters(A.name)) suffix = r_text2ascii(A.name) // Add Suffix for Turf examine panel
+				else if(suffix) suffix = null
 				statpanel_things += A
 			statpanel(listed_turf.name, null, statpanel_things)
 

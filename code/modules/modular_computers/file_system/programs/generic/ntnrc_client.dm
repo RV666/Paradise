@@ -167,7 +167,7 @@
 		if("PRG_changename")
 			. = 1
 			var/mob/living/user = usr
-			var/newname = sanitize(input(user,"Enter new nickname or leave blank to cancel:"))
+			var/newname = sanitize_russian(input(user,"Enter new nickname or leave blank to cancel:"))
 			if(!newname)
 				return 1
 			if(channel)
@@ -220,7 +220,7 @@
 				return 1
 
 			var/mob/living/user = usr
-			var/newpassword = sanitize(input(user, "Enter new password for this channel. Leave blank to cancel, enter 'nopassword' to remove password completely:"))
+			var/newpassword = sanitize_russian(input(user, "Enter new password for this channel. Leave blank to cancel, enter 'nopassword' to remove password completely:"))
 			if(!channel || !newpassword || ((channel.operator != src) && !netadmin_mode))
 				return 1
 

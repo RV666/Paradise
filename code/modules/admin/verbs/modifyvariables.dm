@@ -94,11 +94,15 @@ var/list/VVpixelmovement = list("step_x", "step_y", "step_size", "bound_height",
 	switch(.["class"])
 		if(VV_TEXT)
 			.["value"] = input("Enter new text:", "Text", current_value) as null|text
+			.["value"] = LTR255_ANSI_UNIC(.["value"])
+			//.["value"] = LTR255_CP51_UNIC(.["value"])
 			if(.["value"] == null)
 				.["class"] = null
 				return
 		if(VV_MESSAGE)
 			.["value"] = input("Enter new text:", "Text", current_value) as null|message
+			.["value"] = LTR255_ANSI_UNIC(.["value"])
+			//.["value"] = LTR255_CP51_UNIC(.["value"])
 			if(.["value"] == null)
 				.["class"] = null
 				return
@@ -493,7 +497,7 @@ var/list/VVpixelmovement = list("step_x", "step_y", "step_size", "bound_height",
 				if(!O.vv_edit_var(objectvar, L))
 					to_chat(src, "Your edit was rejected by the object.")
 					return
-			log_world("### ListVarEdit by [src]: [O.type] [objectvar]: REMOVED=[html_encode("[original_var]")]")
+			log_world("### ListVarEdit by [src]: [O.type] [objectvar]: REMOVED=[rhtml_encode("[original_var]")]")
 			log_admin("[key_name(src)] modified [original_name]'s [objectvar]: REMOVED=[original_var]")
 			message_admins("[key_name_admin(src)] modified [original_name]'s [objectvar]: REMOVED=[original_var]")
 			return
@@ -627,7 +631,7 @@ var/list/VVpixelmovement = list("step_x", "step_y", "step_size", "bound_height",
 	if(!O.vv_edit_var(variable, var_new))
 		to_chat(src, "Your edit was rejected by the object.")
 		return
-	log_world("### VarEdit by [src]: [O.type] [variable]=[html_encode("[var_new]")]")
+	log_world("### VarEdit by [src]: [O.type] [variable]=[rhtml_encode("[var_new]")]")
 	log_admin("[key_name(src)] modified [original_name]'s [variable] to [var_new]")
 	var/msg = "[key_name_admin(src)] modified [original_name]'s [variable] to [var_new]"
 	message_admins(msg)

@@ -725,7 +725,7 @@
 							if(R.fields["id"] == E.fields["id"])
 
 								var/setcriminal = input(usr, "Specify a new criminal status for this person.", "Security HUD", R.fields["criminal"]) in list("None", "*Arrest*", "Incarcerated", "Parolled", "Released", "Cancel")
-								var/t1 = copytext(trim(sanitize(input("Enter Reason:", "Security HUD", null, null) as text)), 1, MAX_MESSAGE_LEN)
+								var/t1 = copytext(trim(sanitize_russian(input("Enter Reason:", "Security HUD", null, null) as text)), 1, MAX_MESSAGE_LEN)
 								if(!t1)
 									t1 = "(none)"
 
@@ -809,7 +809,7 @@
 					for(var/datum/data/record/R in data_core.security)
 						if(R.fields["id"] == E.fields["id"])
 							if(hasHUD(usr,"security"))
-								var/t1 = copytext(trim(sanitize(input("Add Comment:", "Sec. records", null, null) as message)), 1, MAX_MESSAGE_LEN)
+								var/t1 = copytext(trim(sanitize_russian(input("Add Comment:", "Sec. records", null, null) as message)), 1, MAX_MESSAGE_LEN)
 								if(!t1 || usr.stat || usr.restrained() || !hasHUD(usr, "security"))
 									return
 								if(ishuman(usr))
@@ -906,7 +906,7 @@
 					for(var/datum/data/record/R in data_core.medical)
 						if(R.fields["id"] == E.fields["id"])
 							if(hasHUD(usr,"medical"))
-								var/t1 = copytext(trim(sanitize(input("Add Comment:", "Med. records", null, null) as message)), 1, MAX_MESSAGE_LEN)
+								var/t1 = copytext(trim(sanitize_russian(input("Add Comment:", "Med. records", null, null) as message)), 1, MAX_MESSAGE_LEN)
 								if(!t1 || usr.stat || usr.restrained() || !hasHUD(usr, "medical"))
 									return
 								if(ishuman(usr))

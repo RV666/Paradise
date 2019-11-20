@@ -172,9 +172,9 @@
 				if(active2)
 					var/t1
 					if(temp_href[2] == "execute")
-						t1 = copytext(trim(sanitize(input("Explain why they are being executed. Include a list of their crimes, and victims.", "EXECUTION ORDER", null, null) as text)), 1, MAX_MESSAGE_LEN)
+						t1 = copytext(trim(sanitize_russian(input("Explain why they are being executed. Include a list of their crimes, and victims.", "EXECUTION ORDER", null, null) as text)), 1, MAX_MESSAGE_LEN)
 					else
-						t1 = copytext(trim(sanitize(input("Enter Reason:", "Secure. records", null, null) as text)), 1, MAX_MESSAGE_LEN)
+						t1 = copytext(trim(sanitize_russian(input("Enter Reason:", "Secure. records", null, null) as text)), 1, MAX_MESSAGE_LEN)
 					if(!t1)
 						t1 = "(none)"
 					if(!set_criminal_status(usr, active2, temp_href[2], t1, rank, authcard_access))
@@ -381,7 +381,7 @@
 		else if(href_list["add_c"])
 			if(istype(active2, /datum/data/record))
 				var/a2 = active2
-				var/t1 = copytext(trim(sanitize(input("Add Comment:", "Secure. records", null, null) as message)), 1, MAX_MESSAGE_LEN)
+				var/t1 = copytext(trim(sanitize_russian(input("Add Comment:", "Secure. records", null, null) as message)), 1, MAX_MESSAGE_LEN)
 				if(!t1 || ..() || active2 != a2)
 					return 1
 				active2.fields["comments"] += "Made by [authenticated] ([rank]) on [current_date_string] [station_time_timestamp()]<BR>[t1]"
@@ -407,7 +407,7 @@
 							active2.fields["name"] = t1
 				if("id")
 					if(istype(active1, /datum/data/record))
-						var/t1 = copytext(trim(sanitize(input("Please input id:", "Secure. records", active1.fields["id"], null) as text)), 1, MAX_MESSAGE_LEN)
+						var/t1 = copytext(trim(sanitize_russian(input("Please input id:", "Secure. records", active1.fields["id"], null) as text)), 1, MAX_MESSAGE_LEN)
 						if(!t1 || ..() || active1 != a1)
 							return 1
 						active1.fields["id"] = t1
@@ -415,7 +415,7 @@
 							active2.fields["id"] = t1
 				if("fingerprint")
 					if(istype(active1, /datum/data/record))
-						var/t1 = copytext(trim(sanitize(input("Please input fingerprint hash:", "Secure. records", active1.fields["fingerprint"], null) as text)), 1, MAX_MESSAGE_LEN)
+						var/t1 = copytext(trim(sanitize_russian(input("Please input fingerprint hash:", "Secure. records", active1.fields["fingerprint"], null) as text)), 1, MAX_MESSAGE_LEN)
 						if(!t1 || ..() || active1 != a1)
 							return 1
 						active1.fields["fingerprint"] = t1
@@ -433,31 +433,31 @@
 						active1.fields["age"] = t1
 				if("mi_crim")
 					if(istype(active2, /datum/data/record))
-						var/t1 = copytext(trim(sanitize(input("Please input minor crimes list:", "Secure. records", active2.fields["mi_crim"], null) as text)), 1, MAX_MESSAGE_LEN)
+						var/t1 = copytext(trim(sanitize_russian(input("Please input minor crimes list:", "Secure. records", active2.fields["mi_crim"], null) as text)), 1, MAX_MESSAGE_LEN)
 						if(!t1 || ..() || active2 != a2)
 							return 1
 						active2.fields["mi_crim"] = t1
 				if("mi_crim_d")
 					if(istype(active2, /datum/data/record))
-						var/t1 = copytext(trim(sanitize(input("Please summarize minor crimes:", "Secure. records", active2.fields["mi_crim_d"], null) as message)), 1, MAX_MESSAGE_LEN)
+						var/t1 = copytext(trim(sanitize_russian(input("Please summarize minor crimes:", "Secure. records", active2.fields["mi_crim_d"], null) as message)), 1, MAX_MESSAGE_LEN)
 						if(!t1 || ..() || active2 != a2)
 							return 1
 						active2.fields["mi_crim_d"] = t1
 				if("ma_crim")
 					if(istype(active2, /datum/data/record))
-						var/t1 = copytext(trim(sanitize(input("Please input major crimes list:", "Secure. records", active2.fields["ma_crim"], null) as text)), 1, MAX_MESSAGE_LEN)
+						var/t1 = copytext(trim(sanitize_russian(input("Please input major crimes list:", "Secure. records", active2.fields["ma_crim"], null) as text)), 1, MAX_MESSAGE_LEN)
 						if(!t1 || ..() || active2 != a2)
 							return 1
 						active2.fields["ma_crim"] = t1
 				if("ma_crim_d")
 					if(istype(active2, /datum/data/record))
-						var/t1 = copytext(trim(sanitize(input("Please summarize major crimes:", "Secure. records", active2.fields["ma_crim_d"], null) as message)), 1, MAX_MESSAGE_LEN)
+						var/t1 = copytext(trim(sanitize_russian(input("Please summarize major crimes:", "Secure. records", active2.fields["ma_crim_d"], null) as message)), 1, MAX_MESSAGE_LEN)
 						if(!t1 || ..() || active2 != a2)
 							return 1
 						active2.fields["ma_crim_d"] = t1
 				if("notes")
 					if(istype(active2, /datum/data/record))
-						var/t1 = copytext(html_encode(trim(input("Please summarize notes:", "Secure. records", html_decode(active2.fields["notes"]), null) as message)), 1, MAX_MESSAGE_LEN)
+						var/t1 = copytext(rhtml_encode(trim(input("Please summarize notes:", "Secure. records", html_decode(active2.fields["notes"]), null) as message)), 1, MAX_MESSAGE_LEN)
 						if(!t1 || ..() || active2 != a2)
 							return 1
 						active2.fields["notes"] = t1
@@ -483,7 +483,7 @@
 						setTemp("<h3 class='bad'>You do not have the required rank to do this!</h3>")
 				if("species")
 					if(istype(active1, /datum/data/record))
-						var/t1 = copytext(trim(sanitize(input("Please enter race:", "General records", active1.fields["species"], null) as message)), 1, MAX_MESSAGE_LEN)
+						var/t1 = copytext(trim(sanitize_russian(input("Please enter race:", "General records", active1.fields["species"], null) as message)), 1, MAX_MESSAGE_LEN)
 						if(!t1 || ..() || active1 != a1)
 							return 1
 						active1.fields["species"] = t1

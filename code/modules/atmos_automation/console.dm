@@ -140,7 +140,7 @@
 		if(!A) return 1
 		var/nl=input(usr, "Please enter a label for this automation task.") as text|null
 		if(!nl) return 1
-		nl	= copytext(sanitize(nl), 1, 50)
+		nl	= copytext(sanitize_russian(nl), 1, 50)
 		A.label=nl
 		updateUsrDialog()
 		return 1
@@ -206,7 +206,7 @@
 	var/list/json[0]
 	for(var/datum/automation/A in automations)
 		json += list(A.Export())
-	return json_encode(json)
+	return r_json_encode(json)
 
 /obj/machinery/computer/general_air_control/atmos_automation/proc/ReadCode(jsonStr)
 	automations.Cut()

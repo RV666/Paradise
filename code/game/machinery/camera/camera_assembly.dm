@@ -88,7 +88,7 @@
 					return
 
 				var/area/camera_area = get_area(src)
-				var/temptag = "[sanitize(camera_area.name)] ([rand(1, 999)])"
+				var/temptag = "[sanitize_russian(camera_area.name)] ([rand(1, 999)])"
 				input = strip_html(input(usr, "How would you like to name the camera?", "Set Camera Name", temptag))
 
 				state = ASSEMBLY_BUILT

@@ -91,7 +91,7 @@ var/list/GPS_list = list()
 		if(!tag || ..())
 			return TRUE
 
-		tag = uppertext(sanitize(copytext(tag, 1, 5)))
+		tag = uppertext(sanitize_russian(copytext(tag, 1, 5)))
 		gpstag = tag
 		name = "global positioning system ([gpstag])"
 		attack_self(usr)

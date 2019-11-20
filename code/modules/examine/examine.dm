@@ -42,11 +42,11 @@
 
 /client/proc/update_description_holders(atom/A, update_antag_info=0)
 	description_holders["info"] = A.get_description_info()
-	description_holders["fluff"] = A.get_description_fluff()
+	description_holders["fluff"] = r_text2ascii(A.get_description_fluff(),ASCIICODE_RUS)
 	description_holders["antag"] = (update_antag_info)? A.get_description_antag() : ""
 
-	description_holders["name"] = "[A.name]"
-	description_holders["icon"] = "[bicon(A)]"
+	description_holders["name"] = r_text2ascii(strip_macros(A.name))
+	description_holders["icon"] = "\icon[A]"
 	description_holders["desc"] = A.desc
 
 /client/Stat()

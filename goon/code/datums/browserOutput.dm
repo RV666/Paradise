@@ -121,11 +121,11 @@ var/list/chatResources = list(
 
 /datum/chatOutput/proc/ehjax_send(var/client/C = owner, var/window = "browseroutput", var/data)
 	if(islist(data))
-		data = json_encode(data)
+		data = r_json_encode(data)
 	C << output("[data]", "[window]:ehjaxCallback")
 
 /datum/chatOutput/proc/loadAdmin()
-	var/data = json_encode(list("loadAdminCode" = replacetext(replacetext(file2text("goon/browserassets/html/adminOutput.html"), "\n", ""), "\t", "")))
+	var/data = r_json_encode(list("loadAdminCode" = replacetext(replacetext(file2text("goon/browserassets/html/adminOutput.html"), "\n", ""), "\t", "")))
 	ehjax_send(data = url_encode(data))
 
 /datum/chatOutput/proc/sendClientData()
@@ -133,7 +133,7 @@ var/list/chatResources = list(
 	deets["clientData"]["ckey"] = owner.ckey
 	deets["clientData"]["ip"] = owner.address
 	deets["clientData"]["compid"] = owner.computer_id
-	var/data = json_encode(deets)
+	var/data = r_json_encode(deets)
 	ehjax_send(data = data)
 
 /datum/chatOutput/proc/analyzeClientData(cookie = "")
@@ -265,13 +265,14 @@ var/to_chat_src
 
 		if(C && C.chatOutput)
 			if(C.chatOutput.broken)
+				message = r_text2ascii(message)
 				C << message
 				return
 
 			if(!C.chatOutput.loaded && C.chatOutput.messageQueue && islist(C.chatOutput.messageQueue))
 				C.chatOutput.messageQueue.Add(message)
 				return
-
+		message = r_text2unicode(message)
 		// url_encode it TWICE, this way any UTF-8 characters are able to be decoded by the javascript.
 		var/output_message = "[url_encode(url_encode(message))]"
 		if(flag)

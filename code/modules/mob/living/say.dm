@@ -106,13 +106,13 @@ proc/get_radio_key_from_channel(var/channel)
 	return returns
 
 
-/mob/living/say(var/message, var/verb = "says", var/sanitize = TRUE, var/ignore_speech_problems = FALSE, var/ignore_atmospherics = FALSE)
+/mob/living/say(var/message, var/verb = "says", var/sanitize_russian = TRUE, var/ignore_speech_problems = FALSE, var/ignore_atmospherics = FALSE)
 	if(client)
 		if(client.prefs.muted & MUTE_IC)
 			to_chat(src, "<span class='danger'>You cannot speak in IC (Muted).</span>")
 			return
 
-	if(sanitize)
+	if(sanitize_russian)
 		message = trim_strip_html_properly(message)
 
 	if(stat)
@@ -143,7 +143,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 
 	if(!LAZYLEN(message_pieces))
-		log_runtime(EXCEPTION("Message failed to generate pieces. [message] - [json_encode(message_pieces)]"))
+		log_runtime(EXCEPTION("Message failed to generate pieces. [message] - [r_json_encode(message_pieces)]"))
 		return 0
 
 	if(message_mode == "cords")
@@ -151,7 +151,7 @@ proc/get_radio_key_from_channel(var/channel)
 			var/mob/living/carbon/C = src
 			var/obj/item/organ/internal/vocal_cords/V = C.get_int_organ(/obj/item/organ/internal/vocal_cords)
 			if(V && V.can_speak_with())
-				C.say(V.handle_speech(message), sanitize = FALSE, ignore_speech_problems = TRUE, ignore_atmospherics = TRUE)
+				C.say(V.handle_speech(message), sanitize_russian = FALSE, ignore_speech_problems = TRUE, ignore_atmospherics = TRUE)
 				V.speak_with(message) //words come before actions
 		return 1
 

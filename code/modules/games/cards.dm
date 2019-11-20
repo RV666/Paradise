@@ -283,7 +283,7 @@
 		if(P.name != "Blank Card")
 			to_chat(user,"<span class='notice'>You cannot write on that card.</span>")
 			return
-		var/cardtext = sanitize(input(user, "What do you wish to write on the card?", "Card Editing") as text|null, MAX_PAPER_MESSAGE_LEN)
+		var/cardtext = sanitize_russian(input(user, "What do you wish to write on the card?", "Card Editing") as text|null, MAX_PAPER_MESSAGE_LEN)
 		if(!cardtext)
 			return
 		P.name = cardtext

@@ -503,7 +503,7 @@ var/global/list/obj/item/pda/PDAs = list()
 				to_chat(usr, "The PDA softly beeps.")
 				close(usr)
 			else
-				t = sanitize(copytext(t, 1, 20))
+				t = sanitize_russian(copytext(t, 1, 20))
 				ttone = t
 			return 1
 	else

@@ -53,11 +53,11 @@
 
 	if(!msg_sanitized)
 		message = trim_strip_html_properly(message, allow_lines = 1)
-	message_title = html_encode(message_title)
+	message_title = rhtml_encode(message_title)
 
 	var/message_announcer = null
 	if(announcer)
-		message_announcer = html_encode(announcer)
+		message_announcer = rhtml_encode(announcer)
 
 	var/datum/language/message_language = GLOB.all_languages[msg_language ? msg_language : language]
 

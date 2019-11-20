@@ -252,7 +252,7 @@ var/list/ai_verbs_default = list(
 		// Name, Health, Battery, Module, Area, and Status! Everything an AI wants to know about its borgies!
 		var/area/A = get_area(R)
 		stat(null, text("[R.name] | S.Integrity: [R.health]% | Cell: [R.cell ? "[R.cell.charge] / [R.cell.maxcharge]" : "Empty"] | \
-		Module: [R.designation] | Loc: [sanitize(A.name)] | Status: [robot_status]"))
+		Module: [R.designation] | Loc: [sanitize_russian(A.name)] | Status: [robot_status]"))
 
 /mob/living/silicon/ai/rename_character(oldname, newname)
 	if(!..(oldname, newname))

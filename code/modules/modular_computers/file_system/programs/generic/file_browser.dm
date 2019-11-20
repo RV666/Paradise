@@ -212,7 +212,7 @@
 				return 1
 			if(F.password)
 				return
-			var/new_password = sanitize(input(usr, "Enter an encryption key:", "Encrypt File"))
+			var/new_password = sanitize_russian(input(usr, "Enter an encryption key:", "Encrypt File"))
 			if(!new_password)
 				to_chat(usr, "<span class='warning'>File not encrypted.</span>")
 				return

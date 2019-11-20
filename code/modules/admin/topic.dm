@@ -1181,9 +1181,9 @@
 		var/painame = "Default"
 		var/name = ""
 		if(alert(usr, "Do you want to set their name or let them choose their own name?", "Name Choice", "Set Name", "Let them choose") == "Set Name")
-			name = sanitize(copytext(input(usr, "Enter a name for the new pAI. Default name is [painame].", "pAI Name", painame),1,MAX_NAME_LEN))
+			name = sanitize_russian(copytext(input(usr, "Enter a name for the new pAI. Default name is [painame].", "pAI Name", painame),1,MAX_NAME_LEN))
 		else
-			name = sanitize(copytext(input(H, "An admin wants to make you into a pAI. Choose a name. Default is [painame].", "pAI Name", painame),1,MAX_NAME_LEN))
+			name = sanitize_russian(copytext(input(H, "An admin wants to make you into a pAI. Choose a name. Default is [painame].", "pAI Name", painame),1,MAX_NAME_LEN))
 
 		if(!name)
 			name = painame
@@ -1199,10 +1199,10 @@
 		if(!ismob(M))
 			to_chat(usr, "this can only be used on instances of type /mob")
 
-		var/speech = input("What will [key_name(M)] say?.", "Force speech", "")// Don't need to sanitize, since it does that in say(), we also trust our admins.
+		var/speech = input("What will [key_name(M)] say?.", "Force speech", "")// Don't need to sanitize_russian, since it does that in say(), we also trust our admins.
 		if(!speech)	return
 		M.say(speech)
-		speech = sanitize(speech) // Nah, we don't trust them
+		speech = sanitize_russian(speech) // Nah, we don't trust them
 		log_admin("[key_name(usr)] forced [key_name(M)] to say: [speech]")
 		message_admins("<span class='notice'>[key_name_admin(usr)] forced [key_name_admin(M)] to say: [speech]</span>")
 
@@ -1846,7 +1846,7 @@
 						D.assignment = "Pet"
 						C.access_id = D
 					spawn(30)
-						var/newname = sanitize(copytext(input(P, "You are [P], special event pet of [H]. Change your name to something else?", "Name change", P.name) as null|text,1,MAX_NAME_LEN))
+						var/newname = sanitize_russian(copytext(input(P, "You are [P], special event pet of [H]. Change your name to something else?", "Name change", P.name) as null|text,1,MAX_NAME_LEN))
 						if(newname && newname != P.name)
 							P.name = newname
 							if(P.mind)
@@ -2203,7 +2203,7 @@
 		if(!input)
 			qdel(P)
 			return
-		input = admin_pencode_to_html(html_encode(input)) // Encode everything from pencode to html
+		input = admin_pencode_to_html(rhtml_encode(input)) // Encode everything from pencode to html
 
 		var/customname = clean_input("Pick a title for the fax.", "Fax Title", , owner)
 		if(!customname)
@@ -2434,7 +2434,7 @@
 		var/obj_dir = tmp_dir ? text2num(tmp_dir) : 2
 		if(!obj_dir || !(obj_dir in list(1,2,4,8,5,6,9,10)))
 			obj_dir = 2
-		var/obj_name = sanitize(href_list["object_name"])
+		var/obj_name = sanitize_russian(href_list["object_name"])
 
 
 		var/atom/target //Where the object will be spawned
@@ -2684,7 +2684,7 @@
 				if(!SSticker)
 					alert("The game hasn't started yet!")
 					return
-				var/objective = sanitize(copytext(input("Enter an objective"),1,MAX_MESSAGE_LEN))
+				var/objective = sanitize_russian(copytext(input("Enter an objective"),1,MAX_MESSAGE_LEN))
 				if(!objective)
 					return
 				feedback_inc("admin_secrets_fun_used",1)
@@ -3333,10 +3333,10 @@
 			var/title = ""
 			while(query_view_book.NextRow())
 				content = query_view_book.item[1]
-				title = html_encode(query_view_book.item[2])
+				title = rhtml_encode(query_view_book.item[2])
 
 			var/dat = "<pre><code>"
-			dat += "[html_encode(html_to_pencode(content))]"
+			dat += "[rhtml_encode(html_to_pencode(content))]"
 			dat += "</code></pre>"
 
 			var/datum/browser/popup = new(usr, "admin_view_book", "[title]", 700, 400)

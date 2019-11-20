@@ -144,7 +144,7 @@ GLOBAL_DATUM_INIT(nttc_config, /datum/nttc_configuration, new())
 		"toggle_honk" = TRUE,
 	)
 
-	// This is used to sanitize topic data
+	// This is used to sanitize_russian topic data
 	// var/list/tables = list("regex")
 	var/list/arrays = list("firewall")
 
@@ -222,7 +222,7 @@ GLOBAL_DATUM_INIT(nttc_config, /datum/nttc_configuration, new())
 	. = list()
 	for(var/variable in to_serialize)
 		.[variable] = vars[variable]
-	. = json_encode(.)
+	. = r_json_encode(.)
 	
 // This loads a configuration from a JSON string.
 // Fucking broken as shit, someone help me fix this.
@@ -256,7 +256,7 @@ GLOBAL_DATUM_INIT(nttc_config, /datum/nttc_configuration, new())
 			if(!islist(variable))
 				return list()
 			// Insert html filtering for the regexes here if you're boring
-			var/newlist = json_decode(html_decode(json_encode(variable)))
+			var/newlist = json_decode(html_decode(r_json_encode(variable)))
 			if(!islist(newlist))
 				return null
 			return newlist
@@ -505,7 +505,7 @@ GLOBAL_DATUM_INIT(nttc_config, /datum/nttc_configuration, new())
 	var/byondSrc = "byond://?src=[ref.UID()];"
 	var/dat = "<script type='text/javascript'>"
 	dat += "window.byondSrc = '[byondSrc]';"
-	dat += "window.originalConfig = '[html_encode(initial_config)]';"
+	dat += "window.originalConfig = '[rhtml_encode(initial_config)]';"
 	dat += "window.updateConfig = function(config) { window.config = JSON.parse(config); window.reload_tab() };"
 	dat += "</script>"
 	return dat

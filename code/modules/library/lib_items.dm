@@ -67,7 +67,7 @@
 	else if(istype(O, /obj/item/pen))
 		var/newname = stripped_input(user, "What would you like to title this [name]?")
 		if(newname)
-			name = ("bookcase ([sanitize(newname)])")
+			name = ("bookcase ([sanitize_russian(newname)])")
 		return 1
 	else
 		return ..()

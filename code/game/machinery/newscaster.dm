@@ -288,7 +288,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		return 1
 
 	if(href_list["set_channel_name"])
-		channel_name = trim(sanitize(strip_html_simple(input(usr, "Provide a Feed Channel Name", "Network Channel Handler", ""))))
+		channel_name = trim(sanitize_russian(strip_html_simple(input(usr, "Provide a Feed Channel Name", "Network Channel Handler", ""))))
 
 	else if(href_list["set_channel_lock"])
 		c_locked = !c_locked
@@ -790,7 +790,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			to_chat(user, "<FONT COLOR='blue'>There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?</FONT>")
 		else
 			var/s = strip_html( input(user, "Write something", "Newspaper", "") )
-			s = sanitize(copytext(s, 1, MAX_MESSAGE_LEN))
+			s = sanitize_russian(copytext(s, 1, MAX_MESSAGE_LEN))
 			if(!s)
 				return
 			if(!in_range(src, usr) && loc != usr)

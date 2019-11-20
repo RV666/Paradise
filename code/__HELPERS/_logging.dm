@@ -5,14 +5,14 @@
 // will get logs that are one big line if the system is Linux and they are using notepad.  This solves it by adding CR to every line ending
 // in the logs.  ascii character 13 = CR
 
-/var/global/log_end = world.system_type == UNIX ? ascii2text(13) : ""
+/var/global/log_end = ascii2text(13)// world.system_type == UNIX ? ascii2text(13) : ""
 
 #define DIRECT_OUTPUT(A, B) A << B
 #define SEND_IMAGE(target, image) DIRECT_OUTPUT(target, image)
 #define SEND_SOUND(target, sound) DIRECT_OUTPUT(target, sound)
 #define SEND_TEXT(target, text) DIRECT_OUTPUT(target, text)
 #define WRITE_FILE(file, text) DIRECT_OUTPUT(file, text)
-#define WRITE_LOG(log, text) call(RUST_G, "log_write")(log, text)
+#define WRITE_LOG(log, text) call(RUST_G, "log_write")(log, r_text2utf8(LTR255_UNIC_ANSI(text)))
 
 /proc/error(msg)
 	log_world("## ERROR: [msg]")
@@ -123,7 +123,7 @@
 	WRITE_LOG(GLOB.world_game_log, "MISC: [text][log_end]")
 
 /proc/log_world(text)
-	SEND_TEXT(world.log, text)
+	SEND_TEXT(world.log, LTR255_UNIC_CP51(text))
 	if(config && config.log_world_output)
 		WRITE_LOG(GLOB.world_game_log, "WORLD: [html_decode(text)][log_end]")
 

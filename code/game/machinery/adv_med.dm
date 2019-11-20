@@ -249,7 +249,7 @@
 		for(var/obj/item/implant/I in occupant)
 			if(I.implanted && is_type_in_list(I, known_implants))
 				var/implantSubData[0]
-				implantSubData["name"] = sanitize(I.name)
+				implantSubData["name"] = sanitize_russian(I.name)
 				implantData.Add(list(implantSubData))
 		occupantData["implant"] = implantData
 		occupantData["implant_len"] = implantData.len

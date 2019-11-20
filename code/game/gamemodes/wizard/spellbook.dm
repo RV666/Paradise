@@ -795,14 +795,14 @@
 						E.limit += result
 					uses += result
 		else if(href_list["mainpage"])
-			main_tab = sanitize(href_list["mainpage"])
-			tab = sanitize(href_list["page"])
+			main_tab = sanitize_russian(href_list["mainpage"])
+			tab = sanitize_russian(href_list["page"])
 			if(main_tab == "Spells")
 				tab = spell_categories[1]
 			else if(main_tab == "Magical Items")
 				tab = item_categories[1]
 		else if(href_list["page"])
-			tab = sanitize(href_list["page"])
+			tab = sanitize_russian(href_list["page"])
 	attack_self(H)
 	return 1
 

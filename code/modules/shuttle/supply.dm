@@ -432,7 +432,7 @@
 
 	data["supply_packs"] = packs_list
 	if(content_pack)
-		var/pack_name = sanitize(content_pack.name)
+		var/pack_name = sanitize_russian(content_pack.name)
 		data["contents_name"] = pack_name
 		data["contents"] = content_pack.manifest
 		data["contents_access"] = content_pack.access ? get_access_desc(content_pack.access) : "None"
@@ -493,7 +493,7 @@
 		var/reason = input(usr,"Reason:","Why do you require this item?","") as null|text
 		if(world.time > timeout || !reason || ..())
 			return 1
-		reason = sanitize(copytext(reason, 1, MAX_MESSAGE_LEN))
+		reason = sanitize_russian(copytext(reason, 1, MAX_MESSAGE_LEN))
 
 		var/idname = "*None Provided*"
 		var/idrank = "*None Provided*"
@@ -582,7 +582,7 @@
 
 	data["supply_packs"] = packs_list
 	if(content_pack)
-		var/pack_name = sanitize(content_pack.name)
+		var/pack_name = sanitize_russian(content_pack.name)
 		data["contents_name"] = pack_name
 		data["contents"] = content_pack.manifest
 		data["contents_access"] = content_pack.access ? get_access_desc(content_pack.access) : "None"
@@ -674,7 +674,7 @@
 		var/reason = input(usr,"Reason:","Why do you require this item?","") as null|text
 		if(world.time > timeout || !reason || !is_authorized(usr) || ..())
 			return 1
-		reason = sanitize(copytext(reason, 1, MAX_MESSAGE_LEN))
+		reason = sanitize_russian(copytext(reason, 1, MAX_MESSAGE_LEN))
 
 		var/idname = "*None Provided*"
 		var/idrank = "*None Provided*"

@@ -12,7 +12,7 @@
 	var/list/arguments = args.Copy(2)
 	if(Initialize(arglist(arguments)) == COMPONENT_INCOMPATIBLE)
 		qdel(src, TRUE, TRUE)
-		CRASH("Incompatible [type] assigned to a [P.type]! args: [json_encode(arguments)]")
+		CRASH("Incompatible [type] assigned to a [P.type]! args: [r_json_encode(arguments)]")
 
 	_JoinParent(P)
 

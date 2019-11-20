@@ -63,7 +63,7 @@
 #define AREACOORD(src) "[src ? "[get_area_name(src, TRUE)] [COORD(src)]" : "nonexistent location" ]"
 #define ADMIN_COORDJMP(src) "[src ? "[COORD(src)] [ADMIN_JMP(src)]" : "nonexistent location"]"
 #define ADMIN_VERBOSEJMP(src) "[src ? "[AREACOORD(src)] [ADMIN_JMP(src)]" : "nonexistent location"]"
-#define ADMIN_SHOWDETAILS(mask, content) "<a href='?_src_=holder;showdetails=[html_encode(content)]'>[mask]</a>"
+#define ADMIN_SHOWDETAILS(mask, content) "<a href='?_src_=holder;showdetails=[rhtml_encode(content)]'>[mask]</a>"
 
 ///Max length of a keypress command before it's considered to be a forged packet/bogus command
 #define MAX_KEYPRESS_COMMANDLENGTH 16

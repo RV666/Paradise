@@ -11,7 +11,7 @@
 		return
 
 	var/atom/movable/AM = holder.marked_datum
-	to_chat(src, json_encode(AM.serialize()))
+	to_chat(src, r_json_encode(AM.serialize()))
 
 /client/proc/admin_deserialize()
 	set name = "Deserialize JSON datum"

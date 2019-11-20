@@ -203,7 +203,7 @@ var/list/doppler_arrays = list()
 	if(..())
 		return
 	if(href_list["log_to_delete"])
-		var/log_to_delete = sanitize(href_list["log_to_delete"])
+		var/log_to_delete = sanitize_russian(href_list["log_to_delete"])
 		for(var/D in logged_explosions)
 			var/datum/explosion_log/E = D
 			if(E.UID() == log_to_delete)
