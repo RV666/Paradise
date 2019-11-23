@@ -205,7 +205,7 @@
 			if(!client.holder && !config.antag_hud_allowed)           // For new ghosts we remove the verb from even showing up if it's not allowed.
 				observer.verbs -= /mob/dead/observer/verb/toggle_antagHUD        // Poor guys, don't know what they are missing!
 			observer.key = key
-			GLOB.respawnable_list += observer
+			//GLOB.respawnable_list += observer			// If commented - observer cant respawn as Player
 			qdel(src)
 			return 1
 	if(href_list["tos"])
