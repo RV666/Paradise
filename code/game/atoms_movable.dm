@@ -1,6 +1,7 @@
 /atom/movable
 	layer = 3
 	appearance_flags = TILE_BOUND
+	glide_size = 2.33 // Optimized for Client.fps = World.fps and ~60fps!
 	var/last_move = null
 	var/anchored = 0
 	var/move_resist = MOVE_RESIST_DEFAULT
