@@ -5,7 +5,7 @@
 	icon_state = "bandaid"
 	item_state = "bandaid"
 	possible_transfer_amounts = null
-	volume = 40
+	volume = 20
 	apply_type = TOUCH
 	apply_method = "apply"
 	transfer_efficiency = 0.5 //patches aren't as effective at getting chemicals into the bloodstream.
@@ -18,21 +18,21 @@
 	desc = "Helps with brute injuries."
 	icon_state = "bandaid_brute"
 	instant_application = 1
-	list_reagents = list("styptic_powder" = 40)
+	list_reagents = list("styptic_powder" = 10)
 
 /obj/item/reagent_containers/food/pill/patch/silver_sulf
 	name = "burn patch"
 	desc = "Helps with burn injuries."
 	icon_state = "bandaid_burn"
 	instant_application = 1
-	list_reagents = list("silver_sulfadiazine" = 40)
+	list_reagents = list("silver_sulfadiazine" = 20)
 
 /obj/item/reagent_containers/food/pill/patch/synthflesh
 	name = "synthflesh patch"
 	desc = "Helps with brute and burn injuries."
 	icon_state = "bandaid_med"
 	instant_application = 1
-	list_reagents = list("synthflesh" = 20)
+	list_reagents = list("synthflesh" = 10)
 
 /obj/item/reagent_containers/food/pill/patch/nicotine
 	name = "nicotine patch"
@@ -43,4 +43,4 @@
 	name = "jestosterone patch"
 	desc = "Helps with brute injuries if the affected person is a clown, otherwise inflicts various annoying effects."
 	icon_state = "bandaid_clown"
-	list_reagents = list("jestosterone" = 30)
+	list_reagents = list("jestosterone" = 20)
