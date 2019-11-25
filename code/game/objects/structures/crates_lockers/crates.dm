@@ -303,8 +303,54 @@
 	else
 		src.toggle(user)
 
+/obj/structure/closet/crate/secure/proc/hack(obj/item/W, mob/living/user)
+	if(istype(W, /obj/item/screwdriver) && broken == 0)
+		to_chat(user, "<span class='notice'>You start unsecuring and removing [src] panel...</span>")
+		if(do_after(user, 160 * W.toolspeed, target = src))
+			if(prob(95)) // EZ
+				to_chat(user, "<span class='notice'>You've succesfully unsecured and removed [src] panel!</span>")
+				desc += " Control panel removed."
+				broken = 3
+				//icon_state = icon_off // Crates has no icon_off :(
+			else // Bad day)
+				var/mob/living/carbon/human/H = user
+				var/obj/item/organ/external/affecting = H.get_organ(user.r_hand == W ? "l_hand" : "r_hand")
+				user.apply_damage(5, BRUTE , affecting)
+				user.emote("scream")
+				to_chat(user, "<span class='warning'>Awww! Damn [W.name] popped off and hurt your [affecting.name]!</span>")
+		return TRUE
+
+	if(istype(W, /obj/item/wirecutters) && broken == 3)
+		to_chat(user, "<span class='notice'>You start preparing wires of [src] panel...</span>")
+		if(do_after(user, 160 * W.toolspeed, target = src))
+			if(prob(80)) // Good hacker!
+				to_chat(user, "<span class='notice'>You've succesfully prepared [src] panel wires!</span>")
+				desc += " Wires disconnected."
+				broken = 2
+			else // woopsy
+				to_chat(user, "<span class='warning'>Oh! Wrong wire!</span>")
+				do_sparks(5, 1, src)
+				electrocute_mob(user, get_area(src), src, 0.5, TRUE)
+		return TRUE
+
+	if(istype(W, /obj/item/multitool) && broken == 2)
+		to_chat(user, "<span class='notice'>You start connecting [src] panel wires to [W]...</span>")
+		if(do_after(user, 160 * W.toolspeed, target = src))
+			if(prob(80)) // Good hacker!
+				desc += " Lock bypassed."
+				broken = 0 // Can be emagged
+				emag_act(user)
+			else // woopsy
+				to_chat(user, "<span class='warning'>Oh! Wrong wire!</span>")
+				do_sparks(5, 1, src)
+				electrocute_mob(user, get_area(src), src, 0.5, TRUE)
+		return TRUE
 
 /obj/structure/closet/crate/secure/attackby(obj/item/W, mob/user, params)
+	if(locked && broken != 1) // Locked and not already hacked/emagged
+		if(hack(W, user))
+			return
+
 	if(is_type_in_list(W, list(/obj/item/stack/packageWrap, /obj/item/stack/cable_coil, /obj/item/radio/electropack, /obj/item/wirecutters,/obj/item/rcs)))
 		return ..()
 	if((istype(W, /obj/item/card/emag) || istype(W, /obj/item/melee/energy/blade)))
