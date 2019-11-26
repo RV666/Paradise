@@ -8444,7 +8444,7 @@
 "dgt" = (/obj/machinery/atmospherics/pipe/manifold/visible/cyan{dir = 8; initialize_directions = 11; level = 2},/obj/machinery/meter,/turf/simulated/floor/plasteel,/area/atmos)
 "dgu" = (/turf/simulated/shuttle/wall,/area/shuttle/constructionsite)
 "dgv" = (/turf/simulated/shuttle/floor{icon_state = "floor2"},/area/shuttle/constructionsite)
-"dgw" = (/obj/structure/table,/obj/item/stack/ore/bluespace_crystal{step_x = 7},/obj/item/stack/ore/bluespace_crystal{step_x = 2; step_y = 5},/obj/item/stack/ore/bluespace_crystal,/obj/item/stack/ore/bluespace_crystal,/turf/simulated/floor/plasteel{tag = "icon-whitepurple (WEST)"; icon_state = "whitepurple"; dir = 8},/area/toxins/hallway{name = "\improper Telescience"})
+"dgw" = (/obj/structure/table,/turf/simulated/floor/plasteel{tag = "icon-whitepurple (WEST)"; icon_state = "whitepurple"; dir = 8},/area/toxins/hallway{name = "\improper Telescience"})
 "dgx" = (/obj/machinery/computer/station_alert,/turf/simulated/shuttle/floor{icon_state = "floor2"},/area/shuttle/constructionsite)
 "dgy" = (/obj/effect/landmark{name = "blobstart"},/turf/simulated/floor/plating,/area/maintenance/asmaint2)
 "dgz" = (/obj/machinery/light/small{dir = 8},/obj/machinery/shieldgen,/turf/simulated/floor/plating,/area/storage/secure)
