@@ -2500,13 +2500,13 @@
 		if(number == 1)
 			log_admin("[key_name(usr)] created a [english_list(paths)]")
 			for(var/path in paths)
-				if(ispath(path, /mob))
+				if(ispath(path, /mob) || ispath(path, /obj)) // || ispath(path, /obj) / log / red
 					message_admins("[key_name_admin(usr)] created a [english_list(paths)]")
 					break
 		else
 			log_admin("[key_name(usr)] created [number]ea [english_list(paths)]")
 			for(var/path in paths)
-				if(ispath(path, /mob))
+				if(ispath(path, /mob) || ispath(path, /obj)) // || ispath(path, /obj) / log / red
 					message_admins("[key_name_admin(usr)] created [number]ea [english_list(paths)]")
 					break
 		return
