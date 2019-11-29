@@ -8,7 +8,7 @@
 		swarmer_report += "<br><br>Our long-range sensors have detected an odd signal emanating from your station's gateway. We recommend immediate investigation of your gateway, as something may have come \
 		through."
 		print_command_report(swarmer_report, "Classified [command_name()] Update")
-		event_announcement.Announce("Р—Р°С€РёС„СЂРѕРІР°РЅРЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ РґРѕСЃС‚Р°РІР»РµРЅРѕ РІ С†РµРЅС‚СЂ СЃРІСЏР·Рё Рё СѓРїСЂР°РІР»РµРЅРёСЏ.", "РџРѕСЃС‚СѓРїРёР»Рѕ Р·Р°С€РёС„СЂРѕРІР°РЅРЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ", 'sound/AI/commandreport.ogg')
+		event_announcement.Announce("Зашифрованное сообщение доставлено в центр связи и управления.", "Поступило зашифрованное сообщение", 'sound/AI/commandreport.ogg')
 
 /datum/event/spawn_swarmer/start()
 	if(find_swarmer())

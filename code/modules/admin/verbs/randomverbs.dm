@@ -604,8 +604,8 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		"Custom" = "Cryptic Message")
 
 	var/list/MsgSound = list("Beep" = 'sound/misc/notice2.ogg',
-		"РџРµСЂРµС…РІР°С‡РµРЅС‹ РІСЂР°Р¶РµСЃРєРёРµ РєРѕРјРјСѓРЅРёРєР°С†РёРё" = 'sound/AI/intercept2.ogg',
-		"РџРѕСЃС‚СѓРїРёР»Рѕ Р·Р°С€РёС„СЂРѕРІР°РЅРЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ" = 'sound/AI/commandreport.ogg')
+		"Перехвачены вражеские коммуникации" = 'sound/AI/intercept2.ogg',
+		"Поступило зашифрованное сообщение" = 'sound/AI/commandreport.ogg')
 
 	var/type = input(usr, "Pick a type of report to send", "Report Type", "") as anything in MsgType
 

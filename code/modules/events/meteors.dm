@@ -10,7 +10,7 @@
 /datum/event/meteor_wave/announce()
 	switch(severity)
 		if(EVENT_LEVEL_MAJOR)
-			event_announcement.Announce("РќР° РїСѓС‚Рё РґРІРёР¶РµРЅРёСЏ СЃС‚Р°РЅС†РёРё Р·Р°С„РёРєСЃРёСЂРѕРІР°РЅС‹ РјРµС‚РµРѕСЂРёС‚С‹. Р’СЃРµРјСѓ РїРµСЂСЃРѕРЅР°Р»Сѓ, РЅРµРјРµРґР»РµРЅРЅРѕ РїСЂРёСЃС‚СѓРїРёС‚СЊ Рє СЌРІР°РєСѓР°С†РёРё.", "РњРµС‚РµРѕСЂРёС‚С‹", new_sound = 'sound/AI/meteors.ogg')
+			event_announcement.Announce("На пути движения станции зафиксированы метеориты. Всему персоналу, немедленно приступить к эвакуации.", "Метеориты", new_sound = 'sound/AI/meteors.ogg')
 		else
 			event_announcement.Announce("The station is now in a meteor shower.", "Meteor Alert")
 

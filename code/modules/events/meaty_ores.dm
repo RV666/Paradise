@@ -2,7 +2,7 @@
 	if(prob(16))
 		event_announcement.Announce("Unknown biological entities have been detected near [station_name()], please stand-by.", "Lifesign Alert")
 	else
-		event_announcement.Announce("РќР°РІРѕР·РЅС‹Рµ РјРµС‚РµРѕСЂРёС‚С‹ Р·Р°С„РёРєСЃРёСЂРѕРІР°РЅС‹ РЅР° РїСѓС‚Рё РґРІРёР¶РµРЅРёСЏ СЃС‚Р°РЅС†РёРё. РќР°Р№РґРёС‚Рµ СѓРєСЂС‹С‚РёРµ", "РќР°РІРѕР·", new_sound = 'sound/AI/meteors.ogg')
+		event_announcement.Announce("Навозные метеориты зафиксированы на пути движения станции. Найдите укрытие", "Навоз", new_sound = 'sound/AI/meteors.ogg')
 
 /datum/event/dust/meaty/setup()
 	qnty = rand(45,125)

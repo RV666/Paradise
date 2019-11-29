@@ -874,8 +874,8 @@ var/list/non_fakeattack_weapons = list(/obj/item/gun/projectile, /obj/item/ammo_
 				if(17)
 					playsound_local(null, 'sound/weapons/saberon.ogg', 35, 1)
 				if(18)
-					to_chat(src, "<h1 class='alert'>РЈРіСЂРѕР·Р° Р±РёРѕР»РѕРіРёС‡РµСЃРєРѕРіРѕ Р·Р°РіСЂСЏР·РЅРµРЅРёСЏ</h1>")
-					to_chat(src, "<br><br><span class='alert'>Р’РЅРёРјР°РЅРёРµ, СѓРіСЂРѕР·Р° РѕР±С€РёСЂРЅРѕРіРѕ Р±РёРѕР»РѕРіРёС‡РµСЃРєРѕРіРѕ Р·Р°РіСЂСЏР·РЅРµРЅРёСЏ [station_name()]. РџРµСЂСЃРѕРЅР°Р»Сѓ, РЅРµРјРµРґР»РµРЅРЅРѕ РґРѕР»РѕР¶РёС‚СЊ Рѕ СЃРІРѕРµРј СЃРѕСЃС‚РѕСЏРЅРёРё РјРµРґРёС†РёРЅСЃРєРѕРјСѓ РѕС‚РґРµР»Сѓ.</span><br><br>")
+					to_chat(src, "<h1 class='alert'>Угроза биологического загрязнения</h1>")
+					to_chat(src, "<br><br><span class='alert'>Внимание, угроза обширного биологического загрязнения [station_name()]. Персоналу, немедленно доложить о своем состоянии медицинскому отделу.</span><br><br>")
 					playsound_local(null, 'sound/AI/outbreak5.ogg')
 				if(19) //Tesla loose!
 					playsound_local(null, 'sound/magic/lightningbolt.ogg', 35, 1)

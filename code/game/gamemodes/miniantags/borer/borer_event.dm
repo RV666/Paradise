@@ -12,7 +12,7 @@
 
 /datum/event/borer_infestation/announce()
 	if(successSpawn)
-		command_announcement.Announce("Р’РЅРёРјР°РЅРёРµ, РЅРµРґРѕРїСѓС‰РµРЅРЅС‹Рµ С„РѕСЂРјС‹ Р±РёРѕР»РѕРіРёС‡РµСЃРєРѕР№ Р¶РёР·РЅРё Р·Р°С„РёРєСЃРёСЂРѕРІР°РЅС‹ РІ РІРµРЅС‚РёР»СЏС†РёРѕРЅРЅРѕР№ СЃРёСЃС‚РµРјРµ [station_name()].", "РќРµРґРѕРїСѓС‰РµРЅРЅС‹Рµ С„РѕСЂРјС‹ Р±РёРѕР»РѕРіРёС‡РµСЃРєРѕР№ Р¶РёР·РЅРё", new_sound = 'sound/AI/aliens.ogg')
+		command_announcement.Announce("Внимание, недопущенные формы биологической жизни зафиксированы в вентиляционной системе [station_name()].", "Недопущенные формы биологической жизни", new_sound = 'sound/AI/aliens.ogg')
 
 /datum/event/borer_infestation/start()
 	var/list/vents = list()

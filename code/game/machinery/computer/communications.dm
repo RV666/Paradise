@@ -237,7 +237,7 @@
 				Nuke_request(input, usr)
 				to_chat(usr, "<span class='notice'>Request sent.</span>")
 				log_game("[key_name(usr)] has requested the nuclear codes from Centcomm")
-				priority_announcement.Announce("[usr] Р·Р°РїСЂРѕСЃРёР» РєРѕРґ Р°РІС‚РѕСЂРёР·Р°С†РёРё РґР»СЏ РјРµС…Р°РЅРёР·РјР° СЃР°РјРѕСѓРЅРёС‡С‚РѕР¶РµРЅРёСЏ СЃС‚Р°РЅС†РёРё. РћС‚РІРµС‚ РЅР° Р·Р°РїСЂРѕСЃ Р±СѓРґРµС‚ РЅР°РїСЂР°РІР»РµРЅ РІ Р±Р»РёР¶Р°Р№С€РµРµ РІСЂРµРјСЏ.", "РњРµС…Р°РЅРёР·Рј СЃР°РјРѕСѓРЅРёС‡С‚РѕР¶РµРЅРёСЏ",'sound/AI/commandreport.ogg')
+				priority_announcement.Announce("[usr] запросил код авторизации для механизма самоуничтожения станции. Ответ на запрос будет направлен в ближайшее время.", "Механизм самоуничтожения",'sound/AI/commandreport.ogg')
 				centcomm_message_cooldown = 1
 				spawn(6000)//10 minute cooldown
 					centcomm_message_cooldown = 0

@@ -4,7 +4,7 @@
 	announceWhen = 1
 
 /datum/event/radiation_storm/announce()
-	priority_announcement.Announce("РћРїР°СЃРЅРѕСЃС‚СЊ! Р—Р°С„РёРєСЃРёСЂРѕРІР°РЅ РІС‹СЃРѕРєРёР№ СѓСЂРѕРІРµРЅСЊ СЂР°РґРёР°С†РёРё. РџРµСЂСЃРѕРЅР°Р»Сѓ, РЅР°Р№С‚Рё СѓРєСЂС‹С‚РёРµ Рё РґРѕР»РѕР¶РёС‚СЊ Рѕ СЃРІРѕРµРј СЃРѕСЃС‚РѕСЏРЅРёРё РјРµРґРёС†РёРЅСЃРєРѕРјСѓ РїРµСЂСЃРѕРЅР°Р»Сѓ.", "Р Р°РґРёР°С†РёСЏ", 'sound/AI/radiation.ogg')
+	priority_announcement.Announce("Опасность! Зафиксирован высокий уровень радиации. Персоналу, найти укрытие и доложить о своем состоянии медицинскому персоналу.", "Радиация", 'sound/AI/radiation.ogg')
 	//sound not longer matches the text, but an audible warning is probably good
 
 /datum/event/radiation_storm/start()

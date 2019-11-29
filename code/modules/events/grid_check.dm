@@ -14,14 +14,14 @@
 		SEND_SOUND(M, S)
 
 /datum/event/grid_check/announce()
-	event_announcement.Announce("Р’РЅРёРјР°РЅРёРµ! Р—Р°С„РёРєСЃРёСЂРѕРІР°РЅР° РѕРїР°СЃРЅРѕСЃС‚СЊ РїРµСЂРµРїР°РґРѕРІ РІС‹СЃРѕРєРѕРіРѕ РЅР°РїСЂСЏР¶РµРЅРёСЏ РІ СЌР»РµРєС‚СЂРѕСЃРµС‚Рё [station_name()]. Р’РѕР·РґРµСЂР¶РёС‚РµСЃСЊ РѕС‚ СЌРєСЃРїР»СѓР°С‚Р°С†РёРё РґРѕ СЂР°Р·СЂРµС€РµРЅРёСЏ РїСЂРѕР±Р»РµРј.", "РџРµСЂРµРїР°РґС‹ РЅР°РїСЂСЏР¶РµРЅРёСЏ", new_sound = 'sound/AI/poweroff.ogg')
+	event_announcement.Announce("Внимание! Зафиксирована опасность перепадов высокого напряжения в электросети [station_name()]. Воздержитесь от эксплуатации до разрешения проблем.", "Перепады напряжения", new_sound = 'sound/AI/poweroff.ogg')
 
 /datum/event/grid_check/end()
 	power_restore()
 
 /proc/power_failure(var/announce = 1)
 	if(announce)
-		event_announcement.Announce("Р’РЅРёРјР°РЅРёРµ! Р—Р°С„РёРєСЃРёСЂРѕРІР°РЅР° РѕРїР°СЃРЅРѕСЃС‚СЊ РїРµСЂРµРїР°РґРѕРІ РІС‹СЃРѕРєРѕРіРѕ РЅР°РїСЂСЏР¶РµРЅРёСЏ РІ СЌР»РµРєС‚СЂРѕСЃРµС‚Рё [station_name()]. Р’РѕР·РґРµСЂР¶РёС‚РµСЃСЊ РѕС‚ СЌРєСЃРїР»СѓР°С‚Р°С†РёРё РґРѕ СЂР°Р·СЂРµС€РµРЅРёСЏ РїСЂРѕР±Р»РµРј.", "РџРµСЂРµРїР°РґС‹ РЅР°РїСЂСЏР¶РµРЅРёСЏ", new_sound = 'sound/AI/poweroff.ogg')
+		event_announcement.Announce("Внимание! Зафиксирована опасность перепадов высокого напряжения в электросети [station_name()]. Воздержитесь от эксплуатации до разрешения проблем.", "Перепады напряжения", new_sound = 'sound/AI/poweroff.ogg')
 
 	var/list/skipped_areas = list(/area/turret_protected/ai)
 	var/list/skipped_areas_apc = list(/area/engine/engineering)
@@ -51,7 +51,7 @@
 	var/list/skipped_areas_apc = list(/area/engine/engineering)
 
 	if(announce)
-		event_announcement.Announce("РЎРёСЃС‚РµРјР° СЌР»РµРєС‚СЂРѕСЃРЅР°Р±Р¶РµРЅРёСЏ СЃС‚Р°РЅС†РёРё РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅР°.", "Р­Р»РµРєС‚СЂРѕСЃРµС‚СЊ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅР°", new_sound = 'sound/AI/poweron.ogg')
+		event_announcement.Announce("Система электроснабжения станции нормализована.", "Электросеть нормализована", new_sound = 'sound/AI/poweron.ogg')
 	for(var/obj/machinery/power/apc/C in GLOB.apcs)
 		var/area/current_area = get_area(C)
 		if((current_area.type in skipped_areas_apc) || !is_station_level(C.z))
@@ -70,7 +70,7 @@
 
 /proc/power_restore_quick(var/announce = 1)
 	if(announce)
-		event_announcement.Announce("РЎРёСЃС‚РµРјР° СЌР»РµРєС‚СЂРѕСЃРЅР°Р±Р¶РµРЅРёСЏ СЃС‚Р°РЅС†РёРё РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅР°.", "Р­Р»РµРєС‚СЂРѕСЃРµС‚СЊ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅР°", new_sound = 'sound/AI/poweron.ogg')
+		event_announcement.Announce("Система электроснабжения станции нормализована.", "Электросеть нормализована", new_sound = 'sound/AI/poweron.ogg')
 	for(var/obj/machinery/power/smes/S in GLOB.machines)
 		if(!is_station_level(S.z))
 			continue

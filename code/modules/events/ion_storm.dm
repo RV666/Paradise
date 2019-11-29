@@ -17,7 +17,7 @@
 
 /datum/event/ion_storm/announce()
 	if(announceEvent == ION_ANNOUNCE || (announceEvent == ION_RANDOM && prob(ionAnnounceChance)))
-		event_announcement.Announce("РџРѕР±Р»РёР·РѕСЃС‚Рё РѕС‚ СЃС‚Р°РЅС†РёРё Р·Р°С„РёРєСЃРёСЂРѕРІР°РЅ РёРѕРЅРЅС‹Р№ С€С‚РѕСЂРј. РџСЂРѕРІРµСЂСЊС‚Рµ РР РЅР° РЅР°Р»РёС‡РёРµ РѕС€РёР±РѕРє.", "Р—Р°С„РёРєСЃРёСЂРѕРІР°РЅР° Р°РЅРѕРјР°Р»РёСЏ", 'sound/AI/ionstorm.ogg')
+		event_announcement.Announce("Поблизости от станции зафиксирован ионный шторм. Проверьте ИИ на наличие ошибок.", "Зафиксирована аномалия", 'sound/AI/ionstorm.ogg')
 
 
 /datum/event/ion_storm/start()

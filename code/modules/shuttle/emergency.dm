@@ -148,7 +148,7 @@
 	else
 		SSshuttle.emergencyLastCallLoc = null
 
-	emergency_shuttle_called.Announce("Р’РЅРёРјР°РЅРёРµ, РІСЃРµРјСѓ РїРµСЂСЃРѕРЅР°Р»Сѓ, РїСЂРѕСЃР»РµРґРѕРІР°С‚СЊ РЅР° РїРѕРґСѓСЂРѕРІРµРЅСЊ 3 РґР»СЏ СЌРІР°РєСѓР°С†РёРё. [redAlert ? "РџРѕРґС‚РІРµСЂР¶РґРµРЅР° РєСЂРёС‚РёС‡РµСЃРєР°СЏ РѕРїР°СЃРЅРѕСЃС‚СЊ: Р’С‹Р·РІР°РЅ РїСЂРёРѕСЂРёС‚РµС‚РЅС‹Р№ С€Р°С‚С‚Р». " : "" ] Р­РІР°РєСѓР°С†РёСЏ РЅР°С‡РЅРµС‚СЃСЏ С‡РµСЂРµР· [timeLeft(600)] РјРёРЅСѓС‚.[reason][SSshuttle.emergencyLastCallLoc ? "\n\nР”Р°РЅРЅС‹Рµ Рѕ Р°РІС‚РѕСЂРёР·Р°С†РёРё СЌРІР°РєСѓР°С†РёРё СЃРѕС…СЂР°РЅРµРЅС‹ Рё РјРѕРіСѓС‚ Р±С‹С‚СЊ РїСЂРѕСЃРјРѕС‚СЂРµРЅС‹ СЃ РїРѕРјРѕС‰СЊСЋ Р»СЋР±РѕР№ РєРѕРЅСЃРѕР»Рё РєРѕРјРјСѓРЅРёРєР°С†РёРё." : "" ]")
+	emergency_shuttle_called.Announce("Внимание, всему персоналу, проследовать на подуровень 3 для эвакуации. [redAlert ? "Подтверждена критическая опасность: Вызван приоритетный шаттл. " : "" ] Эвакуация начнется через [timeLeft(600)] минут.[reason][SSshuttle.emergencyLastCallLoc ? "\n\nДанные о авторизации эвакуации сохранены и могут быть просмотрены с помощью любой консоли коммуникации." : "" ]")
 
 	if(reason == "Automatic Crew Transfer" && signalOrigin == null) // Best way we have to check that it's actually a crew transfer and not just a player using the same message- any other calls to this proc should have a signalOrigin.
 		atc.shift_ending()
@@ -161,7 +161,7 @@
 		return
 
 	if(mode != SHUTTLE_CALL)
-		return
+		returnА
 
 	timer = world.time - timeLeft(1)
 	mode = SHUTTLE_RECALL
@@ -170,7 +170,7 @@
 		SSshuttle.emergencyLastCallLoc = signalOrigin
 	else
 		SSshuttle.emergencyLastCallLoc = null
-	emergency_shuttle_recalled.Announce("Р’РЅРёРјР°РЅРёРµ, СЌРІР°РєСѓР°С†РёСЏ РѕС‚РјРµРЅРµРЅР°. Р’СЃРµРјСѓ РїРµСЂСЃРѕРЅР°Р»Сѓ, РІРµСЂРЅРёС‚РµСЃСЊ Рє СЃРІРѕРёРј СЂР°Р±РѕС‡РёРј РѕР±СЏР·Р°РЅРѕСЃС‚СЏРј РІ С‚РµС‡РµРЅРёРё РїСЏС‚РЅР°РґС†Р°С‚Рё РјРёРЅСѓС‚.")
+	emergency_shuttle_recalled.Announce("Внимание, эвакуация отменена. Всему персоналу, вернитесь к своим рабочим обязаностям в течении пятнадцати минут.")
 
 /obj/docking_port/mobile/emergency/proc/is_hijacked()
 	for(var/mob/living/player in GLOB.player_list)
@@ -245,7 +245,7 @@
 				mode = SHUTTLE_DOCKED
 				timer = world.time
 				send2irc("Server", "The Emergency Shuttle has docked with the station.")
-				emergency_shuttle_docked.Announce("Р’РЅРёРјР°РЅРёРµ, РІСЃРµРјСѓ РїРµСЂСЃРѕРЅР°Р»Сѓ РїСЂРёСЃС‚СѓРїРёС‚СЊ Рє РЅРµРјРµРґР»РµРЅРЅРѕР№ СЌРІР°РєСѓР°С†РёРё. РЈ РІР°СЃ РµСЃС‚СЊ [timeLeft(600)] РјРёРЅСѓС‚С‹ РґРѕ РѕС‚Р»РµС‚Р° С€Р°С‚С‚Р»Р°.")
+				emergency_shuttle_docked.Announce("Внимание, всему персоналу приступить к немедленной эвакуации. У вас есть [timeLeft(600)] минуты до отлета шаттла.")
 
 /*
 				//Gangs only have one attempt left if the shuttle has docked with the station to prevent suffering from dominator delays

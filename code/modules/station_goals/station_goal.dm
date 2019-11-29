@@ -12,7 +12,7 @@
 	var/report_message = "Complete this goal."
 
 /datum/station_goal/proc/send_report()
-	priority_announcement.Announce("РџРѕСЃС‚СѓРїРёР»Рё РЅРѕРІС‹Рµ РґРµСЂРµРєС‚РёРІС‹. РџСЂРёРєР»Р°РґС‹РІР°РµРј РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РїСЂРѕРµРєС‚Рµ \"[name]\".", "РџРѕСЃС‚СѓРїРёР»Рѕ РїСЂРёРѕСЂРёС‚РµС‚РЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ", 'sound/AI/commandreport.ogg')
+	priority_announcement.Announce("Поступили новые дерективы. Прикладываем информацию о проекте \"[name]\".", "Поступило приоритетное сообщение", 'sound/AI/commandreport.ogg')
 	print_command_report(get_report(), "Nanotrasen Directive [pick(GLOB.phonetic_alphabet)] \Roman[rand(1,50)]")
 	on_report()
 

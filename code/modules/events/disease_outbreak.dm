@@ -7,7 +7,7 @@
 	announceWhen = rand(15, 30)
 
 /datum/event/disease_outbreak/announce()
-	event_announcement.Announce("Р’РЅРёРјР°РЅРёРµ, СѓРіСЂРѕР·Р° Р±РёРѕР»РѕРіРёС‡РµСЃРєРѕРіРѕ Р·Р°РіСЂСЏР·РЅРµРЅРёСЏ [station_name()]. РџРµСЂСЃРѕРЅР°Р»Сѓ, РґРѕР»РѕР¶РёС‚СЊ Рѕ СЃРІРѕРµРј СЃРѕСЃС‚РѕСЏРЅРёРё РјРµРґРёС†РёРЅСЃРєРѕРјСѓ РѕС‚РґРµР»Сѓ.", "Biohazard Alert", new_sound = 'sound/AI/outbreak7.ogg')
+	event_announcement.Announce("Внимание, угроза биологического загрязнения [station_name()]. Персоналу, доложить о своем состоянии медицинскому отделу.", "Biohazard Alert", new_sound = 'sound/AI/outbreak7.ogg')
 
 /datum/event/disease_outbreak/start()
 	if(prob(25))
