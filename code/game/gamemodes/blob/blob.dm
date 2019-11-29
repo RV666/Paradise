@@ -196,7 +196,7 @@ var/list/blob_nodes = list()
 			send_intercept(1)
 			declared = 1
 		if(1)
-			event_announcement.Announce("Confirmed outbreak of level 5 biohazard aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", 'sound/AI/outbreak5.ogg')
+			event_announcement.Announce("Внимание, угроза обширного биологического загрязнения [station_name()]. Персоналу, немеделенно доложить о своем состоянии медицинскому отделу.", "Угроза биологического загрязнения", 'sound/AI/outbreak5.ogg')
 		if(2)
 			send_intercept(2)
 
