@@ -869,6 +869,7 @@ var/global/nologevent = 0
 		var/atom/A = new chosen(usr.loc)
 		A.admin_spawned = TRUE
 
+	message_admins("[key_name_admin(usr)] spawned [chosen] at ([usr.x],[usr.y],[usr.z])")
 	log_admin("[key_name(usr)] spawned [chosen] at ([usr.x],[usr.y],[usr.z])")
 	feedback_add_details("admin_verb","SA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
