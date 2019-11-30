@@ -5749,8 +5749,8 @@
 /area/security/main)
 "akJ" = (
 /obj/structure/table/wood,
-/obj/machinery/photocopier/faxmachine{
-	department = "Head of Security's Office"
+/obj/machinery/photocopier/faxmachine/longrange{
+	department = "Head of Secutiry's Office"
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -59128,14 +59128,14 @@
 /area/medical/cmo)
 "chB" = (
 /obj/structure/table,
-/obj/machinery/photocopier/faxmachine{
-	department = "Chief Medical Officer's Office"
-	},
 /obj/machinery/light,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/photocopier/faxmachine/longrange{
+	department = "Chief Medical Officer's Office"
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "darkblue"
@@ -60532,10 +60532,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/table/glass,
+/obj/machinery/photocopier/faxmachine/longrange{
 	department = "Research Director's Office"
 	},
-/obj/structure/table/glass,
 /turf/simulated/floor/plasteel{
 	icon_state = "cafeteria";
 	tag = "icon-cafeteria (NORTHEAST)"
@@ -79859,7 +79859,7 @@
 /area/space/nearstation)
 "cSG" = (
 /obj/structure/table/reinforced,
-/obj/machinery/photocopier/faxmachine{
+/obj/machinery/photocopier/faxmachine/longrange{
 	department = "Chief Engineer's Office"
 	},
 /turf/simulated/floor/plasteel{
