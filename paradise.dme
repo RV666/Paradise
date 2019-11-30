@@ -2142,6 +2142,7 @@
 #include "code\modules\ninja\suit\shoes.dm"
 #include "code\modules\ninja\suit\suit.dm"
 #include "code\modules\ninja\suit\suit_initialisation.dm"
+#include "code\modules\notes_for_event\notes_for_event.dm"
 #include "code\modules\paperwork\carbonpaper.dm"
 #include "code\modules\paperwork\clipboard.dm"
 #include "code\modules\paperwork\contract.dm"
