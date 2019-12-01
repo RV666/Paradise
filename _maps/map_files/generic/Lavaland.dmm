@@ -3042,6 +3042,7 @@
 /area/lavaland/surface/outdoors)
 "hj" = (
 /obj/item/paper/fluff/ev_lavlend1,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "hs" = (
@@ -4006,6 +4007,7 @@
 /area/mine/living_quarters)
 "sj" = (
 /obj/item/paper/fluff/ev_lavlend2,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "sL" = (
@@ -4152,6 +4154,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/mine/eva)
+"MT" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/plating/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "Nj" = (
 /obj/machinery/door/airlock{
 	name = "Restroom"
@@ -30917,7 +30923,7 @@ am
 am
 ai
 hj
-ab
+MT
 ab
 ab
 ab
