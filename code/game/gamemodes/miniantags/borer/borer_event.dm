@@ -12,7 +12,7 @@
 
 /datum/event/borer_infestation/announce()
 	if(successSpawn)
-		command_announcement.Announce("¬нимание, недопущенные формы биологической жизни зафиксированы в вентил€ционной системе [station_name()].", "Ќедопущенные формы биологической жизни", new_sound = 'sound/AI/aliens.ogg')
+		command_announcement.Announce("Unidentified lifesigns detected coming aboard [station_name()]. Secure any exterior access, including ducting and ventilation.", "Lifesign Alert", new_sound = 'sound/AI/aliens.ogg')
 
 /datum/event/borer_infestation/start()
 	var/list/vents = list()
