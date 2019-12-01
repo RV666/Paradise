@@ -132,7 +132,7 @@
 				var/obj/item/pda/pda = I
 				I = pda.id
 			if(I && istype(I))
-				if(access_heads in I.access)
+				if(access_captain in I.access)
 					change_security_level(text2num(href_list["level"]))
 				else
 					to_chat(usr, "<span class='warning'>You are not authorized to do this.</span>")
@@ -237,7 +237,7 @@
 				Nuke_request(input, usr)
 				to_chat(usr, "<span class='notice'>Request sent.</span>")
 				log_game("[key_name(usr)] has requested the nuclear codes from Centcomm")
-				priority_announcement.Announce("The codes for the on-station nuclear self-destruct have been requested by [usr]. Confirmation or denial of this request will be sent shortly.", "Nuclear Self Destruct Codes Requested",'sound/AI/commandreport.ogg')
+				priority_announcement.Announce("[usr] запросил код авторизации для механизма самоуничтожения станции. Ответ на запрос будет направлен в ближайшее время.", "Механизм самоуничтожения",'sound/AI/commandreport.ogg')
 				centcomm_message_cooldown = 1
 				spawn(6000)//10 minute cooldown
 					centcomm_message_cooldown = 0
