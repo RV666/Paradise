@@ -27,7 +27,7 @@
 	base_color = "#CF4D2F"
 	butt_sprite = "vulp"
 
-	scream_verb = "yelps"
+	scream_verb = "скулит"
 
 	has_organ = list(
 		"heart" =    /obj/item/organ/internal/heart/vulpkanin,

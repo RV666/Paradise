@@ -22,7 +22,7 @@
 	eyes = "blank_eyes"
 	death_message = "lets out a faint chimper as it collapses and stops moving..."
 
-	scream_verb = "screeches"
+	scream_verb = "визжит"
 	male_scream_sound = 'sound/goonstation/voice/monkey_scream.ogg'
 	female_scream_sound = 'sound/goonstation/voice/monkey_scream.ogg'
 
