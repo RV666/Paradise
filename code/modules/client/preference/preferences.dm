@@ -90,7 +90,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
 	var/windowflashing = TRUE
-	var/clientfps = 60
+	var/clientfps = 0
 	var/atklog = ATKLOG_ALL
 	var/fuid							// forum userid
 	var/afk_watch = FALSE  				// If the player wants to be kept track of by the AFK system
