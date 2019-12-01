@@ -211,7 +211,9 @@ GLOBAL_LIST_INIT(rus_utf8_conversion,list(
 	"Ё","ё"
 	))
 
-/proc/r_text2utf8(text)
+/proc/r_text2utf8(var/text)
+	text = LTR255_UNIC_ANSI(text)
+	text = LTR255_CP51_ANSI(text)
 	var/t = ""
 	var/L = length(text)
 	for(var/i = 1 to L)
