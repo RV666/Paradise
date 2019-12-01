@@ -81772,6 +81772,8 @@
 	locked = 0
 	},
 /obj/item/rig/eva/equipped,
+/obj/item/paper/fluff/safesc,
+/obj/item/paper/fluff/safetest,
 /turf/simulated/floor/grass,
 /area/hallway/secondary/exit)
 "cVW" = (
