@@ -39,7 +39,7 @@
 	butt_sprite = "vox"
 
 	reagent_tag = PROCESS_ORG | PROCESS_SYN
-	scream_verb = "shrieks"
+	scream_verb = "скрипит"
 	male_scream_sound = 'sound/voice/shriek1.ogg'
 	female_scream_sound = 'sound/voice/shriek1.ogg'
 	male_cough_sounds = list('sound/voice/shriekcough.ogg')

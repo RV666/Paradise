@@ -12,7 +12,7 @@
 #define SEND_SOUND(target, sound) DIRECT_OUTPUT(target, sound)
 #define SEND_TEXT(target, text) DIRECT_OUTPUT(target, text)
 #define WRITE_FILE(file, text) DIRECT_OUTPUT(file, text)
-#define WRITE_LOG(log, text) call(RUST_G, "log_write")(log, r_text2utf8(LTR255_UNIC_ANSI(text)))
+#define WRITE_LOG(log, text) call(RUST_G, "log_write")(log, r_text2utf8(text))
 
 /proc/error(msg)
 	log_world("## ERROR: [msg]")
