@@ -48982,6 +48982,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/paper/fluff/ev_cap,
 /turf/simulated/floor/plasteel{
 	icon_state = "freezerfloor"
 	},
@@ -51759,6 +51760,7 @@
 /obj/item/folder/yellow,
 /obj/item/eftpos,
 /obj/item/book/manual/sop_supply,
+/obj/item/paper/fluff/ev_cargo,
 /turf/simulated/floor/plasteel,
 /area/quartermaster/office)
 "bVs" = (
@@ -92675,6 +92677,10 @@
 	},
 /turf/space,
 /area/space/nearstation)
+"uOp" = (
+/obj/item/paper/fluff/ev_spac,
+/turf/space,
+/area/space)
 "vup" = (
 /obj/machinery/atmospherics/pipe/simple/insulated{
 	dir = 10
@@ -92682,6 +92688,14 @@
 /obj/structure/lattice,
 /turf/space,
 /area/space/nearstation)
+"vQh" = (
+/obj/item/paper/fluff/ev_rnd,
+/turf/simulated/floor/plasteel{
+	icon_state = "white"
+	},
+/area/medical/research{
+	name = "Research Division"
+	})
 "vUm" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
@@ -135295,7 +135309,7 @@ bQK
 bHX
 bpD
 bWj
-bLR
+vQh
 bWc
 cbd
 ccT
@@ -141131,7 +141145,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+uOp
 aaa
 aaa
 aaa
