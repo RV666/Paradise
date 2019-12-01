@@ -1982,7 +1982,7 @@ var/mob/dview/dview_mob = new
 				name += " \[ghost\]"
 			else
 				name += " \[dead\]"
-		pois[name] = M
+		pois[r_text2utf8(strip_macros(name))] = M
 
 	if(!mobs_only)
 		for(var/atom/A in GLOB.poi_list)
