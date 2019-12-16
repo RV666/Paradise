@@ -1675,6 +1675,14 @@ GLOBAL_LIST_EMPTY(ghostteleportlocs)
 	name = "\improper Research Testing Chamber"
 	icon_state = "toxtest"
 
+/area/toxins/telescience
+	name = "\improper Research Telesciense"
+	icon_state = "toxtest"
+
+/area/toxins/telescience_chamber
+	name = "\improper Research Telesciense Chamber"
+	icon_state = "toxtest"
+
 /area/toxins/server
 	name = "\improper Server Room"
 	icon_state = "server"
