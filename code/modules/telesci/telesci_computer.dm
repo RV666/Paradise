@@ -129,7 +129,10 @@
 
 		t += "<BR><A href='?src=[UID()];send=1'>Send</A>"
 		t += " <A href='?src=[UID()];receive=1'>Receive</A>"
-		t += "<BR><A href='?src=[UID()];recal=1'>Recalibrate Crystals</A> <A href='?src=[UID()];eject=1'>Eject Crystals</A>"
+		if(crystals)
+			t += "<BR><A href='?src=[UID()];recal=1'>Recalibrate Crystals</A> <A href='?src=[UID()];eject=1'>Eject Crystals</A>"
+		else
+			t += "<BR><span class='linkOff'>Recalibrate Crystals</span> <span class='linkOff'>Eject Crystals</span>"
 
 		// Information about the last teleport
 		t += "<BR><div class='statusDisplay'>"
@@ -271,6 +274,9 @@
 			updateUsrDialog()
 
 /obj/machinery/computer/telescience/proc/teleport(mob/user)
+	if(!crystals)
+		temp_msg = "ERROR! There are no bluespace crystals in the crystal slots!"
+		return
 	if(rotation == null || angle == null || z_co == null)
 		temp_msg = "ERROR!<BR>Set a angle, rotation and sector."
 		return
@@ -316,6 +322,8 @@
 	return
 
 /obj/machinery/computer/telescience/proc/eject()
+	if(!crystals)
+		return
 	var/to_eject
 	for(var/i in 1 to crystals)
 		to_eject += 1
