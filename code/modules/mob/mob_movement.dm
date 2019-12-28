@@ -91,6 +91,8 @@
 	if(isliving(mob))
 		var/mob/living/L = mob
 		if(L.incorporeal_move)//Move though walls
+			move_delay = world.time + 0.5 // cap to 20fps
+			L.glide_size = 8
 			Process_Incorpmove(direct)
 			return
 
@@ -186,7 +188,7 @@
 		if(newdir)
 			direct = newdir
 			n = get_step(mob, direct)
-	
+
 	. = mob.SelfMove(n, direct, delay)
 	mob.setDir(direct)
 
@@ -292,6 +294,7 @@
 							return
 					else
 						return
+				L.glide_size = L.glide_size * 2
 				L.forceMove(locate(locx,locy,mobloc.z))
 				spawn(0)
 					var/limit = 2//For only two trailing shadows.
