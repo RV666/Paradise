@@ -77,6 +77,11 @@
 // This is handled in the proc below this one.
 
 /client/proc/AIMove(n, direct, var/mob/living/silicon/ai/user)
+	if(world.time < user.last_movement)
+		return
+	user.last_movement = world.time + 0.5 // cap to 20fps
+	var/tick_coeff = user.client.tick_lag ? world.tick_lag/user.client.tick_lag : 1
+	user.eyeobj.glide_size = 8 * tick_coeff
 
 	var/initial = initial(user.sprint)
 	var/max_sprint = 50
