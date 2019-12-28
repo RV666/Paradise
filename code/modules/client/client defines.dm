@@ -100,3 +100,5 @@
 	var/next_keysend_reset = 0
 	var/next_keysend_trip_reset = 0
 	var/keysend_tripped = FALSE
+
+	var/fullscreen = FALSE

@@ -135,6 +135,7 @@ Hotkey-Mode: (hotkey-mode must be on)
 \tM = me
 \tT = say
 \tO = OOC
+\tL = LOOC
 \tB = resist
 \tH = Holster/unholster gun if you have a holster
 \tX = swap-hand
@@ -161,6 +162,7 @@ Any-Mode: (hotkey doesn't need to be on)
 \tCtrl+B = resist
 \tCtrl+H = stop pulling
 \tCtrl+O = OOC
+\tCtrl+L = LOOC
 \tCtrl+X = swap-hand
 \tCtrl+Z = activate held object (or Ctrl+y)
 \tCtrl+F = cycle-intents-left
@@ -176,6 +178,8 @@ Any-Mode: (hotkey doesn't need to be on)
 \tPGDN = activate held object
 \tEND = throw
 \tCtrl+Numpad = Body target selection (Press 8 repeatedly for Head->Eyes->Mouth)
+\tF11 = Fulscreen
+\tCtrl+F11 = Fit Viewport
 </font>"}
 
 	to_chat(src, hotkey_mode)
@@ -193,6 +197,7 @@ Hotkey-Mode: (hotkey-mode must be on)
 \tM = Me
 \tT = Say
 \tO = OOC
+\tL = LOOC
 \tX = Cycle Active Modules
 \tB = Resist
 \tZ or Y = Activate Held Object
@@ -214,6 +219,7 @@ Any-Mode: (hotkey doesn't need to be on)
 \tCtrl+X = Cycle Active Modules
 \tCtrl+B = Resist
 \tCtrl+O = OOC
+\tCtrl+L = LOOC
 \tCtrl+Z or Ctrl+Y = Activate Held Object
 \tCtrl+F = Cycle Intents Left
 \tCtrl+G = Cycle Intents Right
@@ -228,6 +234,8 @@ Any-Mode: (hotkey doesn't need to be on)
 \tF2 = OOC
 \tF3 = Say
 \tF4 = Me
+\tF11 = Fulscreen
+\tCtrl+F11 = Fit Viewport
 </font>"}
 
 	to_chat(src, hotkey_mode)
