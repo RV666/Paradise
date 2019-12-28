@@ -91,6 +91,9 @@
 	if(isliving(mob))
 		var/mob/living/L = mob
 		if(L.incorporeal_move)//Move though walls
+			move_delay = world.time + 0.5 // cap to 20fps
+			var/tick_coeff = tick_lag ? world.tick_lag/tick_lag : 1
+			L.glide_size = 8 * tick_coeff
 			Process_Incorpmove(direct)
 			return
 
@@ -289,6 +292,7 @@
 							return
 					else
 						return
+				L.glide_size = L.glide_size * 2 
 				L.forceMove(locate(locx,locy,mobloc.z))
 				spawn(0)
 					var/limit = 2//For only two trailing shadows.
