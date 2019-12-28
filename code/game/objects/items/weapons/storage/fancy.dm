@@ -413,3 +413,42 @@
 	new /obj/item/fish_net(src)
 	new /obj/item/tank_brush(src)
 	new /obj/item/fishfood(src)
+
+/*
+ * CigarCase
+ */
+
+
+/obj/item/storage/fancy/cigarcase
+	name = "Cigar Case"
+	desc = "Case of fine Cigar."
+	icon = 'icons/obj/cigarettes.dmi'
+	icon_state = "cigarcase"
+	icon_type = "cigar"
+	item_state = "cigarcase"
+	storage_slots = 7
+	can_hold = list(/obj/item/clothing/mask/cigarette/cigar)
+	throwforce = 2
+	slot_flags = SLOT_BELT
+
+/obj/item/storage/fancy/cigarcase/update_icon(var/itemremoved = 0)
+	var/total_contents = src.contents.len - itemremoved
+	src.icon_state = "[src.icon_type]case[total_contents]"
+	return
+
+/obj/item/storage/fancy/cigarcase/examine(mob/user)
+	. = ..()
+	if(in_range(user, src))
+		var/len = LAZYLEN(contents)
+		if(len <= 0)
+			. += "There are no [src.icon_type]s left in the Cigar Case."
+		else if(len == 1)
+			. += "There is one [src.icon_type] left in the Cigar Case."
+		else
+			. += "There are [src.contents.len] [src.icon_type]s in Cigar Case."
+
+
+/obj/item/storage/fancy/cigarcase/New()
+	..()
+	for(var/i = 1 to storage_slots)
+		new /obj/item/clothing/mask/cigarette/cigar(src)
