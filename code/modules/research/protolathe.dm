@@ -4,8 +4,7 @@ Protolathe
 Similar to an autolathe, you load glass and metal sheets (but not other objects) into it to be used as raw materials for the stuff
 it creates. All the menus and other manipulation commands are in the R&D console.
 
-Note: Must be placed west/left of and R&D console 
-to function.
+Note: Must be placed west/left of and R&D console to function.
 
 */
 /obj/machinery/r_n_d/protolathe
@@ -26,9 +25,7 @@ to function.
 								"Miscellaneous",
 								"Power",
 								"Stock Parts",
-								"Weapons",
-								"RIG modules",
-								"ILLEGAL",
+								"Weapons"
 								)
 
 	reagents = new()
