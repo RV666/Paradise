@@ -93,6 +93,12 @@
 		if(client.prefs.toggles & CHAT_GHOSTEARS && (speaker in view(src)))
 			message = "<b>[message]</b>"
 
+	if(src.mind && src.mind.special_role == SPECIAL_ROLE_TRAITOR)
+		for(var/code_phrase in GLOB.syndicate_code_phrase)
+			message = replacetext(message, code_phrase, "<span class='boldwarning'>[code_phrase]</span>")
+		for(var/code_response in GLOB.syndicate_code_response)
+			message = replacetext(message, code_response, "<span class='blob'>[code_response]</span>")
+
 	if(!can_hear())
 		// INNATE is the flag for audible-emote-language, so we don't want to show an "x talks but you cannot hear them" message if it's set
 		// if(!language || !(language.flags & INNATE))
@@ -125,6 +131,12 @@
 
 	var/speaker_name = handle_speaker_name(speaker, vname, hard_to_hear)
 	track = handle_track(message, verb, speaker, speaker_name, follow_target, hard_to_hear)
+
+	if(src.mind && src.mind.special_role == SPECIAL_ROLE_TRAITOR)
+		for(var/code_phrase in GLOB.syndicate_code_phrase)
+			message = replacetext(message, code_phrase, "<span class='boldwarning'>[code_phrase]</span>")
+		for(var/code_response in GLOB.syndicate_code_response)
+			message = replacetext(message, code_response, "<span class='blob'>[code_response]</span>")
 
 	if(!can_hear())
 		if(prob(20))
