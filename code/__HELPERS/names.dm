@@ -112,8 +112,8 @@ GLOBAL_VAR(syndicate_name)
 
 
 //Traitors and traitor silicons will get these. Revs will not.
-GLOBAL_VAR(syndicate_code_phrase) //Code phrase for traitors.
-GLOBAL_VAR(syndicate_code_response) //Code response for traitors.
+GLOBAL_LIST(syndicate_code_phrase) //Code phrase for traitors.
+GLOBAL_LIST(syndicate_code_response) //Code response for traitors.
 
 	/*
 	Should be expanded.
@@ -131,7 +131,7 @@ GLOBAL_VAR(syndicate_code_response) //Code response for traitors.
 
 /proc/generate_code_phrase()//Proc is used for phrase and response in master_controller.dm
 
-	var/code_phrase = ""//What is returned when the proc finishes.
+	var/code_phrase = list()//What is returned when the proc finishes.
 	var/words = pick(//How many words there will be. Minimum of two. 2, 4 and 5 have a lesser chance of being selected. 3 is the most likely.
 		50; 2,
 		200; 3,
@@ -171,7 +171,7 @@ GLOBAL_VAR(syndicate_code_response) //Code response for traitors.
 					if(1)
 						code_phrase += pick(drinks)
 					if(2)
-						code_phrase += pick(locations)
+						code_phrase += format_text(pick(locations))
 				safety -= 2
 			if(3)
 				switch(rand(1,3))//Nouns, adjectives, verbs. Can be selected more than once.
@@ -181,10 +181,10 @@ GLOBAL_VAR(syndicate_code_response) //Code response for traitors.
 						code_phrase += pick(GLOB.adjectives)
 					if(3)
 						code_phrase += pick(GLOB.verbs)
-		if(words==1)
-			code_phrase += "."
-		else
-			code_phrase += ", "
+//		if(words==1)
+//			code_phrase += "."
+//		else
+//			code_phrase += ", "
 
 	return code_phrase
 
@@ -201,7 +201,7 @@ GLOBAL_VAR(syndicate_code_response) //Code response for traitors.
 	set name = "Generate Code Phrase"
 	set category = "Debug"
 
-	to_chat(world, "<span class='warning'>Code Phrase is:</span> [generate_code_phrase()]")
+	to_chat(world, "<span class='warning'>Code Phrase is:</span> [jointext(generate_code_phrase(), ", ")]")
 	return
 
 
