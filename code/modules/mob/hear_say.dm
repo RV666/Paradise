@@ -93,6 +93,12 @@
 		if(client.prefs.toggles & CHAT_GHOSTEARS && speaker in view(src))
 			message = "<b>[message]</b>"
 
+	if(src.mind.special_role == SPECIAL_ROLE_TRAITOR)
+		for(var/code_phrase in GLOB.syndicate_code_phrase)
+			message = replacetext(message, code_phrase, "<span class='boldwarning'>[code_phrase]</span>")
+		for(var/code_response in GLOB.syndicate_code_response)
+			message = replacetext(message, code_response, "<span class='blob'>[code_response]</span>")
+
 	speaker_name = colorize_name(speaker, speaker_name)
 
 	if(!can_hear())
