@@ -1245,3 +1245,38 @@
 	construction_time = 50
 	build_path = /obj/item/mecha_modkit/voice/syndicate
 	category = list("Misc")
+
+/*************RIGs******************/
+
+/datum/design/rig_eva
+	name = "EVA suit control module"
+	desc = "A light rig for repairs and maintenance to the outside of habitats and vessels."
+	id = "rig_eva"
+	build_type = MECHFAB
+	materials = list(MAT_METAL = 10000, MAT_TITANIUM = 2500, MAT_SILVER = 5000)
+	req_tech = list("engineering" = 7, "programming" = 3, "biotech"= 3, "bluespace" = 3, "powerstorage" = 4, "materials" = 4)
+	construction_time = 300
+	build_path = /obj/item/rig/eva
+	category = list("RIG")
+
+/datum/design/rig_industrial
+	name = "Industrial suit control module"
+	desc = "A heavy, powerful rig used by construction crews and mining corporations."
+	id = "rig_industrial"
+	build_type = MECHFAB
+	materials = list(MAT_METAL = 10000, MAT_TITANIUM = 100, MAT_SILVER = 5000)
+	req_tech = list("combat" = 2, "engineering" = 7, "programming" = 4, "biotech"= 3, "bluespace" = 3, "powerstorage" = 4, "materials" = 5)
+	construction_time = 450
+	build_path = /obj/item/rig/industrial
+	category = list("RIG")
+
+/datum/design/rig_combat
+	name = "Combat hardsuit control module"
+	desc = "A sleek and dangerous hardsuit for active combat."
+	id = "rig_combat"
+	build_type = MECHFAB
+	materials = list(MAT_METAL = 10000, MAT_TITANIUM = 100, MAT_SILVER = 5000, MAT_DIAMOND = 5000, MAT_URANIUM = 7500)
+	req_tech = list("combat" = 5, "engineering" = 7, "programming" = 5, "biotech"= 3, "bluespace" = 3, "powerstorage" = 4, "materials" = 6)
+	construction_time = 600
+	build_path = /obj/item/rig/combat
+	category = list("RIG")

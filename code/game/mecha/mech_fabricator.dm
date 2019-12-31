@@ -34,7 +34,8 @@
 								"Exosuit Equipment",
 								"Cyborg Upgrade Modules",
 								"Medical",
-								"Misc"
+								"Misc",
+								"RIG"
 								)
 
 /obj/machinery/mecha_part_fabricator/New()
