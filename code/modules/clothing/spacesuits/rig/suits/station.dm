@@ -51,7 +51,7 @@
 	suit_type = "industrial hardsuit"
 	desc = "A heavy, powerful rig used by construction crews and mining corporations."
 	icon_state = "engineering_rig"
-	armor = list(melee = 10, bullet = 5, laser = 10, energy = 5, bomb = 10, bio = 100, rad = 75)
+	armor = list(melee = 25, bullet = 30, laser = 20, energy = 10, bomb = 40, bio = 100, rad = 100)
 	active_slowdown = 3
 	offline_slowdown = 10
 	offline_vision_restriction = 2
@@ -83,6 +83,7 @@
 	active_slowdown = 0
 	offline_slowdown = 1
 	offline_vision_restriction = 1
+	emp_protection = -20
 
 	helm_type = /obj/item/clothing/head/helmet/space/new_rig/eva
 
@@ -111,6 +112,7 @@
 	active_slowdown = 0
 	offline_slowdown = 0
 	offline_vision_restriction = 0
+	emp_protection = -20
 
 	helm_type = /obj/item/clothing/head/helmet/space/new_rig/ce
 
@@ -151,6 +153,7 @@
 	icon_state = "science_rig"
 	active_slowdown = 1
 	offline_vision_restriction = 1
+	emp_protection = -20
 
 	helm_type = /obj/item/clothing/head/helmet/space/new_rig/hazmat
 
@@ -178,6 +181,7 @@
 	armor = list(melee = 10, bullet = 5, laser = 10, energy = 5, bomb = 10, bio = 100, rad = 50)
 	active_slowdown = 1
 	offline_vision_restriction = 1
+	emp_protection = -20
 
 	helm_type = /obj/item/clothing/head/helmet/space/new_rig/medical
 
@@ -204,6 +208,7 @@
 	active_slowdown = 1
 	offline_slowdown = 3
 	offline_vision_restriction = 1
+	emp_protection = -20
 
 	helm_type = /obj/item/clothing/head/helmet/space/new_rig/hazard
 
