@@ -564,3 +564,10 @@
 	new /obj/item/clothing/glasses/meson(src)
 	new /obj/item/card/id/golem(src)
 	new /obj/item/flashlight/lantern(src)
+
+/obj/structure/closet/crate/secure/AltClick(var/mob/user)
+	if(src in oview(1))
+		if(!src.opened)
+			src.verb_togglelock()
+		else
+			return ..()

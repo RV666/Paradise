@@ -154,3 +154,10 @@
 				var/obj/structure/bigDelivery/BD = loc
 				BD.attack_hand(usr)
 			open()
+
+/obj/structure/closet/secure_closet/AltClick(var/mob/user)
+	if(src in oview(1))
+		if(!src.opened)
+			src.verb_togglelock()
+		else
+			return ..()
