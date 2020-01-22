@@ -1450,6 +1450,11 @@ GLOBAL_LIST_EMPTY(ghostteleportlocs)
 	icon_state = "execution"
 	can_get_auto_cryod = FALSE
 
+/area/security/torture_chamber
+	name = "\improper Torture chamber"
+	icon_state = "execution"
+	can_get_auto_cryod = FALSE
+
 /area/security/processing
 	name = "\improper Prisoner Processing"
 	icon_state = "prisonerprocessing"
