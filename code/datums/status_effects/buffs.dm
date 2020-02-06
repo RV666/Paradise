@@ -216,8 +216,8 @@
 
 /datum/status_effect/regenerative_core/on_apply()
 	owner.status_flags |= IGNORESLOWDOWN
-	owner.adjustBruteLoss(-25)
-	owner.adjustFireLoss(-25)
+	owner.adjustBruteLoss(-55)
+	owner.adjustFireLoss(-100)
 	owner.remove_CC()
 	owner.bodytemperature = BODYTEMP_NORMAL
 	if(ishuman(owner))
