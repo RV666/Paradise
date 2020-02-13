@@ -41818,6 +41818,9 @@
 	dir = 8;
 	tag = "icon-tube1 (WEST)"
 	},
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
@@ -60788,6 +60791,7 @@
 /obj/structure/table,
 /obj/machinery/recharger,
 /obj/item/screwdriver,
+/obj/item/reagent_containers/food/drinks/britcup,
 /turf/simulated/floor/plasteel{
 	icon_state = "cafeteria";
 	tag = "icon-cafeteria (NORTHEAST)"
@@ -61886,8 +61890,7 @@
 /turf/simulated/floor/plasteel/airless,
 /area/toxins/test_area)
 "cmD" = (
-/obj/structure/table,
-/obj/item/reagent_containers/food/drinks/britcup,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/plasteel{
 	icon_state = "cafeteria";
 	tag = "icon-cafeteria (NORTHEAST)"
@@ -92771,6 +92774,10 @@
 	},
 /turf/simulated/floor/engine,
 /area/toxins/telescience_chamber)
+"qJb" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/plasteel,
+/area/crew_quarters/locker)
 "qMU" = (
 /obj/machinery/atmospherics/unary/vent_scrubber{
 	dir = 4;
@@ -93031,6 +93038,10 @@
 	},
 /turf/simulated/floor/engine,
 /area/toxins/telescience_chamber)
+"xjy" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/plasteel,
+/area/security/main)
 "xka" = (
 /obj/structure/morgue{
 	dir = 8;
@@ -112780,7 +112791,7 @@ btT
 bvx
 bwY
 bsk
-bnD
+qJb
 bBf
 bOn
 bJy
@@ -126089,7 +126100,7 @@ anA
 akv
 alp
 alG
-aoJ
+xjy
 anQ
 aoI
 aoR
