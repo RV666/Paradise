@@ -6030,6 +6030,7 @@
 /obj/item/radio/intercom/specops,
 /obj/structure/table/wood,
 /obj/item/door_remote/centcomm,
+/obj/item/storage/fancy/cigarcase,
 /turf/unsimulated/floor{
 	dir = 4;
 	icon_state = "carpetside"
@@ -11412,6 +11413,7 @@
 "Bp" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/drinkingglass/devilskiss,
+/obj/item/storage/fancy/cigarcase,
 /turf/unsimulated/floor{
 	dir = 5;
 	icon_state = "carpetside"
@@ -11764,6 +11766,22 @@
 	icon_state = "dark"
 	},
 /area/centcom/specops)
+"CN" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/item/stamp/centcom,
+/obj/item/pen/multi/fountain,
+/obj/item/folder/blue{
+	pixel_x = 4;
+	pixel_y = 6
+	},
+/obj/item/folder/blue{
+	pixel_x = 5
+	},
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/centcom/specops)
 "CZ" = (
 /obj/machinery/door/airlock/centcom{
 	name = "General Access";
@@ -11774,6 +11792,12 @@
 	icon_state = "floor"
 	},
 /area/centcom/evac)
+"Dc" = (
+/obj/machinery/vending/snack,
+/turf/unsimulated/floor{
+	icon_state = "bar"
+	},
+/area/centcom/control)
 "Dd" = (
 /obj/item/grenade/plastic/x4/thermite,
 /obj/item/grenade/plastic/x4/thermite,
@@ -12007,6 +12031,14 @@
 	icon_state = "white"
 	},
 /area/tdome)
+"Ig" = (
+/obj/structure/table,
+/obj/item/camera/digital,
+/obj/item/taperecorder,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/evac)
 "Ii" = (
 /obj/structure/rack,
 /obj/item/clothing/under/color/red,
@@ -12222,9 +12254,10 @@
 	},
 /area/shuttle/assault_pod)
 "LP" = (
-/obj/item/storage/toolbox,
-/obj/item/storage/toolbox,
-/obj/item/storage/toolbox,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/emergency,
+/obj/item/storage/toolbox/electrical,
 /obj/structure/closet/crate,
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -12481,8 +12514,38 @@
 	icon_state = "dark"
 	},
 /area/centcom/specops)
+"Sm" = (
+/obj/structure/table,
+/obj/item/paper_bin,
+/obj/item/stamp/centcom,
+/obj/item/pen/multi/fountain,
+/obj/item/folder/blue{
+	pixel_x = 5
+	},
+/obj/item/folder/blue{
+	pixel_x = 4;
+	pixel_y = 6
+	},
+/obj/item/folder/red{
+	pixel_y = 3
+	},
+/obj/item/folder/yellow{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/evac)
 "SE" = (
 /obj/mecha/combat/gygax,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
+"SN" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/fancy/donut_box,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -12763,6 +12826,20 @@
 	icon_state = "dark"
 	},
 /area/centcom/specops)
+"Zr" = (
+/obj/structure/table/reinforced,
+/obj/item/stamp/centcom,
+/obj/item/paper_bin,
+/obj/item/pen/multi/fountain,
+/obj/item/folder/blue,
+/obj/item/folder/blue{
+	pixel_x = 4;
+	pixel_y = 6
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/control)
 "ZA" = (
 /obj/structure/rack,
 /obj/item/shield/riot{
@@ -12786,6 +12863,24 @@
 	icon_state = "dark"
 	},
 /area/centcom/specops)
+"ZU" = (
+/obj/machinery/light/spot{
+	dir = 1;
+	tag = "icon-tube1 (NORTH)"
+	},
+/obj/structure/table/reinforced,
+/obj/item/paper_bin,
+/obj/item/stamp/syndicate,
+/obj/item/pen/multi/gold,
+/obj/item/folder/yellow{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/folder/yellow,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
 "ZY" = (
 /obj/machinery/door/airlock/centcom{
 	id_tag = "toilet_ert_unit_1";
@@ -31184,9 +31279,9 @@ ug
 uj
 uj
 uj
-uR
+SN
 va
-uR
+SN
 uj
 uj
 qd
@@ -32984,7 +33079,7 @@ oG
 oK
 VC
 pc
-vd
+CN
 pE
 pO
 pY
@@ -35799,7 +35894,7 @@ la
 lh
 lh
 lh
-lh
+Dc
 mD
 mW
 su
@@ -37094,7 +37189,7 @@ ud
 su
 uw
 RD
-tR
+Zr
 tR
 Tl
 vu
@@ -38152,8 +38247,8 @@ wK
 wK
 wK
 cH
-yt
-yt
+Ig
+Sm
 cK
 wK
 aN
@@ -61174,7 +61269,7 @@ nj
 nj
 kk
 nj
-gg
+ZU
 kr
 kr
 kr
