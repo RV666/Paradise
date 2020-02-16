@@ -33,8 +33,13 @@ SUBSYSTEM_DEF(input)
 		"default" = list(
 			"Tab" = "\".winset \\\"input.focus=true?map.focus=true input.background-color=[COLOR_INPUT_DISABLED]:input.focus=true input.background-color=[COLOR_INPUT_ENABLED]\\\"\"",
 			"O" = "ooc",
+			"Щ" = "ooc",
+			"L" = "looc",
+			"Д" = "looc",
 			"T" = ".say",
+			"Е" = ".say",
 			"M" = ".me",
+			"Ь" = ".me",
 			"Back" = "\".winset \\\"input.focus=true input.text=\\\"\\\"\\\"\"", // This makes it so backspace can remove default inputs
 			"Any" = "\"KeyDown \[\[*\]\]\"",
 			"Any+UP" = "\"KeyUp \[\[*\]\]\"",
@@ -42,13 +47,24 @@ SUBSYSTEM_DEF(input)
 		"old_default" = list(
 			"Tab" = "\".winset \\\"mainwindow.macro=old_hotkeys map.focus=true input.background-color=[COLOR_INPUT_DISABLED]\\\"\"",
 			"Ctrl+T" = ".say",
+			"Ctrl+Е" = ".say",
 			"Ctrl+O" = "ooc",
+			"Ctrl+Щ" = "ooc",
+			"Ctrl+L" = "looc",
+			"Ctrl+Д" = "looc",
+			"Ctrl+M" = ".me",
+			"Ctrl+Ь" = ".me",
 			),
 		"old_hotkeys" = list(
 			"Tab" = "\".winset \\\"mainwindow.macro=old_default input.focus=true input.background-color=[COLOR_INPUT_ENABLED]\\\"\"",
 			"O" = "ooc",
+			"Щ" = "ooc",
+			"L" = "looc",
+			"Д" = "looc",
 			"T" = ".say",
+			"Е" = ".say",
 			"M" = ".me",
+			"Ь" = ".me",
 			"Back" = "\".winset \\\"input.focus=true input.text=\\\"\\\"\\\"\"", // This makes it so backspace can remove default inputs
 			"Any" = "\"KeyDown \[\[*\]\]\"",
 			"Any+UP" = "\"KeyUp \[\[*\]\]\"",
