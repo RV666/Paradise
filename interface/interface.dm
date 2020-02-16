@@ -107,9 +107,11 @@ Hotkey-Mode: (hotkey-mode must be on)
 \tQ = drop
 \tE = equip
 \tR = throw
+\tC = stop pulling
 \tM = me
 \tT = say
 \tO = OOC
+\tL = LOOC
 \tB = resist
 \tH = Holster/unholster gun if you have a holster
 \tX = swap-hand
@@ -136,6 +138,7 @@ Any-Mode: (hotkey doesn't need to be on)
 \tCtrl+B = resist
 \tCtrl+H = stop pulling
 \tCtrl+O = OOC
+\tCtrl+L = LOOC
 \tCtrl+X = swap-hand
 \tCtrl+Z = activate held object (or Ctrl+y)
 \tCtrl+F = cycle-intents-left
@@ -165,9 +168,11 @@ Hotkey-Mode: (hotkey-mode must be on)
 \tD = Move Right
 \tW = Move Up
 \tQ = Unequip Active Module
+\tC = Stop pulling
 \tM = Me
 \tT = Say
 \tO = OOC
+\tL = LOOC
 \tX = Cycle Active Modules
 \tB = Resist
 \tZ or Y = Activate Held Object
@@ -189,6 +194,7 @@ Any-Mode: (hotkey doesn't need to be on)
 \tCtrl+X = Cycle Active Modules
 \tCtrl+B = Resist
 \tCtrl+O = OOC
+\tCtrl+L = LOOC
 \tCtrl+Z or Ctrl+Y = Activate Held Object
 \tCtrl+F = Cycle Intents Left
 \tCtrl+G = Cycle Intents Right
