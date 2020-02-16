@@ -5,7 +5,7 @@
 // will get logs that are one big line if the system is Linux and they are using notepad.  This solves it by adding CR to every line ending
 // in the logs.  ascii character 13 = CR
 
-GLOBAL_VAR_INIT(log_end, (world.system_type == UNIX ? ascii2text(13) : ""))
+GLOBAL_VAR_INIT(log_end, (ascii2text(13))) // CRLF for all logs
 
 #define DIRECT_OUTPUT(A, B) A << B
 #define SEND_IMAGE(target, image) DIRECT_OUTPUT(target, image)
@@ -93,7 +93,7 @@ GLOBAL_VAR_INIT(log_end, (world.system_type == UNIX ? ascii2text(13) : ""))
 		WRITE_LOG(GLOB.world_game_log, "ADMINSAY: [speaker.simple_info_line()]: [html_decode(text)][GLOB.log_end]")
 
 /proc/log_qdel(text)
-	WRITE_LOG(GLOB.world_qdel_log, "QDEL: [text]")
+	WRITE_LOG(GLOB.world_qdel_log, "QDEL: [text][GLOB.log_end]")
 
 /proc/log_mentorsay(text, mob/speaker)
 	if(config.log_adminchat)
@@ -128,20 +128,20 @@ GLOBAL_VAR_INIT(log_end, (world.system_type == UNIX ? ascii2text(13) : ""))
 		WRITE_LOG(GLOB.world_game_log, "WORLD: [html_decode(text)][GLOB.log_end]")
 
 /proc/log_runtime_txt(text) // different from /tg/'s log_runtime because our error handler has a log_runtime proc already that does other stuff
-	WRITE_LOG(GLOB.world_runtime_log, text)
+	WRITE_LOG(GLOB.world_runtime_log, "[text][GLOB.log_end]")
 
 /proc/log_config(text)
-	WRITE_LOG(GLOB.config_error_log, text)
+	WRITE_LOG(GLOB.config_error_log, "[text][GLOB.log_end]")
 	SEND_TEXT(world.log, text)
 
 /proc/log_href(text)
-	WRITE_LOG(GLOB.world_href_log, "HREF: [html_decode(text)]")
+	WRITE_LOG(GLOB.world_href_log, "HREF: [html_decode(text)][GLOB.log_end]")
 
 /proc/log_asset(text)
-	WRITE_LOG(GLOB.world_asset_log, "ASSET: [text]")
+	WRITE_LOG(GLOB.world_asset_log, "ASSET: [text][GLOB.log_end]")
 
 /proc/log_runtime_summary(text)
-	WRITE_LOG(GLOB.runtime_summary_log, "[text]")
+	WRITE_LOG(GLOB.runtime_summary_log, "[text][GLOB.log_end]")
 
 /proc/log_tgui(text)
 	WRITE_LOG(GLOB.tgui_log, "[text]")
