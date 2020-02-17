@@ -86,7 +86,9 @@
 		new /datum/data/mining_equipment("Grey Slime Extract",			/obj/item/slime_extract/grey,									1000),
 		new /datum/data/mining_equipment("KA Trigger Modification Kit",	/obj/item/borg/upgrade/modkit/trigger_guard,					1000),
 		new /datum/data/mining_equipment("Shuttle Console Board",		/obj/item/circuitboard/shuttle/golem_ship,						2000),
-		new /datum/data/mining_equipment("The Liberator's Legacy",  	/obj/item/storage/box/rndboards,								2000)
+		new /datum/data/mining_equipment("The Liberator's Legacy",  	/obj/item/storage/box/rndboards,								2000),
+		new /datum/data/mining_equipment("Space Travels is real",  		/obj/item/storage/box/rndtelescience,							3500),
+		new /datum/data/mining_equipment("For your research",  			/obj/item/machineprototype,										5000)
 
 		)
 
