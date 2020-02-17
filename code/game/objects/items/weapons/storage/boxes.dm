@@ -1082,6 +1082,16 @@
 	new /obj/item/circuitboard/circuit_imprinter(src)
 	new /obj/item/circuitboard/rdconsole/public(src)
 
+/obj/item/storage/box/rndtelesciense
+	name = "Scape research starter kit"
+	desc = "To infinity and beyond."
+
+/obj/item/storage/box/rndtelesciense/New()
+	..()
+	contents = list()
+	new /obj/item/circuitboard/telesci_console(src)
+	new /obj/item/circuitboard/telesci_pad(src)
+
 /obj/item/storage/box/stockparts/basic //for ruins where it's a bad idea to give access to an autolathe/protolathe, but still want to make stock parts accessible
 	name = "box of stock parts"
 	desc = "Contains a variety of basic stock parts."
