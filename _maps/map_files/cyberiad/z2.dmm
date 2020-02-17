@@ -11775,26 +11775,18 @@
 	},
 /area/centcom/evac)
 "Dd" = (
-/obj/item/grenade/plastic/x4/thermite,
-/obj/item/grenade/plastic/x4/thermite,
-/obj/item/grenade/plastic/x4/thermite,
-/obj/item/grenade/plastic/x4/thermite,
-/obj/item/grenade/plastic/x4/thermite,
-/obj/item/grenade/plastic/x4,
-/obj/item/grenade/plastic/x4,
-/obj/item/grenade/plastic/x4,
-/obj/item/grenade/plastic/x4,
-/obj/item/grenade/plastic/x4,
-/obj/item/grenade/plastic/c4,
-/obj/item/grenade/plastic/c4,
-/obj/item/grenade/plastic/c4,
-/obj/item/grenade/plastic/c4,
-/obj/item/grenade/plastic/c4,
-/obj/structure/closet/crate,
+/obj/machinery/light/spot{
+	dir = 1;
+	tag = "icon-tube1 (NORTH)"
+	},
+/obj/structure/table/reinforced,
+/obj/item/paper_bin,
+/obj/item/pen/multi/gold,
+/obj/item/stamp/syndicate,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/centcom/specops)
+/area/syndicate_mothership)
 "Dv" = (
 /turf/space,
 /area/admin)
@@ -11841,15 +11833,30 @@
 	icon_state = "cafeteria"
 	},
 /area/centcom/control)
+"EC" = (
+/obj/item/gun/medbeam{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/item/gun/medbeam{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/structure/table/reinforced,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
 "EV" = (
 /obj/structure/rack,
 /obj/item/gun/projectile/automatic/m90{
-	pixel_x = -3;
-	pixel_y = -3
+	pixel_x = -4;
+	pixel_y = -4
 	},
+/obj/item/gun/projectile/automatic/m90,
 /obj/item/gun/projectile/automatic/m90{
-	pixel_x = 3;
-	pixel_y = 3
+	pixel_x = 4;
+	pixel_y = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -11885,6 +11892,24 @@
 /obj/structure/closet/crate,
 /turf/unsimulated/floor{
 	icon_state = "dark"
+	},
+/area/centcom/specops)
+"Gh" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/item/pen/multi/fountain,
+/obj/item/stamp/centcom,
+/obj/item/folder/blue{
+	pixel_x = 7;
+	pixel_y = 7
+	},
+/obj/item/folder/blue{
+	pixel_x = 7;
+	pixel_y = -7
+	},
+/obj/item/folder/red,
+/turf/unsimulated/floor{
+	icon_state = "grimy"
 	},
 /area/centcom/specops)
 "Gu" = (
@@ -12078,13 +12103,21 @@
 "Jp" = (
 /obj/structure/rack,
 /obj/item/gun/energy/gun/nuclear{
-	pixel_x = -3;
-	pixel_y = -3
+	pixel_x = -8;
+	pixel_y = -8
+	},
+/obj/item/gun/energy/gun/nuclear{
+	pixel_x = -4;
+	pixel_y = -4
 	},
 /obj/item/gun/energy/gun/nuclear,
 /obj/item/gun/energy/gun/nuclear{
-	pixel_x = 3;
-	pixel_y = 3
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/gun/energy/gun/nuclear{
+	pixel_x = 8;
+	pixel_y = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -12175,14 +12208,21 @@
 "KF" = (
 /obj/structure/rack,
 /obj/item/gun/energy/gun/blueshield/pdw9{
-	pixel_x = 4;
-	pixel_y = 4
+	pixel_x = -7;
+	pixel_y = -7
 	},
 /obj/item/gun/energy/gun/blueshield/pdw9{
-	pixel_x = -4;
-	pixel_y = -4
+	pixel_x = -3;
+	pixel_y = -3
 	},
-/obj/item/gun/energy/gun/blueshield/pdw9,
+/obj/item/gun/energy/gun/blueshield/pdw9{
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/item/gun/energy/gun/blueshield/pdw9{
+	pixel_x = 5;
+	pixel_y = 5
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -12221,10 +12261,19 @@
 	icon_state = "floor4"
 	},
 /area/shuttle/assault_pod)
+"LD" = (
+/obj/structure/table/reinforced,
+/obj/item/camera/digital,
+/obj/item/taperecorder,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/evac)
 "LP" = (
-/obj/item/storage/toolbox,
-/obj/item/storage/toolbox,
-/obj/item/storage/toolbox,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/electrical,
 /obj/structure/closet/crate,
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -12259,14 +12308,22 @@
 "Ne" = (
 /obj/structure/rack,
 /obj/item/gun/energy/laser{
+	pixel_x = -8;
+	pixel_y = -8
+	},
+/obj/item/gun/energy/laser{
 	pixel_x = -4;
 	pixel_y = -4
+	},
+/obj/item/gun/energy/laser,
+/obj/item/gun/energy/laser{
+	pixel_x = 8;
+	pixel_y = 8
 	},
 /obj/item/gun/energy/laser{
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/gun/energy/laser,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -12343,7 +12400,15 @@
 /area/centcom/specops)
 "Pq" = (
 /obj/structure/rack,
+/obj/item/gun/energy/immolator{
+	pixel_x = -4;
+	pixel_y = -4
+	},
 /obj/item/gun/energy/immolator,
+/obj/item/gun/energy/immolator{
+	pixel_x = 4;
+	pixel_y = 4
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -12449,6 +12514,27 @@
 	icon_state = "dark"
 	},
 /area/centcom/specops)
+"Rx" = (
+/obj/item/grenade/plastic/x4/thermite,
+/obj/item/grenade/plastic/x4/thermite,
+/obj/item/grenade/plastic/x4/thermite,
+/obj/item/grenade/plastic/x4/thermite,
+/obj/item/grenade/plastic/x4/thermite,
+/obj/item/grenade/plastic/x4,
+/obj/item/grenade/plastic/x4,
+/obj/item/grenade/plastic/x4,
+/obj/item/grenade/plastic/x4,
+/obj/item/grenade/plastic/x4,
+/obj/item/grenade/plastic/c4,
+/obj/item/grenade/plastic/c4,
+/obj/item/grenade/plastic/c4,
+/obj/item/grenade/plastic/c4,
+/obj/item/grenade/plastic/c4,
+/obj/structure/closet/crate,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
 "RD" = (
 /obj/effect/decal/warning_stripes/south,
 /turf/unsimulated/floor{
@@ -12481,6 +12567,35 @@
 	icon_state = "dark"
 	},
 /area/centcom/specops)
+"Sd" = (
+/obj/structure/table/reinforced,
+/obj/item/paper_bin,
+/obj/item/pen/multi/fountain,
+/obj/item/stamp/centcom,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/control)
+"Sq" = (
+/obj/structure/table/reinforced,
+/obj/item/paper_bin,
+/obj/item/pen/multi/fountain,
+/obj/item/stamp/centcom,
+/obj/item/folder/blue{
+	pixel_x = 7;
+	pixel_y = 7
+	},
+/obj/item/folder/blue{
+	pixel_x = 7;
+	pixel_y = -7
+	},
+/obj/item/folder/red{
+	pixel_x = 7
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/evac)
 "SE" = (
 /obj/mecha/combat/gygax,
 /turf/unsimulated/floor{
@@ -12547,6 +12662,18 @@
 	icon_state = "dark"
 	},
 /area/centcom/specops)
+"TS" = (
+/obj/structure/table/reinforced,
+/obj/item/hand_tele{
+	pixel_x = -4
+	},
+/obj/item/hand_tele{
+	pixel_x = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
 "Ub" = (
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser,
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser,
@@ -12590,6 +12717,20 @@
 	},
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor"
+	},
+/area/centcom/specops)
+"UO" = (
+/obj/structure/rack,
+/obj/item/gun/energy/xray{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/item/gun/energy/xray{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
 	},
 /area/centcom/specops)
 "Vc" = (
@@ -12694,14 +12835,21 @@
 /area/centcom/evac)
 "WX" = (
 /obj/structure/rack,
-/obj/item/gun/energy/taser{
-	pixel_x = -3;
-	pixel_y = -3
+/obj/item/gun/energy/gun/advtaser{
+	pixel_x = -7;
+	pixel_y = -7
 	},
-/obj/item/gun/energy/taser,
-/obj/item/gun/energy/taser{
-	pixel_x = 4;
-	pixel_y = 4
+/obj/item/gun/energy/gun/advtaser{
+	pixel_x = -4;
+	pixel_y = -4
+	},
+/obj/item/gun/energy/gun/advtaser{
+	pixel_x = -1;
+	pixel_y = -1
+	},
+/obj/item/gun/energy/gun/advtaser{
+	pixel_x = 3;
+	pixel_y = 3
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -12752,7 +12900,15 @@
 /area/abductor_ship)
 "Yc" = (
 /obj/structure/rack,
+/obj/item/gun/energy/lasercannon{
+	pixel_x = -4;
+	pixel_y = -4
+	},
 /obj/item/gun/energy/lasercannon,
+/obj/item/gun/energy/lasercannon{
+	pixel_x = 4;
+	pixel_y = 4
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -25540,7 +25696,7 @@ uj
 uj
 uj
 uj
-Dd
+uj
 sX
 aN
 aN
@@ -25793,10 +25949,10 @@ px
 fm
 sX
 uj
-uj
-uj
-uj
-uj
+TS
+EC
+UO
+Rx
 Gf
 sX
 aN
@@ -32984,7 +33140,7 @@ oG
 oK
 VC
 pc
-vd
+Gh
 pE
 pO
 pY
@@ -37094,7 +37250,7 @@ ud
 su
 uw
 RD
-tR
+Sd
 tR
 Tl
 vu
@@ -38152,8 +38308,8 @@ wK
 wK
 wK
 cH
-yt
-yt
+LD
+Sq
 cK
 wK
 aN
@@ -61174,7 +61330,7 @@ nj
 nj
 kk
 nj
-gg
+Dd
 kr
 kr
 kr
