@@ -27,7 +27,7 @@ GLOBAL_LIST_INIT(adminhelp_ignored_words, list("unknown","the","a","an","of","mo
 	if(handle_spam_prevention(msg, MUTE_ADMINHELP, OOC_COOLDOWN))
 		return
 
-	msg = sanitize_simple(copytext(msg,1,MAX_MESSAGE_LEN))
+	msg = sanitize_simple(copytext_char(msg,1,MAX_MESSAGE_LEN))
 	if(!msg)	return
 	var/original_msg = msg
 
@@ -47,14 +47,14 @@ GLOBAL_LIST_INIT(adminhelp_ignored_words, list("unknown","the","a","an","of","mo
 			var/surname_found = 0
 			//surnames
 			for(var/i=L.len, i>=1, i--)
-				var/word = ckey(L[i])
+				var/word = lowertext(L[i])
 				if(word)
 					surnames[word] = M
 					surname_found = i
 					break
 			//forenames
 			for(var/i=1, i<surname_found, i++)
-				var/word = ckey(L[i])
+				var/word = lowertext(L[i])
 				if(word)
 					forenames[word] = M
 			//ckeys
@@ -64,7 +64,7 @@ GLOBAL_LIST_INIT(adminhelp_ignored_words, list("unknown","the","a","an","of","mo
 	msg = ""
 	var/list/mobs_found = list()
 	for(var/original_word in msglist)
-		var/word = ckey(original_word)
+		var/word = lowertext(original_word)
 		if(word)
 			if(!(word in GLOB.adminhelp_ignored_words))
 				if(word == "ai")
@@ -80,7 +80,7 @@ GLOBAL_LIST_INIT(adminhelp_ignored_words, list("unknown","the","a","an","of","mo
 							mobs_found += found
 							if(!ai_found && isAI(found))
 								ai_found = 1
-							msg += "<b><font color='black'>[original_word] </font></b> "
+							msg += "<b><font color='orange'>[original_word] </font></b> "
 							continue
 			msg += "[original_word] "
 
