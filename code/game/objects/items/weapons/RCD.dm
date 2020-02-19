@@ -244,7 +244,7 @@ GLOBAL_LIST_INIT(rcd_door_types, list(
 			. = 1
 
 		if(href_list["choice"])
-			var/temp_t = sanitize(copytext(input("Enter a custom Airlock Name.", "Airlock Name"), 1, MAX_MESSAGE_LEN))
+			var/temp_t = sanitize(copytext_char(input("Enter a custom Airlock Name.", "Airlock Name"), 1, MAX_MESSAGE_LEN))
 			if(temp_t)
 				door_name = temp_t
 

@@ -490,7 +490,7 @@
 		var/reason = input(usr,"Reason:","Why do you require this item?","") as null|text
 		if(world.time > timeout || !reason || ..())
 			return 1
-		reason = sanitize(copytext(reason, 1, MAX_MESSAGE_LEN))
+		reason = sanitize(copytext_char(reason, 1, MAX_MESSAGE_LEN))
 
 		var/idname = "*None Provided*"
 		var/idrank = "*None Provided*"
@@ -671,7 +671,7 @@
 		var/reason = input(usr,"Reason:","Why do you require this item?","") as null|text
 		if(world.time > timeout || !reason || !is_authorized(usr) || ..())
 			return 1
-		reason = sanitize(copytext(reason, 1, MAX_MESSAGE_LEN))
+		reason = sanitize(copytext_char(reason, 1, MAX_MESSAGE_LEN))
 
 		var/idname = "*None Provided*"
 		var/idrank = "*None Provided*"
