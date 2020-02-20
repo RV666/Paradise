@@ -66,7 +66,54 @@
 	else
 		to_chat(user, "<span class='notice'>Access Denied</span>")
 
+/obj/structure/closet/secure_closet/proc/hack(obj/item/W, mob/living/user)
+	if(istype(W, /obj/item/screwdriver) && broken == 0)
+		to_chat(user, "<span class='notice'>You start unsecuring and removing [src] panel...</span>")
+		if(W.use_tool(src, user, 160, volume = W.tool_volume))
+			if(prob(95)) // EZ
+				to_chat(user, "<span class='notice'>You've succesfully unsecured and removed [src] panel!</span>")
+				desc += " Control panel removed."
+				broken = 3
+				icon_state = icon_off
+			else // Bad day)
+				var/mob/living/carbon/human/H = user
+				var/obj/item/organ/external/affecting = H.get_organ(user.r_hand == W ? "l_hand" : "r_hand")
+				user.apply_damage(5, BRUTE , affecting)
+				user.emote("scream")
+				to_chat(user, "<span class='warning'>Awww! Damn [W.name] popped off and hurt your [affecting.name]!</span>")
+		return TRUE
+
+	if(istype(W, /obj/item/wirecutters) && broken == 3)
+		to_chat(user, "<span class='notice'>You start preparing wires of [src] panel...</span>")
+		if(W.use_tool(src, user, 160, volume = W.tool_volume))
+			if(prob(80)) // Good hacker!
+				to_chat(user, "<span class='notice'>You've succesfully prepared [src] panel wires!</span>")
+				desc += " Wires disconnected."
+				broken = 2
+			else // woopsy
+				to_chat(user, "<span class='warning'>Oh! Wrong wire!</span>")
+				do_sparks(5, 1, src)
+				electrocute_mob(user, get_area(src), src, 0.5, TRUE)
+		return TRUE
+
+	if(istype(W, /obj/item/multitool) && broken == 2)
+		to_chat(user, "<span class='notice'>You start connecting [src] panel wires to [W]...</span>")
+		if(W.use_tool(src, user, 160, volume = W.tool_volume))
+			if(prob(80)) // Good hacker!
+				desc += " Lock bypassed."
+				broken = 0 // Can be emagged
+				emag_act(user)
+			else // woopsy
+				to_chat(user, "<span class='warning'>Oh! Wrong wire!</span>")
+				do_sparks(5, 1, src)
+				electrocute_mob(user, get_area(src), src, 0.5, TRUE)
+		return TRUE
+
 /obj/structure/closet/secure_closet/attackby(obj/item/W, mob/user, params)
+	if(locked && broken != 1 && user.a_intent != INTENT_HARM) // Locked, not already hacked/emagged, not hit
+		if(hack(W, user))
+			return
+
 	if(istype(W, /obj/item/rcs))
 		return ..()
 
