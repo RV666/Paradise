@@ -481,3 +481,16 @@ DISABLE_HIGH_POP_MC_MODE_AMOUNT 60
 
 ## If uncommented, all gamemodes will respect the number of required players. Defaults to no.
 #ENABLE_GAMEMODE_PLAYER_LIMIT
+
+
+## Uncomment to disable respawning by default.
+#DISABLE_RESPAWN
+
+## Uncomment to allow players joined as observer respawning.
+#RESPAWN_OBSERVER
+
+## Respawn delay in minutes before one may respawn as a crew member.
+RESPAWN_DELAY 20
+
+## Respawn delay in minutes before one may respawn as a drone.
+RESPAWN_DELAY_DRONE 10
