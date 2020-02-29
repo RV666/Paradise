@@ -250,15 +250,17 @@ SUBSYSTEM_DEF(air)
 		var/datum/excited_group/EG = currentrun[currentrun.len]
 		currentrun.len--
 		EG.breakdown_cooldown++
-		if(EG.breakdown_cooldown == 10)
+		EG.dismantle_cooldown++
+		if(EG.breakdown_cooldown >= EXCITED_GROUP_BREAKDOWN_CYCLES)
 			EG.self_breakdown()
-		else if(EG.breakdown_cooldown >= 20)
+		else if(EG.dismantle_cooldown >= EXCITED_GROUP_DISMANTLE_CYCLES)
 			EG.dismantle()
 		if(MC_TICK_CHECK)
 			return
 
 /datum/controller/subsystem/air/proc/remove_from_active(turf/simulated/T)
 	active_turfs -= T
+//	T.remove_atom_colour(TEMPORARY_COLOUR_PRIORITY, "#00ff00")
 	active_super_conductivity -= T // bug: if a turf is hit by ex_act 1 while processing, it can end up in super conductivity as /turf/space and cause runtimes
 	if(currentpart == SSAIR_ACTIVETURFS || currentpart == SSAIR_SUPERCONDUCTIVITY)
 		currentrun -= T
@@ -269,6 +271,7 @@ SUBSYSTEM_DEF(air)
 
 /datum/controller/subsystem/air/proc/add_to_active(turf/simulated/T, blockchanges = 1)
 	if(istype(T) && T.air)
+//		T.add_atom_colour("#00ff00", TEMPORARY_COLOUR_PRIORITY)
 		T.excited = 1
 		active_turfs |= T
 		if(currentpart == SSAIR_ACTIVETURFS)
