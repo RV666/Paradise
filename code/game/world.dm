@@ -349,6 +349,21 @@ GLOBAL_VAR_INIT(world_topic_spam_protect_time, world.timeofday)
 	GLOB.join_motd = file2text("config/motd.txt")
 	GLOB.join_tos = file2text("config/tos.txt")
 
+/hook/startup/proc/loadProxyWhitelist()
+	world.load_proxy_whitelist()
+	return 1
+
+/world/proc/load_proxy_whitelist()
+	if(!fexists("config/proxy_whitelist.txt"))
+		return
+	var/L = file2list("config/proxy_whitelist.txt")
+	for(var/line in L)
+		if(!length(line))
+			continue
+		if(copytext(line,1,2) == "#")
+			continue
+		proxy_whitelist.Add(ckey(line))
+
 /proc/load_configuration()
 	config = new /datum/configuration()
 	config.load("config/config.txt")
