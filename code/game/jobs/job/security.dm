@@ -38,6 +38,7 @@
 	suit_store = /obj/item/gun/energy/gun
 	pda = /obj/item/pda/heads/hos
 	backpack_contents = list(
+		/obj/item/ammo_box/a357 = 3,
 		/obj/item/restraints/handcuffs = 1,
 		/obj/item/melee/classic_baton/telescopic = 1
 	)
@@ -47,7 +48,7 @@
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel_sec
 	dufflebag = /obj/item/storage/backpack/duffel/security
-
+	belt = /obj/item/gun/projectile/revolver/mateba
 
 
 /datum/job/warden
