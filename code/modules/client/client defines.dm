@@ -80,6 +80,8 @@
 
 	var/datum/click_intercept/click_intercept = null
 
+	var/datum/geoip_data/geoip = null
+
 	//datum that controls the displaying and hiding of tooltips
 	var/datum/tooltip/tooltips
 
