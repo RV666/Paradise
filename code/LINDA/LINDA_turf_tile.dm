@@ -143,6 +143,13 @@
 
 
 
+#define LAST_SHARE_CHECK \
+	var/last_share = air.last_share;\
+	if(last_share > MINIMUM_AIR_TO_SUSPEND){\
+		excited_group.reset_cooldowns();\
+	} else if(last_share > MINIMUM_MOLES_DELTA_TO_MOVE) {\
+		excited_group.dismantle_cooldown = 0;\
+	}
 
 /turf/simulated/proc/process_cell()
 	if(archived_cycle < SSair.times_fired) //archive self if not already done
@@ -213,7 +220,7 @@
 						enemy_tile.consider_pressure_difference(src, difference)
 				remove = 0
 				if(excited_group)
-					last_share_check()
+					LAST_SHARE_CHECK
 
 	if(planet_atmos) //share our air with the "atmosphere" "above" the turf
 		var/datum/gas_mixture/G = new
@@ -230,7 +237,7 @@
 				var/datum/excited_group/EG = new
 				EG.add_turf(src)
 			air.share(G, atmos_adjacent_turfs_amount)
-			last_share_check()
+			LAST_SHARE_CHECK
 
 	air.react()
 
@@ -296,17 +303,13 @@
 				consider_pressure_difference(T, difference)
 			else
 				T.consider_pressure_difference(src, difference)
-		last_share_check()
+		LAST_SHARE_CHECK
 
 /turf/proc/consider_pressure_difference(var/turf/simulated/T, var/difference)
 	SSair.high_pressure_delta |= src
 	if(difference > pressure_difference)
 		pressure_direction = get_dir(src, T)
 		pressure_difference = difference
-
-/turf/simulated/proc/last_share_check()
-	if(air.last_share > MINIMUM_AIR_TO_SUSPEND)
-		excited_group.reset_cooldowns()
 
 /turf/proc/high_pressure_movements()
 	var/atom/movable/M
@@ -324,7 +327,7 @@
 /atom/movable/proc/experience_pressure_difference(pressure_difference, direction, pressure_resistance_prob_delta = 0)
 	var/const/PROBABILITY_OFFSET = 25
 	var/const/PROBABILITY_BASE_PRECENT = 75
-	var/max_force = sqrt(pressure_difference) * (MOVE_FORCE_DEFAULT / 5)
+	var/max_force = sqrt(pressure_difference) * (MOVE_FORCE_DEFAULT) // / 5)
 	set waitfor = 0
 	var/move_prob = 100
 	if(pressure_resistance > 0)
@@ -339,6 +342,7 @@
 /datum/excited_group
 	var/list/turf_list = list()
 	var/breakdown_cooldown = 0
+	var/dismantle_cooldown = 0
 
 /datum/excited_group/New()
 	if(SSair)
@@ -366,6 +370,7 @@
 
 /datum/excited_group/proc/reset_cooldowns()
 	breakdown_cooldown = 0
+	dismantle_cooldown = 0
 
 /datum/excited_group/proc/self_breakdown()
 	var/datum/gas_mixture/A = new
