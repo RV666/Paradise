@@ -34,6 +34,7 @@
 	/area/shuttle/escape_pod3/station,
 	/area/shuttle/escape_pod5/station,
 	/area/shuttle/specops/station,
+	/area/shuttle/ert/station,
 	/area/shuttle/prison/station,
 	/area/shuttle/administration/station
 	)
