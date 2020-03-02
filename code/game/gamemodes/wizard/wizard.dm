@@ -62,6 +62,7 @@
 		wizard_mind.current.create_log(CONVERSION_LOG, "De-wizarded")
 		wizard_mind.current.spellremove(wizard_mind.current)
 		wizard_mind.current.faction = list("Station")
+		wizard_mind.targets.Cut()
 		if(issilicon(wizard_mind.current))
 			to_chat(wizard_mind.current, "<span class='userdanger'>You have been turned into a robot! You can feel your magical powers fading away...</span>")
 		else
@@ -79,10 +80,113 @@
 	set_antag_hud(wiz_mind.current, null)
 
 /datum/game_mode/proc/forge_wizard_objectives(var/datum/mind/wizard)
-	var/datum/objective/wizchaos/wiz_objective = new
-	wiz_objective.owner = wizard
-	wizard.objectives += wiz_objective
-	return
+	var/is_hijacker = prob(10)
+	var/martyr_chance = prob(20)
+	var/objective_count = is_hijacker * 3			//Hijacking counts for three objectives
+	var/martyr_compatibility = 1 //Eligible for martyr objective unless getting non martyr compatible objectives later
+	
+	var/objective_amount = pick(
+	200; 3,
+	60; 4,
+	40; 5
+	)
+	
+	if(prob(50))
+		var/datum/objective/minimize_casualties/minimize_casualties_objective = new
+		minimize_casualties_objective.owner = wizard
+		wizard.objectives += minimize_casualties_objective
+
+	if(is_hijacker)
+		if (!(locate(/datum/objective/hijack) in wizard.objectives))
+			var/datum/objective/hijack/hijack_objective = new
+			hijack_objective.owner = wizard
+			wizard.objectives += hijack_objective
+			martyr_compatibility = 0 //Can't get martyr objective with hijack
+			return
+
+	for(objective_count, objective_count < objective_amount)
+		if(prob(50))
+			if(prob(13))	
+				var/list/active_ais = active_ais()
+				if(active_ais.len && prob(100/GLOB.player_list.len))
+					var/datum/objective/destroy/destroy_objective = new
+					destroy_objective.owner = wizard
+					destroy_objective.find_target()
+					if("[destroy_objective]" in wizard.targets)	        // Is this target already in their list of assigned targets? If so, don't add this objective and return
+						return 0										 
+					else if(destroy_objective.target)					    // Is the target a real one and not null? If so, add it to our list of targets to avoid duplicate targets
+						wizard.targets.Add("[destroy_objective.target]")	// This logic is applied to all traitor objectives including steal objectives
+					wizard.objectives += destroy_objective
+					objective_count += 1
+
+			else if(prob(30))	
+				var/datum/objective/protect/protect_objective = new
+				protect_objective.owner = wizard
+				protect_objective.find_target()
+				if("[protect_objective]" in wizard.targets)
+					return 0
+				else if(protect_objective.target)
+					wizard.targets.Add("[protect_objective.target]")
+				wizard.objectives += protect_objective
+				objective_count += 1
+
+			else if(prob(5))
+				var/datum/objective/debrain/debrain_objective = new
+				debrain_objective.owner = wizard
+				debrain_objective.find_target()
+				if("[debrain_objective]" in wizard.targets)
+					return 0
+				else if(debrain_objective.target)
+					wizard.targets.Add("[debrain_objective.target]")
+				wizard.objectives += debrain_objective
+				objective_count += 1
+				martyr_compatibility = 0
+
+			else if(prob(30))
+				var/datum/objective/maroon/maroon_objective = new
+				maroon_objective.owner = wizard
+				maroon_objective.find_target()
+				if("[maroon_objective]" in wizard.targets)
+					return 0
+				else if(maroon_objective.target)
+					wizard.targets.Add("[maroon_objective.target]")
+				wizard.objectives += maroon_objective
+				objective_count += 1
+
+			else
+				var/datum/objective/assassinate/kill_objective = new
+				kill_objective.owner = wizard
+				kill_objective.find_target()
+				if("[kill_objective.target]" in wizard.targets)
+					return 0
+				else if(kill_objective.target)
+					wizard.targets.Add("[kill_objective.target]")
+				wizard.objectives += kill_objective
+				objective_count += 1
+
+		else
+			var/datum/objective/steal/steal_objective = new
+			steal_objective.owner = wizard
+			steal_objective.find_target()
+			if("[steal_objective.steal_target]" in wizard.targets)
+				return 0
+			else if(steal_objective.steal_target)
+				wizard.targets.Add("[steal_objective.steal_target]")
+			wizard.objectives += steal_objective
+			objective_count += 1
+			martyr_compatibility = 0
+
+	if(martyr_compatibility && martyr_chance)
+		var/datum/objective/die/martyr_objective = new
+		martyr_objective.owner = wizard
+		wizard.objectives += martyr_objective
+		return
+
+	if(!(locate(/datum/objective/escape) in wizard.objectives))
+		var/datum/objective/escape/escape_objective = new
+		escape_objective.owner = wizard
+		wizard.objectives += escape_objective
+		return
 
 /datum/game_mode/proc/name_wizard(mob/living/carbon/human/wizard_mob)
 	//Allows the wizard to choose a custom name or go with a random one. Spawn 0 so it does not lag the round starting.
