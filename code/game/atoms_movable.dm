@@ -1,6 +1,8 @@
 /atom/movable
 	layer = 3
 	appearance_flags = TILE_BOUND
+	glide_size = 2.33 // Optimized for Client.fps = World.fps and ~60fps!
+	var/glide_correction = 1.25
 	var/last_move = null
 	var/anchored = 0
 	var/move_resist = MOVE_RESIST_DEFAULT
@@ -202,6 +204,9 @@
 	last_move = direct
 	src.move_speed = world.time - src.l_move_time
 	src.l_move_time = world.time
+
+	if(src.move_speed && src.move_speed < 4)
+		src.glide_size = (src.glide_size + (8 / (src.move_speed - world.tick_lag + glide_correction))) / 2
 
 	if(. && has_buckled_mobs() && !handle_buckled_mob_movement(loc, direct)) //movement failed due to buckled mob
 		. = 0

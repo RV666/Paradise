@@ -492,6 +492,12 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			if(M.loc != .)
 				M.forceMove(.)
 
+/mob/dead/observer/update_following()
+	if(following && ("glide_size" in following.vars) && client)
+		var/tick_coeff = client.tick_lag ? world.tick_lag/client.tick_lag : 1
+		glide_size = following.glide_size * tick_coeff
+	..()
+
 /mob
 	var/list/following_mobs = list()
 
