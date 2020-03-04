@@ -33,7 +33,43 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	  ":$" = "Response Team", "#$" = "Response Team", ".$" = "Response Team",
 	  ":-" = "Special Ops",	"#-" = "Special Ops",	".-" = "Special Ops",
 	  ":_" = "SyndTeam",	"#_" = "SyndTeam",		"._" = "SyndTeam",
-	  ":X" = "cords",		"#X" = "cords",			".X" = "cords"
+	  ":X" = "cords",		"#X" = "cords",			".X" = "cords",
+
+	  ":к" = "right ear",	"№к" = "right ear",		".к" = "right ear",
+	  ":д" = "left ear",	"№д" = "left ear",		".д" = "left ear",
+	  ":ш" = "intercom",	"№ш" = "intercom",		".ш" = "intercom",
+	  ":р" = "department",	"№р" = "department",	".р" = "department",
+	  ":с" = "Command",		"№с" = "Command",		".с" = "Command",
+	  ":т" = "Science",		"№т" = "Science",		".т" = "Science",
+	  ":ь" = "Medical",		"№ь" = "Medical",		".ь" = "Medical",
+	  ":у" = "Engineering", "№у" = "Engineering",	".у" = "Engineering",
+	  ":ы" = "Security",	"№ы" = "Security",		".ы" = "Security",
+	  ":ц" = "whisper",		"№ц" = "whisper",		".ц" = "whisper",
+	  ":е" = "Syndicate",	"№е" = "Syndicate",		".е" = "Syndicate",
+	  ":г" = "Supply",		"№г" = "Supply",		".г" = "Supply",
+	  ":я" = "Service",		"№я" = "Service",		".я" = "Service",
+	  ":з" = "AI Private",	"№з" = "AI Private",	".з" = "AI Private",
+	  ":ч" = "cords",		"№ч" = "cords",			".ч" = "cords",
+
+	  ":К" = "right ear",	"№К" = "right ear",		".К" = "right ear",
+	  ":Д" = "left ear",	"№Д" = "left ear",		".Д" = "left ear",
+	  ":Ш" = "intercom",	"№Ш" = "intercom",		".Ш" = "intercom",
+	  ":Р" = "department",	"№Р" = "department",	".Р" = "department",
+	  ":С" = "Command",		"№С" = "Command",		".С" = "Command",
+	  ":Т" = "Science",		"№Т" = "Science",		".Т" = "Science",
+	  ":Ь" = "Medical",		"№Ь" = "Medical",		".Ь" = "Medical",
+	  ":У" = "Engineering",	"№У" = "Engineering",	".У" = "Engineering",
+	  ":Ы" = "Security",	"№Ы" = "Security",		".Ы" = "Security",
+	  ":Ц" = "whisper",		"№Ц" = "whisper",		".Ц" = "whisper",
+	  ":Е" = "Syndicate",	"№Е" = "Syndicate",		".Е" = "Syndicate",
+	  ":Г" = "Supply",		"№Г" = "Supply",		".Г" = "Supply",
+	  ":Я" = "Service",		"№Я" = "Service",		".Я" = "Service",
+	  ":З" = "AI Private",	"№З" = "AI Private",	".З" = "AI Private",
+	  ":Ч" = "cords",		"№Ч" = "cords",			".Ч" = "cords",
+	  						"№$" = "Response Team",
+	  						"№-" = "Special Ops",
+	  						"№_" = "SyndTeam",
+							"№+" = "special"
 ))
 
 GLOBAL_LIST_EMPTY(channel_to_radio_key)
@@ -129,9 +165,9 @@ proc/get_radio_key_from_channel(var/channel)
 	//parse the radio code and consume it
 	if(message_mode)
 		if(message_mode == "headset")
-			message = copytext(message, 2)	//it would be really nice if the parse procs could do this for us.
+			message = copytext_char(message, 2)	//it would be really nice if the parse procs could do this for us.
 		else
-			message = copytext(message, 3)
+			message = copytext_char(message, 3)
 
 	message = trim_left(message)
 
