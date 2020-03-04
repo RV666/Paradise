@@ -19,12 +19,12 @@
 	var/list/newlist = dreamlist.Copy()
 	for(var/i in 1 to newlist.len)
 		newlist[i] = replacetext(newlist[i], "\[DREAMER\]", "[user.name]")
-	return dreamlist
+	return newlist
 
 
 //NIGHTMARES
 /mob/living/carbon/proc/nightmare()
-	var/list/nightmares = GLOB.nightmare_strings.Copy()
+	var/list/nightmares = custom_dreams(GLOB.nightmare_strings, src)
 
 	for(var/obj/item/bedsheet/sheet in loc)
 		nightmares += sheet.nightmare_messages
