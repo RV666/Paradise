@@ -142,7 +142,7 @@ SUBSYSTEM_DEF(ticker)
 	else
 		src.mode = config.pick_mode(GLOB.master_mode)
 	if(!src.mode.can_start())
-		to_chat(world, "<B>Unable to start [mode.name].</B> Not enough players, [mode.required_players] players needed. Reverting to pre-game lobby.")
+		to_chat(world, "<B>Unable to start [mode.name].</B> Not enough players, [config.enable_gamemode_player_limit ? config.mode_required_players[mode.config_tag] : mode.required_enemies] players needed. Reverting to pre-game lobby.")
 		mode = null
 		current_state = GAME_STATE_PREGAME
 		SSjobs.ResetOccupations()
@@ -156,6 +156,7 @@ SUBSYSTEM_DEF(ticker)
 	SSjobs.DivideOccupations() //Distribute jobs
 	if(!can_continue)
 		qdel(mode)
+		mode = null
 		current_state = GAME_STATE_PREGAME
 		to_chat(world, "<B>Error setting up [GLOB.master_mode].</B> Reverting to pre-game lobby.")
 		SSjobs.ResetOccupations()
