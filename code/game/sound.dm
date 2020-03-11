@@ -88,6 +88,9 @@
 		S.y = 1
 		S.falloff = (falloff ? falloff : FALLOFF_SOUNDS)
 
+		if(S.file == 'sound/goonstation/voice/howl.ogg' && distance > 0 && S.volume > 60 && isvulpkanin(src))
+			addtimer(CALLBACK(src, /mob/.proc/emote, "howl"), rand(10,30)) // Vulps cant resist! >)
+
 	SEND_SOUND(src, S)
 
 /proc/sound_to_playing_players(soundin, volume = 100, vary = FALSE, frequency = 0, falloff = FALSE, channel = 0, pressure_affected = FALSE, sound/S)
