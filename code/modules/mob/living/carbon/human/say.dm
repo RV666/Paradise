@@ -242,7 +242,7 @@
 	if(dna.species.speech_sounds && prob(dna.species.speech_chance))
 		returns[1] = sound(pick(dna.species.speech_sounds))
 		returns[2] = 50
-		returns[3] = get_age_pitch()
+		returns[3] = get_age_pitch() + (0.01*rand(-5,5))
 	return returns
 
 /mob/living/carbon/human/binarycheck()
