@@ -366,7 +366,7 @@
 /obj/item/ammo_box/magazine/m556
 	name = "toploader magazine (5.56mm)"
 	icon_state = "5.56m"
-	origin_tech = "combat=5;syndicate=1"
+	origin_tech = "combat=5"
 	ammo_type = /obj/item/ammo_casing/a556
 	caliber = "a556"
 	max_ammo = 30
@@ -377,7 +377,7 @@
 	desc = "A drum magazine."
 	icon_state = "m12gb"
 	ammo_type = /obj/item/ammo_casing/shotgun
-	origin_tech = "combat=3;syndicate=1"
+	origin_tech = "combat=3"
 	caliber = "shotgun"
 	max_ammo = 8
 
