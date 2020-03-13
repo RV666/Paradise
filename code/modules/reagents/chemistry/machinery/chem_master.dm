@@ -347,8 +347,8 @@
 				if(count > 20)
 					count = 20	//Pevent people from creating huge stacks of patches easily. Maybe move the number to defines?
 				var/amount_per_patch = reagents.total_volume/count
-				if(amount_per_patch > 30)
-					amount_per_patch = 30
+				if(amount_per_patch > 20)
+					amount_per_patch = 20
 				var/name = clean_input("Name:", "Name your patch!", "[reagents.get_master_reagent_name()] ([amount_per_patch]u)")
 				if(!name)
 					return
