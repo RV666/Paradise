@@ -30,7 +30,7 @@
 /obj/machinery/photocopier/attack_hand(mob/user)
 	user.set_machine(src)
 
-	var/dat = "Photocopier<BR><BR>"
+	var/dat = {"<meta charset="UTF-8">Photocopier<BR><BR>"}
 	if(copyitem || (ass && (ass.loc == src.loc)))
 		dat += "<a href='byond://?src=[UID()];remove=1'>Remove Item</a><BR>"
 		if(toner)

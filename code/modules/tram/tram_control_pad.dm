@@ -9,7 +9,7 @@
 /obj/tram/controlpad/attack_hand(var/mob/user)
 	usr.set_machine(src)
 	if(!tram_linked)	return
-	var/dat = "Tram Controller"
+	var/dat = {"<meta charset="UTF-8">Tram Controller"}
 	dat += "<br>Tram engine: <a href=?src=[UID()];engine_toggle=1>[tram_linked.automode ? "<font color='green'>On</font>" : "<font color='red'>Off</font>"]</a>"
 	dat += "<br><A href='?src=[UID()];close=1'>Close console</A>"
 	user << browse(dat, "window=trampad")
