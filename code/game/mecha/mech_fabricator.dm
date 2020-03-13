@@ -307,7 +307,7 @@
 			if("parts")
 				left_part += output_parts_list(part_set)
 				left_part += "<hr><a href='?src=[UID()];screen=main'>Return</a>"
-	dat = {"
+	dat = {"<meta charset="UTF-8">
 
 			  <title>[name]</title>
 				<style>

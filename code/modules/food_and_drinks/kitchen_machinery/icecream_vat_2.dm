@@ -69,7 +69,7 @@ GLOBAL_LIST_INIT(ingredients_source, list(
 	interact(user)
 
 /obj/machinery/icecream_vat/interact(mob/user)
-	var/dat
+	var/dat = {"<meta charset="UTF-8">"}
 	dat += "<a href='?src=[UID()];dispense=[ICECREAM_VANILLA]'><b>Dispense vanilla icecream</b></a> There is [ingredients[ICECREAM_VANILLA]] scoops of vanilla icecream left (made from milk and ice).<br>"
 	dat += "<a href='?src=[UID()];dispense=[FLAVOUR_STRAWBERRY]'><b>Dispense strawberry icecream</b></a> There is [ingredients[FLAVOUR_STRAWBERRY]] dollops of strawberry flavouring left (obtained from berry juice.<br>"
 	dat += "<a href='?src=[UID()];dispense=[FLAVOUR_CHOCOLATE]'><b>Dispense chocolate icecream</b></a> There is [ingredients[FLAVOUR_CHOCOLATE]] dollops of chocolate flavouring left (obtained from cocoa powder).<br>"

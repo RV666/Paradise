@@ -316,7 +316,7 @@
 	user.set_machine(src)
 
 	// dat
-	var/dat = "<HR>Timer System:</hr>"
+	var/dat = {"<meta charset="UTF-8"><HR>Timer System:</hr>"}
 	dat += " <b>Door [id] controls</b><br/>"
 
 	// Start/Stop timer

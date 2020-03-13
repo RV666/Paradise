@@ -24,6 +24,7 @@
 			return
 		user.set_machine(src)
 		var/list/dat = list()
+		dat += {"<meta charset="UTF-8">"}
 		dat += "<TITLE>Telecommunication Server Monitor</TITLE><center><b>Telecommunications Server Monitor</b></center>"
 
 		switch(screen)

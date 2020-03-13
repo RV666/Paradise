@@ -65,7 +65,7 @@ GLOBAL_VAR_INIT(nologevent, 0)
 	if(!check_rights(R_ADMIN|R_MOD))
 		return
 
-	var/body = "<html><head><title>Options for [M.key]</title></head>"
+	var/body = {"<html><meta charset="UTF-8"><head><title>Options for [M.key]</title></head>"}
 	body += "<body>Options panel for <b>[M]</b>"
 	if(M.client)
 		body += " played by <b>[M.client]</b> "
@@ -299,7 +299,7 @@ GLOBAL_VAR_INIT(nologevent, 0)
 		src = usr.client.holder
 
 	var/dat
-	dat = text("<HEAD><TITLE>Admin Newscaster</TITLE></HEAD><H3>Admin Newscaster Unit</H3>")
+	dat = text({"<meta charset="UTF-8"><HEAD><TITLE>Admin Newscaster</TITLE></HEAD><H3>Admin Newscaster Unit</H3>"})
 
 	switch(admincaster_screen)
 		if(0)
@@ -536,7 +536,7 @@ GLOBAL_VAR_INIT(nologevent, 0)
 	if(!check_rights(R_BAN))
 		return
 
-	var/dat = "<B>Job Bans!</B><HR><table>"
+	var/dat = {"<meta charset="UTF-8"><B>Job Bans!</B><HR><table>"}
 	for(var/t in GLOB.jobban_keylist)
 		var/r = t
 		if( findtext(r,"##") )
@@ -549,7 +549,7 @@ GLOBAL_VAR_INIT(nologevent, 0)
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/dat = {"
+	var/dat = {"<meta charset="UTF-8">
 		<center><B>Game Panel</B></center><hr>\n
 		<A href='?src=[UID()];c_mode=1'>Change Game Mode</A><br>
 		"}

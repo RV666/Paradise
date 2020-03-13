@@ -170,7 +170,7 @@
 	return null
 
 /mob/proc/scorestats()
-	var/dat = "<b>Round Statistics and Score</b><br><hr>"
+	var/dat = {"<meta charset="UTF-8"><b>Round Statistics and Score</b><br><hr>"}
 	if(SSticker && SSticker.mode)
 		dat += SSticker.mode.get_scoreboard_stats()
 
