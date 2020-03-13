@@ -13,6 +13,7 @@
 		return
 	var/output={"<!DOCTYPE html>
 <html>
+<meta charset="UTF-8">
 <head>
 <script>
 var numoptions = 0;

@@ -662,7 +662,7 @@ GLOBAL_LIST_EMPTY(allNewscasters) //Global list that will contain reference to a
 /obj/item/newspaper/attack_self(mob/user as mob)
 	if(ishuman(user))
 		var/mob/living/carbon/human/human_user = user
-		var/dat
+		var/dat = {"<meta charset="UTF-8">"}
 		pages = 0
 		switch(screen)
 			if(0) //Cover

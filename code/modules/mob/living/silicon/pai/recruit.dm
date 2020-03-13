@@ -133,7 +133,7 @@ GLOBAL_DATUM(paiController, /datum/paiController) // Global handler for pAI cand
 		pai_candidates.Add(candidate)
 
 
-	var/dat = ""
+	var/dat = {"<meta charset="UTF-8">"}
 	dat += {"
 			<style type="text/css">
 				body {
@@ -265,6 +265,7 @@ GLOBAL_DATUM(paiController, /datum/paiController) // Global handler for pAI cand
 	dat += {"
 		<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
 		<html>
+			<meta charset="UTF-8">
 			<head>
 				<style>
 					body {

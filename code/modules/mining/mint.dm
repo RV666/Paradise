@@ -30,7 +30,7 @@
 /obj/machinery/mineral/mint/attack_hand(mob/user)
 	if(..())
 		return
-	var/dat = "<b>Coin Press</b><br>"
+	var/dat = {"<meta charset="UTF-8"><b>Coin Press</b><br>"}
 
 	GET_COMPONENT(materials, /datum/component/material_container)
 	for(var/mat_id in materials.materials)

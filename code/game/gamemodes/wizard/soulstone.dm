@@ -128,7 +128,7 @@
 		return
 
 	user.set_machine(src)
-	var/dat = "<TT><B>Soul Stone</B><BR>"
+	var/dat = {"<meta charset="UTF-8"><TT><B>Soul Stone</B><BR>"}
 	for(var/mob/living/simple_animal/shade/A in src)
 		dat += "Captured Soul: [A.name]<br>"
 		dat += {"<A href='byond://?src=[UID()];choice=Summon'>Summon Shade</A>"}

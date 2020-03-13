@@ -2,7 +2,7 @@
 /datum/admins/proc/player_panel_new()//The new one
 	if(!usr.client.holder)
 		return
-	var/dat = "<html><head><title>Admin Player Panel</title></head>"
+	var/dat = {"<html><meta charset="UTF-8"><head><title>Admin Player Panel</title></head>"}
 
 	//javascript, the part that does most of the work~
 	dat += {"
@@ -332,7 +332,7 @@
 /datum/admins/proc/player_panel_old()
 	if(!usr.client.holder)
 		return
-	var/dat = "<html><head><title>Player Menu</title></head>"
+	var/dat = {"<html><meta charset="UTF-8"><head><title>Player Menu</title></head>"}
 	dat += "<body><table border=1 cellspacing=5><B><tr><th>Name</th><th>Real Name</th><th>Assigned Job</th><th>Key</th><th>Options</th><th>PM</th><th>Traitor?</th></tr></B>"
 	//add <th>IP:</th> to this if wanting to add back in IP checking
 	//add <td>(IP: [M.lastKnownIP])</td> if you want to know their ip to the lists below
@@ -401,7 +401,7 @@
 /datum/admins/proc/check_antagonists()
 	if(!check_rights(R_ADMIN))	return
 	if(SSticker && SSticker.current_state >= GAME_STATE_PLAYING)
-		var/dat = "<html><head><title>Round Status</title></head><body><h1><B>Round Status</B></h1>"
+		var/dat = {"<html><meta charset="UTF-8"><head><title>Round Status</title></head><body><h1><B>Round Status</B></h1>"}
 		dat += "Current Game Mode: <B>[SSticker.mode.name]</B><BR>"
 		dat += "Round Duration: <B>[round(ROUND_TIME / 36000)]:[add_zero(num2text(ROUND_TIME / 600 % 60), 2)]:[add_zero(num2text(ROUND_TIME / 10 % 60), 2)]</B><BR>"
 		dat += "<B>Emergency shuttle</B><BR>"
