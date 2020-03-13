@@ -18,9 +18,24 @@
 	display_name = "a pack of Midoris"
 	path = /obj/item/storage/fancy/cigarettes/cigpack_midori
 
+/datum/gear/cigarcase
+	display_name = "Case of perfect Cigar"
+	path = /obj/item/storage/fancy/cigarcase
+	cost = 2
+
 /datum/gear/lighter
 	display_name = "a cheap lighter"
 	path = /obj/item/lighter
+
+/datum/gear/zippo
+	display_name = "Zippo"
+	path = /obj/item/lighter/zippo
+	cost = 2
+
+/datum/gear/ExpensiveZippo
+	display_name = "Expensive Zippo"
+	path = /obj/item/lighter/zippo/nt_rep
+	cost = 3
 
 /datum/gear/rock
 	display_name = "a pet rock"
