@@ -657,7 +657,7 @@
 	set category = "Swarmer"
 	set desc = "Creates a shell for a new swarmer. Swarmers will self activate."
 	to_chat(src, "<span class='info'>We are attempting to replicate ourselves. We will need to stand still until the process is complete.</span>")
-	if(resources < 50)
+	if(resources < 75)
 		to_chat(src, "<span class='warning'>We do not have the resources for this!</span>")
 		return
 	if(!isturf(loc))
