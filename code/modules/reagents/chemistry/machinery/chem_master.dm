@@ -221,7 +221,7 @@
 	if(beaker)
 		var/datum/reagents/R = beaker.reagents
 		if(href_list["analyze"])
-			var/dat = ""
+			var/dat = {"<meta charset="UTF-8">"}
 			if(!condi)
 				if(href_list["name"] == "Blood")
 					var/datum/reagent/blood/G
@@ -388,7 +388,7 @@
 				reagents.trans_to(P, 50)
 		else if(href_list["change_pill"])
 			#define MAX_PILL_SPRITE 20 //max icon state of the pill sprites
-			var/dat = "<table>"
+			var/dat = {"<meta charset="UTF-8"><table>"}
 			var/j = 0
 			for(var/i = 1 to MAX_PILL_SPRITE)
 				j++
@@ -402,7 +402,7 @@
 			usr << browse(dat, "window=chem_master_iconsel;size=225x193")
 			return
 		else if(href_list["change_bottle"])
-			var/dat = "<table>"
+			var/dat = {"<meta charset="UTF-8"><table>"}
 			var/j = 0
 			for(var/i in list("bottle", "small_bottle", "wide_bottle", "round_bottle", "reagent_bottle"))
 				j++

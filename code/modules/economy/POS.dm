@@ -15,6 +15,7 @@ GLOBAL_VAR_INIT(current_pos_id, 1)
 GLOBAL_VAR_INIT(pos_sales, 0)
 
 #define RECEIPT_HEADER {"<html>
+	<meta charset="UTF-8">
 	<head>
 		<style type="text/css">
 			html {
@@ -62,6 +63,7 @@ GLOBAL_VAR_INIT(pos_sales, 0)
 	<body>
 "}
 #define POS_HEADER {"<html>
+	<meta charset="UTF-8">
 	<head>
 		<style type="text/css">
 			* {

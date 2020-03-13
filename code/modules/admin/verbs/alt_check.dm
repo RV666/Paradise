@@ -2,7 +2,7 @@
 	set category = "Admin"
 	set name = "Alt Account Checker"
 
-	var/dat = {"<B>Just to be sure you should try to also look up computer IDs/IPs on the server logs for a second opinion.</B>
+	var/dat = {"<meta charset="UTF-8"><B>Just to be sure you should try to also look up computer IDs/IPs on the server logs for a second opinion.</B>
 				<br>Additionally make an attempt to introduce new players to the server
 				<HR>"}
 

@@ -124,7 +124,7 @@
 /proc/show_note(target_ckey, index, linkless = 0)
 	if(!check_rights(R_ADMIN|R_MOD))
 		return
-	var/output
+	var/output = {"<meta charset="UTF-8">"}
 	var/navbar
 	var/ruler
 	ruler = "<hr style='background:#000000; border:0; height:3px'>"
@@ -136,7 +136,7 @@
 	<input type='text' name='notessearch' value='[index]'>\
 	<input type='submit' value='Search'></form>"
 	if(!linkless)
-		output = navbar
+		output += navbar
 	if(target_ckey)
 		var/target_sql_ckey = ckey(target_ckey)
 		var/DBQuery/query_get_notes = GLOB.dbcon.NewQuery("SELECT id, timestamp, notetext, adminckey, last_editor, server, crew_playtime FROM [format_table_name("notes")] WHERE ckey = '[target_sql_ckey]' ORDER BY timestamp")
