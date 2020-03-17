@@ -52,7 +52,12 @@ DBConnection/proc/Connect(dbi_handler=src.dbi,user_handler=src.user,password_han
 	if(!src) return 0
 	cursor_handler = src.default_cursor
 	if(!cursor_handler) cursor_handler = Default_Cursor
-	return _dm_db_connect(_db_con,dbi_handler,user_handler,password_handler,cursor_handler,null)
+	. = _dm_db_connect(_db_con,dbi_handler,user_handler,password_handler,cursor_handler,null)
+
+	if(.)
+		var/DBQuery/query_charset = GLOB.dbcon.NewQuery("SET CHARSET utf8mb4")
+		query_charset.Execute()
+	return .
 
 DBConnection/proc/Disconnect() return _dm_db_close(_db_con)
 
@@ -93,7 +98,22 @@ DBQuery/proc/Connect(DBConnection/connection_handler) src.db_connection = connec
 
 DBQuery/proc/Execute(sql_query=src.sql,cursor_handler=default_cursor)
 	Close()
-	return _dm_db_execute(_db_query,sql_query,db_connection._db_con,cursor_handler,null)
+	. = _dm_db_execute(_db_query,sql_query,db_connection._db_con,cursor_handler,null)
+
+	if(!.)
+		var/error_msg = ErrorMsg()
+		log_game("SQL ERROR : \[[error_msg]\]  Query used: \[[sql]\]")
+		message_admins("SQL ERROR : \[[error_msg]\]  Query used: \[[sql]\]")
+		if(error_msg == "MySQL server has gone away" || error_msg == "Lost connection to MySQL server during query")
+			db_connection.Disconnect()
+			if(!setup_database_connection())
+				log_game("Trying to reconnect... FAIL!")
+				message_admins("Trying to reconnect... FAIL!")
+			else
+				log_game("Trying to reconnect... SUCCESS! Repeating query...")
+				message_admins("Trying to reconnect... SUCCESS! Repeating query...")
+				. = _dm_db_execute(_db_query,sql_query,db_connection._db_con,cursor_handler,null)
+	return .
 
 DBQuery/proc/NextRow() return _dm_db_next_row(_db_query,item,conversions)
 
