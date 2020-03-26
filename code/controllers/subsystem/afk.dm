@@ -68,7 +68,7 @@ SUBSYSTEM_DEF(afk)
 
 /datum/controller/subsystem/afk/proc/msg_admins(mob/living/carbon/human/H, mins_afk,  turf/location, action, info)
 	log_admin("[key_name(H)] has been [action] by the AFK Watcher subsystem after being AFK for [mins_afk] minutes.[info ? " Extra info:" + info : ""]")
-	message_admins("[key_name_admin(H)] at ([get_area(location).name] [ADMIN_JMP(location)]) has been [action] by the AFK Watcher subsystem after being AFK for [mins_afk] minutes.[info ? " Extra info:" + info : ""]")
+	message_admins("[key_name_admin(H)] at ([get_area(location)] [ADMIN_JMP(location)]) has been [action] by the AFK Watcher subsystem after being AFK for [mins_afk] minutes.[info ? " Extra info:" + info : ""]")
 
 /datum/controller/subsystem/afk/proc/removeFromWatchList(list/toRemove)
 	for(var/C in toRemove)
