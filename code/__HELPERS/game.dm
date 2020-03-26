@@ -1,8 +1,8 @@
-/proc/get_area(atom/A)
-	if(isarea(A))
-		return A
-	var/turf/T = get_turf(A)
-	return T ? T.loc : null
+///proc/get_area(atom/A)
+//	if(isarea(A))
+//		return A
+//	var/turf/T = get_turf(A)
+//	return T ? T.loc : null
 
 /proc/get_area_name(N) //get area by its name
 	for(var/area/A in world)
