@@ -105,7 +105,7 @@ What are the archived variables for?
 /datum/gas_mixture/proc/react(atom/dump_location)
 	var/reacting = 0 //set to 1 if a notable reaction occured (used by pipe_network)
 
-	if(trace_gases.len > 0)
+	if(trace_gases.len)
 		if(temperature > 900)
 			if(toxins > MINIMUM_HEAT_CAPACITY && carbon_dioxide > MINIMUM_HEAT_CAPACITY)
 				var/datum/gas/oxygen_agent_b/trace_gas = locate(/datum/gas/oxygen_agent_b/) in trace_gases
@@ -124,7 +124,7 @@ What are the archived variables for?
 	fuel_burnt = 0
 	if(temperature > FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
 //		to_chat(world, "pre [temperature], [oxygen], [toxins]")
-		if(fire() > 0)
+		if(fire())
 			reacting = 1
 //		to_chat(world, "post [temperature], [oxygen], [toxins]")
 
