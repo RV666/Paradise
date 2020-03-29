@@ -23,7 +23,7 @@
 	var/paused = FALSE //for suspending the projectile midair
 	var/p_x = 16
 	var/p_y = 16 // the pixel location of the tile that the player clicked. Default is the center
-	var/speed = 1			//Amount of deciseconds it takes for projectile to travel
+	var/speed = 0.2			//Amount of deciseconds it takes for projectile to travel
 	var/Angle = null
 	var/spread = 0			//amount (in degrees) of projectile spread
 	var/legacy = FALSE			//legacy projectile system
@@ -273,7 +273,7 @@
 					pixel_y += 32
 					new_y--
 
-				speed = round(speed)
+				//speed = round(speed)
 				step_towards(src, locate(new_x, new_y, z))
 				if(speed <= 1)
 					pixel_x = pixel_x_offset
@@ -286,7 +286,7 @@
 						if(!(original in permutated))
 							Bump(original, 1)
 				Range()
-			sleep(max(1, speed))
+			sleep(max(0.5, speed))
 	else //old projectile system
 		set waitfor = 0
 		while(loc)
@@ -311,7 +311,7 @@ obj/item/projectile/proc/reflect_back(atom/source, list/position_modifiers = lis
 			firer = source // The reflecting mob will be the new firer
 		else
 			firer = null // Reflected by something other than a mob so firer will be null
-		
+
 		// redirect the projectile
 		original = locate(new_x, new_y, z)
 		starting = curloc
