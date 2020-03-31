@@ -212,6 +212,24 @@
 /obj/item/storage/firstaid/tactical/empty
 	empty = TRUE
 
+/obj/item/storage/firstaid/tactical/ert
+	name = "ert first-aid kit"
+	req_one_access =list(ACCESS_CENT_GENERAL)
+	syndicate_aligned = FALSE
+
+/obj/item/storage/firstaid/tactical/ert/New()
+	..()
+	if(empty) return
+	new /obj/item/reagent_containers/food/pill/charcoal(src)
+	new /obj/item/reagent_containers/food/pill/charcoal(src)
+	new /obj/item/reagent_containers/food/pill/charcoal(src)
+	new /obj/item/reagent_containers/food/pill/charcoal(src)
+	new /obj/item/reagent_containers/food/pill/patch/synthflesh(src)
+	new /obj/item/reagent_containers/food/pill/patch/synthflesh(src)
+	new /obj/item/reagent_containers/food/pill/patch/synthflesh(src)
+	new /obj/item/reagent_containers/food/pill/patch/synthflesh(src)
+	new /obj/item/healthanalyzer/advanced(src)
+
 /obj/item/storage/firstaid/surgery
 	name = "field surgery kit"
 	icon_state = "duffel-med"
