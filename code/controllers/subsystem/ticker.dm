@@ -285,6 +285,18 @@ SUBSYSTEM_DEF(ticker)
 	auto_toggle_ooc(0) // Turn it off
 	round_start_time = world.time
 
+	if(config.restrict_maint)
+		for(var/obj/machinery/door/airlock/maintenance/M in GLOB.airlocks)
+			if(ACCESS_MAINT_TUNNELS == text2num(M.req_access_txt))
+				M.req_access = null
+				M.req_one_access = null
+				if(config.restrict_maint == 1)
+					M.req_access_txt = "0"
+					M.req_one_access_txt = "[ACCESS_BRIG];[ACCESS_ENGINE]"
+				if(config.restrict_maint == 2)
+					M.req_access_txt = "[ACCESS_BRIG]"
+					M.req_one_access_txt = "0"
+
 	if(config.sql_enabled)
 		spawn(3000)
 			statistic_cycle() // Polls population totals regularly and stores them in an SQL DB
