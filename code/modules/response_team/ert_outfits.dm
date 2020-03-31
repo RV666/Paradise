@@ -307,8 +307,7 @@
 	backpack_contents = list(
 		/obj/item/clothing/head/helmet/ert/medical = 1,
 		/obj/item/clothing/mask/surgical = 1,
-		/obj/item/storage/firstaid/adv = 1,
-		/obj/item/storage/firstaid/regular = 1,
+		/obj/item/storage/firstaid/tactical/ert = 1,
 		/obj/item/storage/box/autoinjectors = 1,
 		/obj/item/roller = 1,
 		/obj/item/storage/pill_bottle/ert = 1,
@@ -336,14 +335,11 @@
 
 	backpack_contents = list(
 		/obj/item/clothing/mask/surgical = 1,
-		/obj/item/storage/firstaid/toxin = 1,
-		/obj/item/storage/firstaid/brute = 1,
-		/obj/item/storage/firstaid/fire = 1,
+		/obj/item/storage/firstaid/tactical/ert = 1,
 		/obj/item/storage/box/autoinjectors = 1,
 		/obj/item/roller = 1,
 		/obj/item/clothing/shoes/magboots = 1,
 		/obj/item/bodyanalyzer = 1,
-		/obj/item/healthupgrade = 1,
 		/obj/item/handheld_defibrillator = 1
 	)
 
@@ -355,7 +351,7 @@
 	glasses = /obj/item/clothing/glasses/night
 	suit_store = /obj/item/gun/energy/gun/blueshield/pdw9
 
-	belt = /obj/item/defibrillator/compact/loaded
+	belt = /obj/item/defibrillator/compact/combat/loaded
 
 	l_pocket = /obj/item/reagent_containers/hypospray/combat/nanites
 	r_pocket = /obj/item/reagent_containers/hypospray/autoinjector
