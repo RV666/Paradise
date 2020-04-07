@@ -101,6 +101,7 @@ GLOBAL_LIST_EMPTY(ghostteleportlocs)
 	valid_territory = FALSE
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	parallax_movedir = NORTH
+	sound_env = SMALL_ENCLOSED
 
 /area/shuttle/arrival
 	name = "\improper Arrival Shuttle"
@@ -625,6 +626,7 @@ GLOBAL_LIST_EMPTY(ghostteleportlocs)
 /area/maintenance
 	ambientsounds = MAINTENANCE_SOUNDS
 	valid_territory = FALSE
+	sound_env = TUNNEL_ENCLOSED
 
 /area/maintenance/atmos_control
 	name = "Atmospherics Maintenance"

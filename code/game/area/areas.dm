@@ -63,6 +63,7 @@
 
 	var/parallax_movedir = 0
 	var/moving = FALSE
+	var/sound_env = STANDARD_STATION
 
 /area/Initialize(mapload)
 	GLOB.all_areas += src
