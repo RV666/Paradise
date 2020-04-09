@@ -40,7 +40,8 @@
 	backpack_contents = list(
 		/obj/item/ammo_box/a357 = 3,
 		/obj/item/restraints/handcuffs = 1,
-		/obj/item/melee/classic_baton/telescopic = 1
+		/obj/item/melee/classic_baton/telescopic = 1,
+		/obj/item/clothing/accessory/holster/armpit = 1
 	)
 
 	implants = list(/obj/item/implant/mindshield)
@@ -84,7 +85,10 @@
 	suit_store = /obj/item/gun/energy/gun/advtaser
 	pda = /obj/item/pda/warden
 	backpack_contents = list(
-		/obj/item/restraints/handcuffs = 1
+		/obj/item/restraints/handcuffs = 1,
+		/obj/item/gun/projectile/automatic/pistol/enforcer/security = 1,
+		/obj/item/ammo_box/magazine/enforcer = 2,
+		/obj/item/clothing/accessory/holster/armpit = 1
 	)
 
 	implants = list(/obj/item/implant/mindshield)
@@ -185,7 +189,10 @@
 	suit_store = /obj/item/gun/energy/gun/advtaser
 	pda = /obj/item/pda/security
 	backpack_contents = list(
-		/obj/item/restraints/handcuffs = 1
+		/obj/item/restraints/handcuffs = 1,
+		/obj/item/gun/projectile/automatic/pistol/enforcer/security = 1,
+		/obj/item/ammo_box/magazine/enforcer = 2,
+		/obj/item/clothing/accessory/holster/armpit = 1
 	)
 	implants = list(/obj/item/implant/mindshield)
 	backpack = /obj/item/storage/backpack/security
@@ -256,7 +263,10 @@
 	suit_store = /obj/item/gun/energy/gun/advtaser
 	pda = /obj/item/pda/security
 	backpack_contents = list(
-		/obj/item/restraints/handcuffs = 1
+		/obj/item/restraints/handcuffs = 1,
+		/obj/item/gun/projectile/automatic/pistol/enforcer/security = 1,
+		/obj/item/ammo_box/magazine/enforcer = 2,
+		/obj/item/clothing/accessory/holster/armpit = 1
 	)
 	implants = list(/obj/item/implant/mindshield)
 	backpack = /obj/item/storage/backpack/security
