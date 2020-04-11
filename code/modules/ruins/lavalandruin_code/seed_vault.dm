@@ -18,9 +18,9 @@
 	roundstart = FALSE
 	death = FALSE
 	mob_species = /datum/species/diona/pod
-	flavour_text = "<span class='big bold'>Вы - разумная экосистема,</span><b> пример господства над жизнью, которым обладали ваши создатели. Ваши учителя, как бы великодушны они ни были, \
-	создали бесчисленные хранилища семян и распространили их по всей Вселенной на каждую планету, которую они могли бы нанести на карту. Вы находитесь в одном из таких хранилищ семян. \
-	Ваша цель состоит в том, чтобы культивировать и распространять жизнь везде, где она будет идти, ожидая контакта с вашими создателями. Последний предполагаемый контакт с вашими создателями: примерно 5x10^3 тысячелетия назад.</b>"
+	flavour_text = "<span class='big bold'>You are a sentient ecosystem,</span><b> an example of the mastery over life that your creators possessed. Your masters, benevolent as they were, created uncounted \
+	seed vaults and spread them across the universe to every planet they could chart. You are in one such seed vault. Your goal is to cultivate and spread life wherever it will go while waiting \
+	for contact from your creators. Estimated time of last contact: Deployment, 5x10^3 millennia ago.</b>"
 	assignedrole = "Lifebringer"
 
 /obj/effect/mob_spawn/human/seed_vault/special(mob/living/new_spawn)

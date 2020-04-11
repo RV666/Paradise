@@ -287,7 +287,7 @@
 	roundstart = FALSE
 	icon = 'icons/obj/cryogenic2.dmi'
 	icon_state = "sleeper"
-	flavour_text = "СКВИК!"
+	flavour_text = "Squeak!"
 
 /obj/effect/mob_spawn/cow
 	name = "sleeper"
@@ -298,7 +298,7 @@
 	mob_gender = FEMALE
 	icon = 'icons/obj/cryogenic2.dmi'
 	icon_state = "sleeper"
-	flavour_text = "МУУ!"
+	flavour_text = "Moo!"
 
 
 ///////////Civilians//////////////////////
@@ -337,7 +337,7 @@
 	name = "sleeper"
 	icon = 'icons/obj/cryogenic2.dmi'
 	icon_state = "sleeper"
-	flavour_text = "<span class='big bold'>Вы космический доктор!</span>"
+	flavour_text = "<span class='big bold'>You are a space doctor!</span>"
 	assignedrole = "Space Doctor"
 
 /obj/effect/mob_spawn/human/doctor/alive/equip(mob/living/carbon/human/H)
@@ -471,11 +471,11 @@
 	name = "bartender sleeper"
 	icon = 'icons/obj/cryogenic2.dmi'
 	icon_state = "sleeper"
-	flavour_text = "<span class='big bold'>Вы космический бармен!</span><b> Время смешивать напитки и изменять жизнь к лучшему!</b>"
+	flavour_text = "<span class='big bold'>You are a space bartender!</span><b> Time to mix drinks and change lives.</b>"
 	assignedrole = "Space Bartender"
 
 /obj/effect/mob_spawn/human/beach/alive/lifeguard
-	flavour_text = "<span class='big bold'>Вы пляжный спасатель!</span><b> Вы должны наблюдать что бы никто не утонул или не будет съеден акулами и прочее.</b>"
+	flavour_text = "<span class='big bold'>You're a spunky lifeguard!</span><b> It's up to you to make sure nobody drowns or gets eaten by sharks and stuff.</b>"
 	mob_gender = "female"
 	name = "lifeguard sleeper"
 	id_job = "Lifeguard"
@@ -503,7 +503,7 @@
 	name = "beach bum sleeper"
 	icon = 'icons/obj/cryogenic2.dmi'
 	icon_state = "sleeper"
-	flavour_text = "Вы обычный житель этого пляжа!"
+	flavour_text = "You are a beach bum!"
 	assignedrole = "Beach Bum"
 
 /datum/outfit/beachbum
@@ -524,7 +524,7 @@
 	roundstart = FALSE
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "remains"
-	flavour_text = "С помощью неизвестных сил ваши останки были оживлены! Идите и убивайте всех живых искателей приключений, которые осмелятся пересечь ваш путь."
+	flavour_text = "By unknown powers, your skeletal remains have been reanimated! Walk this mortal plain and terrorize all living adventurers who dare cross your path."
 	assignedrole = "Skeleton"
 
 /////////////////Officers//////////////////////

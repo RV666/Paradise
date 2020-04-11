@@ -51,7 +51,7 @@
 /obj/structure/lavaland/ash_walker/proc/spawn_mob()
 	if(meat_counter >= ASH_WALKER_SPAWN_THRESHOLD)
 		new /obj/effect/mob_spawn/human/ash_walker(get_step(loc, pick(GLOB.alldirs)))
-		visible_message("<span class='danger'>Одно из яиц вырастает и готовиться вылупляться!</span>")
+		visible_message("<span class='danger'>One of the eggs swells to an unnatural size and tumbles free. It's ready to hatch!</span>")
 		meat_counter -= ASH_WALKER_SPAWN_THRESHOLD
 
 /obj/effect/mob_spawn/human/ash_walker
@@ -67,21 +67,21 @@
 	anchored = FALSE
 	move_resist = MOVE_FORCE_NORMAL
 	density = FALSE
-	flavour_text = "<span class='big bold'>Вы один из Последователей Пепла.</span><b> Ваше племя поклоняется <span class='danger'>Некрополису</span>. Пещеры - священный дар,чудовища обитающие там -благословенная щедрость. \
-	Вдалеке видет свет... он предвещает приход чужаков, которые стремятся разорвать на части Некрополь и его владения. Они - наши будущие жертвы. \
-	<br><i>Вы можете свободно атаковать шахтеров и других сущностей.<font size=6>НО</font> не покидайте Лаваленд без разрешения Администрации. <font size=6>А ТАКЖЕ НЕ СОВЕТУЕТСЯ</font> провоцировать шахтёров разрушая их базу.</b></i>"
+	flavour_text = "<span class='big bold'>You are an ash walker.</span><b> Your tribe worships <span class='danger'>the Necropolis</span>. The wastes are sacred ground, its monsters a blessed bounty. \
+	You have seen lights in the distance... they foreshadow the arrival of outsiders that seek to tear apart the Necropolis and its domain. Fresh sacrifices for your nest. \
+	<br><i>You are free to attack miners and other outsiders. <font size=6>DO NOT</font> leave Lavaland without admin permission! <font size=6>DO NOT</font> attack the mining outpost without being provoked.</b></i>"
 	assignedrole = "Ash Walker"
 
 /obj/effect/mob_spawn/human/ash_walker/special(mob/living/carbon/human/new_spawn)
 	new_spawn.rename_character(new_spawn.real_name, new_spawn.dna.species.get_random_name(new_spawn.gender))
 
-	to_chat(new_spawn, "<b>Тащите трупы разных сущностей будь то люди или фауна к Некрополю. Некрополь поглотит их, чтобы создать еще больше таких, как вы. Слава Некрополю!</b>")
+	to_chat(new_spawn, "<b>Drag the corpses of men and beasts to your nest. It will absorb them to create more of your kind. Glory to the Necropolis!</b>")
 
 /obj/effect/mob_spawn/human/ash_walker/New()
 	. = ..()
 	var/area/A = get_area(src)
 	if(A)
-		notify_ghosts("Обнаружено полноценное яйцо Последователя Пепла в [A.name].", source = src, action = NOTIFY_ATTACK, flashwindow = FALSE)
+		notify_ghosts("An ash walker egg is ready to hatch in \the [A.name].", source = src, action = NOTIFY_ATTACK, flashwindow = FALSE)
 
 /datum/outfit/ashwalker
 	name ="Ashwalker"
