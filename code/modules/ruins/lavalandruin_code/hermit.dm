@@ -10,9 +10,9 @@
 	random = TRUE
 	allow_species_pick = TRUE
 	mob_species = /datum/species/human
-	flavour_text = "<span class='big bold'>You've been stranded in this godless prison of a planet for longer than you can remember.</span><b> Each day you barely scrape by, and between the terrible \
-	conditions of your makeshift shelter, the hostile creatures, and the ash drakes swooping down from the cloudless skies, all you can wish for is the feel of soft grass between your toes and \
-	the fresh air of Earth. These thoughts are dispelled by yet another recollection of how you got here... "
+	flavour_text = "<span class='big bold'>Эта ужасная божья тюрьма держит меня тут больше, чем я могу вспомнить.</span><b> Каждый день, каждую минуту, словно ужасный сон я выживаю тут в своём \
+	ужасно построеном импровизированом убежище, около страшных существ, около ублюдских драконов пожирающих всех своим огненым пламенем. Я уже не помню когда последний раз видел траву, запах свежего \
+	воздуха родной Земли.... Эти мысли рассеиваются еще одним воспоминанием о том, как я сюда попал... "
 	assignedrole = "Hermit"
 
 /obj/effect/mob_spawn/human/hermit/Initialize(mapload)
@@ -20,30 +20,29 @@
 	var/arrpee = rand(1,4)
 	switch(arrpee)
 		if(1)
-			flavour_text += "you were a [pick("arms dealer", "shipwright", "docking manager")]'s assistant on a small trading station several sectors from here. Raiders attacked, and there was \
-			only one pod left when you got to the escape bay. You took it and launched it alone, and the crowd of terrified faces crowding at the airlock door as your pod's engines burst to \
-			life and sent you to this hell are forever branded into your memory.</b>"
+			flavour_text += "вы были помошником [pick("Главы Персонала", "инженера", "капитана")] на торговой станции недалеко отсюда. Рейдеры что атаковали вашу станцию уничтожили её но я вовремя успел спастись на \
+			одноместном поде. Вы взяли его и запустили в одиночку, но похоже когда я взлетал за дверью пода слышались звуки. Они кричали, просили о помощи но их мольбы были заглушены взрывом двигателей. \
+			Этот кусок истории вы не забудете никогда.</b>"
 			outfit.uniform = /obj/item/clothing/under/assistantformal
 			outfit.shoes = /obj/item/clothing/shoes/black
 			outfit.back = /obj/item/storage/backpack
 		if(2)
-			flavour_text += "you're an exile from the Tiger Cooperative. Their technological fanaticism drove you to question the power and beliefs of the Exolitics, and they saw you as a \
-			heretic and subjected you to hours of horrible torture. You were hours away from execution when a high-ranking friend of yours in the Cooperative managed to secure you a pod, \
-			scrambled its destination's coordinates, and launched it. You awoke from stasis when you landed and have been surviving - barely - ever since.</b>"
+			flavour_text += "вы были игнаны из корпорации Тигр. Их технологический фанатизм заставил вас усомниться в силе Экзолитов, и они увидели в вас еретика .После много часовых пыток \
+			ваш высокопоставленный друг сумел обеспечить вам капсулу, зашифровал координаты ее назначения и запустил ее. Вы очнулись от стазиса, когда приземлились, и с тех пор вы не выходили на поверхность... это ведь не космос, правда?</b>"
 			outfit.uniform = /obj/item/clothing/under/color/orange
 			outfit.shoes = /obj/item/clothing/shoes/orange
 			outfit.back = /obj/item/storage/backpack
 		if(3)
-			flavour_text += "you were a doctor on one of Nanotrasen's space stations, but you left behind that damn corporation's tyranny and everything it stood for. From a metaphorical hell \
-			to a literal one, you find yourself nonetheless missing the recycled air and warm floors of what you left behind... but you'd still rather be here than there.</b>"
+			flavour_text += "вы были врачом на одной из космических станций корпорации Нанотразен, но оставили позади тиранию этой проклятой станции и всего, что она олицетворяла. \
+			Переходя от метафорического ада к буквальному, вы тем не менее обнаруживаете, что вам не хватает рециркулированного воздуха и теплых полов того, что вы оставили позади... но тут все равно лучше, чем там.</b>"
 			outfit.uniform = /obj/item/clothing/under/rank/medical
 			outfit.suit = /obj/item/clothing/suit/storage/labcoat
 			outfit.back = /obj/item/storage/backpack/medic
 			outfit.shoes = /obj/item/clothing/shoes/black
 		if(4)
-			flavour_text += "you were always joked about by your friends for \"not playing with a full deck\", as they so <i>kindly</i> put it. It seems that they were right when you, on a tour \
-			at one of Nanotrasen's state-of-the-art research facilities, were in one of the escape pods alone and saw the red button. It was big and shiny, and it caught your eye. You pressed \
-			it, and after a terrifying and fast ride for days, you landed here. You've had time to wisen up since then, and you think that your old friends wouldn't be laughing now.</b>"
+			flavour_text += "твои друзья всегда подшучивали над тобой за то, что ты \"не играешь с полной колодой\", как они так любезно выразились. Похоже, они были правы, когда вы, совершая экскурсию по одному из самых современных исследовательских центров Нанотразена, оказались в одной из \
+			спасательных капсул и увидели красную кнопку. Она была большая и блестящая, и сразу бросалася в глаза. Вы нажали на нее, и после ужасающей и быстрой езды в течение нескольких дней, вы приземлились здесь. \
+			У тебя было время поумнеть с тех пор, и ты думаешь, что твои старые друзья не смеялись бы сейчас.</b>"
 			outfit.uniform = /obj/item/clothing/under/color/grey/glorf
 			outfit.shoes = /obj/item/clothing/shoes/black
 			outfit.back = /obj/item/storage/backpack
