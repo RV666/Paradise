@@ -20,20 +20,20 @@
 	death = FALSE
 	roundstart = FALSE
 	flavour_text = {"
-	<b>You are a swarmer, a weapon of a long dead civilization. Until further orders from your original masters are received, you must continue to consume and replicate.</b>
-	<b>Clicking on any object will try to consume it, either deconstructing it into its components, destroying it, or integrating any materials it has into you if successful.</b>
-	<b>Ctrl-Clicking on a mob will attempt to remove it from the area and place it in a safe environment for storage.</b>
-	<b>Objectives:</b>
-	1. Consume resources and replicate until there are no more resources left.
-	2. Ensure that this location is fit for invasion at a later date; do not perform actions that would render it dangerous or inhospitable.
-	3. Biological resources will be harvested at a later date; do not harm them.
+	<b>Вы - свармер, оружие давно умершей цивилизации. До тех пор, пока не будут получены дальнейшие приказы от ваших первоначальных хозяев, Вы должны продолжать потреблять материалы и воспроизводить свои копии.</b>
+	<b>Нажатие по любому предмету - деконструкция этого предмета на компоненты, либо поглощение их и превращение в энергию для создания.</b>
+	<b>Ctrl-Click на существе - будет предпринята попытка убрать его с вашего пути и телепортация существа в безопасное место.</b>
+	<b>Задачи:</b>
+	1. Потребляйте ресурсы и воспроизводите себя их до тех пор, пока не останется ресурсов.
+	2. Убедитесь, что это место пригодно для вторжения ваших создателей; не совершайте действий, которые могли бы сделать его опасным или негостеприимным.
+	3. Биологические ресурсы будут уходят на второй план; старайтесь не причинить им вреда.
 	"}
 
 /obj/effect/mob_spawn/swarmer/Initialize(mapload)
 	. = ..()
 	var/area/A = get_area(src)
 	if(A)
-		notify_ghosts("A swarmer shell has been created in [A.name].", 'sound/effects/bin_close.ogg', source = src, action = NOTIFY_ATTACK, flashwindow = FALSE)
+		notify_ghosts("Корпус свармера был создан в [A.name].", 'sound/effects/bin_close.ogg', source = src, action = NOTIFY_ATTACK, flashwindow = FALSE)
 
 /obj/effect/mob_spawn/swarmer/attack_hand(mob/living/user)
 	. = ..()
