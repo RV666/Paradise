@@ -506,7 +506,7 @@
  */
 /obj/item/paper/Court
 	name = "Judgement"
-	info = "For crimes against the station, the offender is sentenced to:<BR>\n<BR>\n"
+	info = "За свои преступления преступник приговаривается к:<BR>\n<BR>\n"
 
 /obj/item/paper/Toxin
 	name = "Chemical Information"
@@ -522,11 +522,11 @@
 
 /obj/item/paper/djstation
 	name = "DJ Listening Outpost"
-	info = "<B>Welcome new owner!</B><BR><BR>You have purchased the latest in listening equipment. The telecommunication setup we created is the best in listening to common and private radio fequencies. Here is a step by step guide to start listening in on those saucy radio channels:<br><ol><li>Equip yourself with a multi-tool</li><li>Use the multitool on each machine, that is the broadcaster, receiver and the relay.</li><li>Turn all the machines on, it has already been configured for you to listen on.</li></ol> Simple as that. Now to listen to the private channels, you'll have to configure the intercoms, located on the front desk. Here is a list of frequencies for you to listen on.<br><ul><li>145.7 - Common Channel</li><li>144.7 - Private AI Channel</li><li>135.9 - Security Channel</li><li>135.7 - Engineering Channel</li><li>135.5 - Medical Channel</li><li>135.3 - Command Channel</li><li>135.1 - Science Channel</li><li>134.9 - Mining Channel</li><li>134.7 - Cargo Channel</li>"
+	info = "<B>Добро пожаловать новый владелец!</B><BR><BR>Вы приобрели новейшее оборудование для прослушивания. Созданная нами телекоммуникационная установка является лучшей в прослушивании общих и частных радиопередач. Вот пошаговое руководство, чтобы начать прослушивать эти радиоканалы:<br><ol><li>Equip yourself with a multi-tool</li><li>Используйте мультитул на каждой машине, то есть на broadcaster, receiver и на relay.</li><li>Включите все машины, они уже настроены для прослушки.</li></ol> Все очень просто. Теперь, чтобы слушать частные каналы, вам придется настроить интеркомы, расположенные на стойке регистрации. Вот список частот, которые вы можете прослушать.<br><ul><li>145.7 - Главный Канал</li><li>144.7 - Приватный Канал ИИ</li><li>135.9 - Канал Охранны</li><li>135.7 - Инженерный Канал</li><li>135.5 - Канал Медбея</li><li>135.3 - Канал Коммандования</li><li>135.1 - Канал Учёных</li><li>134.9 - Шахтёрский Канал</li><li>134.7 - Карго Канал</li>"
 
 /obj/item/paper/monolithren
 	name = "For stalkers"
-	info = "Sorry Mario, your wishgranter in another castle. Your Friendly God"
+	info = "Прости Марио, но камень желаний в другом замке. Твой Любимый Боженька."
 
 /obj/item/paper/flag
 	icon_state = "flag_neutral"
@@ -593,17 +593,17 @@
 /obj/item/paper/crumpled
 	name = "paper scrap"
 	icon_state = "scrap"
-	
+
 /obj/item/paper/syndicate
 	name = "paper"
 	header = "<p><img style='display: block; margin-left: auto; margin-right: auto;' src='syndielogo.png' width='220' height='135' /></p><hr />"
 	info = ""
-	
+
 /obj/item/paper/nanotrasen
 	name = "paper"
 	header = "<p><img style='display: block; margin-left: auto; margin-right: auto;' src='ntlogo.png' width='220' height='135' /></p><hr />"
 	info =  ""
-	
+
 /obj/item/paper/central_command
 	name = "paper"
 	header ="<p><img style='display: block; margin-left: auto; margin-right: auto;' src='ntlogo.png' alt='' width='220' height='135' /></p><hr /><h3 style='text-align: center;font-family: Verdana;'><b> Nanotrasen Central Command</h3><p style='text-align: center;font-family:Verdana;'>Official Expedited Memorandum</p></b><hr />"

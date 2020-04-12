@@ -626,28 +626,28 @@
  */
 
 /obj/item/paper/Cloning
-	name = "paper - 'H-87 Cloning Apparatus Manual"
-	info = {"<h4>Getting Started</h4>
-	Congratulations, your station has purchased the H-87 industrial cloning device!<br>
-	Using the H-87 is almost as simple as brain surgery! Simply insert the target humanoid into the scanning chamber and select the scan option to create a new profile!<br>
-	<b>That's all there is to it!</b><br>
-	<i>Notice, cloning system cannot scan inorganic life or small primates.  Scan may fail if subject has suffered extreme brain damage.</i><br>
-	<p>Clone profiles may be viewed through the profiles menu. Scanning implants a complementary HEALTH MONITOR IMPLANT into the subject, which may be viewed from each profile.
-	Profile Deletion has been restricted to \[Station Head\] level access.</p>
-	<h4>Cloning from a profile</h4>
-	Cloning is as simple as pressing the CLONE option at the bottom of the desired profile.<br>
-	Per your company's EMPLOYEE PRIVACY RIGHTS agreement, the H-87 has been blocked from cloning crewmembers while they are still alive.<br>
+	name = "paper - 'H-87 Руководство По Клонированию"
+	info = {"<h4>Введение</h4>
+	Поздравляем вас с приобретением промышленного клонирующого устройства H-87!<br>
+	Использование H-87 почти так же просто, как операция на головном мозге! Просто вставьте целого гуманойда в сканирующую камеру и выберите опцию сканирования, чтобы создать новый профайл с геном гуманойда!<br>
+	<b>Вот и все, что нужно сделать!</b><br>
+	<i>Заметьте, система клонирования не может сканировать неорганическую жизнь или мелких приматов. Сканирование может завершиться неудачей, если гуманойд получил серьезное повреждение головного мозга.</i><br>
+	<p>Профайлы отсканированых гуманойдов можно просмотреть через соответствующее меню. Имплант детектора жизни имлатируется в РнД, который может быть просмотрен в каждом профайле.
+	Удаление профайлов ограничивается надлежащим \[Главой\] на станции.</p>
+	<h4>Клонирование с помощью профайла</h4>
+	Клонирование происходит так же просто, достаточно нажать кнопку CLONE в нижней части нужного профайла.<br>
+	В соответствии с соглашением о защите прав сотрудников вашей компании, H-87 был заблокирован от клонирования живых членов экипажа.<br>
 	<br>
-	<p>The provided CLONEPOD SYSTEM will produce the desired clone.  Standard clone maturation times (With SPEEDCLONE technology) are roughly 90 seconds.
-	The cloning pod may be unlocked early with any \[Medical Researcher\] ID after initial maturation is complete.</p><br>
-	<i>Please note that resulting clones may have a small DEVELOPMENTAL DEFECT as a result of genetic drift.</i><br>
-	<h4>Profile Management</h4>
-	<p>The H-87 (as well as your station's standard genetics machine) can accept STANDARD DATA DISKETTES.
-	These diskettes are used to transfer genetic information between machines and profiles.
-	A load/save dialog will become available in each profile if a disk is inserted.</p><br>
-	<i>A good diskette is a great way to counter aforementioned genetic drift!</i><br>
+	<p>Предоставленная система КЛОНПОДА произведет желаемого клона. Стандартное время созревания клонов (с помощью технологии СУПЕРКЛОН) составляет примерно 90 секунд.
+	Бак клонирования может быть разблокирован любой ИД картой с доступом \[Доктор\] после начала клонирования.</p><br>
+	<i>Обратите внимание, что клоны могут иметь небольшой дефект в результате генетической мутации.</i><br>
+	<h4>Управление Профайлами</h4>
+	<p>H-87 (а также стандартный генетический изменитель вашей станции) может принимать стандартные дискеты с данными.
+	Эти дискеты используются для передачи генетических изменений и профайлов.
+	При вставке диска в каждый профиль будет доступно диалоговое окно с возможностью загрузки/сохранения данных.</p><br>
+	<i>Хорошая дискета - отличный способ противостоять вышеупомянутой генной мутации!</i><br>
 	<br>
-	<font size=1>This technology produced under license from Thinktronic Systems, LTD.</font>"}
+	<font size=1>Эта технология производится по лицензии компании Thinktronic Systems, LTD.</font>"}
 
 //SOME SCRAPS I GUESS
 /* EMP grenade/spell effect

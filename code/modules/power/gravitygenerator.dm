@@ -405,16 +405,16 @@ GLOBAL_LIST_EMPTY(gravity_generators) // We will keep track of this by adding ne
 // Misc
 
 /obj/item/paper/gravity_gen
-	name = "paper- 'Generate your own gravity!'"
-	info = {"<h1>Gravity Generator Instructions For Dummies</h1>
-	<p>Surprisingly, gravity isn't that hard to make! All you have to do is inject deadly radioactive minerals into a ball of
-	energy and you have yourself gravity! You can turn the machine on or off when required but you must remember that the generator
-	will EMIT RADIATION when charging or discharging, you can tell it is charging or discharging by the noise it makes, so please WEAR PROTECTIVE CLOTHING.</p>
+	name = "paper- 'Создай свою собственную гравитацию!'"
+	info = {"<h1>Гравитационный Генератор - Инструкция Для Чайников</h1>
+	<p>Удивительно, но гравитацию не так уж трудно создать! Все, что вам нужно сделать, это впрыснуть смертельно опасные радиоактивные минералы в энергошар
+	и у вас есть собственная гравитация! Вы можете включить или выключить машину, когда это необходимо, но вы должны помнить, что генератор
+	излучает радиацию при включении и выключении, также вы можете определить по шуму, что генератор заряжается или разряжается, который он производит, поэтому, пожалуйста, наденьте защитную одежду.</p>
 	<br>
-	<h3>It blew up!</h3>
-	<p>Don't panic! The gravity generator was designed to be easily repaired. If, somehow, the sturdy framework did not survive then
-	please proceed to panic; otherwise follow these steps.</p><ol>
-	<li>Secure the screws of the framework with a screwdriver.</li>
-	<li>Mend the damaged framework with a welding tool.</li>
-	<li>Add additional plasteel plating.</li>
-	<li>Secure the additional plating with a wrench.</li></ol>"}
+	<h3>Он взорвался!</h3>
+	<p>Только без паники! Гравитационный генератор был спроектирован так, чтобы его можно было легко починить. Если же каким-то образом от него ничего не осталось, то
+	пожалуйста, продолжайте паниковать; в противном случае выполните следующие действия:</p><ol>
+	<li>Открутите каркас с помощью отвертки.</li>
+	<li>Почините поврежденный каркас с помощью сварочного инструмента.</li>
+	<li>Вставьте пласталь.</li>
+	<li>Закрутите корпус гаечным ключом.</li></ol>"}

@@ -463,26 +463,26 @@
 /obj/item/paper/guardian
 	name = "Holoparasite Guide"
 	icon_state = "paper"
-	info = {"<b>A list of Holoparasite Types</b><br>
+	info = {"<b>Типы Голопаразитов</b><br>
 
  <br>
- <b>Chaos</b>: Has two modes. Deception: Causes target of attacks to hallucinate. Dispersion: Attacks have a chance to teleport the target randomly. Ignites mobs on touch. Automatically extinguishes the user if they catch fire.<br>
+ <b>Chaos</b>: имеет два режима. Обман(Deception): вызывает галлюцинации у того кого Голопаразит атакует. Рассеивание(Dispersion): атаки имеют шанс телепортировать цель случайным образом. При прохождении через моба тот загорается. Автоматически тушит пользователя, если он загорается.<br>
  <br>
- <b>Standard</b>: Devestating close combat attacks and high damage resist. No special powers.<br>
+ <b>Standard</b>: бьёт очень больно и имеет высокую сопротивляемость вредоносному воздействию. Не имеет особых способностей.<br>
  <br>
- <b>Ranged</b>: Has two modes. Ranged: Extremely weak, highly spammable projectile attack. Scout: Can not attack, but can move through walls. Can lay surveillance snares in either mode.<br>
+ <b>Ranged</b>: имеет два режима. Дальнобойность(Ranged): чрезвычайно слабая, закидывание снарядами. Разведчик(Scout): не может атаковать, но может двигаться сквозь стены. Можно ставить маяки наблюдения в любом режиме.
  <br>
- <b>Support</b>: Has two modes. Combat: Medium power attacks and damage resist. Healer: Attacks heal damage, but low damage resist and slow movement. Can deploy a bluespace beacon and warp targets to it (including you) in either mode.<br>
+ <b>Support</b>: имеет два режима. Бой(Combat): атаки средней мощности и урон сопротивляются. Целитель(Healer): атаки исцеляют урон, но низкий урон сопротивляется и даёт медленное движение. Может поставить телепортатор и перенести цели к нему (включая вас) в любом режиме.
  <br>
- <b>Explosive</b>: High damage resist and medium power attack. Can turn any object into a bomb, dealing explosive damage to the next person to touch it. The object will return to normal after the trap is triggered.<br>
+ <b>Explosive</b>: высокая сопротивляемость урону и атака средней мощности. Может превратить любой предмет в бомбу, нанося взрывной урон тому, кто к нему прикоснется. Объект вернется в нормальное состояние после срабатывания ловушки.
  <br>
- <b>Assassin</b>: Medium damage with no damage resistance, can enter stealth which massively increases the damage of the next attack causing it to ignore armour.
+ <b>Assassin</b>: средний урон без сопротивления к урону, может войти в стелс, который массово увеличивает урон следующей атаки, заставляя игнорировать броню.
  <br>
- <b>Charger</b>: Medium damage and defense, very fast and has a special charge attack which damages a target and knocks items out of their hands.
+ <b>Charger</b>: средний урон и защита, очень быстрый и имеет спец-удар электричеством, который помимо урона выбивает предметы из рук.
  <br>
- <b>Lightning</b>: Applies lightning chains to any targets on attack with a link to your summoner, lightning chains will shock anyone nearby.
+ <b>Lightning</b>: запускаем молнию в любую цель при атаке, которые парализуют всех, кто находится поблизости.
  <br>
- <b>Protector</b>: You will become leashed to your holoparasite instead of them to you. Has two modes, a medium attack/defense mode and a protection mode which greatly reduces incoming damage to the holoparasite.
+ <b>Protector</b>: вы станете привязаны к своему голопаразиту, а не он к вам. Имеет два режима, средний режим атаки/защиты и режим защиты, который значительно уменьшает исходящий урон голопаразиту.
 "}
 
 /obj/item/paper/guardian/update_icon()

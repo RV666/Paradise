@@ -164,6 +164,26 @@ GLOBAL_LIST_INIT(plasteel_recipes, list(
 	recipes = GLOB.plasteel_recipes
 	return ..()
 
+/* /obj/item/stack/sheet/shit // https://discordapp.com/channels/617003227182792704/617003688610889820/698870816162709534
+	name = "shit"
+	singular_name = "siht_sheet"
+	desc = "Чистое вкусное говно."
+	icon_state = "sheet-shit"
+	item_state = "sheet-piss"
+	materials = list(MAT_shit=200000000000000000000000000000000)
+	armor = list("melee" = 1000, "bullet" = 1000, "laser" = 1000, "energy" = 1000, "bomb" = 1000, "bio" = 1000, "rad" = 1000, "fire" = 1000, "acid" = 1000)
+	resistance_flags = FIRE_PROOF,ACID_PROOF,PEDAL_PROOF
+	throwforce = 1000
+	flags = CONDUCT
+	origin_tech = "materials=1000"
+	merge_type = /obj/item/stack/sheet/plasteel
+	point_value = 23
+
+/obj/item/stack/sheet/shit/New(var/loc, var/amount=null)
+	recipes = GLOB.plasteel_recipes
+	return ..()
+  */
+
 /*
  * Wood
  */
