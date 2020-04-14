@@ -78,6 +78,13 @@
 	magazine = new/obj/item/ammo_box/magazine/enforcer/lethal
 	..()
 
+//СБшный инфорсер//
+/obj/item/gun/projectile/automatic/pistol/enforcer/security
+	name = "Enforcer"
+	desc = "Стандартный дешевый пистолет для сотрудников службы безопасности."
+	w_class = WEIGHT_CLASS_NORMAL
+	origin_tech = "combat=5;materials=2"
+
 //Desert Eagle//
 /obj/item/gun/projectile/automatic/pistol/deagle
 	name = "desert eagle"

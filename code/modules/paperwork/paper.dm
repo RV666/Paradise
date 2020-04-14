@@ -528,6 +528,10 @@
 	name = "For stalkers"
 	info = "Прости Марио, но камень желаний в другом замке. Твой Любимый Боженька."
 
+/obj/item/paper/monolithren
+	name = "For stalkers"
+	info = "Sorry Mario, your wishgranter in another castle. Your Friendly God"
+
 /obj/item/paper/flag
 	icon_state = "flag_neutral"
 	item_state = "paper"
