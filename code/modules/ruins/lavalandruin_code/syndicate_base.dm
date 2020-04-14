@@ -23,16 +23,15 @@
 // Spawners
 /obj/effect/mob_spawn/human/lavaland_syndicate
 	name = "Syndicate Bioweapon Scientist sleeper"
-	mob_name = "Syndicate Bioweapon Scientist"
+	mob_name = "Syndicate [pick("Alpha", "Beta","Gamma", "Delta", "Epsilon", "Zeta", "Eta", "Theta", "Iota", "Kappa", "Lambda", "Omicron")] Bioweapon Scientist "
 	roundstart = FALSE
 	death = FALSE
 	icon = 'icons/obj/cryogenic2.dmi'
 	icon_state = "sleeper_s"
-	flavour_text = "<span class='big bold'>Вы агент синдиката, </span><b>и сейчас вы работаете в сверхсекретном исследовательском центре по разработке биологического оружия. К сожалению, наш ненавистный враг, Нанотразен, начал добычу полезных ископаемых в этом секторе. <b>Продолжайте свои исследования, насколько это возможно, и старайтесь не показываться им на глаза. На базе есть мощная бомба, не покидайте базу и не дайте ей попасть в руки врага!</b> \
+	flavour_text = "<span class='big bold'>Вы агент синдиката,</span><b> и сейчас вы работаете в сверхсекретном исследовательском центре по разработке биологического оружия. К сожалению, наш ненавистный враг, Нанотразен, начал добычу полезных ископаемых в этом секторе. <b>Продолжайте свои исследования, насколько это возможно, и старайтесь не показываться им на глаза. На базе есть мощная бомба, не покидайте базу и не дайте ей попасть в руки врага!</b> \
 	<br><i>Вы можете атаковать любого, кто не связан с синдикатом в непосредственной близости от вашей базы. <font size=6>НИ В КОЕМ СЛУЧАЕ НЕ</font> работайте против персонала Синдиката (например, предателей или ядерных оперативников). Вы можете работать с несиндикатными антагонистами или против них в каждом конкретном случае. <font size=6>И НИКОГДА, НИКОГДА НЕ</font> покидайте базу без разрешения Администратора.</i>"
 	outfit = /datum/outfit/lavaland_syndicate
 	assignedrole = "Lavaland Syndicate"
-	del_types = list() // Necessary to prevent del_types from removing radio!
 	allow_species_pick = TRUE
 
 /obj/effect/mob_spawn/human/lavaland_syndicate/Destroy()
@@ -47,7 +46,7 @@
 	suit = /obj/item/clothing/suit/storage/labcoat
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat
-	r_ear = /obj/item/radio/headset/syndicate/alt/lavaland // See del_types above
+	r_ear = /obj/item/radio/headset/syndicate/alt
 	back = /obj/item/storage/backpack
 	r_pocket = /obj/item/gun/projectile/automatic/pistol
 	id = /obj/item/card/id/syndicate/anyone
@@ -58,8 +57,8 @@
 
 /obj/effect/mob_spawn/human/lavaland_syndicate/comms
 	name = "Syndicate Comms Agent sleeper"
-	mob_name = "Syndicate Comms Agent"
-	flavour_text = "<span class='big bold'>Вы агент синдиката,</span><b> и сейчас вы работаете в сверхсекретном исследовательском центре по разработке биологического оружия. К сожалению, наш ненавистный враг, Нанотразен, начал добычу полезных ископаемых в этом секторе. <b>Следите за действиями противника, насколько это возможно, и старайтесь не попадаться им на глаза. Не покидайте базу.</b> Используйте коммуникационное оборудование, чтобы обеспечить поддержку любым полевым агентам, и используйте дезинформацию против Нанотразен. Не дайте базе попасть в руки врага!</b> \
+	mob_name = "Syndicate [pick("Alpha", "Beta","Gamma", "Delta", "Epsilon", "Zeta", "Eta", "Theta", "Iota", "Kappa", "Lambda", "Omicron")] Comms Agent"
+	flavour_text = "<span class='big bold'>Вы агент синдиката, </span><b>и сейчас вы работаете в сверхсекретном исследовательском центре по разработке биологического оружия. К сожалению, наш ненавистный враг, Нанотразен, начал добычу полезных ископаемых в этом секторе. <b>Следите за действиями противника, насколько это возможно, и старайтесь не попадаться им на глаза. Не покидайте базу.</b> Используйте коммуникационное оборудование, чтобы обеспечить поддержку любым полевым агентам, и используйте дезинформацию против Нанотразен. Не дайте базе попасть в руки врага!</b> \
 	<br><i>Вы можете атаковать любого, кто не связан с синдикатом в непосредственной близости от вашей базы. <font size=6>НИ В КОЕМ СЛУЧАЕ НЕ</font> работайте против персонала Синдиката (например, предателей или ядерных оперативников). Вы можете работать с несиндикатными антагонистами или против них в каждом конкретном случае. <font size=6>И НИКОГДА, НИКОГДА НЕ</font> покидайте базу без разрешения Администратора.</i>"
 	outfit = /datum/outfit/lavaland_syndicate/comms
 
@@ -75,13 +74,9 @@
 
 /datum/outfit/lavaland_syndicate/comms
 	name = "Lavaland Syndicate Comms Agent"
-	r_ear = /obj/item/radio/headset/syndicate/alt // See del_types above
 	r_hand = /obj/item/melee/energy/sword/saber
 	mask = /obj/item/clothing/mask/chameleon/gps
 	suit = /obj/item/clothing/suit/armor/vest
-	backpack_contents = list(
-		/obj/item/paper/monitorkey = 1 // message console on lavaland does NOT spawn with this
-	)
 
 /obj/item/clothing/mask/chameleon/gps/New()
 	. = ..()

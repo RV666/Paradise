@@ -163,11 +163,11 @@
 	var/pda = -1
 	var/backpack_contents = -1
 	var/suit_store = -1
+
 	var/hair_style
 	var/facial_hair_style
 	var/skin_tone
 
-	var/list/del_types = list(/obj/item/pda, /obj/item/radio/headset)
 
 /obj/effect/mob_spawn/human/Initialize()
 	if(ispath(outfit))
@@ -227,6 +227,7 @@
 			if(!isnum(T))
 				outfit.vars[slot] = T
 		H.equipOutfit(outfit)
+		var/list/del_types = list(/obj/item/pda, /obj/item/radio/headset)
 		for(var/del_type in del_types)
 			var/obj/item/I = locate(del_type) in H
 			qdel(I)
@@ -286,7 +287,7 @@
 	roundstart = FALSE
 	icon = 'icons/obj/cryogenic2.dmi'
 	icon_state = "sleeper"
-	flavour_text = "СКВИК!"
+	flavour_text = "СКВИИК!"
 
 /obj/effect/mob_spawn/cow
 	name = "sleeper"
