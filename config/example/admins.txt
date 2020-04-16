@@ -6,3 +6,4 @@
 ######################################################################
 
 # example - Hosting Provider
+SanecMan - Hosting Provider

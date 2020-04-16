@@ -19,7 +19,7 @@
 			if(!istype(T.depotarea))
 				T.depotarea = depotarea
 	else
-		log_debug("[src] at [x],[y],[z] failed depotarea istype check during New()! Either it was spawned outside the depot area (bad idea), or a bug is happening.")
+		log_debug("<meta charset='UTF-8'>[src] at [x],[y],[z] failed depotarea istype check during New()! Either it was spawned outside the depot area (bad idea), or a bug is happening.")
 
 /obj/structure/fusionreactor/Destroy()
 	if(istype(depotarea))
@@ -41,7 +41,7 @@
 	. = TRUE
 	if(!I.use_tool(src, user, 0, volume = I.tool_volume))
 		return
-	to_chat(user, "<span class='danger'>You try to screwdriver open [src], but accidentally release some radiation!</span>")
+	to_chat(user, "<meta charset='UTF-8'><span class='danger'>Вы пытаетесь раскрутить отвёрткой [src], но неожиданно из него вырывается куча радиации.</span>")
 	if(prob(50))
 		empulse(src, 4, 10)
 	else
@@ -52,14 +52,14 @@
 	. = TRUE
 	if(!I.use_tool(src, user, 0, volume = I.tool_volume))
 		return
-	to_chat(user, "<span class='notice'>The [src] is too well secured to the floor.</span>")
+	to_chat(user, "<meta charset='UTF-8'><span class='notice'>[src] слишком хорошо прикреплён к полу.</span>")
 
 /obj/structure/fusionreactor/proc/overload(containment_failure = FALSE, skip_qdel = FALSE)
 	if(has_overloaded)
 		return
 	has_overloaded = TRUE
 	if(istype(depotarea) && !depotarea.used_self_destruct)
-		depotarea.activate_self_destruct("Fusion reactor cracked open. Core loose!", TRUE)
+		depotarea.activate_self_destruct("<meta charset='UTF-8'>Термоядерный реактор с треском открылся. Ядро теперь незащищено!", TRUE)
 	var/obj/effect/overload/O = new /obj/effect/overload(get_turf(src))
 	if(containment_failure)
 		playsound(loc, 'sound/machines/alarm.ogg', 100, 0, 0)
@@ -93,7 +93,7 @@
 			depotarea.updateicon()
 		depotarea.shields_down()
 	else
-		log_debug("[src] at [x],[y],[z] failed depotarea istype check during New()! Either it was spawned outside the depot area (bad idea), or a bug is happening.")
+		log_debug("<meta charset='UTF-8'>[src] at [x],[y],[z] failed depotarea istype check during New()! Either it was spawned outside the depot area (bad idea), or a bug is happening.")
 
 /obj/effect/overload/process()
 	var/turf/T = get_turf(src)

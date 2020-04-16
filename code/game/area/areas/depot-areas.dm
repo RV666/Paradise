@@ -1,4 +1,5 @@
-
+// ВНИМАНИЕ КОДЕРАМ! <meta charset='UTF-8'> ЭТО ВПИСЫВАТЬ ЧТО БЫ БЫЛ РУССКИЙ ЯЗЫК ВМЕСТО АБРАХУЯБРЫ
+// ТАК КАК ПЕРЕХОД С 512 (Window-1251) НА 513 (utf-8) ПРОИСХОДИТ LE PROEB
 /area/syndicate_depot
 	name = "Suspicious Supply Depot"
 	icon_state = "dark"
@@ -7,9 +8,9 @@
 /area/syndicate_depot/core
 	icon_state = "red"
 
-	var/local_alarm = FALSE // Level 1: Local alarm tripped, bot spawned, red fire overlay activated
-	var/called_backup = FALSE // Level 2: Remote alarm tripped. Bot may path through depot. Backup spawned.
-	var/used_self_destruct = FALSE // Level 3: Self destruct activated. Depot will be destroyed shortly.
+	var/local_alarm = FALSE // Уровень 1: сработала локальная сигнализация, появился бот, активировано наложение красного света
+	var/called_backup = FALSE // Уровень 2: сработала дистанционная сигнализация. Бот может пройти путь через депо. Вызвана подмога.
+	var/used_self_destruct = FALSE // Уровень 3: Активировано самоуничтожение. Депо скоро будет уничтожено.
 
 	var/run_started = FALSE
 	var/run_finished = FALSE
@@ -96,13 +97,13 @@
 			spawn(0)
 				A.unlock()
 
-	alert_log += "Alert level reset."
+	alert_log += "<meta charset='UTF-8'>Сброс уровня тревоги."
 
 /area/syndicate_depot/core/proc/increase_alert(reason)
 	if(on_peaceful)
 		peaceful_mode(FALSE, FALSE)
 		peace_betrayed = TRUE
-		activate_self_destruct("Depot has been infiltrated by double-agents.", TRUE, null)
+		activate_self_destruct("<meta charset='UTF-8'>На Депо находятся двойные агенты.", TRUE, null)
 		return
 	if(!local_alarm)
 		local_alarm(reason, FALSE)
@@ -118,53 +119,53 @@
 	if(!something_looted)
 		something_looted = TRUE
 		if(on_peaceful)
-			increase_alert("Thieves!")
+			increase_alert("<meta charset='UTF-8'>Проникновение!")
 		if(perimeter_shield_status)
-			increase_alert("Perimeter shield breach!")
+			increase_alert("<meta charset='UTF-8'>Нарушение периметра щита!")
 
 
 /area/syndicate_depot/core/proc/armory_locker_looted()
 	if(!run_finished && !used_self_destruct)
 		if(shield_list.len)
-			activate_self_destruct("Armory compromised despite armory shield being online.", FALSE)
+			activate_self_destruct("<meta charset='UTF-8'>Оружейная взломана, несмотря на включённый оружейный щит", FALSE)
 			return
 		declare_finished()
 
 /area/syndicate_depot/core/proc/turret_died()
 	something_looted = TRUE
 	if(on_peaceful)
-		increase_alert("Vandals!")
+		increase_alert("<meta charset='UTF-8'>Вандалы!")
 
 /area/syndicate_depot/core/proc/mine_triggered(mob/living/M)
 	if(mine_trigger_count)
 		return TRUE
 	mine_trigger_count++
-	increase_alert("Intruder detected by sentry mine: [M]")
+	increase_alert("<meta charset='UTF-8'>Нарушитель обнаружен охранной миной: [M]")
 
 /area/syndicate_depot/core/proc/saw_mech(obj/mecha/E)
 	if(detected_mech)
 		return
 	detected_mech = TRUE
-	increase_alert("Hostile mecha detected: [E]")
+	increase_alert("<meta charset='UTF-8'>Обнаружен враждебный мех: [E]")
 
 /area/syndicate_depot/core/proc/saw_pod(obj/spacepod/P)
 	if(detected_pod)
 		return
 	detected_pod = TRUE
 	if(!called_backup)
-		increase_alert("Hostile spacepod detected: [P]")
+		increase_alert("<meta charset='UTF-8'>Обнаружена враждебный космический под: [P]")
 
 /area/syndicate_depot/core/proc/saw_double_agent(mob/living/M)
 	if(detected_double_agent)
 		return
 	detected_double_agent = TRUE
-	increase_alert("Hostile double-agent detected: [M]")
+	increase_alert("<meta charset='UTF-8'>Обнаружен враждебный двойной агент: [M]")
 
 /area/syndicate_depot/core/proc/peaceful_mode(newvalue, bycomputer)
 	if(newvalue)
-		log_game("Depot visit: started")
-		alert_log += "Code GREEN: visitor mode started."
-		ghostlog("The syndicate depot has visitors")
+		log_game("<meta charset='UTF-8'>Посещение Депо: начато")
+		alert_log += "<meta charset='UTF-8'>Код ЗЕЛЁНЫЙ: запущен режим посетителя."
+		ghostlog("<meta charset='UTF-8'>В Депо Синдиката есть посетители")
 		for(var/mob/living/simple_animal/bot/medbot/syndicate/B in src)
 			qdel(B)
 		for(var/mob/living/simple_animal/hostile/syndicate/N in src)
@@ -177,8 +178,8 @@
 			L.req_access = list(ACCESS_SYNDICATE_LEADER)
 			L.update_icon()
 	else
-		log_game("Depot visit: ended")
-		alert_log += "Visitor mode ended."
+		log_game("<meta charset='UTF-8'>Посещение Депо: окончено")
+		alert_log += "<meta charset='UTF-8'>Режим посетителя окончен."
 		for(var/mob/living/simple_animal/hostile/syndicate/N in src)
 			N.a_intent = INTENT_HARM
 		for(var/obj/machinery/door/airlock/A in src)
@@ -190,18 +191,18 @@
 			L.update_icon()
 	on_peaceful = newvalue
 	if(newvalue)
-		announce_here("Depot Visitor","A Syndicate agent is visiting the depot.")
+		announce_here("<meta charset='UTF-8'>Посетитель Депо","Агент синдиката посещает Депо.")
 	else
 		if(bycomputer)
-			message_admins("Syndicate Depot visitor mode deactivated. Visitors:")
-			announce_here("Depot Alert","Visit ended. All visting agents signed out.")
+			message_admins("<meta charset='UTF-8'>Режим посетителей Синдикатного депо отключен. Посетители:")
+			announce_here("<meta charset='UTF-8'>Внимание Депо","Визит закончился. Все приезжие агенты отключены от системы.")
 		else
-			message_admins("Syndicate Depot visitor mode auto-deactivated because visitors robbed depot! Visitors:")
-			announce_here("Depot Alert","A visiting agent has betrayed the Syndicate. Shoot all visitors on sight!")
+			message_admins("<meta charset='UTF-8'>Режим посетителей синдикатного депо автоматически деактивируется, потому что посетители ограбили Депо! Посетители: ")
+			announce_here("<meta charset='UTF-8'>Внимание Депо","Приезжий агент предал Синдикат. Расстреливайте всех посетителей на месте!")
 		for(var/mob/M in list_getmobs(peaceful_list))
 			if("syndicate" in M.faction)
 				M.faction -= "syndicate"
-				message_admins("- SYNDI DEPOT VISITOR: [ADMIN_FULLMONTY(M)]")
+				message_admins("<meta charset='UTF-8'>- SYNDI DEPOT VISITOR: [ADMIN_FULLMONTY(M)]")
 				list_add(M, hostile_list)
 		peaceful_list = list()
 	updateicon()
@@ -209,12 +210,12 @@
 /area/syndicate_depot/core/proc/local_alarm(reason, silent)
 	if(local_alarm)
 		return
-	log_game("Depot code: blue: " + list_show(hostile_list, TRUE))
-	ghostlog("The syndicate depot has declared code blue.")
-	alert_log += "Code BLUE: [reason]"
+	log_game("<meta charset='UTF-8'>Код депо: синий:" + list_show(hostile_list, TRUE))
+	ghostlog("<meta charset='UTF-8'>Депо Синдиката объявило Синий код.")
+	alert_log += "<meta charset='UTF-8'>Код СИНИЙ: [reason]"
 	local_alarm = TRUE
 	if(!silent)
-		announce_here("Depot Code BLUE", reason)
+		announce_here("<meta charset='UTF-8'>Код Депо СИНИЙ", reason)
 		var/list/possible_bot_spawns = list()
 		for(var/obj/effect/landmark/L in GLOB.landmarks_list)
 			if(L.name == "syndi_depot_bot")
@@ -230,9 +231,9 @@
 /area/syndicate_depot/core/proc/call_backup(reason, silent)
 	if(called_backup || used_self_destruct)
 		return
-	log_game("Depot code: red: " + list_show(hostile_list, TRUE))
-	ghostlog("The syndicate depot has declared code red.")
-	alert_log += "Code RED: [reason]"
+	log_game("<meta charset='UTF-8'>Код депо: красный: " + list_show(hostile_list, TRUE))
+	ghostlog("<meta charset='UTF-8'>Депо синдиката объявило Красный код.")
+	alert_log += "<meta charset='UTF-8'>Код КРАСНЫЙ: [reason]"
 	called_backup = TRUE
 	lockout_computers()
 	for(var/obj/machinery/door/poddoor/P in GLOB.airlocks)
@@ -240,7 +241,7 @@
 			spawn(0)
 				P.open()
 	if(!silent)
-		announce_here("Depot Code RED", reason)
+		announce_here("<meta charset='UTF-8'>Код Депо КРАСНЫЙ", reason)
 
 	var/comms_online = FALSE
 	if(istype(comms_computer))
@@ -256,15 +257,15 @@
 						S.depotarea = src
 						list_add(S, guard_list)
 	else if(!silent)
-		announce_here("Depot Communications Offline", "Comms computer is damaged, destroyed or depowered. Unable to call in backup from Syndicate HQ.")
+		announce_here("<meta charset='UTF-8'>Депо связи в автономном режиме", "<meta charset='UTF-8'>компьютер связи поврежден, разрушен или отключен. Не удалось вызвать подкрепление из штаба Синдиката.")
 	updateicon()
 
 /area/syndicate_depot/core/proc/activate_self_destruct(reason, containment_failure, mob/user)
 	if(used_self_destruct)
 		return
-	log_game("Depot code: delta: " + list_show(hostile_list, TRUE))
-	ghostlog("The syndicate depot is about to self-destruct.")
-	alert_log += "Code DELTA: [reason]"
+	log_game("<meta charset='UTF-8'>Код Депо: Дельта: " + list_show(hostile_list, TRUE))
+	ghostlog("<meta charset='UTF-8'>Депо Синдиката активировало самоуничтожение.")
+	alert_log += "<meta charset='UTF-8'>Код ДЕЛЬТА: [reason]"
 	used_self_destruct = TRUE
 	local_alarm = TRUE
 	called_backup = TRUE
@@ -273,25 +274,25 @@
 	updateicon()
 	despawn_guards()
 	if(containment_failure)
-		announce_here("Depot Code DELTA", reason)
+		announce_here("<meta charset='UTF-8'>Код Депо ДЕЛЬТА", reason)
 	else
-		announce_here("Depot Code DELTA","[reason] Depot declared lost to hostile forces. Priming self-destruct!")
+		announce_here("<meta charset='UTF-8'>Код Депо ДЕЛЬТА","<meta charset='UTF-8'>[reason] Депо захвачено врагом. Активировано самоуничтожение!")
 
 	if(user)
 		var/turf/T = get_turf(user)
 		var/area/A = get_area(T)
-		var/log_msg = "[key_name(user)] has triggered the depot self destruct at [A.name] ([T.x],[T.y],[T.z])"
+		var/log_msg = "<meta charset='UTF-8'>[key_name(user)] сработал механизм самоуничтожения Депо на [A.name] ([T.x],[T.y],[T.z])"
 		message_admins(log_msg)
 		log_game(log_msg)
 		playsound(user, 'sound/machines/alarm.ogg', 100, 0, 0)
 	else
-		log_game("Depot self destruct activated.")
+		log_game("<meta charset='UTF-8'>Устроиство самоуничтожения на Депо активировано!")
 	if(reactor)
 		if(!reactor.has_overloaded)
 			reactor.overload(containment_failure)
 	else
-		log_debug("Depot: [src] called activate_self_destruct with no reactor.");
-		message_admins("<span class='adminnotice'>Syndicate Depot lacks reactor to initiate self-destruct. Must be destroyed manually.</span>")
+		log_debug("<meta charset='UTF-8'>Depot: [src] called activate_self_destruct with no reactor.");
+		message_admins("<meta charset='UTF-8'><span class='adminnotice'>Syndicate Depot lacks reactor to initiate self-destruct. Must be destroyed manually.</span>")
 	updateicon()
 
 /area/syndicate_depot/core/proc/activate_lockdown()
@@ -328,8 +329,8 @@
 	for(var/obj/machinery/bluespace_beacon/syndicate/B in src)
 		return B.toggle()
 
-/area/syndicate_depot/core/proc/announce_here(a_header = "Depot Defense Alert", a_text = "")
-	var/msg_text = "<font size=4 color='red'>[a_header]</font><br><font color='red'>[a_text]</font>"
+/area/syndicate_depot/core/proc/announce_here(a_header = "<meta charset='UTF-8'>Тревога Депо - Охранна ", a_text = "")
+	var/msg_text = "<meta charset='UTF-8'><font size=4 color='red'>[a_header]</font><br><font color='red'>[a_text]</font>"
 	var/list/receivers = list()
 	for(var/mob/M in GLOB.mob_list)
 		if(!M.ckey)
@@ -386,17 +387,17 @@
 /area/syndicate_depot/core/proc/ghostlog(gmsg)
 	if(istype(reactor))
 		var/image/alert_overlay = image('icons/obj/flag.dmi', "syndiflag")
-		notify_ghosts(gmsg, title = "Depot News", source = reactor.loc, alert_overlay = alert_overlay, action = NOTIFY_JUMP)
+		notify_ghosts(gmsg, title = "<meta charset='UTF-8'>Новости Депо", source = reactor.loc, alert_overlay = alert_overlay, action = NOTIFY_JUMP)
 
 /area/syndicate_depot/core/proc/declare_started()
 	if(!run_started)
 		run_started = TRUE
-		log_game("Depot run: started: " + list_show(hostile_list, TRUE))
+		log_game("<meta charset='UTF-8'>Запуск Депо: запущено:" + list_show(hostile_list, TRUE))
 
 /area/syndicate_depot/core/proc/declare_finished()
 	if(!run_finished && !used_self_destruct)
 		run_finished = TRUE
-		log_game("Depot run: finished successfully: " + list_show(hostile_list, TRUE))
+		log_game("<meta charset='UTF-8'>Запуск Депо: успешно завершено: " + list_show(hostile_list, TRUE))
 
 /area/syndicate_depot/core/proc/list_add(mob/M, list/L)
 	if(!istype(M))
@@ -446,12 +447,12 @@
 	var/returntext = ""
 	var/list/moblist = list_getmobs(L)
 	if(moblist.len)
-		returntext += "<UL>"
+		returntext += "<meta charset='UTF-8'><UL>"
 		for(var/mob/thismob in moblist)
-			returntext += "<LI>[thismob]</LI>"
-		returntext += "</UL>"
+			returntext += "<meta charset='UTF-8'><LI>[thismob]</LI>"
+		returntext += "<meta charset='UTF-8'></UL>"
 	else
-		returntext += "<BR>NONE"
+		returntext += "<meta charset='UTF-8'><BR>NONE"
 	return returntext
 
 /area/syndicate_depot/outer
