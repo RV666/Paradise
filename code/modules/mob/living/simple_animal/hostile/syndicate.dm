@@ -48,27 +48,27 @@
 	user.do_attack_animation(src)
 	if(O.force)
 		if(prob(melee_block_chance))
-			visible_message("<span class='boldwarning'>[src] blocks the [O] with its shield! </span>")
+			visible_message("<span class='boldwarning'>[src] блокирует [O] своим щитом! </span>")
 		else
 			var/damage = O.force
 			if(O.damtype == STAMINA)
 				damage = 0
 			if(force_threshold && damage < force_threshold)
-				visible_message("<span class='boldwarning'>[src] is unharmed by [O]!</span>")
+				visible_message("<span class='boldwarning'>[src] не получил урона от [O]!</span>")
 				return
 			adjustHealth(damage)
-			visible_message("<span class='boldwarning'>[src] has been attacked with the [O] by [user]. </span>")
+			visible_message("<span class='boldwarning'>[src] был атакован [O] от [user]. </span>")
 		playsound(loc, O.hitsound, 25, 1, -1)
 	else
-		to_chat(usr, "<span class='warning'>This weapon is ineffective, it does no damage.</span>")
-		visible_message("<span class='warning'>[user] gently taps [src] with the [O]. </span>")
+		to_chat(usr, "<span class='warning'>Это оружие неэффективно, оно не наносит никакого урона.</span>")
+		visible_message("<span class='warning'>[user] дотронулся до [src] с помощью [O]. </span>")
 
 
 /mob/living/simple_animal/hostile/syndicate/melee/bullet_act(var/obj/item/projectile/Proj)
 	if(!Proj)
 		return
 	if(prob(ranged_block_chance))
-		visible_message("<span class='danger'>[src] blocks [Proj] with its shield!</span>")
+		visible_message("<span class='danger'>[src] блокирует [Proj] своим щитом!</span>")
 	else
 		if((Proj.damage_type == BRUTE || Proj.damage_type == BURN))
 			adjustHealth(Proj.damage)
@@ -125,7 +125,7 @@
 				playsound(loc, 'sound/weapons/saberon.ogg', 35, 1)
 			if(alert_on_shield_breach)
 				if(depotarea.shield_list.len)
-					raise_alert("[name] reports that [target] is trying to breach the armory shield!")
+					raise_alert("<meta charset='UTF-8'>[name] доложил, что [target] взламывает оружейку!")
 					alert_on_shield_breach = FALSE
 					raised_alert = FALSE
 					alert_on_death = TRUE
@@ -142,7 +142,7 @@
 			depotarea.saw_pod(target)
 		if(depotarea.list_includes(target, depotarea.dead_list))
 			seen_revived_enemy = TRUE
-			raise_alert("[name] reports intruder [target] has returned from death!")
+			raise_alert("<meta charset='UTF-8'>[name] сообщает, что нарушитель [target] после смерти ожил!")
 			depotarea.list_remove(target, depotarea.dead_list)
 		if(!atoms_share_level(src, target) && prob(20))
 			// This prevents someone from aggroing a depot mob, then hiding in a locker, perfectly safe, while the mob stands there getting killed by their friends.
@@ -157,20 +157,20 @@
 	if(seen_enemy)
 		aggro_cycles++
 		if(alert_on_timeout && !raised_alert && aggro_cycles >= 60)
-			raise_alert("[name] has reported contact with hostile entity: [seen_enemy_name]")
+			raise_alert("<meta charset='UTF-8'>[name] сообщило о контакте с враждебной сущностью: [seen_enemy_name]")
 	if(scan_cycles >= 15)
 		scan_cycles = 0
 		if(!atoms_share_level(src, spawn_turf))
 			if(istype(loc, /obj/structure/closet))
 				var/obj/structure/closet/O = loc
 				forceMove(get_turf(src))
-				visible_message("<span class='boldwarning'>[src] smashes their way out of [O]!</span>")
+				visible_message("<span class='boldwarning'>[src] проделывает себе путь с помощью [O]!</span>")
 				qdel(O)
-				raise_alert("[src] reported being trapped in a locker.")
+				raise_alert("[src] сообщил, что враг заперт в шкафчике.")
 				raised_alert = FALSE
 				return
 			if(alert_on_spacing)
-				raise_alert("[src] lost in space.")
+				raise_alert("[src] улетел в космос.")
 			death()
 			return
 		for(var/mob/living/body in hearers(vision_range, targets_from))
@@ -180,7 +180,7 @@
 				continue
 			if(faction_check_mob(body))
 				continue
-			say("Target [body]... terminated.")
+			say("Обьект [body]... уничтожен.")
 			depotarea.list_add(body, depotarea.dead_list)
 			pointed(body)
 	else
@@ -201,9 +201,9 @@
 		return ..()
 	if(alert_on_death)
 		if(seen_enemy_name)
-			raise_alert("[name] has died in combat with [seen_enemy_name].")
+			raise_alert("[name] умер сражаясь с [seen_enemy_name].")
 		else
-			raise_alert("[name] has died.")
+			raise_alert("[name] умер.")
 	if(shield_key && depotarea)
 		depotarea.shields_key_check()
 	if(depotarea)
@@ -364,4 +364,4 @@
 	flying = 1
 	gold_core_spawnable = HOSTILE_SPAWN
 	del_on_death = 1
-	deathmessage = "is smashed into pieces!"
+	deathmessage = "взорвался!"
