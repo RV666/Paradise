@@ -37,13 +37,13 @@
 
 /obj/structure/closet/secure_closet/syndicate/depot/attack_animal(mob/M)
 	if(isanimal(M) && "syndicate" in M.faction)
-		to_chat(M, "<meta charset='UTF-8'><span class='warning'>[src] уклонился от вашей атаки</span>")
+		to_chat(M, "<span class='warning'>[src] уклонился от вашей атаки</span>")
 		return
 	return ..()
 
 /obj/structure/closet/secure_closet/syndicate/depot/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/rcs))
-		to_chat(user, "<meta charset='UTF-8'><span class='warning'>Блюспейс защита не даёт [W] заблокировать [src]!</span>")
+		to_chat(user, "<span class='warning'>Блюспейс защита не даёт [W] заблокировать [src]!</span>")
 		return
 	return ..()
 

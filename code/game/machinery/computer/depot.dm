@@ -68,7 +68,7 @@
 		to_chat(user, "<span class='warning'>Доступ запрещён.</span>")
 		return
 	user.set_machine(src)
-	var/dat = get_menu(user)
+	var/dat = {"<meta charset="UTF-8">"} + get_menu(user)
 	user << browse(dat, "window=computer;size=575x450")
 	onclose(user, "computer")
 
@@ -349,7 +349,7 @@
 	. = ..()
 	if(!security_lockout && (stat & NOPOWER))
 		security_lockout = TRUE
-		raise_alert("[src] теряет энергию.")
+		raise_alert("[src] разряжен.")
 
 
 // Syndicate teleporter control, used to manage incoming/outgoing teleports
