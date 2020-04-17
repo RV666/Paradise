@@ -20,7 +20,7 @@
 	var/area/syndicate_depot/core/depotarea
 	var/alerts_when_broken = FALSE
 	var/has_alerted = FALSE
-	var/dat = {"<meta charset="UTF-8">"}
+
 
 /obj/machinery/computer/syndicate_depot/New()
 	. = ..()
@@ -28,7 +28,7 @@
 
 /obj/machinery/computer/syndicate_depot/attack_ai(mob/user)
 	if(req_access.len && !("syndicate" in user.faction))
-		to_chat(user, "<meta charset='UTF-8'><span class='warning'>A firewall blocks your access.</span>")
+		to_chat(user, "<span class='warning'>A firewall blocks your access.</span>")
 		return 1
 	return ..()
 
@@ -36,7 +36,7 @@
 	return
 
 /obj/machinery/computer/syndicate_depot/emag_act(mob/user)
-	to_chat(user, "<meta charset='UTF-8'><span class='notice'>Электронная система в этой консоли защищена от вашего примитивного хакерскского устройства.</span>")
+	to_chat(user, "<span class='notice'>Электронная система в этой консоли защищена от вашего примитивного хакерскского устройства.</span>")
 	return
 
 /obj/machinery/computer/syndicate_depot/allowed(mob/user)
@@ -51,7 +51,7 @@
 /obj/machinery/computer/syndicate_depot/proc/has_security_lockout(mob/user)
 	if(security_lockout)
 		playsound(user, 'sound/machines/buzz-sigh.ogg', 50, 0)
-		to_chat(user, "<span class='warning'><meta charset='UTF-8'>[src]  находится под блокировкой системы безопасности.</span>")
+		to_chat(user, "<span class='warning'[src]  находится под блокировкой системы безопасности.</span>")
 		return TRUE
 	return FALSE
 
@@ -65,7 +65,7 @@
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(!allowed(user))
-		to_chat(user, "<meta charset='UTF-8'><span class='warning'>Доступ запрещён.</span>")
+		to_chat(user, "<span class='warning'>Доступ запрещён.</span>")
 		return
 	user.set_machine(src)
 	var/dat = get_menu(user)
@@ -77,7 +77,7 @@
 	. = ..()
 	if(alerts_when_broken && !has_alerted)
 		has_alerted = TRUE
-		raise_alert("[src] was damaged.")
+		raise_alert("[src] повреждён.")
 	disable_special_functions()
 
 /obj/machinery/computer/syndicate_depot/proc/disable_special_functions()
@@ -129,9 +129,9 @@
 	var/pub_access = FALSE
 
 /obj/machinery/computer/syndicate_depot/doors/get_menu(mob/user)
-	return {"<meta charset='UTF-8'><B>Консоль Управления Дверью Депо Синдиката</B><HR>
-	<BR><BR><a href='?src=[UID()];primary=1'><meta charset='UTF-8'><meta charset='UTF-8'>Аварийный Доступ К Шлюзу: Переключить</a>
-	<BR><BR><a href='?src=[UID()];secondary=1'><meta charset='UTF-8'><meta charset='UTF-8'>Скрытые Двери: Переключить</a>
+	return {"<meta charset="UTF-8" ><B>Консоль Управления Дверью Депо Синдиката</B><HR>
+	<BR><BR><a href='?src=[UID()];primary=1'>Аварийный Доступ К Шлюзу: Переключить</a>
+	<BR><BR><a href='?src=[UID()];secondary=1'>Скрытые Двери: Переключить</a>
 	<BR>"}
 
 /obj/machinery/computer/syndicate_depot/doors/primary(mob/user)
@@ -141,10 +141,10 @@
 		pub_access = !pub_access
 		if(pub_access)
 			depotarea.set_emergency_access(TRUE)
-			to_chat(user, "<span class='notice'><meta charset='UTF-8'>Аварийный доступ включён.</span>")
+			to_chat(user, "<span class='notice'>Аварийный доступ включён.</span>")
 		else
 			depotarea.set_emergency_access(FALSE)
-			to_chat(user, "<span class='notice'><meta charset='UTF-8'>Аварийный доступ отключен.</span>")
+			to_chat(user, "<span class='notice'>Аварийный доступ отключен.</span>")
 		playsound(user, sound_yes, 50, 0)
 
 /obj/machinery/computer/syndicate_depot/doors/secondary(mob/user, subcommand)
@@ -152,7 +152,7 @@
 		return
 	if(depotarea)
 		depotarea.toggle_falsewalls(src)
-		to_chat(user, "<span class='notice'><meta charset='UTF-8'>Переключение скрытых дверей.</span>")
+		to_chat(user, "<span class='notice'>Переключение скрытых дверей.</span>")
 		playsound(user, sound_yes, 50, 0)
 
 
@@ -165,7 +165,7 @@
 	alerts_when_broken = TRUE
 
 /obj/machinery/computer/syndicate_depot/selfdestruct/get_menu(mob/user)
-	var menutext = {"<B><meta charset="UTF-8">Управление Термоядерным Реактором Синдикатного Депо</B><HR>
+	var menutext = {"<B><meta charset="UTF-8" >Управление Термоядерным Реактором Синдикатного Депо</B><HR>
 	<BR><BR><a href='?src=[UID()];primary=1'>Отключить Защитное Поле</a>
 	<BR>"}
 	return menutext
@@ -204,10 +204,10 @@
 	return ..()
 
 /obj/machinery/computer/syndicate_depot/shieldcontrol/get_menu(mob/user)
-	var menutext = {"<meta charset="UTF-8"><B>Управление Силовым Полем Депо Синдиката</B><HR>
+	var menutext = {"<meta charset="UTF-8" ><B>Управление Силовым Полем Депо Синдиката</B><HR>
 	<BR>"}
-	menutext += {"<meta charset="UTF-8">(SYNDI-LEADER) Все базовые щиты: [perimeterarea.shield_list.len ? "ON" : "OFF"] (<a href='?src=[UID()];primary=1'>[perimeterarea.shield_list.len ? "Disable" : "Enable"]</a>)<BR>"}
-	menutext += {"<meta charset="UTF-8">(SYNDI-LEADER) Оружейные Щиты: [depotarea.shield_list.len ? "ON" : "OFF"] (<a href='?src=[UID()];secondary=1'>[depotarea.shield_list.len ? "Disable" : "Enable"]</a>)<BR>"}
+	menutext += {"<meta charset="UTF-8" >(SYNDI-LEADER) Все базовые щиты: [perimeterarea.shield_list.len ? "ON" : "OFF"] (<a href='?src=[UID()];primary=1'>[perimeterarea.shield_list.len ? "Disable" : "Enable"]</a>)<BR>"}
+	menutext += {"<meta charset="UTF-8" >(SYNDI-LEADER) Оружейные Щиты: [depotarea.shield_list.len ? "ON" : "OFF"] (<a href='?src=[UID()];secondary=1'>[depotarea.shield_list.len ? "Disable" : "Enable"]</a>)<BR>"}
 	return menutext
 
 /obj/machinery/computer/syndicate_depot/shieldcontrol/primary(mob/user)
@@ -259,30 +259,30 @@
 	return ..()
 
 /obj/machinery/computer/syndicate_depot/syndiecomms/get_menu(mob/user)
-	var/menu = "<meta charset='UTF-8'><B>Ретранслятор Связи Синдиката</B><HR>"
-	menu += "<meta charset='UTF-8'><BR><BR>Одноразовый канал связи со штаб-квартирой Синдиката: [message_sent ? "ALREADY USED" : "AVAILABLE (<a href='?src=[UID()];primary=1'>Open Channel</a>)"]"
+	var/menu = "<B>Ретранслятор Связи Синдиката</B><HR>"
+	menu += "<BR><BR>Одноразовый канал связи со штаб-квартирой Синдиката: [message_sent ? "ALREADY USED" : "AVAILABLE (<a href='?src=[UID()];primary=1'>Open Channel</a>)"]"
 	if(depotarea.on_peaceful)
-		menu += "<meta charset='UTF-8'><BR><BR>Приезжие Агенты: ВИЗИТ ПРОДОЛЖАЕТСЯ. "
+		menu += "<BR><BR>Приезжие Агенты: ВИЗИТ ПРОДОЛЖАЕТСЯ. "
 		if(depotarea.list_includes(user, depotarea.peaceful_list))
-			menu += "<meta charset='UTF-8'>[user] ЯВЛЯЕТСЯ ПРИЗНАННЫМ ВЫЕЗДНЫМ АГЕНТОМ"
+			menu += "[user] ЯВЛЯЕТСЯ ПРИЗНАННЫМ ВЫЕЗДНЫМ АГЕНТОМ"
 		else
-			menu += "<meta charset='UTF-8'>[user] НЕ ПРИЗНАНН. (<a href='?src=[UID()];secondary=[DEPOT_VISITOR_ADD]'>Войти как Агент</a>)"
+			menu += "[user] НЕ ПРИЗНАНН. (<a href='?src=[UID()];secondary=[DEPOT_VISITOR_ADD]'>Войти как Агент</a>)"
 		if(check_rights(R_ADMIN, 0, user))
-			menu += "<meta charset='UTF-8'><BR><BR>АДМИН: (<a href='?src=[UID()];secondary=[DEPOT_VISITOR_END]'>Закончить Посещение</a>)"
+			menu += "<BR><BR>АДМИН: (<a href='?src=[UID()];secondary=[DEPOT_VISITOR_END]'>Закончить Посещение</a>)"
 
 	else
-		menu += "<meta charset='UTF-8'><BR><BR>Приезжие Агенты: NONE (<a href='?src=[UID()];secondary=[DEPOT_VISITOR_START]'>Войти как Агент</a>)"
+		menu += "<BR><BR>Приезжие Агенты: NONE (<a href='?src=[UID()];secondary=[DEPOT_VISITOR_START]'>Войти как Агент</a>)"
 	return menu
 
 /obj/machinery/computer/syndicate_depot/syndiecomms/primary(mob/user)
 	if(..())
 		return
 	if(!isliving(user))
-		to_chat(user, "<meta charset='UTF-8'>Ошибка: у терминала не обнаружено никаких признаков жизни, возврат.") // Safety to prevent aghosts accidentally pressing it and getting everyone killed.
+		to_chat(user, "Ошибка: у терминала не обнаружено никаких признаков жизни, возврат.") // Safety to prevent aghosts accidentally pressing it and getting everyone killed.
 		return
 	if(message_sent)
 		playsound(user, 'sound/machines/buzz-sigh.ogg', 50, 0)
-		to_chat(user, "<meta charset='UTF-8'><span class='warning'>[src] уже использовалась для передачи сообщения в Синдикат.</span>")
+		to_chat(user, "<span class='warning'>[src] уже использовалась для передачи сообщения в Синдикат.</span>")
 		return
 	message_sent = TRUE
 	var/input = stripped_input(user, "Пожалуйста, выберите сообщение для передачи в штаб-квартиру синдиката через квантосеть.  Передача данных не гарантирует получение ответа. Эта функция может быть использована только один раз.", "Для отказа отправьте пустое сообщение ", "")
@@ -291,7 +291,7 @@
 		return
 	Syndicate_announce(input, user)
 	to_chat(user, "СООБЩЕНИЕ ОТПРАВЛЕНО")
-	log_say("<meta charset='UTF-8'>[key_name(user)] отправил сообщение Синдикату по коммуникатору из депо: [input]", user)
+	log_say("[key_name(user)] отправил сообщение Синдикату по коммуникатору из депо: [input]", user)
 	updateUsrDialog()
 	playsound(user, sound_yes, 50, 0)
 
@@ -302,7 +302,7 @@
 		return
 	if(depotarea)
 		if(depotarea.local_alarm || depotarea.called_backup || depotarea.used_self_destruct)
-			to_chat(user, "<meta charset='UTF-8'><span class='warning'>Вход посетителей невозможен, пока депо находится в состоянии боевой готовности.</span>")
+			to_chat(user, "<span class='warning'>Вход посетителей невозможен, пока депо находится в состоянии боевой готовности.</span>")
 		else if(depotarea.on_peaceful)
 			if(subcommand == DEPOT_VISITOR_END)
 				if(check_rights(R_ADMIN, 0, user))
@@ -310,32 +310,32 @@
 			else if (subcommand == DEPOT_VISITOR_ADD)
 				if(user.mind && user.mind.special_role == SPECIAL_ROLE_TRAITOR)
 					if(depotarea.list_includes(user, depotarea.peaceful_list))
-						to_chat(user, "<meta charset='UTF-8'><span class='warning'>[user] уже посетитель.</span>")
+						to_chat(user, "<span class='warning'>[user] уже посетитель.</span>")
 					else
 						grant_syndie_faction(user)
 				else
-					to_chat(user, "<meta charset='UTF-8'><span class='warning'>Только проверенные агенты синдиката могут войти в систему в качестве посетителей. Все остальные будут расстреляны на месте.</span>")
+					to_chat(user, "<span class='warning'>Только проверенные агенты синдиката могут войти в систему в качестве посетителей. Все остальные будут расстреляны на месте.</span>")
 		else if(subcommand == DEPOT_VISITOR_START)
 			if(depotarea.something_looted)
-				to_chat(user, "<meta charset='UTF-8'><span class='warning'>Регистрация посетителей невозможна после того, как все необходимое будет взято из шкафчика в депо.</span>")
+				to_chat(user, "<span class='warning'>Регистрация посетителей невозможна после того, как все необходимое будет взято из шкафчика в депо.</span>")
 			else if("syndicate" in user.faction)
-				to_chat(user, "<meta charset='UTF-8'><span class='warning'>Вы уже признаны членом Синдиката, и вам не нужно входить в систему.</span>")
+				to_chat(user, "<span class='warning'>Вы уже признаны членом Синдиката, и вам не нужно входить в систему.</span>")
 			else if(user.mind && user.mind.special_role == SPECIAL_ROLE_TRAITOR)
 				grant_syndie_faction(user)
 				depotarea.peaceful_mode(TRUE, TRUE)
 			else
-				to_chat(user, "<meta charset='UTF-8'><span class='warning'>Только проверенные агенты синдиката могут войти в систему в качестве посетителей. Все остальные будут расстреляны на месте.</span>")
+				to_chat(user, "<span class='warning'>Только проверенные агенты синдиката могут войти в систему в качестве посетителей. Все остальные будут расстреляны на месте.</span>")
 		else
-			to_chat(user, "<meta charset='UTF-8'><span class='warning'>Нераспознанные команды: [subcommand]</span>")
+			to_chat(user, "<span class='warning'>Нераспознанные команды: [subcommand]</span>")
 	else
-		to_chat(user, "<meta charset='UTF-8'><span class='warning'>ОШИБКА: [src] не удается подключиться к сети депо.</span>")
+		to_chat(user, "<span class='warning'>ОШИБКА: [src] не удается подключиться к сети депо.</span>")
 	updateUsrDialog()
 	playsound(user, sound_yes, 50, 0)
 
 /obj/machinery/computer/syndicate_depot/syndiecomms/proc/grant_syndie_faction(mob/user)
 	user.faction += "syndicate"
 	depotarea.list_add(user, depotarea.peaceful_list)
-	to_chat(user, {"<meta charset="UTF-8"><BR><span class='userdanger'>Добро Пожаловать, Агент.</span>
+	to_chat(user, {"<BR><span class='userdanger'>Добро Пожаловать, Агент.</span>
 		<span class='warning'>Теперь вы вошли в систему как посетитель депо.
 		Любые другие агенты С ВАМИ должны зарегистрироваться САМИ.
 		Вы можете осматривать здесь все комнаты, кроме заболтированых
@@ -349,7 +349,7 @@
 	. = ..()
 	if(!security_lockout && (stat & NOPOWER))
 		security_lockout = TRUE
-		raise_alert("<meta charset='UTF-8'>[src] теряет энергию.")
+		raise_alert("[src] теряет энергию.")
 
 
 // Syndicate teleporter control, used to manage incoming/outgoing teleports
@@ -411,7 +411,7 @@
 		else
 			areaindex[tmpname] = 1
 		L[tmpname] = R
-	var/desc = input("<meta charset='UTF-8'>Please select a location to lock in.", "Syndicate Teleporter") in L
+	var/desc = input("Please select a location to lock in.", "Syndicate Teleporter") in L
 	return(L[desc])
 
 /obj/machinery/computer/syndicate_depot/teleporter/proc/update_portal()
@@ -435,13 +435,13 @@
 			myportal2 = null
 
 /obj/machinery/computer/syndicate_depot/teleporter/get_menu(mob/user)
-	var/menutext = "<meta charset='UTF-8'><B>Syndicate Teleporter Control</B><HR>"
+	var/menutext = "<B>Syndicate Teleporter Control</B><HR>"
 	findbeacon()
 	if(mybeacon)
-		menutext += {"<meta charset="UTF-8"><BR><BR>Входящий Телепортационный Маяк: [mybeacon.enabled ? "ON" : "OFF"] (<a href='?src=[UID()];primary=1'>[mybeacon.enabled ? "Disable" : "Enable"]</a>)<BR>"}
+		menutext += {"<BR><BR>Incoming Teleport Beacon: [mybeacon.enabled ? "ON" : "OFF"] (<a href='?src=[UID()];primary=1'>[mybeacon.enabled ? "Disable" : "Enable"]</a>)<BR>"}
 	else
-		menutext += {"<meta charset="UTF-8"><BR><BR>Входящий телепортационный Маяк: повторное подключение к маяку..."}
-	menutext += {"<meta charset="UTF-8"><BR><BR>Outgoing Teleport Portal: [portal_enabled ? "ON" : "OFF"]"}
+		menutext += {"<BR><BR>Incoming Teleport Beacon: Reconnecting to beacon..."}
+	menutext += {"<BR><BR>Outgoing Teleport Portal: [portal_enabled ? "ON" : "OFF"]"}
 	if(check_rights(R_ADMIN, 0, user) || (depotarea.on_peaceful && !portal_enabled))
 		menutext += {" (<a href='?src=[UID()];secondary=1'>[portal_enabled ? "Disable" : "Enable"]</a>)<BR>"}
 	return menutext
@@ -450,10 +450,10 @@
 	if(..())
 		return
 	if(!mybeacon && user)
-		to_chat(user, "<meta charset='UTF-8'><span class='notice'>Не удается подключиться к телепортационному маяку.</span>")
+		to_chat(user, "<span class='notice'>Unable to connect to teleport beacon.</span>")
 		return
 	var/bresult = mybeacon.toggle()
-	to_chat(user, "<meta charset='UTF-8'><span class='notice'>Синдикатный Телепортационный Маяк: [bresult ? "<span class='green'>ON</span>" : "<span class='red'>OFF</span>"]</span>")
+	to_chat(user, "<span class='notice'>Syndicate Teleporter Beacon: [bresult ? "<span class='green'>ON</span>" : "<span class='red'>OFF</span>"]</span>")
 	updateUsrDialog()
 	playsound(user, sound_yes, 50, 0)
 
@@ -463,10 +463,10 @@
 	if(!check_rights(R_ADMIN, 0, user) && !(depotarea.on_peaceful && !portal_enabled))
 		return
 	if(!portal_enabled && myportal)
-		to_chat(user, "<meta charset='UTF-8'><span class='notice'>Исходящий портал телепорта: деактивация... пожалуйста подождите...</span>")
+		to_chat(user, "<span class='notice'>Outgoing Teleport Portal: deactivating... please wait...</span>")
 		return
 	toggle_portal()
-	to_chat(user, "<meta charset='UTF-8'><span class='notice'>Исходящий Телепортационный Портал: [portal_enabled ? "<span class='green'>ON</span>" : "<span class='red'>OFF</span>"]</span>")
+	to_chat(user, "<span class='notice'>Outgoing Teleport Portal: [portal_enabled ? "<span class='green'>ON</span>" : "<span class='red'>OFF</span>"]</span>")
 	updateUsrDialog()
 	playsound(user, sound_yes, 50, 0)
 
@@ -481,29 +481,29 @@
 	req_access = list()
 
 /obj/machinery/computer/syndicate_depot/aiterminal/get_menu(mob/user)
-	var/menutext = "<B><meta charset='UTF-8'>Настройка ИИ Синдиката</B><HR><BR>"
+	var/menutext = "<B>Настройка ИИ Синдиката</B><HR><BR>"
 	if(!istype(depotarea))
-		menutext += "<BR><meta charset='UTF-8'>ОШИБКА: Не удается подключиться к ИИ."
+		menutext += "<BR>ОШИБКА: Не удается подключиться к ИИ."
 		return menutext
 
 	if(depotarea.alert_log.len)
-		menutext += "<meta charset='UTF-8'>журнал событий:<UL>"
+		menutext += "журнал событий:<UL>"
 		for(var/thisline in depotarea.alert_log)
 			menutext += "<LI>[thisline]</LI>"
 		menutext += "</UL>"
 	else
-		menutext += "<meta charset='UTF-8'>журнал событий: ПУСТО"
+		menutext += "журнал событий: ПУСТО"
 	menutext += "<BR><BR>"
 
-	menutext += "<meta charset='UTF-8'>Уничтоженные Злоумышленники: "
+	menutext += "Уничтоженные Злоумышленники: "
 	menutext += depotarea.list_gethtmlmobs(depotarea.dead_list)
 	menutext += "<BR><BR>"
 
-	menutext += "<meta charset='UTF-8'>Доп. Защита Безопасности: "
+	menutext += "Доп. Защита Безопасности: "
 	menutext += depotarea.list_gethtmlmobs(depotarea.guard_list)
 	menutext += "<BR><BR>"
 
-	menutext += "<meta charset='UTF-8'>Посетители: "
+	menutext += "Посетители: "
 	menutext += depotarea.list_gethtmlmobs(depotarea.peaceful_list)
 	menutext += "<BR><BR>"
 
@@ -511,16 +511,16 @@
 	for(var/mob/living/simple_animal/bot/ed209/syndicate/B in depotarea.list_getmobs(depotarea.guard_list))
 		has_bot = TRUE
 	if(has_bot)
-		menutext += "<meta charset='UTF-8'><BR><BR>Сторожевой Бот: (<a href='?src=[UID()];secondary=1'>выдать приказ об отзыве</a>)"
+		menutext += "<BR><BR>Сторожевой Бот: (<a href='?src=[UID()];secondary=1'>выдать приказ об отзыве</a>)"
 	else
-		menutext += "<meta charset='UTF-8'><BR><BR>Сторожевой бот: (нет в наличии)"
+		menutext += "<BR><BR>Сторожевой бот: (нет в наличии)"
 	menutext += "<BR><BR>"
 
 	if(check_rights(R_ADMIN, 0, user))
 		if(depotarea.on_peaceful)
-			menutext += "<meta charset='UTF-8'><BR><BR>АДМИН: (чтобы завершить режим посетителя, используйте консоль связи.)"
+			menutext += "<BR><BR>АДМИН: (чтобы завершить режим посетителя, используйте консоль связи.)"
 		else
-			menutext += "<meta charset='UTF-8'><BR><BR>АДМИН: (<a href='?src=[UID()];primary=1'>Сброс Уровня Предупреждений Депо</a>)"
+			menutext += "<BR><BR>АДМИН: (<a href='?src=[UID()];primary=1'>Сброс Уровня Предупреждений Депо</a>)"
 
 	return menutext
 
@@ -531,7 +531,7 @@
 		return
 	if(depotarea)
 		depotarea.reset_alert()
-		to_chat(user, "<meta charset='UTF-8'>Сброс уровня тревоги.")
+		to_chat(user, "Сброс уровня тревоги.")
 		playsound(user, sound_yes, 50, 0)
 
 /obj/machinery/computer/syndicate_depot/aiterminal/secondary(mob/user)
@@ -540,7 +540,7 @@
 	for(var/mob/living/simple_animal/bot/ed209/syndicate/B in depotarea.list_getmobs(depotarea.guard_list))
 		depotarea.list_remove(B, depotarea.guard_list)
 		new /obj/effect/portal(get_turf(B))
-		to_chat(user, "<meta charset='UTF-8'>[B] отозван.")
+		to_chat(user, "[B] отозван.")
 		qdel(B)
-		raise_alert("<meta charset='UTF-8'>Сторожевой бот отозван экстренно.")
+		raise_alert("Сторожевой бот отозван экстренно.")
 	playsound(user, sound_yes, 50, 0)
