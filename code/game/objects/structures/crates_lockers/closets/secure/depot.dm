@@ -5,7 +5,7 @@
 	locked = 0
 	anchored = 1
 	req_access = list()
-	layer = 2.9 // ensures the loot they drop always appears on top of them.
+	layer = 2.9 // гарантирует, что добыча, которую они дропают, всегда появляется поверх них.
 	var/is_armory = FALSE
 	var/ignore_use = FALSE
 
