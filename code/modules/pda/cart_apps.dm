@@ -116,6 +116,8 @@
 		if("Power Select")
 			var/pref = href_list["target"]
 			powmonitor = locate(pref)
+			if(powmonitor && isnull(powmonitor.powernet))
+				powmonitor.powernet = powmonitor.find_powernet()
 			update = PDA_APP_UPDATE
 		if("Back")
 			powmonitor = null
