@@ -19,7 +19,7 @@
 			if(!istype(T.depotarea))
 				T.depotarea = depotarea
 	else
-		log_debug("<meta charset='UTF-8'>[src] at [x],[y],[z] failed depotarea istype check during New()! Either it was spawned outside the depot area (bad idea), or a bug is happening.")
+		log_debug("[src] at [x],[y],[z] failed depotarea istype check during New()! Either it was spawned outside the depot area (bad idea), or a bug is happening.")
 
 /obj/structure/fusionreactor/Destroy()
 	if(istype(depotarea))
