@@ -259,9 +259,9 @@
 		if(LIGHT_BROKEN, LIGHT_BURNED, LIGHT_EMPTY)
 			on = FALSE
 	update_icon()
+	var/BR = nightshift_enabled ? nightshift_light_range : brightness_range
+	var/PO = nightshift_enabled ? nightshift_light_power : brightness_power
 	if(on)
-		var/BR = nightshift_enabled ? nightshift_light_range : brightness_range
-		var/PO = nightshift_enabled ? nightshift_light_power : brightness_power
 		var/CO = nightshift_enabled ? nightshift_light_color : brightness_color
 		var/matching = light_range == BR && light_power == PO && light_color == CO
 		if(!matching)
@@ -284,14 +284,19 @@
 		use_power = IDLE_POWER_USE
 		set_light(0)
 
-	active_power_usage = (brightness_range * 10)
+	active_power_usage = (BR * PO * 10)
 	if(on != on_gs)
 		on_gs = on
 		if(on)
-			static_power_used = brightness_range * 20 //20W per unit luminosity
+			static_power_used = active_power_usage * 2 //20W per unit luminosity
 			addStaticPower(static_power_used, STATIC_LIGHT)
 		else
 			removeStaticPower(static_power_used, STATIC_LIGHT)
+	else
+		if(on && (static_power_used != active_power_usage * 2))
+			removeStaticPower(static_power_used, STATIC_LIGHT)
+			static_power_used = active_power_usage * 2
+			addStaticPower(static_power_used, STATIC_LIGHT)
 
 // attempt to set the light's on/off status
 // will not switch on if broken/burned/empty
