@@ -51,7 +51,7 @@
 /obj/machinery/computer/syndicate_depot/proc/has_security_lockout(mob/user)
 	if(security_lockout)
 		playsound(user, 'sound/machines/buzz-sigh.ogg', 50, 0)
-		to_chat(user, "<span class='warning'><meta charset='UTF-8'>[src] is under security lockout.</span>")
+		to_chat(user, "<span class='warning'><meta charset='UTF-8'>[src]  находится под блокировкой системы безопасности.</span>")
 		return TRUE
 	return FALSE
 
