@@ -428,6 +428,7 @@ GLOBAL_LIST_EMPTY(ghostteleportlocs)
 /area/shuttle/abandoned
 	name = "Abandoned Ship"
 	icon_state = "shuttle"
+	requires_power = TRUE
 
 /area/shuttle/syndicate
 	name = "Syndicate Nuclear Team Shuttle"
