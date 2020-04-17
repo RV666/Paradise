@@ -862,7 +862,21 @@
 	desc = "Used to control the White Ship."
 	circuit = /obj/item/circuitboard/white_ship
 	shuttleId = "whiteship"
-	possible_destinations = "whiteship_away;whiteship_home;whiteship_z4;whiteship_lavaland"
+	possible_destinations = "whiteship_away;whiteship_home;whiteship_z4;whiteship_lavaland;whiteship_custom"
+
+/obj/machinery/computer/camera_advanced/shuttle_docker/white_ship
+    name = "whiteship navigation computer"
+    desc = "Used to designate a precise transit location for the whiteship."
+    icon_screen = "navigation"
+    icon_keyboard = "generic_key"
+    shuttleId = "whiteship"
+    shuttlePortId = "whiteship_custom"
+    view_range = 18
+    x_offset = 0
+    y_offset = 0
+//	resistance_flags = INDESTRUCTIBLE
+//	access_mining = TRUE
+//	access_derelict = TRUE
 
 /obj/machinery/computer/shuttle/engineering
 	name = "Engineering Shuttle Console"
@@ -912,7 +926,7 @@
 	desc = "Used to control the Golem Ship."
 	circuit = /obj/item/circuitboard/shuttle/golem_ship
 	shuttleId = "freegolem"
-	possible_destinations = "freegolem_lavaland;freegolem_z5;freegolem_z4;freegolem_z6"
+	possible_destinations = "freegolem_lavaland;freegolem_z5;freegolem_z4;freegolem_z6;freegolem_custom"
 
 /obj/machinery/computer/shuttle/golem_ship/attack_hand(mob/user)
 	if(!isgolem(user) && !isobserver(user))
@@ -925,6 +939,26 @@
 	desc = "Used to recall the Golem Ship."
 	possible_destinations = "freegolem_lavaland"
 	resistance_flags = INDESTRUCTIBLE
+
+/obj/machinery/computer/camera_advanced/shuttle_docker/golem_ship
+    name = "golemship navigation computer"
+    desc = "Used to designate a precise transit location for the golem shuttle."
+    icon_screen = "navigation"
+    icon_keyboard = "telesci_key"
+    shuttleId = "freegolem"
+    shuttlePortId = "freegolem_custom"
+    view_range = 13
+    x_offset = 0
+    y_offset = 0
+//	resistance_flags = INDESTRUCTIBLE
+//	access_mining = TRUE
+//	access_derelict = TRUE
+
+/obj/machinery/computer/camera_advanced/shuttle_docker/golem_ship/attack_hand(mob/user)
+	if(!isgolem(user) && !isobserver(user))
+		to_chat(user, "<span class='notice'>The console is unresponsive. Seems only golems can use it.</span>")
+		return
+	..()
 
 //#undef DOCKING_PORT_HIGHLIGHT
 
