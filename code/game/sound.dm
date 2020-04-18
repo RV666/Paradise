@@ -23,7 +23,7 @@
 #define SEWER_PIPE 21
 #define UNDERWATER 22
 #define DRUGGED 23
-#define DIZZY 24
+#define WOOZY 24
 #define PSYCHOTIC 25
 
 #define STANDARD_STATION STONEROOM
@@ -139,9 +139,9 @@
 			if (M.druggy)
 				S.environment = DRUGGED
 			else if (M.drowsyness)
-				S.environment = DIZZY
+				S.environment = WOOZY
 			else if (M.confused)
-				S.environment = DIZZY
+				S.environment = WOOZY
 			else if (M.stat == UNCONSCIOUS)
 				S.environment = UNDERWATER
 			else if (pressure_factor < 0.5)
