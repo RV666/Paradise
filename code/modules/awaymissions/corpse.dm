@@ -163,11 +163,11 @@
 	var/pda = -1
 	var/backpack_contents = -1
 	var/suit_store = -1
+
 	var/hair_style
 	var/facial_hair_style
 	var/skin_tone
 
-	var/list/del_types = list(/obj/item/pda, /obj/item/radio/headset)
 
 /obj/effect/mob_spawn/human/Initialize()
 	if(ispath(outfit))
@@ -227,6 +227,7 @@
 			if(!isnum(T))
 				outfit.vars[slot] = T
 		H.equipOutfit(outfit)
+		var/list/del_types = list(/obj/item/pda, /obj/item/radio/headset)
 		for(var/del_type in del_types)
 			var/obj/item/I = locate(del_type) in H
 			qdel(I)
@@ -286,7 +287,7 @@
 	roundstart = FALSE
 	icon = 'icons/obj/cryogenic2.dmi'
 	icon_state = "sleeper"
-	flavour_text = "Squeak!"
+	flavour_text = "СКВИИК!"
 
 /obj/effect/mob_spawn/cow
 	name = "sleeper"
@@ -297,7 +298,7 @@
 	mob_gender = FEMALE
 	icon = 'icons/obj/cryogenic2.dmi'
 	icon_state = "sleeper"
-	flavour_text = "Moo!"
+	flavour_text = "МУУ!"
 
 
 ///////////Civilians//////////////////////
@@ -336,7 +337,7 @@
 	name = "sleeper"
 	icon = 'icons/obj/cryogenic2.dmi'
 	icon_state = "sleeper"
-	flavour_text = "<span class='big bold'>You are a space doctor!</span>"
+	flavour_text = "<span class='big bold'>Вы космический доктор!</span>"
 	assignedrole = "Space Doctor"
 
 /obj/effect/mob_spawn/human/doctor/alive/equip(mob/living/carbon/human/H)
@@ -470,11 +471,11 @@
 	name = "bartender sleeper"
 	icon = 'icons/obj/cryogenic2.dmi'
 	icon_state = "sleeper"
-	flavour_text = "<span class='big bold'>You are a space bartender!</span><b> Time to mix drinks and change lives.</b>"
+	flavour_text = "<span class='big bold'>Вы космический бармен!</span><b> Время смешивать напитки и изменять жизнь к лучшему!</b>"
 	assignedrole = "Space Bartender"
 
 /obj/effect/mob_spawn/human/beach/alive/lifeguard
-	flavour_text = "<span class='big bold'>You're a spunky lifeguard!</span><b> It's up to you to make sure nobody drowns or gets eaten by sharks and stuff.</b>"
+	flavour_text = "<span class='big bold'>Вы пляжный спасатель!</span><b> Вы должны наблюдать что бы никто не утонул или не будет съеден акулами и прочее.</b>"
 	mob_gender = "female"
 	name = "lifeguard sleeper"
 	id_job = "Lifeguard"
@@ -502,7 +503,7 @@
 	name = "beach bum sleeper"
 	icon = 'icons/obj/cryogenic2.dmi'
 	icon_state = "sleeper"
-	flavour_text = "You are a beach bum!"
+	flavour_text = "Вы обычный житель этого пляжа!"
 	assignedrole = "Beach Bum"
 
 /datum/outfit/beachbum
@@ -523,7 +524,7 @@
 	roundstart = FALSE
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "remains"
-	flavour_text = "By unknown powers, your skeletal remains have been reanimated! Walk this mortal plain and terrorize all living adventurers who dare cross your path."
+	flavour_text = "С помощью неизвестных сил ваши останки были оживлены! Идите и убивайте всех живых искателей приключений, которые осмелятся пересечь ваш путь."
 	assignedrole = "Skeleton"
 
 /////////////////Officers//////////////////////

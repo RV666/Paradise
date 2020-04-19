@@ -100,12 +100,12 @@
 
 // Papers
 /obj/item/paper/fluff/ruins/oldstation
-	name = "Cryo Awakening Alert"
-	info = "<B>**WARNING**</B><BR><BR>Catastrophic damage sustained to station. Powernet exhausted to reawaken crew.<BR><BR>Immediate Objectives<br><br>1: Activate emergency power generator<br>2: Lift station lockdown on the bridge<br><br>Please locate the 'Damage Report' on the bridge for a detailed situation report."
+	name = "Система Криокапсул: Тревога"
+	info = "<B>**ВНИМАНИЕ**</B><BR><BR>Состояние станции: катастрофическое. Аварийная энергосеть забудила экипаж.<BR><BR>Аварийная инструкция:<br><br>1: Активация аварийного генератора<br>2: Отключение общей блокировки на мостике<br><br>Пожалуйста, найдите 'Отчёт о повреждениях' на мостике для получения подробного отчета о ситуации."
 
 /obj/item/paper/fluff/ruins/oldstation/damagereport
-	name = "Damage Report"
-	info = "<b>*Damage Report*</b><br><br><b>Alpha Station</b> - Destroyed<br><br><b>Beta Station</b> - Catastrophic Damage. Medical, destroyed. Atmospherics, partially destroyed. Engine Core, destroyed.<br><br><b>Charlie Station</b> - Intact. Loss of oxygen to eastern side of main corridor.<br><br><b>Delta Station</b> - Intact. <b>WARNING</b>: Unknown force occupying Delta Station. Intent unknown. Species unknown. Numbers unknown.<br><br>Recommendation - Reestablish station powernet via solar array. Reestablish station atmospherics system to restore air."
+	name = "Отчёт о повреждениях"
+	info = "<b>*ВНИМАНИЕ*</b><br><br><b>Альфа Станция</b> - Уничтожена<br><br><b>Бета Станция</b> - Почти уничтожена. Медбей - уничтожен. Атмосферная - состояние критическое, Ядро - уничтожено.<br><br><b>Чарли Станция</b> - Повреждений не обнаружено. Потеря кислорода к восточной стороне главного коридора.<br><br><b>Дельта Станция</b> - Повреждений не обнаружено. <b>ВНИМАНИЕ</b>: Обнаруженно посторонняя жизнь. Намерения неизвестны. Вид неизвестен. Кол-во неизвестно.<br><br>Рекомендация - восстановите энергосеть с помощью солнечных батарей. Восстановите атмосферную для подачи воздуха."
 
 /obj/item/paper/fluff/ruins/oldstation/protosuit
 	name = "B01-RIG Hardsuit Report"

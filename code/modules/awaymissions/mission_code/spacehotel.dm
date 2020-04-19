@@ -20,7 +20,7 @@
 
 /obj/item/paper/crumpled/hotel_scrap_1
 	name = "paper scrap"
-	info = "I can't believe this shitty hotel assigned me a purple-themed room. <i>Why does the shower dump grape drink everywhere??</i>"
+	info = "Я не могу поверить, что этот хуёвый отель выделил мне номер в фиолетовом стиле. <i>Почему вместо воды в душе тут вино??</i>"
 
 /obj/item/paper/hotel_scrap_2
 	name = "Journal Entry #2"
