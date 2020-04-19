@@ -15,24 +15,22 @@
 "ao" = (/turf/simulated/floor/mineral/titanium/purple,/area/shuttle/freegolem)
 "ap" = (/obj/machinery/mineral/equipment_vendor/golem,/turf/simulated/floor/mineral/titanium/purple,/area/shuttle/freegolem)
 "aq" = (/turf/simulated/wall/mineral/titanium/nodiagonal,/area/shuttle/freegolem)
-"ar" = (/turf/simulated/floor/mineral/titanium/purple,/area/space)
+"ar" = (/obj/structure/computerframe,/turf/simulated/floor/mineral/titanium/purple,/area/shuttle/freegolem)
 "as" = (/obj/effect/mob_spawn/human/golem/adamantine,/turf/simulated/floor/mineral/titanium/purple,/area/shuttle/freegolem)
 "at" = (/obj/machinery/light{dir = 8},/turf/simulated/floor/mineral/titanium/purple,/area/shuttle/freegolem)
 "au" = (/obj/machinery/door/airlock/shuttle,/obj/structure/fans/tiny,/turf/simulated/shuttle/floor{icon_state = "floor5"},/area/shuttle/freegolem)
-"av" = (/obj/structure/table/wood,/turf/simulated/floor/mineral/titanium/purple,/area/space)
+"av" = (/obj/machinery/computer/camera_advanced/shuttle_docker/golem_ship,/turf/simulated/floor/mineral/titanium/purple,/area/shuttle/freegolem)
 "aw" = (/obj/machinery/door/airlock/shuttle,/turf/simulated/shuttle/floor{icon_state = "floor5"},/area/shuttle/freegolem)
 "ax" = (/obj/structure/table/wood,/obj/item/resonator,/turf/simulated/floor/mineral/titanium/purple,/area/shuttle/freegolem)
 "ay" = (/obj/structure/table/wood,/turf/simulated/floor/mineral/titanium/purple,/area/shuttle/freegolem)
 "az" = (/obj/machinery/mineral/ore_redemption/golem,/turf/simulated/floor/mineral/titanium/purple,/area/shuttle/freegolem)
 "aA" = (/turf/simulated/floor/plating/asteroid/basalt/lava_land_surface,/area/ruin/powered/golem_ship)
 "aB" = (/obj/structure/window/full/shuttle{icon_state = "16"},/obj/structure/grille,/turf/simulated/floor/plating,/area/shuttle/freegolem)
-"aC" = (/obj/structure/computerframe,/turf/simulated/floor/mineral/titanium/purple,/area/space)
 "aD" = (/obj/structure/chair/comfy/purp{dir = 8; icon_state = "comfychair"},/turf/simulated/floor/mineral/titanium/purple,/area/shuttle/freegolem)
 "aE" = (/obj/structure/window/reinforced{dir = 4; pixel_x = 0},/obj/structure/window/reinforced{dir = 1; layer = 2.9},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced,/obj/item/book/manual/research_and_development{name = "Sacred Text of the Liberator"; pixel_x = -4; pixel_y = 3},/obj/item/bedsheet/rd/royal_cape{layer = 3; pixel_x = 5; pixel_y = 9},/obj/structure/statue/gold/rd{name = "statue of the Liberator"},/turf/simulated/floor/mineral/titanium/purple,/area/shuttle/freegolem)
 "aF" = (/obj/structure/extinguisher_cabinet{pixel_y = 30},/turf/simulated/floor/mineral/titanium/purple,/area/shuttle/freegolem)
 "aG" = (/obj/machinery/door/airlock/shuttle,/obj/structure/fans/tiny,/obj/docking_port/stationary{area_type = /area/ruin/powered/golem_ship; dir = 8; dwidth = 8; height = 20; id = "freegolem_lavaland"; name = "Lavaland Surface"; turf_type = /turf/simulated/floor/plating/asteroid/basalt/lava_land_surface; width = 16},/obj/docking_port/mobile{dir = 8; dwidth = 8; height = 20; id = "freegolem"; name = "Free Golem Ship"; width = 16},/turf/simulated/floor/mineral/titanium/purple,/area/shuttle/freegolem)
 "aH" = (/obj/structure/window/full/shuttle{icon_state = "15"},/obj/structure/grille,/turf/simulated/floor/plating,/area/shuttle/freegolem)
-"aI" = (/obj/machinery/computer/camera_advanced/shuttle_docker/golem_ship,/turf/simulated/floor/mineral/titanium/purple,/area/space)
 "aJ" = (/obj/machinery/light,/obj/structure/chair/comfy/purp{dir = 8; icon_state = "comfychair"},/turf/simulated/floor/mineral/titanium/purple,/area/shuttle/freegolem)
 "aK" = (/obj/structure/extinguisher_cabinet{pixel_y = -30},/obj/machinery/light,/turf/simulated/floor/mineral/titanium/purple,/area/shuttle/freegolem)
 "aL" = (/obj/structure/fans/tiny,/obj/machinery/door/airlock/shuttle,/turf/simulated/floor/mineral/titanium/purple,/area/shuttle/freegolem)
@@ -58,12 +56,12 @@ aaaaaaaaaaaqadadadadadadadadaeafafagahaiaa
 aaaaaaaaaaaqafafajafafajafafafajafakahaiaa
 aaaaabaqaqaqawawaqaqaqaqawawaqaqaqaqaqaqaa
 aaaaaqalamanaoaoanaoaoanaoaoaoanaoapahaiaa
-aaaaauaoaoaoaoaoaoarasaoaoaoaoaoaoaoahaiaa
-abaqaqataoaoaoaoaravaxayaoaoaoaoaoazaqaqaA
-aBaCaDaoaoaoaoaoasaxaEaxasaoaoaoaoaoaFaGaA
-aHaIaJaoaoaoaoaoaoavaxayaoaoaoaoaoaoaKaLaA
-abaqaqataoaoaoaoaoarasaoaoaoaoaoaMaNaqaqaP
-aaaaauaoaoaoaoaoaoararaoaoaoaoaoaoaOahaiaa
+aaaaauaoaoaoaoaoaoaoasaoaoaoaoaoaoaoahaiaa
+abaqaqataoaoaoaoaoayaxayaoaoaoaoaoazaqaqaA
+aBaraDaoaoaoaoaoasaxaEaxasaoaoaoaoaoaFaGaA
+aHavaJaoaoaoaoaoaoayaxayaoaoaoaoaoaoaKaLaA
+abaqaqataoaoaoaoaoaoasaoaoaoaoaoaMaNaqaqaP
+aaaaauaoaoaoaoaoaoaoaoaoaoaoaoaoaoaOahaiaa
 aaaaaqaQaRaSaoaoaSaoaoaSaoaoaTaUaVaWahaiaa
 aaaaabaqaqaqaXaXaqaqaqaqaXaXaqaqaqaqaqaqaa
 aaaaaaaaaaaqafafaYafafaYafafafaYafaZahaiaa
