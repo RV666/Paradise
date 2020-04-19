@@ -141,6 +141,11 @@
 	nitrogen = 0.01
 	temperature = TCMB
 
+/turf/simulated/floor/mineral/plastitanium/vox
+	name = "skipjack shuttle floor"
+	oxygen = 0
+	nitrogen = MOLES_N2STANDARD + MOLES_O2STANDARD
+
 /turf/simulated/floor/mineral/plastitanium/red/brig
 	name = "brig floor"
 
