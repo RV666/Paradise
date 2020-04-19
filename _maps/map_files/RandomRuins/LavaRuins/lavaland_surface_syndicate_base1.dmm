@@ -42,7 +42,7 @@
 "aP" = (/obj/structure/sign/vacuum{pixel_x = -32},/obj/machinery/light/small{dir = 8},/obj/machinery/embedded_controller/radio/airlock/access_controller{frequency = 1449; id_tag = "syndicate_base_south"; pixel_x = 25; req_access_txt = "150"; tag_exterior_door = "syndicate_base_south_exterior"; tag_interior_door = "syndicate_base_south_interior"},/turf/simulated/floor/plating,/area/ruin/unpowered/syndicate_lava_base/arrivals)
 "aQ" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/light/small,/turf/simulated/floor/plasteel,/area/ruin/unpowered/syndicate_lava_base/arrivals)
 "aR" = (/obj/structure/sign/xeno_warning_mining{pixel_x = -32},/obj/structure/sign/fire{pixel_x = 32},/turf/simulated/floor/plating,/area/ruin/unpowered/syndicate_lava_base/arrivals)
-"aS" = (/obj/machinery/access_button{command = "cycle_exterior"; frequency = 1449; master_tag = "syndicate_base_south"; name = "exterior access button"; pixel_x = 20; pixel_y = 21; req_access_txt = "150"},/turf/simulated/floor/plating/lava/smooth/lava_land_surface,/area/lavaland/surface/outdoors)
+"aS" = (/obj/machinery/porta_turret/syndicate{dir = 5},/turf/simulated/wall/mineral/plastitanium/nodiagonal,/area/ruin/unpowered/syndicate_lava_base/cargo)
 "aT" = (/obj/effect/turf_decal/stripes/line{dir = 6},/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1},/obj/effect/decal/cleanable/dirt,/obj/machinery/access_button{command = "cycle_interior"; frequency = 1449; master_tag = "syndicate_base_west_north"; name = "interior access button"; pixel_x = 25; pixel_y = -8; req_access_txt = "150"},/turf/simulated/floor/plasteel,/area/ruin/unpowered/syndicate_lava_base/main)
 "aU" = (/obj/machinery/embedded_controller/radio/airlock/access_controller{frequency = 1449; id_tag = "syndicate_base_west_north"; pixel_x = -25; req_access_txt = "150"; tag_exterior_door = "syndicate_base_west_north_exterior"; tag_interior_door = "syndicate_base_west_north_interior"},/turf/simulated/floor/plating,/area/ruin/unpowered/syndicate_lava_base/main)
 "aV" = (/obj/machinery/light/small{dir = 4},/obj/structure/sign/fire{pixel_x = 32},/obj/structure/closet/emcloset/anchored,/obj/item/tank/emergency_oxygen/engi,/obj/item/flashlight/seclite,/obj/item/clothing/mask/gas,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/structure/sign/vacuum{pixel_x = 0; pixel_y = -32},/turf/simulated/floor/plating,/area/ruin/unpowered/syndicate_lava_base/main)
@@ -66,7 +66,7 @@
 "bn" = (/obj/machinery/door/airlock/external{frequency = 1449; id_tag = "syndicate_base_east_interior"; locked = 1; req_access_txt = "150"},/obj/structure/fans/tiny,/turf/simulated/floor/plating,/area/ruin/unpowered/syndicate_lava_base/cargo)
 "bo" = (/obj/structure/sign/vacuum{pixel_y = -32},/obj/machinery/light/small,/obj/machinery/embedded_controller/radio/airlock/access_controller{frequency = 1449; id_tag = "syndicate_base_east"; pixel_x = 0; pixel_y = 25; req_access_txt = "150"; tag_exterior_door = "syndicate_base_east_exterior"; tag_interior_door = "syndicate_base_east_interior"},/turf/simulated/floor/plating,/area/ruin/unpowered/syndicate_lava_base/cargo)
 "bp" = (/obj/structure/fans/tiny,/obj/machinery/door/airlock/external{frequency = 1449; id_tag = "syndicate_base_east_exterior"; locked = 1; req_access_txt = "150"},/turf/simulated/floor/plating,/area/ruin/unpowered/syndicate_lava_base/cargo)
-"bq" = (/obj/machinery/access_button{command = "cycle_exterior"; frequency = 1449; master_tag = "syndicate_base_east"; name = "exterior access button"; pixel_x = -21; pixel_y = 21; req_access_txt = "150"},/turf/simulated/floor/plating/lava/smooth/lava_land_surface,/area/lavaland/surface/outdoors)
+"bq" = (/obj/structure/lattice/catwalk,/turf/simulated/floor/plating/lava/smooth/lava_land_surface,/area/ruin/unpowered/syndicate_lava_base/cargo)
 "br" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/atmospherics/trinary/mixer/flipped{dir = 8; node1_concentration = 0.2; node2_concentration = 0.8; on = 1; target_pressure = 4500},/turf/simulated/floor/plasteel,/area/ruin/unpowered/syndicate_lava_base/engineering)
 "bs" = (/obj/machinery/air_sensor{frequency = 1442; id_tag = "syndie_lavaland_n2_sensor"},/turf/simulated/floor/engine{name = "n2 floor"; nitrogen = 100000; oxygen = 0},/area/ruin/unpowered/syndicate_lava_base/engineering)
 "bt" = (/obj/machinery/light/small{dir = 4},/turf/simulated/floor/engine{name = "n2 floor"; nitrogen = 100000; oxygen = 0},/area/ruin/unpowered/syndicate_lava_base/engineering)
@@ -124,7 +124,12 @@
 "ct" = (/obj/structure/cable,/obj/machinery/power/turbine{dir = 2; luminosity = 2},/turf/simulated/floor/engine/insulated,/area/ruin/unpowered/syndicate_lava_base/engineering)
 "cu" = (/obj/machinery/door/poddoor{id_tag = "lavalandsyndi_incineratoroutput"},/turf/simulated/floor/engine/insulated,/area/ruin/unpowered/syndicate_lava_base/engineering)
 "cv" = (/obj/structure/table/reinforced,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 4},/obj/effect/turf_decal/tile/neutral{dir = 8},/obj/item/radio/intercom/pirate,/turf/simulated/floor/plasteel/dark,/area/ruin/unpowered/syndicate_lava_base/telecomms)
+"cw" = (/obj/machinery/access_button{command = "cycle_exterior"; frequency = 1449; master_tag = "syndicate_base_east"; name = "exterior access button"; pixel_x = -21; pixel_y = 21; req_access_txt = "150"},/obj/structure/lattice/catwalk,/turf/simulated/floor/plating/lava/smooth/lava_land_surface,/area/ruin/unpowered/syndicate_lava_base/cargo)
+"cx" = (/obj/machinery/porta_turret/syndicate{dir = 6},/turf/simulated/wall/mineral/plastitanium/nodiagonal,/area/ruin/unpowered/syndicate_lava_base/cargo)
+"cy" = (/obj/machinery/porta_turret/syndicate{dir = 10},/turf/simulated/wall/mineral/plastitanium/nodiagonal,/area/ruin/unpowered/syndicate_lava_base/arrivals)
+"cz" = (/obj/machinery/porta_turret/syndicate{dir = 6},/turf/simulated/wall/mineral/plastitanium/nodiagonal,/area/ruin/unpowered/syndicate_lava_base/arrivals)
 "cA" = (/obj/structure/table/reinforced,/obj/item/clothing/glasses/science,/obj/item/clothing/glasses/science,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/plasteel,/area/ruin/unpowered/syndicate_lava_base/chemistry)
+"cB" = (/obj/machinery/access_button{command = "cycle_exterior"; frequency = 1449; master_tag = "syndicate_base_south"; name = "exterior access button"; pixel_x = 20; pixel_y = 21; req_access_txt = "150"},/obj/structure/lattice/catwalk,/turf/simulated/floor/plating/lava/smooth/lava_land_surface,/area/ruin/unpowered/syndicate_lava_base/cargo)
 "cG" = (/obj/effect/turf_decal/stripes/line{dir = 4},/obj/machinery/chem_master,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/plasteel,/area/ruin/unpowered/syndicate_lava_base/chemistry)
 "dc" = (/obj/machinery/light/small{dir = 8},/turf/simulated/floor/engine,/area/ruin/unpowered/syndicate_lava_base/testlab)
 "di" = (/obj/machinery/light/small{dir = 4},/turf/simulated/floor/engine,/area/ruin/unpowered/syndicate_lava_base/testlab)
@@ -221,7 +226,6 @@
 "ft" = (/obj/effect/turf_decal/box/white/corners,/obj/structure/closet/crate,/obj/item/reagent_containers/glass/beaker/waterbottle/large{pixel_x = -3; pixel_y = 3},/obj/item/reagent_containers/glass/beaker/waterbottle/large{pixel_x = -3; pixel_y = 3},/obj/item/reagent_containers/glass/beaker/waterbottle/large,/obj/item/reagent_containers/glass/beaker/waterbottle/large,/obj/item/reagent_containers/glass/beaker/waterbottle/large{pixel_x = 3; pixel_y = -3},/obj/item/reagent_containers/glass/beaker/waterbottle/large{pixel_x = 3; pixel_y = -3},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/plasteel/dark,/area/ruin/unpowered/syndicate_lava_base/cargo)
 "fu" = (/obj/machinery/light/small{dir = 8},/obj/machinery/alarm/syndicate{dir = 4; pixel_x = -24},/obj/structure/table,/obj/item/clothing/suit/storage/hazardvest,/obj/item/clothing/suit/storage/hazardvest,/obj/item/clothing/head/soft{pixel_x = -8},/obj/item/clothing/head/soft{pixel_x = -8},/obj/item/radio{pixel_x = 5},/obj/item/radio{pixel_x = 5},/obj/effect/turf_decal/tile/brown{dir = 1},/obj/effect/turf_decal/tile/brown{dir = 8},/turf/simulated/floor/plasteel,/area/ruin/unpowered/syndicate_lava_base/cargo)
 "fv" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/plasteel,/area/ruin/unpowered/syndicate_lava_base/cargo)
-"fx" = (/obj/structure/sign/securearea,/turf/simulated/wall/mineral/plastitanium/nodiagonal,/area/ruin/unpowered/syndicate_lava_base/cargo)
 "fy" = (/obj/machinery/door/airlock/medical/glass{name = "Isolation B"; req_access_txt = "150"},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/plasteel/white,/area/ruin/unpowered/syndicate_lava_base/virology)
 "fz" = (/obj/machinery/door/airlock/medical/glass{name = "Isolation A"; req_access_txt = "150"},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/plasteel/white,/area/ruin/unpowered/syndicate_lava_base/virology)
 "fA" = (/obj/structure/table/glass,/obj/item/reagent_containers/syringe/antiviral,/obj/item/reagent_containers/dropper,/obj/item/reagent_containers/spray/cleaner,/obj/structure/cable/yellow{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plasteel/white/side{dir = 8},/area/ruin/unpowered/syndicate_lava_base/virology)
@@ -577,7 +581,6 @@
 "ou" = (/obj/machinery/computer/message_monitor{dir = 1},/turf/simulated/floor/plasteel/dark,/area/ruin/unpowered/syndicate_lava_base/telecomms)
 "ov" = (/obj/structure/table/reinforced,/obj/item/pen,/obj/item/paper_bin/syndicate,/turf/simulated/floor/plasteel/dark,/area/ruin/unpowered/syndicate_lava_base/telecomms)
 "ox" = (/obj/structure/grille,/obj/structure/window/plastitanium,/obj/machinery/door/firedoor,/obj/machinery/door/poddoor{id_tag = "lavalandsyndi_arrivals"},/turf/simulated/floor/plating,/area/ruin/unpowered/syndicate_lava_base/arrivals)
-"oF" = (/obj/structure/sign/securearea,/turf/simulated/wall/mineral/plastitanium/nodiagonal,/area/ruin/unpowered/syndicate_lava_base/arrivals)
 "oP" = (/obj/structure/sign/chemistry,/turf/simulated/wall/mineral/plastitanium/nodiagonal,/area/ruin/unpowered/syndicate_lava_base/testlab)
 "pQ" = (/obj/structure/sign/explosives/alt{pixel_x = 32},/turf/simulated/floor/redgrid,/area/ruin/unpowered/syndicate_lava_base/main)
 "qG" = (/obj/structure/sign/explosives/alt{pixel_x = -32},/turf/simulated/floor/engine,/area/ruin/unpowered/syndicate_lava_base/testlab)
@@ -611,9 +614,9 @@ abababababababababababababababacaeaqaqaqaqLQaqaLdAdBdCdCdEdIasdKdLdMdydydydydydy
 abababababababacabacacababababaeaedQdRaedSBFdSaedTdUbIdXdYdZaseaebeceddybkefegdPdyababababababaa
 ababababababehehehehehehehaceiaeauekelbUeoepeqaeereseteuevewasexeyezeyeAeBeCeDeEeFababababababaa
 ababababababgjeGeHeIeGeHgjeheJaeaveLeMeNeOePeQaeeReSeTeUeVasaseWeXeYeZfafbfcfdfeeFababababababab
-ababababababehfffgeIfhfgeIfifjaeaLaeaeaefkflaeoPfmfnfofnfpyUfqfrfsftdydyfufvbldydydyfxababababab
-ababababababeheIfyeIeIfzeIfAfBfCfDfEfFaeaefGdQfHfIfOfOfHfHasdyfWfadPdyfYgbfvbmbnboggbpbqabababab
-ababababababehajgpgqgrgsgtbVgvadaIgygzaJaKgEgFgGgHgGgGgGgIgJgKgLgMgNgOgPgQgRgSdydydyfxababababab
+ababababababehfffgeIfhfgeIfifjaeaLaeaeaefkflaeoPfmfnfofnfpyUfqfrfsftdydyfufvbldydydyaSbqabababab
+ababababababeheIfyeIeIfzeIfAfBfCfDfEfFaeaefGdQfHfIfOfOfHfHasdyfWfadPdyfYgbfvbmbnboggbpcwabababab
+ababababababehajgpgqgrgsgtbVgvadaIgygzaJaKgEgFgGgHgGgGgGgIgJgKgLgMgNgOgPgQgRgSdydydycxbqabababab
 ababababababeheheIgTeIehgUgVaxaXehbdaThahbhchdhehehfhghehehhhehehihjhkgQhlgQhnhoeFababababababab
 abababababababehamhqangjhshthuhvehayaBhahahxhyhzhzhzhzhAhzhzhzhzhBhjhChlbWhlgQhDeFababababababab
 abababababababehaohFarehhHhHhHhHehaUhJaViNhLhyhzhMhNhzhOhzhPhQhzhBhRdyhSbShUhVdydyababababababab
@@ -638,8 +641,8 @@ abababmnmMmMmnnHnIcfnKnLaEnNnNaHaNnQnRnSnunTnUnVnWnXaQnZkRoaobcdkQkQRIbgbhbiRIcn
 abababmnmnmMmnohoicvokmnmTololmTaOmTomonooopooooaWoomTmTkQoralkQkQacRIRIbjydRIRIRIRIabababababab
 ababababmnmnmnmnouovmnmnmTmTmTmTaPmTmTmToxoxoxoxmTmTmTabkQkQkQkQacabRIbQcpcqcrababababababababab
 abababababababmnmnmnmnababababmTaRmTabababababababababababababacababRIRIcsRInfababababababababab
-abababababababababababababababoFaGoFabababababababababababababababababRIctRIabababababababababab
-aaabababababababababababababababaSababababababababababababababababababnfcunfabababababababababab
+abababababababababababababababcyaGczabababababababababababababababababRIctRIabababababababababab
+aaababababababababababababababbqcBbqabababababababababababababababababnfcunfabababababababababab
 aaababababababababababababababababababababababababababababababababababababababababababababababab
 aaababababababababababababababababababababababababababababababababababababababababababababababab
 aaaaabababababababababababababababababababababababababababababababababababababababababababababaa
