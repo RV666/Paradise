@@ -46,12 +46,12 @@
 	var/gorecooldown = 0
 	var/vialspawned = FALSE
 	loot = list(/obj/effect/decal/cleanable/blood/innards, /obj/effect/decal/cleanable/blood, /obj/effect/gibspawner/generic, /obj/effect/gibspawner/generic, /obj/item/organ/internal/heart/demon)
-	var/playstyle_string = "<B>You are the Slaughter Demon, a terrible creature from another existence. You have a single desire: To kill.  \
-						You may Ctrl+Click on blood pools to travel through them, appearing and dissaapearing from the station at will. \
-						Pulling a dead or critical mob while you enter a pool will pull them in with you, allowing you to feast. \
-						You move quickly upon leaving a pool of blood, but the material world will soon sap your strength and leave you sluggish. </B>"
+	var/playstyle_string = "<B>Ты - Демон Убийства, ужасное существо из другого существования. У вас есть только одно желание: убивать. \
+						По нажатию Ctrl+Click по лужам крови вы можете путешествовать через них, появляясь и исчезая со станции по своему желанию. \
+						Потянув мертвую или в крите обьекта, пока вы входите в саванн, вы потянете их за собой, позволяя вам пировать. \
+						Вы двигаетесь быстро, оставляя лужу крови, но материальный мир скоро истощит ваши силы и оставит вас вялым. </B>"
 	del_on_death = 1
-	deathmessage = "screams in anger as it collapses into a puddle of viscera!"
+	deathmessage = "кричит в гневе, когда он падает в лужу внутренностей!"
 
 	var/datum/action/innate/demon/whisper/whisper_action
 
@@ -67,7 +67,7 @@
 		bloodspell.phased = 1
 	if(mind)
 		to_chat(src, src.playstyle_string)
-		to_chat(src, "<B><span class ='notice'>You are not currently in the same plane of existence as the station. Ctrl+Click a blood pool to manifest.</span></B>")
+		to_chat(src, "<B><span class ='notice'>В настоящее время вы не находитесь на том же плане существования, что и станция. Ctrl+Click по луже крови, чтобы проявиться.</span></B>")
 		src << 'sound/misc/demon_dies.ogg'
 		if(!(vialspawned))
 			var/datum/objective/slaughter/objective = new
@@ -120,10 +120,10 @@
 	melee_damage_lower = 60
 	environment_smash = ENVIRONMENT_SMASH_RWALLS //Smashes through EVERYTHING - r-walls included
 	faction = list("cult")
-	playstyle_string = "<b><span class='userdanger'>You are a Harbringer of the Slaughter.</span> Brought forth by the servants of Nar-Sie, you have a single purpose: slaughter the heretics \
-	who do not worship your master. You may use the ability 'Blood Crawl' near a pool of blood to enter it and become incorporeal. Using the ability again near a blood pool will allow you \
-	to emerge from it. You are fast, powerful, and almost invincible. By dragging a dead or unconscious body into a blood pool with you, you will consume it after a time and fully regain \
-	your health. You may use the Sense Victims in your Cultist tab to locate a random, living heretic.</span></b>"
+	playstyle_string = "<b><span class='userdanger'>Ты - предвестник Убийств.</span> Выведенный слугами нар-Си, ты преследуешь единственную цель: уничтожить еретиков \
+	которые не поклоняются твоему учителю. Вы можете использовать способность 'Blood Crawl' рядом с лужей крови, чтобы войти в нее и стать бестелесным. Использование способности снова рядом с лужей крови позволит вам \
+	выйти из него. Ты быстр, силен и почти непобедим. Таща с собой в кровавую бездну в лужу крови мертвое или бессознательное тело, вы через некоторое время поглотите его и полностью восстановите \
+	своё здоровье. Вы можете использовать 'Sense Victims' чтобы найти случайного живого еретика.</span></b>"
 
 /obj/effect/proc_holder/spell/targeted/sense_victims
 	name = "Sense Victims"
@@ -342,9 +342,9 @@
 	var/targetname = "someone"
 	if(target && target.current)
 		targetname = target.current.real_name
-	var/list/explanationTexts = list("Attempt to make your presence unknown to the crew.", \
-									 "Kill or Destroy all Janitors or Sanitation bots.", \
-									 "Drive [targetname] insane with demonic whispering."
+	var/list/explanationTexts = list("Постарайтесь сделать ваше присутствие неизвестным экипажу.", \
+									 "Убейте или уничтожьте всех уборщиков или санитарных ботов.", \
+									 "Сводите с ума [targetname] от своего демонического шепота."
 									 )
 
 	explanation_text = pick(explanationTexts)

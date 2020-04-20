@@ -13,22 +13,22 @@
 		explanation_text = "Go get married, then immediately cheat on your new spouse." */
 
 /datum/objective/sintouched/gluttony
-	explanation_text = "Food is delicious, so delicious you can't let it be wasted on other people."
+	explanation_text = "Еда очень вкусная, настолько вкусная, что вы не можете позволить ей быть потраченной впустую на других людей."
 
 /datum/objective/sintouched/greed
-	explanation_text = "You want MORE, more money, more wealth, more riches.  Go get it, but don't hurt people for it."
+	explanation_text = "Вы хотите больше, больше денег, больше богатства, больше богатства.  Иди и возьми его, но не причиняй людям вреда из-за этого."
 
 /datum/objective/sintouched/sloth
-	explanation_text = "You just get tired randomly.  Go take a nap at a time that would inconvenience other people."
+	explanation_text = "Вы просто устаете случайно.  Идите вздремните в то время, когда это доставит неудобства другим людям."
 
 /datum/objective/sintouched/wrath
-	explanation_text = "What have your coworkers ever done for you? Don't offer to help them in any matter, and refuse if asked."
+	explanation_text = "Что ваши коллеги когда-либо делали для вас? Ни в коем случае не предлагайте им свою помощь и отказывайтесь, если вас попросят."
 
 /datum/objective/sintouched/envy
-	explanation_text = "Why should you be stuck with your rank? Show everyone you can do other jobs too, and don't let anyone stop you, least of all because you have no training."
+	explanation_text = "Почему ты должен быть привязан к своему званию? Покажите всем, что вы можете делать и другие работы, и не позволяйте никому остановить вас, хотя бы потому, что у вас нет подготовки."
 
 /datum/objective/sintouched/pride
-	explanation_text = "You are the BEST thing on the station.  Make sure everyone knows it."
+	explanation_text = "Ты-самое лучшее, что есть на станции.  Убедитесь, что все это знают."
 
 /datum/objective/sintouched/acedia
-	explanation_text = "Angels, devils, good, evil... who cares?  Just ignore any hellish threats and do your job."
+	explanation_text = "Ангелы, дьяволы, добро, зло... да какая разница?  Просто игнорируйте любые адские угрозы и делайте свою работу."

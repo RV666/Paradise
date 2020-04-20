@@ -40,12 +40,12 @@
 
 	var/list/examine_text_list
 
-	var/playstyle_string = "<b><font size=3 color='red'>You are a morph.</font><br> As an abomination created primarily with changeling cells, \
-							you may take the form of anything nearby by shift-clicking it. This process will alert any nearby \
-							observers, and can only be performed once every five seconds.<br> While morphed, you move faster, but do \
-							less damage. In addition, anyone within three tiles will note an uncanny wrongness if examining you. \
-							You can restore yourself to your original form while morphed by shift-clicking yourself.<br> \
-							Finally, you can attack any item or dead creature to consume it - creatures will restore 1/3 of your max health.</b>"
+	var/playstyle_string = "<b><font size=3 color='red'>Ты морф.</font><br> Как остатки, созданная в первую очередь с помощью клеток генокрада,\
+							вы можете принять форму чего-нибудь поблизости, щелкнув по нему shift-click. Этот процесс предупредит любого поблизости \
+							и может выполняться только один раз в пять секунд.<br> Во время превращения вы двигаетесь быстрее, но делаете это \
+							с маленьким уроном. Кроме того, любой человек в пределах трех плиток заметит неправильность обьекта, если исследует вас. \
+							Вы можете восстановить свою первоначальную форму во время морфинга, осмотрев себя нажав shift-click.<br> \
+							Наконец, вы можете атаковать любой предмет или мертвое существо, чтобы уничтожить его - существа восстановят 1/3 вашего максимального здоровья.</b>"
 
 /mob/living/simple_animal/hostile/morph/wizard
 	name = "magical morph"
