@@ -374,10 +374,10 @@ nanoui is used to open and update nano browser uis
 				{
 					NanoStateManager.receiveUpdateData(jsonString);
 				}
-				else
-				{
-					alert('browser.recieveUpdateData failed due to jQuery or NanoStateManager being unavailiable.');
-				}
+				//else
+				//{
+				//	alert('browser.recieveUpdateData failed due to jQuery or NanoStateManager being unavailiable.');
+				//}
 			}
 		</script>
 		[head_content]
