@@ -6783,18 +6783,36 @@
 /obj/structure/sign/chemistry,
 /turf/simulated/wall/mineral/plastitanium/nodiagonal,
 /area/ruin/unpowered/syndicate_lava_base/testlab)
+"oT" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 5
+	},
+/turf/simulated/wall/mineral/plastitanium/nodiagonal,
+/area/ruin/unpowered/syndicate_lava_base/cargo)
 "pQ" = (
 /obj/structure/sign/explosives/alt{
 	pixel_x = 32
 	},
 /turf/simulated/floor/redgrid,
 /area/ruin/unpowered/syndicate_lava_base/main)
+"qE" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 6
+	},
+/turf/simulated/wall/mineral/plastitanium/nodiagonal,
+/area/ruin/unpowered/syndicate_lava_base/engineering)
 "qG" = (
 /obj/structure/sign/explosives/alt{
 	pixel_x = -32
 	},
 /turf/simulated/floor/engine,
 /area/ruin/unpowered/syndicate_lava_base/testlab)
+"tN" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 6
+	},
+/turf/simulated/wall/mineral/plastitanium/nodiagonal,
+/area/ruin/unpowered/syndicate_lava_base/telecomms)
 "vu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6807,6 +6825,12 @@
 "yU" = (
 /turf/simulated/wall/mineral/plastitanium/explosive,
 /area/ruin/unpowered/syndicate_lava_base/chemistry)
+"Am" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 6
+	},
+/turf/simulated/wall/mineral/plastitanium/coated,
+/area/ruin/unpowered/syndicate_lava_base/main)
 "Au" = (
 /turf/simulated/wall/mineral/plastitanium/explosive,
 /area/ruin/unpowered/syndicate_lava_base/engineering)
@@ -6846,6 +6870,12 @@
 	},
 /turf/simulated/floor/engine,
 /area/ruin/unpowered/syndicate_lava_base/testlab)
+"HG" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 5
+	},
+/turf/simulated/wall/mineral/plastitanium/nodiagonal,
+/area/ruin/unpowered/syndicate_lava_base/main)
 "Lg" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -6857,9 +6887,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/engine,
 /area/ruin/unpowered/syndicate_lava_base/testlab)
+"NY" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 6
+	},
+/turf/simulated/wall/mineral/plastitanium/nodiagonal,
+/area/ruin/unpowered/syndicate_lava_base/main)
 "RI" = (
 /turf/simulated/wall/mineral/plastitanium/coated,
 /area/ruin/unpowered/syndicate_lava_base/engineering)
+"RR" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 10
+	},
+/turf/simulated/wall/mineral/plastitanium/coated,
+/area/ruin/unpowered/syndicate_lava_base/main)
 "RV" = (
 /obj/structure/sign/fire,
 /turf/simulated/wall/mineral/plastitanium/nodiagonal,
@@ -6882,6 +6924,12 @@
 	},
 /turf/simulated/floor/engine,
 /area/ruin/unpowered/syndicate_lava_base/testlab)
+"Zs" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 9
+	},
+/turf/simulated/wall/mineral/plastitanium/nodiagonal,
+/area/ruin/unpowered/syndicate_lava_base/virology)
 
 (1,1,1) = {"
 aa
@@ -7068,7 +7116,7 @@ ab
 ab
 ab
 ab
-mn
+lS
 mn
 mn
 mn
@@ -7123,7 +7171,7 @@ mM
 nh
 mM
 mn
-mn
+hW
 ab
 ab
 ab
@@ -7196,7 +7244,7 @@ ab
 ab
 ab
 ab
-eh
+lS
 gj
 eh
 eh
@@ -7254,7 +7302,7 @@ aj
 eh
 eh
 eh
-eh
+hW
 ab
 ab
 ab
@@ -7424,7 +7472,7 @@ nm
 nK
 ok
 mn
-mn
+NY
 ab
 ab
 ab
@@ -7689,7 +7737,7 @@ ab
 ab
 ab
 ab
-ae
+lS
 ae
 ae
 ae
@@ -7775,7 +7823,7 @@ nQ
 mT
 mT
 mT
-oF
+NY
 ab
 ab
 ab
@@ -7988,7 +8036,7 @@ aa
 ab
 ab
 ab
-ae
+HG
 ae
 aq
 aq
@@ -8223,7 +8271,7 @@ mX
 nv
 aQ
 mT
-mT
+NY
 ab
 ab
 ab
@@ -8341,7 +8389,7 @@ ab
 ab
 ab
 ab
-as
+HG
 as
 as
 dI
@@ -8593,7 +8641,7 @@ ab
 ab
 ab
 ab
-dy
+HG
 dy
 ed
 ey
@@ -8624,7 +8672,7 @@ RI
 RI
 RI
 RI
-RI
+RR
 ab
 ab
 ab
@@ -8776,7 +8824,7 @@ yd
 cq
 RI
 RI
-nf
+Am
 ab
 ab
 ab
@@ -8903,7 +8951,7 @@ bo
 dy
 eF
 eF
-dy
+NY
 ab
 ab
 ab
@@ -8972,7 +9020,7 @@ ju
 ju
 ju
 ju
-RI
+Am
 ab
 ab
 ab
@@ -8998,7 +9046,7 @@ ab
 ab
 ab
 ab
-fx
+HG
 bp
 fx
 ab
@@ -9112,13 +9160,13 @@ ab
 ab
 ab
 ab
+HG
 ju
 ju
 ju
 ju
 ju
-ju
-ju
+NY
 ab
 ab
 ab
