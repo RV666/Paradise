@@ -11781,7 +11781,7 @@
 	tag = "icon-tube1 (NORTH)"
 	},
 /obj/structure/table/reinforced,
-/obj/item/paper_bin,
+/obj/item/paper_bin/syndicate,
 /obj/item/pen/multi/gold,
 /obj/item/stamp/syndicate,
 /turf/unsimulated/floor{
@@ -11897,7 +11897,7 @@
 /area/centcom/specops)
 "Gh" = (
 /obj/structure/table/wood,
-/obj/item/paper_bin,
+/obj/item/paper_bin/nanotrasen,
 /obj/item/pen/multi/fountain,
 /obj/item/stamp/centcom,
 /obj/item/folder/blue{
@@ -12570,7 +12570,7 @@
 /area/centcom/specops)
 "Sd" = (
 /obj/structure/table/reinforced,
-/obj/item/paper_bin,
+/obj/item/paper_bin/nanotrasen,
 /obj/item/pen/multi/fountain,
 /obj/item/stamp/centcom,
 /turf/unsimulated/floor{
@@ -12579,7 +12579,7 @@
 /area/centcom/control)
 "Sq" = (
 /obj/structure/table/reinforced,
-/obj/item/paper_bin,
+/obj/item/paper_bin/nanotrasen,
 /obj/item/pen/multi/fountain,
 /obj/item/stamp/centcom,
 /obj/item/folder/blue{
