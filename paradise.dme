@@ -2485,6 +2485,10 @@
 #include "code\modules\zombie\items.dm"
 #include "code\modules\zombie\organs.dm"
 #include "goon\code\datums\browserOutput.dm"
+#include "hyntatmta\code\game\machinery\kitchen\processor.dm"
+#include "hyntatmta\code\modules\food\recipes_microwave.dm"
+#include "hyntatmta\code\modules\food\recipes_oven.dm"
+#include "hyntatmta\code\modules\reagents\reagent_containers\food\snacks.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
 // END_INCLUDE
