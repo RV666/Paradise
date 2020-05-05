@@ -1,7 +1,7 @@
 /atom/movable
 	layer = 3
 	appearance_flags = TILE_BOUND
-	glide_size = 8 // Default, adjusted when mobs move based on their movement delays
+	glide_size = 2.3 // Default, adjusted when mobs move based on their movement delays
 	var/last_move = null
 	var/anchored = 0
 	var/move_resist = MOVE_RESIST_DEFAULT
@@ -222,10 +222,10 @@
 /atom/movable/proc/glide_for(movetime)
 	if(movetime)
 		glide_size = world.icon_size/max(DS2TICKS(movetime), 1)
-		spawn(movetime)
-			glide_size = initial(glide_size)
-	else
-		glide_size = initial(glide_size)
+//		spawn(movetime)
+//			glide_size = initial(glide_size)
+//	else
+//		glide_size = initial(glide_size)
 
 // Previously known as HasEntered()
 // This is automatically called when something enters your square
