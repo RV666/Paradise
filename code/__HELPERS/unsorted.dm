@@ -1534,7 +1534,6 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 		stop_orbit()
 
 	orbiting = A
-	var/matrix/initial_transform = matrix(transform)
 	var/lastloc = loc
 
 	//Head first!
@@ -1552,8 +1551,6 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 
 	SpinAnimation(rotation_speed, -1, clockwise, rotation_segments)
 
-	//we stack the orbits up client side, so we can assign this back to normal server side without it breaking the orbit
-	transform = initial_transform
 	while(orbiting && orbiting == A && A.loc)
 		var/targetloc = get_turf(A)
 		if(!lockinorbit && loc != lastloc && loc != targetloc)
@@ -1563,9 +1560,13 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 		else
 			loc = targetloc
 		lastloc = loc
+		var/atom/movable/B = A
+		if(B)
+			glide_size = B.glide_size
 		sleep(0.6)
 
 	if(orbiting == A) //make sure we haven't started orbiting something else.
+		transform = initial(transform)
 		orbiting = null
 		SpinAnimation(0,0)
 

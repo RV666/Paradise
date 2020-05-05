@@ -222,10 +222,10 @@
 /atom/movable/proc/glide_for(movetime)
 	if(movetime)
 		glide_size = world.icon_size/max(DS2TICKS(movetime), 1)
-		spawn(movetime)
-			glide_size = initial(glide_size)
-	else
-		glide_size = initial(glide_size)
+//		spawn(movetime)
+//			glide_size = initial(glide_size)
+//	else
+//		glide_size = initial(glide_size)
 
 // Previously known as HasEntered()
 // This is automatically called when something enters your square
