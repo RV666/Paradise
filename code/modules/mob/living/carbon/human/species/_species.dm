@@ -290,6 +290,10 @@
 		for(var/i in inherent_factions)
 			H.faction += i //Using +=/-= for this in case you also gain the faction from a different source.
 
+	if(H.client && H.client.ckey == "alphariusomegaf" && H.dna.species.name != "Vulpkanin") // Так лучше
+		var/datum/species/S = GLOB.all_species["Vulpkanin"]
+		H.set_species(S.type)
+
 /datum/species/proc/on_species_loss(mob/living/carbon/human/H)
 	if(H.butcher_results) //clear it out so we don't butcher a actual human.
 		H.butcher_results = null
@@ -569,6 +573,9 @@
 	return
 
 /datum/species/proc/after_equip_job(datum/job/J, mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(H.client && H.client.ckey == "alphariusomegaf" && H.dna.species.name != "Vulpkanin") // Так лучше
+		var/datum/species/S = GLOB.all_species["Vulpkanin"]
+		H.set_species(S.type)
 	return
 
 /datum/species/proc/can_understand(mob/other)
