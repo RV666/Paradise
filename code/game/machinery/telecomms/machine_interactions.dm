@@ -50,10 +50,9 @@
 		if(3)
 			if(istype(P, /obj/item/stack/cable_coil))
 				var/obj/item/stack/cable_coil/A = P
-				if(A.amount >= 5)
+				if(A.use(5))
 					playsound(loc, A.usesound, 50, 1)
 					to_chat(user, "You insert the cables.")
-					A.amount -= 5
 					if(A.amount <= 0)
 						user.drop_item()
 						qdel(A)
