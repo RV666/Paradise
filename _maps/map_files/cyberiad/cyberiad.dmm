@@ -27477,7 +27477,7 @@
 	},
 /area/chapel/office)
 "bcr" = (
-/turf/simulated/floor/mineral/titanium/blue,
+/turf/simulated/wall/mineral/titanium/nodiagonal,
 /turf/simulated/wall/mineral/titanium/overspace,
 /area/shuttle/arrival/station)
 "bcs" = (
@@ -41274,7 +41274,7 @@
 /turf/simulated/floor/mineral/titanium,
 /area/shuttle/escape)
 "bER" = (
-/turf/space,
+/turf/simulated/wall/mineral/titanium/overspace,
 /turf/simulated/wall/mineral/plastitanium/overspace,
 /area/shuttle/specops)
 "bES" = (
