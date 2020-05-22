@@ -367,6 +367,7 @@
 	build_type = PROTOLATHE
 	materials = list(MAT_METAL = 5000, MAT_GLASS = 3000, MAT_SILVER  = 1000, MAT_DIAMOND = 1000)
 	build_path = /obj/item/rig_module/vision/thermal
+	locked = 1
 	category = list("RIG modules")
 
 /datum/design/hardsuit_security
@@ -387,6 +388,7 @@
 	build_type = PROTOLATHE
 	materials = list(MAT_METAL = 5000, MAT_GLASS = 3000, MAT_DIAMOND = 5000)
 	build_path = /obj/item/rig_module/grenade_launcher
+	locked = 1
 	category = list("RIG modules")
 
 /datum/design/hardsuit_egun
@@ -397,6 +399,7 @@
 	build_type = PROTOLATHE
 	materials = list(MAT_METAL = 5000, MAT_GLASS = 3000, MAT_SILVER = 3000)
 	build_path = /obj/item/rig_module/mounted/egun
+	locked = 1
 	category = list("RIG modules")
 
 /datum/design/hardsuit_flash
@@ -431,6 +434,7 @@
 	build_type = PROTOLATHE
 	materials = list(MAT_METAL = 5000, MAT_GLASS = 3000, MAT_DIAMOND = 2000)
 	build_path = /obj/item/rig_module/vision/multi
+	locked = 1
 	category = list("RIG modules")
 
 /datum/design/hardsuit_electrowar
@@ -441,6 +445,7 @@
 	build_type = PROTOLATHE
 	materials = list(MAT_METAL = 5000, MAT_GLASS = 3000, MAT_SILVER = 2000, MAT_DIAMOND = 5000)
 	build_path = /obj/item/rig_module/electrowarfare_suite
+	locked = 1
 	category = list("RIG modules")
 
 /datum/design/hardsuit_voice
@@ -451,6 +456,7 @@
 	build_type = PROTOLATHE
 	materials = list(MAT_METAL = 5000, MAT_GLASS = 3000, MAT_GOLD = 500)
 	build_path = /obj/item/rig_module/voice
+	locked = 1
 	category = list("RIG modules")
 
 /datum/design/hardsuit_datajack
@@ -461,6 +467,7 @@
 	build_type = PROTOLATHE
 	materials = list(MAT_METAL = 5000, MAT_GLASS = 3000)
 	build_path = /obj/item/rig_module/datajack
+	locked = 1
 	category = list("RIG modules")
 
 ///datum/design/
@@ -485,6 +492,7 @@
 	build_type = IMPRINTER
 	materials = list(MAT_GLASS = 1000, MAT_DIAMOND = 100)
 	build_path = /obj/item/aiModule/antimov
+	locked = 1
 	category = list("ILLEGAL")
 
 /datum/design/tyrant_module
@@ -495,6 +503,7 @@
 	build_type = IMPRINTER
 	materials = list(MAT_GLASS = 1000, MAT_DIAMOND = 100)
 	build_path = /obj/item/aiModule/tyrant
+	locked = 1
 	category = list("ILLEGAL")
 
 /datum/design/largecrossbow
@@ -505,7 +514,7 @@
 	build_type = PROTOLATHE
 	materials = list(MAT_METAL = 5000, MAT_GLASS = 1500, MAT_URANIUM = 1500, MAT_SILVER = 1500)
 	build_path = /obj/item/gun/energy/kinetic_accelerator/crossbow/large
-	locked = 0
+	locked = 1
 	category = list("ILLEGAL")
 
 /datum/design/suppressor
@@ -516,6 +525,7 @@
 	build_type = PROTOLATHE
 	materials = list(MAT_METAL = 2000, MAT_SILVER = 500)
 	build_path = /obj/item/suppressor
+	locked = 1
 	category = list("ILLEGAL")
 
 /datum/design/stechkin
@@ -526,57 +536,63 @@
 	build_type = PROTOLATHE
 	materials = list(MAT_METAL = 4500, MAT_SILVER = 1500, MAT_TITANIUM = 5000)
 	build_path = /obj/item/gun/projectile/automatic/pistol
+	locked = 1
 	category = list("ILLEGAL")
 
 /datum/design/chameleon_kit
 	name = "Chameleon kit"
-	desc = "Набор хамелеона изученный с помощью реверс инженеринга."
+	desc = "A set of items that contain chameleon technology allowing you to disguise as pretty much anything on the station."
 	id = "chameleon_kit"
 	req_tech = list("combat" = 4, "engineering" = 6, "syndicate" = 4, "magnets" = 5)
 	build_type = PROTOLATHE
 	materials = list(MAT_METAL = 4500, MAT_GLASS = 3000, MAT_SILVER = 2000, MAT_DIAMOND = 1000)
 	build_path = /obj/item/storage/box/syndie_kit/chameleon
+	locked = 1
 	category = list("ILLEGAL")
 
 /datum/design/adrenaline
 	name = "Adrenaline implant"
-	desc = "Кейс с адреналин имплантов, который позволяет игнорировать шокеры, в течение котороткого времени."
+	desc = "A glass case containing an adrenaline implant."
 	id = "implant_adrenaline"
 	req_tech = list("syndicate" = 2, "programming" = 3, "biotech"= 4, "materials" = 3)
 	build_type = PROTOLATHE
 	materials = list(MAT_METAL = 100, MAT_GLASS = 50,)
 	reagents_list = list("omnizine" = 10)
 	build_path = /obj/item/implantcase/adrenaline
+	locked = 1
 	category = list("ILLEGAL")
 
 /datum/design/Freedom
 	name = "Freedom implant"
-	desc = "Кейс с имплантом, который позволяет освобождаться от наручников ограниченное количество раз."
+	desc = "A glass case containing a freedom implant."
 	id = "implant_freedom"
 	req_tech = list("syndicate" = 2, "programming" = 3, "biotech"= 4,"materials" = 3)
 	build_type = PROTOLATHE
 	materials = list(MAT_METAL = 10000, MAT_GLASS = 3000,)
 	build_path = /obj/item/implantcase/freedom
+	locked = 1
 	category = list("ILLEGAL")
 
 /datum/design/encryptionkey_binary
 	name = "Binary encryptionkey"
-	desc = "Ключ шифрования, на которой переговариваеются борги и ИИ."
+	desc = "An encryption key for a radio headset. To access the binary channel, use :+."
 	id = "binarykey"
 	req_tech = list("engineering" = 4, "syndicate" = 3, "programming" = 4,"materials" = 3)
 	build_type = PROTOLATHE
 	materials = list(MAT_METAL = 1000, MAT_GLASS = 1000,)
 	build_path = /obj/item/encryptionkey/binary
+	locked = 1
 	category = list("ILLEGAL")
 
 /datum/design/encryptionkey_syndicate
 	name = "Syndicate encryptionkey"
-	desc = "Ключ шифрования синдиката, позволяющий перехватывать другие зашифрованные радиоволны."
+	desc = "An encyption key for a radio headset. Contains syndicate cypherkeys."
 	id = "syndicatekey"
 	req_tech = list("engineering" = 4, "syndicate" = 4, "programming" = 4,"materials" = 3)
 	build_type = PROTOLATHE
 	materials = list(MAT_METAL = 1000, MAT_GLASS = 1000,)
 	build_path = /obj/item/encryptionkey/syndicate
+	locked = 1
 	category = list("ILLEGAL")
 
 /datum/design/aiModule_syndicate
@@ -587,6 +603,7 @@
 	build_type = IMPRINTER
 	materials = list(MAT_GLASS = 1000, MAT_DIAMOND = 100)
 	build_path = /obj/item/aiModule/syndicate
+	locked = 1
 	category = list("ILLEGAL")
 
 /datum/design/incendiary_10mm
@@ -597,6 +614,7 @@
 	build_type = PROTOLATHE
 	materials = list(MAT_METAL = 100, MAT_PLASMA = 10,)
 	build_path = /obj/item/ammo_box/magazine/m10mm/fire
+	locked = 1
 	category = list("ILLEGAL")
 
 /datum/design/radio_jammer
@@ -607,6 +625,7 @@
 	build_type = PROTOLATHE
 	materials = list(MAT_METAL = 2000, MAT_GLASS = 1000, MAT_SILVER = 500)
 	build_path = /obj/item/jammer
+	locked = 1
 	category = list("ILLEGAL")
 
 ///datum/design/
