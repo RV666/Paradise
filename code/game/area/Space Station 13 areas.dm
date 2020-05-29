@@ -1452,6 +1452,11 @@ GLOBAL_LIST_EMPTY(ghostteleportlocs)
 	icon_state = "execution"
 	can_get_auto_cryod = FALSE
 
+/area/security/abandoned_interrogation
+	name = "\improper Abandoned interrogation"
+	icon_state = "interrogation"
+	can_get_auto_cryod = FALSE
+
 /area/security/processing
 	name = "\improper Prisoner Processing"
 	icon_state = "prisonerprocessing"
