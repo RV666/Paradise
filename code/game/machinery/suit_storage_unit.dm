@@ -539,7 +539,7 @@
 ////////
 
 /obj/machinery/suit_storage_unit/attack_hand(mob/user as mob)
-	var/dat
+	var/dat = {"<meta charset="UTF-8">"}
 	if(shocked)
 		if(shock(usr, 100))
 			return

@@ -562,7 +562,7 @@ obj/item/toy/cards/cardhand/attack_self(mob/user as mob)
 	interact(user)
 
 obj/item/toy/cards/cardhand/interact(mob/user)
-	var/dat = "You have:<BR>"
+	var/dat = {"<meta charset="UTF-8">You have:<BR>"}
 	for(var/t in currenthand)
 		dat += "<A href='?src=[UID()];pick=[t]'>A [t].</A><BR>"
 	dat += "Which card will you remove next?"

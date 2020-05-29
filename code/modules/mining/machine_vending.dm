@@ -136,7 +136,7 @@
 /obj/machinery/mineral/equipment_vendor/interact(mob/user)
 	user.set_machine(src)
 
-	var/dat
+	var/dat = {"<meta charset="UTF-8">"}
 	dat +="<div class='statusDisplay'>"
 	if(istype(inserted_id))
 		dat += "You have [inserted_id.mining_points] mining points collected. <A href='?src=[UID()];choice=eject'>Eject ID.</A><br>"

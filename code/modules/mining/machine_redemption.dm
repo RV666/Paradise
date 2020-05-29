@@ -242,7 +242,7 @@
 	interact(user)
 
 /obj/machinery/mineral/ore_redemption/interact(mob/user)
-	var/dat = "This machine only accepts ore. Gibtonite and Slag are not accepted.<br><br>"
+	var/dat = {"<meta charset="UTF-8">This machine only accepts ore. Gibtonite and Slag are not accepted.<br><br>"}
 	dat += "Current unclaimed points: [points]<br>"
 
 	if(inserted_id)

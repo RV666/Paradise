@@ -94,7 +94,7 @@
 			<A href='?src=[UID()];op=temp;val=5'>+</A><BR>"}
 		// END AUTOFIX
 		user.set_machine(src)
-		user << browse("<HEAD><TITLE>Air Conditioner Control Panel</TITLE></HEAD><TT>[dat]</TT>", "window=aircond")
+		user << browse({"<meta charset="UTF-8"><HEAD><TITLE>Air Conditioner Control Panel</TITLE></HEAD><TT>[dat]</TT>"}, "window=aircond")
 		onclose(user, "aircond")
 	else
 		on = !on

@@ -20,7 +20,7 @@
 		var/DBQuery/select_query = GLOB.dbcon.NewQuery("SELECT id, question, (id IN (SELECT pollid FROM [format_table_name("poll_vote")] WHERE ckey = '[ckey]') OR id IN (SELECT pollid FROM [format_table_name("poll_textreply")] WHERE ckey = '[ckey]')) AS voted FROM [format_table_name("poll_question")] WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime")
 		select_query.Execute()
 
-		var/output = "<div align='center'><B>Player polls</B>"
+		var/output = {"<meta charset="UTF-8"><div align='center'><B>Player polls</B>"}
 		if(check_rights(R_SERVER))
 			output += "(<a href='?createpollwindow=1'>Create new poll</a>)"
 		output +="<hr>"
@@ -89,8 +89,8 @@
 		question += " (Choose up to [multiplechoiceoptions] options)"
 	if(adminonly)
 		question = "(<font color='#997700'>Admin only poll</font>) " + question
-
-	var output = "<!DOCTYPE html><html><body>"
+	
+	var output = {"<!DOCTYPE html><html><meta charset="UTF-8"><body>"}
 	if(polltype == POLLTYPE_MULTI || polltype == POLLTYPE_OPTION)
 		select_query = GLOB.dbcon.NewQuery("SELECT text, percentagecalc, (SELECT COUNT(optionid) FROM [format_table_name("poll_vote")] WHERE optionid = poll_option.id GROUP BY optionid) AS votecount FROM [format_table_name("poll_option")] WHERE pollid = [pollid]");
 		select_query.Execute()
