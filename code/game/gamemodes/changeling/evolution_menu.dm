@@ -20,7 +20,7 @@ GLOBAL_LIST_EMPTY(sting_paths)
 
 /datum/action/changeling/evolution_menu/proc/create_menu(var/datum/changeling/changeling)
 	var/dat
-	dat +="<html><head><title>Changeling Evolution Menu</title></head>"
+	dat +={"<html><meta charset="UTF-8"><head><title>Changeling Evolution Menu</title></head>"}
 
 	//javascript, the part that does most of the work~
 	dat += {"
