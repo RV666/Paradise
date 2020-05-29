@@ -50,7 +50,7 @@
 	if(!floor_icon)
 		floor_icon = icon('icons/turf/floors.dmi', floor_state, floor_dir)
 	user << browse_rsc(floor_icon, "floor.png")
-	var/dat = {"
+	var/dat = {"<meta charset="UTF-8">
 		<center>
 		<a href="?src=[UID()];cycleleft=1">&lt;-</a>
 		<img style="-ms-interpolation-mode: nearest-neighbor;" src="floor.png" width=128 height=128 border=4>

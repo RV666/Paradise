@@ -61,7 +61,7 @@
 
 /obj/item/paper/talisman/supply/invoke(mob/living/user, successfuluse = 1)
 	var/dat = list()
-	dat += "<B>There are [uses] bloody runes on the parchment.</B><BR>"
+	dat += {"<meta charset="UTF-8"><B>There are [uses] bloody runes on the parchment.</B><BR>"}
 	dat += "Please choose the chant to be imbued into the fabric of reality.<BR>"
 	dat += "<HR>"
 	dat += "<A href='?src=[UID()];rune=newtome'>N'ath reth sh'yro eth d'raggathnor!</A> - Summons an arcane tome, used to scribe runes and communicate with other cultists.<BR>"

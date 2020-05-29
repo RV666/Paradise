@@ -89,7 +89,7 @@
 				var/err = query_memoshow.ErrorMsg()
 				log_game("SQL ERROR obtaining ckey, memotext, timestamp, last_editor from memo table. Error : \[[err]\]\n")
 				return
-			var/output = null
+			var/output = {"<meta charset="UTF-8">"}
 			while(query_memoshow.NextRow())
 				var/ckey = query_memoshow.item[1]
 				var/memotext = query_memoshow.item[2]
