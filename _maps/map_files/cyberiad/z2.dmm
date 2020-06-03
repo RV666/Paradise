@@ -2824,6 +2824,16 @@
 	dir = 4
 	},
 /area/syndicate_mothership)
+"hk" = (
+/obj/machinery/door/airlock/centcom{
+	id_tag = "toilet_ert_unit_4";
+	name = "Bathroom";
+	opacity = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
 "hl" = (
 /obj/machinery/door/airlock/external{
 	id_tag = "syndicate_away";
@@ -6239,32 +6249,44 @@
 	},
 /area/centcom/control)
 "pJ" = (
-/turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
-	},
-/area/centcom/specops)
-"pK" = (
-/obj/machinery/camera{
-	c_tag = "CentComm Special Ops. Bathroom";
-	dir = 2;
-	network = list("ERT","CentComm")
-	},
-/turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
-	},
-/area/centcom/specops)
-"pL" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Bathroom";
-	opacity = 1;
-	req_access_txt = "0"
+/obj/structure/sign/security{
+	pixel_x = -30
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
 /area/centcom/specops)
+"pK" = (
+/obj/machinery/light/spot{
+	tag = "icon-tube1 (NORTH)";
+	icon_state = "tube1";
+	dir = 1
+	},
+/obj/structure/table/reinforced,
+/obj/item/paper_bin/syndicate,
+/obj/item/stamp/syndicate,
+/obj/item/pen/multi/gold,
+/obj/item/folder/red,
+/obj/item/folder/red{
+	pixel_x = 7
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"pL" = (
+/obj/structure/table/reinforced,
+/obj/item/paper_bin/nanotrasen,
+/obj/item/stamp/centcom,
+/obj/item/pen/multi/fountain,
+/obj/item/folder/red{
+	pixel_x = 7
+	},
+/obj/item/folder/blue,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/control)
 "pM" = (
 /obj/machinery/door/poddoor/shutters{
 	dir = 8;
@@ -6302,6 +6324,14 @@
 	req_access_txt = "114"
 	},
 /obj/structure/table/wood,
+/obj/machinery/door_control{
+	desc = "A remote control-switch for a Armory door.";
+	id = "ERTBFG";
+	name = "Armory Access";
+	pixel_x = 6;
+	pixel_y = -6;
+	req_access_txt = "114"
+	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "carpetside"
@@ -6329,6 +6359,16 @@
 /area/centcom/specops)
 "pQ" = (
 /obj/structure/closet/secure_closet/brig,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
+"pR" = (
+/obj/machinery/door/airlock/centcom{
+	id_tag = "toilet_ert_unit_1";
+	name = "Bathroom";
+	opacity = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -6404,6 +6444,14 @@
 	req_access_txt = "114"
 	},
 /obj/structure/table/wood,
+/obj/machinery/door_control{
+	desc = "A remote control-switch for a best Armory door.";
+	id = "ERTBFG2";
+	name = "BFG Armory";
+	pixel_x = 6;
+	pixel_y = 6;
+	req_access_txt = "114"
+	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "carpetside"
@@ -6428,20 +6476,23 @@
 	},
 /area/centcom/specops)
 "qb" = (
-/obj/structure/sink{
-	dir = 4;
-	icon_state = "sink";
-	pixel_x = 11;
-	pixel_y = 0
+/obj/structure/table/wood,
+/obj/item/paper_bin/nanotrasen,
+/obj/item/stamp/centcom,
+/obj/item/pen/multi/fountain,
+/obj/item/folder/blue{
+	pixel_x = 7;
+	pixel_y = -7
 	},
-/obj/structure/mirror{
-	dir = 4;
-	pixel_x = 32;
-	pixel_y = 0
+/obj/item/folder/red{
+	pixel_x = 7
+	},
+/obj/item/folder/yellow{
+	pixel_x = 7;
+	pixel_y = 7
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	icon_state = "grimy"
 	},
 /area/centcom/specops)
 "qc" = (
@@ -6554,14 +6605,27 @@
 	},
 /area/centcom/evac)
 "qu" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Bathroom";
-	opacity = 1;
-	req_access_txt = "0"
-	},
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/laser,
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/laser,
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/laser,
+/obj/item/mecha_parts/mecha_equipment/anticcw_armor_booster,
+/obj/item/mecha_parts/mecha_equipment/anticcw_armor_booster,
+/obj/item/mecha_parts/mecha_equipment/anticcw_armor_booster,
+/obj/item/mecha_parts/mecha_equipment/antiproj_armor_booster,
+/obj/item/mecha_parts/mecha_equipment/antiproj_armor_booster,
+/obj/item/mecha_parts/mecha_equipment/antiproj_armor_booster,
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/bola,
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/bola,
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/bola,
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang,
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang,
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang,
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/taser,
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/disabler,
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/disabler,
+/obj/structure/closet/crate,
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	icon_state = "dark"
 	},
 /area/centcom/specops)
 "qv" = (
@@ -6739,12 +6803,12 @@
 	},
 /area/centcom)
 "qQ" = (
-/obj/structure/toilet{
-	dir = 8
+/obj/machinery/camera{
+	c_tag = "CentComm Special Ops. BFG armory";
+	network = list("ERT","CentComm")
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	icon_state = "dark"
 	},
 /area/centcom/specops)
 "qR" = (
@@ -12183,17 +12247,160 @@
 	},
 /turf/unsimulated/floor/snow,
 /area/syndicate_mothership)
+"Cl" = (
+/obj/structure/table/reinforced,
+/obj/item/camera/digital,
+/obj/item/taperecorder,
+/obj/item/tape,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/evac)
+"CD" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/box/flashbangs{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/teargas{
+	pixel_x = -5
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
 "Dv" = (
 /turf/space,
 /area/admin)
+"Dx" = (
+/obj/machinery/door_control{
+	id = "toilet_ert_unit_4";
+	name = "Toilet door control";
+	normaldoorcontrol = 1;
+	pixel_y = 25;
+	specialfunctions = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor"
+	},
+/area/centcom/specops)
+"Dy" = (
+/obj/machinery/shower{
+	pixel_y = 25
+	},
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor"
+	},
+/area/centcom/specops)
+"DN" = (
+/obj/machinery/door_control{
+	id = "toilet_ert_unit_3";
+	name = "Toilet door control";
+	normaldoorcontrol = 1;
+	pixel_y = 25;
+	specialfunctions = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor"
+	},
+/area/centcom/specops)
 "DX" = (
 /turf/simulated/floor/mech_bay_recharge_floor,
 /area/admin)
+"Er" = (
+/obj/structure/rack,
+/obj/item/gun/energy/gun/nuclear{
+	pixel_x = -8;
+	pixel_y = -8
+	},
+/obj/item/gun/energy/gun/nuclear{
+	pixel_x = -4;
+	pixel_y = -4
+	},
+/obj/item/gun/energy/gun/nuclear,
+/obj/item/gun/energy/gun/nuclear{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/gun/energy/gun/nuclear{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
+"Fr" = (
+/obj/structure/table/reinforced,
+/obj/item/hand_tele{
+	pixel_x = -4
+	},
+/obj/item/hand_tele{
+	pixel_x = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
+"FJ" = (
+/obj/structure/rack,
+/obj/item/gun/energy/ionrifle/carbine{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/obj/item/gun/energy/ionrifle/carbine{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/gun/energy/ionrifle/carbine,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
 "FL" = (
 /turf/simulated/wall/r_wall,
 /area/adminconstruction)
+"FM" = (
+/obj/structure/rack,
+/obj/item/gun/energy/lasercannon{
+	pixel_x = -4;
+	pixel_y = -4
+	},
+/obj/item/gun/energy/lasercannon,
+/obj/item/gun/energy/lasercannon{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
 "Ga" = (
 /obj/machinery/computer/shuttle/ert,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
+"Gz" = (
+/obj/machinery/door/poddoor/impassable{
+	id_tag = "ERTBFG2";
+	name = "BFG armory blast door"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
+"GN" = (
+/obj/structure/rack,
+/obj/item/gun/energy/xray{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/item/gun/energy/xray{
+	pixel_x = 2;
+	pixel_y = 2
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -12295,6 +12502,18 @@
 	icon_state = "white"
 	},
 /area/tdome)
+"Ib" = (
+/obj/item/ammo_box/magazine/m556,
+/obj/item/ammo_box/magazine/m556,
+/obj/item/ammo_box/magazine/m556,
+/obj/item/ammo_box/magazine/m556,
+/obj/item/ammo_box/magazine/m556,
+/obj/item/ammo_box/magazine/m556,
+/obj/structure/closet/crate,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
 "Ii" = (
 /obj/structure/rack,
 /obj/item/clothing/under/color/red,
@@ -12346,11 +12565,44 @@
 "Iw" = (
 /turf/simulated/floor/bluegrid,
 /area/tdome/arena)
+"IF" = (
+/obj/item/grenade/plastic/x4/thermite,
+/obj/item/grenade/plastic/x4/thermite,
+/obj/item/grenade/plastic/x4/thermite,
+/obj/item/grenade/plastic/x4/thermite,
+/obj/item/grenade/plastic/x4/thermite,
+/obj/structure/closet/crate,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
+"IL" = (
+/obj/machinery/door_control{
+	id = "toilet_ert_unit_1";
+	name = "Toilet door control";
+	normaldoorcontrol = 1;
+	pixel_y = 25;
+	specialfunctions = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor"
+	},
+/area/centcom/specops)
 "IS" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
 /area/tdome/tdomeadmin)
+"IY" = (
+/obj/machinery/door/airlock/centcom{
+	id_tag = "toilet_ert_unit_3";
+	name = "Bathroom";
+	opacity = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
 "JC" = (
 /obj/structure/chair/stool,
 /obj/item/clothing/head/bandana{
@@ -12363,6 +12615,12 @@
 /obj/structure/chair/stool,
 /turf/unsimulated/beach/sand,
 /area/ninja/holding)
+"JK" = (
+/obj/structure/curtain/open/shower/centcom,
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor"
+	},
+/area/centcom/specops)
 "Kc" = (
 /obj/structure/chair/comfy/brown{
 	dir = 4
@@ -12421,6 +12679,36 @@
 	},
 /turf/unsimulated/floor/vox,
 /area/vox_station)
+"Ky" = (
+/obj/structure/rack,
+/obj/item/shield/riot{
+	pixel_x = -6;
+	pixel_y = -6
+	},
+/obj/item/shield/riot{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/obj/item/shield/riot,
+/obj/item/shield/riot{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/shield/riot{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/shield/riot/tele{
+	pixel_x = -7
+	},
+/obj/item/shield/riot/tele,
+/obj/item/shield/riot/tele{
+	pixel_x = 7
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
 "KA" = (
 /obj/structure/chair/sofa/left,
 /turf/simulated/shuttle/floor{
@@ -12433,6 +12721,52 @@
 	icon_state = "floor"
 	},
 /area/centcom/control)
+"KN" = (
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/spray/pepper{
+	pixel_x = -9;
+	pixel_y = -3
+	},
+/obj/item/reagent_containers/spray/pepper{
+	pixel_x = -7;
+	pixel_y = -3
+	},
+/obj/item/reagent_containers/spray/pepper{
+	pixel_x = -5;
+	pixel_y = -3
+	},
+/obj/item/reagent_containers/spray/pepper{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/obj/item/reagent_containers/spray/pepper{
+	pixel_x = -1;
+	pixel_y = -3
+	},
+/obj/item/reagent_containers/spray/pepper{
+	pixel_x = 1;
+	pixel_y = -3
+	},
+/obj/item/reagent_containers/spray/pepper{
+	pixel_x = 3;
+	pixel_y = -3
+	},
+/obj/item/reagent_containers/spray/pepper{
+	pixel_x = 5;
+	pixel_y = -3
+	},
+/obj/item/reagent_containers/spray/pepper{
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/obj/item/reagent_containers/spray/pepper{
+	pixel_x = 9;
+	pixel_y = -3
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
 "KR" = (
 /obj/machinery/light/small,
 /obj/structure/chair/comfy/shuttle{
@@ -12467,6 +12801,26 @@
 	icon_state = "floor4"
 	},
 /area/shuttle/assault_pod)
+"LY" = (
+/obj/structure/table/reinforced,
+/obj/structure/table/reinforced,
+/obj/item/restraints/legcuffs/bola/energy{
+	pixel_x = -6
+	},
+/obj/item/restraints/legcuffs/bola/energy{
+	pixel_x = -3
+	},
+/obj/item/restraints/legcuffs/bola/energy,
+/obj/item/restraints/legcuffs/bola/energy{
+	pixel_x = 3
+	},
+/obj/item/restraints/legcuffs/bola/energy{
+	pixel_x = 6
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
 "LZ" = (
 /obj/mecha/combat/marauder/seraph/loaded,
 /obj/effect/decal/warning_stripes/yellow,
@@ -12474,6 +12828,146 @@
 	icon_state = "dark"
 	},
 /area/centcom/specops)
+"Mc" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/box/handcuffs{
+	pixel_x = 4
+	},
+/obj/item/storage/box/handcuffs,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
+"Mk" = (
+/obj/structure/rack,
+/obj/item/grenade/barrier{
+	pixel_x = -9;
+	pixel_y = 9
+	},
+/obj/item/grenade/barrier{
+	pixel_x = -7;
+	pixel_y = 7
+	},
+/obj/item/grenade/barrier{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/grenade/barrier{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/grenade/barrier{
+	pixel_x = -1;
+	pixel_y = 1
+	},
+/obj/item/grenade/barrier{
+	pixel_x = -3;
+	pixel_y = 9
+	},
+/obj/item/grenade/barrier{
+	pixel_x = -1;
+	pixel_y = 7
+	},
+/obj/item/grenade/barrier{
+	pixel_x = 1;
+	pixel_y = 5
+	},
+/obj/item/grenade/barrier{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/grenade/barrier{
+	pixel_x = 5;
+	pixel_y = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
+"Ml" = (
+/obj/machinery/door/poddoor/impassable{
+	id_tag = "ERTBFG";
+	name = "ERT Armory"
+	},
+/turf/unsimulated/floor{
+	icon_state = "vault";
+	dir = 8
+	},
+/area/centcom/specops)
+"Mv" = (
+/obj/structure/table/reinforced,
+/obj/item/radio{
+	pixel_x = -6
+	},
+/obj/item/radio,
+/obj/item/radio{
+	pixel_x = 6
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
+"MK" = (
+/obj/structure/rack,
+/obj/item/gun/projectile/automatic/m90{
+	pixel_x = -4;
+	pixel_y = -4
+	},
+/obj/item/gun/projectile/automatic/m90,
+/obj/item/gun/projectile/automatic/m90{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
+"MQ" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 11
+	},
+/obj/structure/mirror{
+	pixel_x = 32
+	},
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor"
+	},
+/area/centcom/specops)
+"MT" = (
+/obj/structure/toilet{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor"
+	},
+/area/centcom/specops)
+"Nc" = (
+/obj/machinery/recharge_station/upgraded,
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor"
+	},
+/area/centcom/specops)
+"Ne" = (
+/obj/structure/table/reinforced,
+/obj/item/paper_bin/nanotrasen,
+/obj/item/stamp/centcom,
+/obj/item/pen/multi/fountain,
+/obj/item/folder/yellow{
+	pixel_x = 7;
+	pixel_y = 7
+	},
+/obj/item/folder/blue{
+	pixel_x = 7;
+	pixel_y = -7
+	},
+/obj/item/folder/red{
+	pixel_x = 7
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/evac)
 "Nz" = (
 /obj/effect/decal/warning_stripes/northwest,
 /turf/unsimulated/floor{
@@ -12499,6 +12993,34 @@
 	name = "plating"
 	},
 /area/centcom/control)
+"NL" = (
+/obj/structure/rack,
+/obj/item/gun/energy/gun/advtaser{
+	pixel_x = -7;
+	pixel_y = -7
+	},
+/obj/item/gun/energy/gun/advtaser{
+	pixel_x = -4;
+	pixel_y = -4
+	},
+/obj/item/gun/energy/gun/advtaser{
+	pixel_x = -1;
+	pixel_y = -1
+	},
+/obj/item/gun/energy/gun/advtaser{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
+"NY" = (
+/obj/machinery/vending/security,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
 "Oh" = (
 /obj/effect/decal/warning_stripes/southwest,
 /turf/unsimulated/floor{
@@ -12535,10 +13057,31 @@
 	icon_state = "dark"
 	},
 /area/centcom/specops)
+"Pt" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Bathroom";
+	opacity = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
 "PJ" = (
 /obj/effect/decal/warning_stripes/west,
 /turf/unsimulated/floor{
 	name = "plating"
+	},
+/area/centcom/specops)
+"PL" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 30
+	},
+/obj/machinery/camera{
+	c_tag = "CentComm Special Ops. Armory";
+	network = list("ERT","CentComm")
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
 	},
 /area/centcom/specops)
 "Qr" = (
@@ -12575,8 +13118,44 @@
 	icon_state = "floor"
 	},
 /area/centcom/control)
+"RN" = (
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor"
+	},
+/area/centcom/specops)
+"RP" = (
+/obj/item/gun/medbeam{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/item/gun/medbeam{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/structure/table/reinforced,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
 "Sa" = (
 /obj/structure/chair/office/dark,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
+"So" = (
+/obj/mecha/combat/gygax,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
+"SC" = (
+/obj/machinery/vending/engineering,
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'FOURTH WALL'.";
+	name = "\improper FOURTH WALL";
+	pixel_x = -32
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -12628,9 +13207,53 @@
 	icon_state = "floor"
 	},
 /area/centcom/control)
+"TL" = (
+/obj/structure/rack,
+/obj/item/gun/energy/gun/blueshield/pdw9{
+	pixel_x = -7;
+	pixel_y = -7
+	},
+/obj/item/gun/energy/gun/blueshield/pdw9{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/obj/item/gun/energy/gun/blueshield/pdw9{
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/item/gun/energy/gun/blueshield/pdw9{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
 "Uf" = (
 /obj/structure/chair/office/dark{
 	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
+"Up" = (
+/obj/machinery/door_control{
+	id = "toilet_ert_unit_2";
+	name = "Toilet door control";
+	normaldoorcontrol = 1;
+	pixel_y = 25;
+	specialfunctions = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor"
+	},
+/area/centcom/specops)
+"UF" = (
+/obj/machinery/door/airlock/centcom{
+	id_tag = "toilet_ert_unit_2";
+	name = "Bathroom";
+	opacity = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -12642,6 +13265,37 @@
 	},
 /turf/unsimulated/floor{
 	icon_state = "grimy"
+	},
+/area/centcom/specops)
+"UR" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 30
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
+"UU" = (
+/obj/structure/rack,
+/obj/item/gun/energy/laser{
+	pixel_x = -8;
+	pixel_y = -8
+	},
+/obj/item/gun/energy/laser{
+	pixel_x = -4;
+	pixel_y = -4
+	},
+/obj/item/gun/energy/laser,
+/obj/item/gun/energy/laser{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/item/gun/energy/laser{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
 	},
 /area/centcom/specops)
 "Vc" = (
@@ -12686,6 +13340,45 @@
 	icon_state = "floor"
 	},
 /area/centcom/evac)
+"VL" = (
+/obj/item/soap/nanotrasen,
+/obj/item/bikehorn/rubberducky,
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor"
+	},
+/area/centcom/specops)
+"VR" = (
+/obj/structure/rack,
+/obj/item/melee/baton{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/item/melee/baton{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/melee/baton{
+	pixel_x = -2;
+	pixel_y = 3
+	},
+/obj/item/melee/baton{
+	pixel_y = 2
+	},
+/obj/item/melee/baton{
+	pixel_y = 1;
+	pixel_x = 2
+	},
+/obj/item/melee/baton{
+	pixel_x = 4
+	},
+/obj/item/melee/baton{
+	pixel_x = 6;
+	pixel_y = -1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
 "Wa" = (
 /obj/structure/bed,
 /turf/unsimulated/floor{
@@ -12776,6 +13469,69 @@
 /obj/structure/bed/abductor,
 /turf/unsimulated/floor/abductor,
 /area/abductor_ship)
+"Yj" = (
+/obj/structure/rack,
+/obj/item/gun/energy/immolator{
+	pixel_x = -4;
+	pixel_y = -4
+	},
+/obj/item/gun/energy/immolator,
+/obj/item/gun/energy/immolator{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
+"YA" = (
+/obj/structure/closet,
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor"
+	},
+/area/centcom/specops)
+"YJ" = (
+/obj/structure/rack,
+/obj/item/gun/projectile/shotgun/automatic/combat{
+	pixel_y = -4
+	},
+/obj/item/gun/projectile/shotgun/automatic/combat,
+/obj/item/gun/projectile/shotgun/automatic/combat{
+	pixel_y = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
+"YX" = (
+/obj/item/grenade/plastic/x4/thermite,
+/obj/item/grenade/plastic/x4/thermite,
+/obj/item/grenade/plastic/x4/thermite,
+/obj/item/grenade/plastic/x4/thermite,
+/obj/item/grenade/plastic/x4/thermite,
+/obj/item/grenade/plastic/x4,
+/obj/item/grenade/plastic/x4,
+/obj/item/grenade/plastic/x4,
+/obj/item/grenade/plastic/x4,
+/obj/item/grenade/plastic/x4,
+/obj/item/grenade/plastic/c4,
+/obj/item/grenade/plastic/c4,
+/obj/item/grenade/plastic/c4,
+/obj/item/grenade/plastic/c4,
+/obj/item/grenade/plastic/c4,
+/obj/structure/closet/crate,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
+"ZW" = (
+/obj/structure/urinal{
+	pixel_y = 32
+	},
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor"
+	},
+/area/centcom/specops)
 
 (1,1,1) = {"
 ck
@@ -24486,14 +25242,14 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+sX
+sX
+sX
+sX
+sX
+sX
+sX
+sX
 aN
 aN
 aN
@@ -24743,14 +25499,14 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+sX
+qu
+BR
+uj
+BR
+uj
+BR
+sX
 aN
 aN
 aN
@@ -25000,14 +25756,14 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+sX
+uj
+So
+uj
+So
+uj
+So
+sX
 aN
 aN
 aN
@@ -25257,14 +26013,14 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+sX
+uj
+uj
+uj
+uj
+uj
+uj
+sX
 aN
 aN
 aN
@@ -25514,14 +26270,14 @@ fm
 fm
 fm
 fm
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+sX
+qQ
+uj
+uj
+uj
+uj
+uj
+sX
 aN
 aN
 aN
@@ -25771,14 +26527,14 @@ pn
 oy
 px
 fm
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+sX
+uj
+Fr
+RP
+GN
+YX
+Ib
+sX
 aN
 aN
 aN
@@ -26028,14 +26784,14 @@ pf
 fV
 oh
 fm
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+sX
+uj
+uj
+uj
+uj
+uj
+uj
+sX
 aN
 aN
 aN
@@ -26285,17 +27041,17 @@ pf
 pq
 oh
 fm
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+sX
+uj
+MK
+FM
+Yj
+YJ
+Er
+sX
+sX
+sX
+sX
 aN
 aN
 aN
@@ -26542,17 +27298,17 @@ pf
 pu
 oh
 fm
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+sX
+Gz
+sX
+sX
+sX
+sX
+sX
+sX
+Dy
+VL
+sX
 aN
 aN
 aN
@@ -26799,17 +27555,17 @@ pa
 ps
 oh
 fm
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+sX
+uj
+SC
+VR
+NY
+Mk
+IF
+sX
+JK
+JK
+sX
 aN
 aN
 aN
@@ -27056,20 +27812,20 @@ oy
 oy
 py
 fm
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+sX
+UR
+uj
+uj
+uj
+uj
+uj
+sX
+Dx
+YA
+sX
+sX
+sX
+sX
 aN
 aN
 aN
@@ -27313,20 +28069,20 @@ fm
 fm
 fm
 fm
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+sX
+UR
+uj
+uj
+uj
+uj
+uj
+sX
+hk
+sX
+sX
+DN
+Nc
+sX
 aN
 aN
 aN
@@ -27570,20 +28326,20 @@ fm
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+sX
+PL
+Mv
+Mc
+LY
+KN
+CD
+sX
+RN
+RN
+IY
+RN
+RN
+sX
 aN
 aN
 aN
@@ -27828,19 +28584,19 @@ sX
 sX
 sX
 sX
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+UR
+uj
+uj
+uj
+uj
+uj
+sX
+ZW
+RN
+sX
+sX
+sX
+sX
 aN
 aN
 aN
@@ -28085,19 +28841,19 @@ Te
 rA
 rB
 sX
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+UR
+uj
+uj
+uj
+uj
+uj
+sX
+ZW
+RN
+UF
+RN
+RN
+sX
 aN
 aN
 aN
@@ -28342,19 +29098,19 @@ uj
 uj
 uj
 sX
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+uj
+NL
+Ky
+UU
+TL
+FJ
+sX
+ZW
+RN
+sX
+Up
+MT
+sX
 aN
 aN
 aN
@@ -28599,19 +29355,19 @@ uj
 sX
 sX
 sX
+Ml
 sX
 sX
 sX
 sX
 sX
 sX
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+ZW
+RN
+sX
+sX
+sX
+sX
 aN
 aN
 aN
@@ -28853,22 +29609,22 @@ kd
 oT
 fm
 uj
-uW
-pJ
-pJ
-pJ
-pJ
-qu
-pJ
-pJ
 sX
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+uj
+uj
+uj
+pJ
+uj
+uj
+uj
+uj
+Pt
+RN
+RN
+pR
+RN
+RN
+sX
 aN
 aN
 aN
@@ -29111,21 +29867,21 @@ oT
 fm
 uj
 uW
-pJ
-pJ
-qb
-qb
+uj
+uj
+uj
+uj
+uj
+uj
+uj
+uj
 sX
-pJ
-qQ
+MQ
+MQ
 sX
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+IL
+MT
+sX
 aN
 aN
 aN
@@ -29368,8 +30124,8 @@ oQ
 fm
 uj
 sX
-pK
-pJ
+uj
+uj
 sX
 sX
 sX
@@ -29379,10 +30135,10 @@ sX
 sX
 sX
 sX
-aN
-aN
-aN
-aN
+sX
+sX
+sX
+sX
 aN
 aN
 aN
@@ -29625,8 +30381,8 @@ nc
 fm
 pv
 sX
-pL
-sX
+uj
+uj
 sX
 aN
 aN
@@ -32964,7 +33720,7 @@ oG
 oK
 VC
 pc
-vd
+qb
 pE
 pO
 pY
@@ -37074,7 +37830,7 @@ ud
 su
 uw
 RD
-tR
+pL
 tR
 Tl
 vu
@@ -38132,8 +38888,8 @@ wK
 wK
 wK
 cH
-yt
-yt
+Cl
+Ne
 cK
 wK
 aN
@@ -61154,7 +61910,7 @@ nj
 nj
 kk
 nj
-gg
+pK
 kr
 kr
 kr
