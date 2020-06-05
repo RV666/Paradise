@@ -921,11 +921,11 @@
 	},
 /area/security/range)
 "acu" = (
-/obj/effect/decal/warning_stripes/southwest,
-/turf/simulated/floor/plasteel{
-	dir = 4;
-	icon_state = "redcorner"
-	},
+/obj/structure/closet/crate,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/turf/simulated/floor/plasteel,
 /area/security/range)
 "acv" = (
 /obj/effect/decal/warning_stripes/southeast,
@@ -6657,9 +6657,14 @@
 "alX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/poddoor{
+/obj/machinery/door/poddoor/shutters{
+	dir = 2;
 	id_tag = "Secure Armory";
-	name = "Armory blast door"
+	name = "Secure Armory"
+	},
+/obj/machinery/door/airlock/security/glass{
+	name = "Secure Armory";
+	req_access_txt = "1"
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -6683,9 +6688,10 @@
 	name = "Secure Armory";
 	req_access_txt = "3"
 	},
-/obj/machinery/door/poddoor{
+/obj/machinery/door/poddoor/shutters{
+	dir = 2;
 	id_tag = "Secure Armory";
-	name = "Armory blast door"
+	name = "Secure Armory"
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -7027,10 +7033,12 @@
 "amF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/decal/warning_stripes/north,
 /turf/simulated/floor/plasteel,
 /area/security/seceqstorage)
 "amG" = (
 /obj/machinery/vending/security,
+/obj/effect/decal/warning_stripes/northeastcorner,
 /turf/simulated/floor/plasteel{
 	icon_state = "red";
 	dir = 9
@@ -7054,24 +7062,21 @@
 	pixel_z = 3
 	},
 /obj/item/flash,
+/obj/effect/decal/warning_stripes/northwestcorner,
 /turf/simulated/floor/plasteel{
 	icon_state = "red";
 	dir = 1
 	},
 /area/security/seceqstorage)
 "amI" = (
-/obj/item/storage/box/beanbag,
-/obj/item/storage/box/beanbag,
 /obj/item/storage/box/beanbag{
-	pixel_x = -3;
-	pixel_y = 3
+	pixel_x = 2;
+	pixel_y = -4
 	},
 /obj/item/storage/box/beanbag{
-	pixel_x = -3;
-	pixel_y = 3
+	pixel_x = -1;
+	pixel_y = 2
 	},
-/obj/item/storage/box/beanbag,
-/obj/item/storage/box/beanbag,
 /obj/structure/rack,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -96439,6 +96444,10 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/atmos)
+"lPc" = (
+/obj/effect/decal/warning_stripes/north,
+/turf/simulated/floor/plasteel,
+/area/security/seceqstorage)
 "mdO" = (
 /obj/effect/decal/warning_stripes/west,
 /obj/machinery/navbeacon{
@@ -96708,6 +96717,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plasteel/dark,
 /area/tcommsat/chamber)
+"sHc" = (
+/obj/structure/rack,
+/obj/item/target/syndicate,
+/obj/item/target/syndicate,
+/obj/item/target/syndicate,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plasteel,
+/area/security/range)
 "sUK" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
@@ -96855,10 +96872,6 @@
 	pixel_x = 24
 	},
 /obj/structure/rack,
-/obj/item/gun/projectile/shotgun/riot{
-	pixel_x = -3;
-	pixel_y = 3
-	},
 /obj/item/gun/projectile/shotgun/riot,
 /obj/item/gun/projectile/shotgun/riot{
 	pixel_x = 3;
@@ -96897,10 +96910,6 @@
 	pixel_y = 3
 	},
 /obj/item/storage/box/buck,
-/obj/item/storage/box/buck{
-	pixel_x = 3;
-	pixel_y = -3
-	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -127149,7 +127158,7 @@ akf
 akf
 akf
 alZ
-anJ
+lPc
 anJ
 aoB
 apC
@@ -128684,8 +128693,8 @@ aaa
 akB
 akW
 akW
-akW
-akW
+acu
+sHc
 acO
 adl
 adE
@@ -128941,7 +128950,7 @@ aaa
 akB
 aca
 alB
-acu
+aco
 aqd
 acM
 alB
