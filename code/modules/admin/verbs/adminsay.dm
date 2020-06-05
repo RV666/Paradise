@@ -48,6 +48,10 @@
 
 	feedback_add_details("admin_verb","MS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+/client/proc/get_mentor_say()
+	var/msg = input(src, null, "msay \"text\"") as text|null
+	cmd_mentor_say(msg)
+
 /client/proc/toggle_mentor_chat()
 	set category = "Server"
 	set name = "Toggle Mentor Chat"
