@@ -730,14 +730,17 @@
 /obj/machinery/vending/power_change()
 	if(stat & BROKEN)
 		icon_state = "[initial(icon_state)]-broken"
+		set_light(0)
 	else
 		if( powered() )
 			icon_state = initial(icon_state)
 			stat &= ~NOPOWER
+			set_light(1, 1, COLOR_WHITE)
 		else
 			spawn(rand(0, 15))
 				icon_state = "[initial(icon_state)]-off"
 				stat |= NOPOWER
+				set_light(0)
 
 /obj/machinery/vending/obj_break(damage_flag)
 	if(!(stat & BROKEN))
