@@ -49,17 +49,22 @@ FIRE ALARM
 				icon_state="fire_b1"
 			if(0)
 				icon_state="fire_b0"
-
+		set_light(0)
 		return
 
 	if(stat & BROKEN)
 		icon_state = "firex"
+		set_light(0)
 	else if(stat & NOPOWER)
 		icon_state = "firep"
+		set_light(0)
 	else if(!detecting)
 		icon_state = "fire1"
+		set_light(2, 1, COLOR_RED)
 	else
 		icon_state = "fire0"
+		if(is_station_contact(z))
+			set_light(get_security_level_l_range(), get_security_level_l_power(), get_security_level_l_color())
 
 /obj/machinery/firealarm/emag_act(mob/user)
 	if(!emagged)
