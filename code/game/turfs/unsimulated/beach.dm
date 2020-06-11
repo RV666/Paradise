@@ -3,7 +3,7 @@
 	icon = 'icons/misc/beach.dmi'
 	var/water_overlay_image = null
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	
+
 /turf/unsimulated/beach/New()
 	..()
 	if(water_overlay_image)
@@ -15,7 +15,11 @@
 	name = "Sand"
 	icon_state = "desert"
 	mouse_opacity = MOUSE_OPACITY_ICON
-	
+	footstep_sounds = list(
+	"human" = list('sound/effects/footstep/carpet3.ogg','sound/effects/footstep/carpet5.ogg'),
+	"xeno"  = list('sound/effects/footstep/carpet3.ogg','sound/effects/footstep/carpet5.ogg')
+	)
+
 /turf/unsimulated/beach/sand/New()			//adds some aesthetic randomness to the beach sand
 	icon_state = pick("desert", "desert0", "desert1", "desert2", "desert3", "desert4")
 	..()
@@ -29,6 +33,10 @@
 	//icon_state = "sandwater"
 	icon_state = "beach"
 	water_overlay_image = "water_coast"
+	footstep_sounds = list(
+	"human" = list('sound/effects/footstep/water1.ogg','sound/effects/footstep/water2.ogg','sound/effects/footstep/water3.ogg','sound/effects/footstep/water4.ogg'),
+	"xeno"  = list('sound/effects/footstep/water1.ogg','sound/effects/footstep/water2.ogg','sound/effects/footstep/water3.ogg','sound/effects/footstep/water4.ogg')
+	)
 
 /turf/unsimulated/beach/coastline/dense		//for boundary "walls"
 	density = 1
@@ -38,11 +46,15 @@
 	icon_state = "seashallow"
 	water_overlay_image = "water_shallow"
 	var/obj/machinery/poolcontroller/linkedcontroller = null
+	footstep_sounds = list(
+	"human" = list('sound/effects/footstep/water1.ogg','sound/effects/footstep/water2.ogg','sound/effects/footstep/water3.ogg','sound/effects/footstep/water4.ogg'),
+	"xeno"  = list('sound/effects/footstep/water1.ogg','sound/effects/footstep/water2.ogg','sound/effects/footstep/water3.ogg','sound/effects/footstep/water4.ogg')
+	)
 
 /turf/unsimulated/beach/water/Entered(atom/movable/AM, atom/OldLoc)
 	. = ..()
 	if(!linkedcontroller)
-		return 
+		return
 	if(ismob(AM))
 		linkedcontroller.mobinpool += AM
 
