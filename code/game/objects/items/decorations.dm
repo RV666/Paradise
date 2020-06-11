@@ -255,6 +255,10 @@
 	desc = "Praise be to lady Tesla!"
 	icon_state = "tesla_monument"
 
+/obj/structure/decorative_structures/metal/statue/elwycco
+	name = "Unknown Hero"
+	desc = "Это шустрый герой сразил многих врагов корпорации, и его бантопор готов нарубить ещё многих. На его топоре выгравировано число 220, по количеству его жертв"
+	icon_state = "elwycco"
 
 /obj/structure/decorative_structures/flammable
 	resistance_flags = FLAMMABLE
