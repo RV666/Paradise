@@ -1,0 +1,355 @@
+<style>
+	.hide{display:none;}
+	.lose{ color:#7b0000; }
+	.lose label { display:none; }
+	.win{ color:#007b00; }
+
+	.widthrep{min-width: 400px;border: 1px double black;background: #fc3;margin:10px 0}
+	#start p{margin:5px;}
+	.startGame{padding:2px 5px;background-color:#40638a; border: none;color: white;text-align: center;text-decoration: none;display: inline-block; transition-duration: 0.4s;}
+	.startGame:hover {background-color: #30537a;color: white;}
+
+	#finish{position:absolute;width:100%;height:100%;display:block;top:0;left:0;background-color: rgba(0,0,0,0.4);transition-duration: 0.4s;}
+	#finish .inner{margin:20% 30%;padding:2%;background-color: #bdbdbd;border-radius: 15px 50px; color:#3c3cea;}
+	#finish .inner p{margin-left: 40%;margin-right: auto;}
+	#finish .inner h4{margin-left: 30%;margin-right: auto;}
+
+	.cell{fill:transparent;}
+
+	.invisible{fill:#bdbdbd;stroke:black;stroke-width:1;}
+</style>
+<div class="widthrep"></div>
+<div id="body">
+	<div id="start">
+		<p><b>Choose difficulty</b></p>
+		<p><input id="check1" name="difficulty" type="radio" value="0"><label for="check1"> Easy</label></p>
+	    <p><input id="check2" name="difficulty" type="radio" value="1"><label for="check2"> Medium</label></p>
+	    <p><input id="check3" name="difficulty" type="radio" value="2" checked><label for="check3"> Hard</label></p>
+	    <p><button class="startGame" onclick="startup()">Start game</button></p>
+	</div>
+	<div id="finish" style="display:none;">
+		<div class="inner">
+			<h4 id="message">You are WINNER!</h4>
+			<p><label class="win">Score:</label><label id="score" class="win">4444</label></p>
+			<p><b>Choose difficulty</b></p>
+			<p><input id="check11" name="difficulty" type="radio" value="0"><label for="check11"> Easy</label></p>
+		    <p><input id="check21" name="difficulty" type="radio" value="1"><label for="check21"> Medium</label></p>
+		    <p><input id="check31" name="difficulty" type="radio" value="2"><label for="check31"> Hard</label></p>
+		    <p><button class="startGame" onclick="startup()">Restart game</button></p>
+	    </div>
+	</div>
+
+</div>
+<script>
+	var svgns = "http://www.w3.org/2000/svg",
+	colors = ['#3c3cea',
+			  '#007b00',
+			  '#f02b2b',
+			  '#4e4e96',
+			  '#8c3131',
+			  '#00007b',
+			  '#000000',
+			  '#ababab'],
+	difficultArr = [{sizeX:9,sizeY:9,bombs:10},
+					  {sizeX:16,sizeY:16,bombs:40},
+					  {sizeX:30,sizeY:16,bombs:99}],
+	svg = null,
+	difficult = null,
+	counter = 0,
+	timer = 0,
+	timing = null,
+	fieldArr = [],
+	rectSize = 17;
+	function startup() {
+		difficult = difficultArr[document.querySelector('input[name=difficulty]:checked').value];
+		document.getElementById("start").style.display = 'none';
+		document.getElementById("finish").style.display = 'none';
+		svg = document. createElementNS(svgns, "svg");
+	    svg.setAttribute("width", rectSize*(difficult.sizeX)+ Math.ceil(rectSize/3)*difficult.sizeX);
+	    svg.setAttribute("height", rectSize*(difficult.sizeY+4)+ Math.ceil(rectSize/3)*difficult.sizeY -rectSize/4);
+	    svg.setAttribute("id", "canvas");
+    	svg.setAttribute('style', 'border: ' + rectSize + 'px solid #999;');
+
+    	group = document. createElementNS(svgns, "group");
+    	group.setAttribute("id","flag");
+    	group.setAttribute("style","visibility:collapse;");
+    	group.innerHtml = '<rect x="28.571" y="51.625" width="18.857" height="5.5"/><rect x="20.222" y="56.459" width="35.555" height="7.041"/>';
+    	svg.appendChild(group);
+
+    	generateBackground(rectSize*(difficult.sizeX) + Math.ceil(rectSize/3)*difficult.sizeX,
+    					   rectSize*(difficult.sizeY+4) + Math.ceil(rectSize/3)*difficult.sizeY-rectSize/4);
+
+    	generateCounter(0, 0, difficult.bombs);
+
+    	generateTimer(rectSize*(difficult.sizeX)+ Math.ceil(rectSize/3)*difficult.sizeX-rectSize*6- rectSize/3,0);
+
+		decor = document. createElementNS(svgns, "rect");
+ 		decor.setAttribute("x", 0);
+	    decor.setAttribute("y", rectSize*2+ rectSize/2+1);
+        decor.setAttribute('height', rectSize);
+        decor.setAttribute('width', rectSize*(difficult.sizeX)+ Math.ceil(rectSize/3)*difficult.sizeX);
+    	decor.setAttribute('style', "fill:#aaa;");
+		svg.appendChild(decor);
+
+    	generateField(difficult,rectSize/2,rectSize*4);
+    	document.getElementById("body").appendChild(svg);
+    	addListeners();
+    	timing = setInterval(function(){
+    		if(Number(timer.textContent)<999)
+			timer.textContent = Number(timer.textContent)+1;
+		}, 1000);
+	}
+
+	window.onbeforeunload = function(){
+		clearInterval(timing);
+	};
+	function generateBackground(width, height){
+    	back = document. createElementNS(svgns, "rect");
+	    back.setAttribute("x", 0);
+	    back.setAttribute("y", 0);
+        back.setAttribute('width', width);
+        back.setAttribute('height', height);
+    	back.setAttribute('style', "fill:#bdbdbd;");
+		svg.appendChild(back);
+		for(x=0;x<difficult.sizeX+1;x++){
+			line = document. createElementNS(svgns, "line");
+			line.setAttribute('x1',x * rectSize+rectSize/4+x * rectSize/3 +1);
+			line.setAttribute('y1',rectSize*4-rectSize/4);
+			line.setAttribute('x2',x * rectSize+rectSize/4+x * rectSize/3 +1);
+			line.setAttribute('y2',height-rectSize/3+rectSize/4);
+			line.setAttribute("stroke", "black");
+			svg.appendChild(line);
+		}
+		for(y=0;y<difficult.sizeY+1;y++){
+			line = document. createElementNS(svgns, "line");
+			line.setAttribute('x1',0);
+			line.setAttribute('y1',y * rectSize+rectSize/4+y * rectSize/3 +1+rectSize*3.5);
+			line.setAttribute('x2',width);
+			line.setAttribute('y2',y * rectSize+rectSize/4+y * rectSize/3 +1+rectSize*3.5);
+			line.setAttribute("stroke", "black");
+			svg.appendChild(line);
+		}
+	}
+
+	function generateCounter(x, y, bombs){
+		group = document. createElementNS(svgns, "g");
+		back = document. createElementNS(svgns, "rect");
+	    back.setAttribute('x', x);
+	    back.setAttribute('y', y);
+        back.setAttribute('height', rectSize*2+ rectSize/2);
+        back.setAttribute('width', rectSize*6+ rectSize/3  );
+        back.setAttribute('rx', 0);
+        back.setAttribute('ry', 0);
+    	back.setAttribute('style', "fill:#000;");
+        back.setAttribute('class', "backCounter");
+		count = document. createElementNS(svgns, "text");
+	    count.setAttribute("x", x + rectSize);
+	    count.setAttribute("y", y + rectSize*2+Math.floor(rectSize/10));
+        count.setAttribute('id', "counter");
+	    count.setAttribute('font-size', rectSize*2+"px");
+	    count.setAttribute('font-weight', "600");
+		count.setAttribute('fill', '#676');
+		count.textContent = bombs;
+		group.appendChild(back);
+		group.appendChild(count);
+		svg.appendChild(group);
+		counter = count;
+	}
+
+
+	function generateTimer(x, y){
+		group = document. createElementNS(svgns, "g");
+		back = document. createElementNS(svgns, "rect");
+	    back.setAttribute('x', x);
+	    back.setAttribute('y', y);
+        back.setAttribute('height', rectSize*2+ rectSize/2);
+        back.setAttribute('width', rectSize*6+ rectSize/3);
+        back.setAttribute('rx', 0);
+        back.setAttribute('ry', 0);
+    	back.setAttribute('style', "fill:#000;");
+        back.setAttribute('class', "backTimer");
+		count = document. createElementNS(svgns, "text");
+	    count.setAttribute("x", x + rectSize);
+	    count.setAttribute("y", y + rectSize*2+Math.floor(rectSize/10));
+        count.setAttribute('id', "counter");
+	    count.setAttribute('font-size', rectSize*2+"px");
+	    count.setAttribute('font-weight', "600");
+		count.setAttribute('fill', '#676');
+		count.textContent = 0;
+		group.appendChild(back);
+		group.appendChild(count);
+		svg.appendChild(group);
+		timer = count;
+	}
+
+	function generateField(diff,marginLeft,marginTop){
+		for(x=0;x<diff.sizeX;x++){
+			mas = [];
+			for(y=0;y<diff.sizeY;y++){
+				mas[y]=drawPoint(x* rectSize + marginLeft+ rectSize/3*x, y * rectSize + marginTop+ rectSize/3*y);
+				mas[y].setAttribute('realX',x);
+				mas[y].setAttribute('realY',y);
+			}
+			fieldArr[x]=mas;
+		}
+		for(bomb=0;bomb<diff.bombs;bomb++){
+			x=Math.floor(Math.random() * diff.sizeX);
+			y=Math.floor(Math.random() * diff.sizeY);
+			if(fieldArr[x][y].getAttribute('class') == 'cell invisible')
+			fieldArr[x][y].setAttribute('class', 'cell invisible mined');
+			else --bomb;
+
+		}
+		for(x=0;x<diff.sizeX;x++)
+		for(y=0;y<diff.sizeY;y++)
+		svg.appendChild(fieldArr[x][y]);
+
+	}
+
+	function drawPoint(x, y) {
+		var rect = document.createElementNS(svgns, 'rect');
+		rect.setAttribute('x', x);
+        rect.setAttribute('y', y);
+        rect.setAttribute('height', rectSize);
+        rect.setAttribute('width', rectSize);
+        rect.setAttribute('class', 'cell invisible');
+
+		return rect;
+
+	}
+
+	function addListeners(){
+		var fields = $(".invisible");
+		fields.one("click", function() {
+		    state = [this.getAttribute('class'),Number(this.getAttribute('realX')),Number(this.getAttribute('realY'))];
+			if(state[0] == 'cell invisible mined'){
+				document.getElementById("finish").style.display = 'block';
+				document.getElementById("score").parentNode.style.display = 'none';
+				document.getElementById("score").textContent = 'none';
+				document.getElementById("message").textContent = 'You LOSER!';
+				document.getElementById("message").setAttribute('class', 'lose');
+				clearInterval(timing);
+				svg.parentNode.removeChild(svg);
+				svg = null;
+				fieldArr = [];
+			}
+			if(state[0] == 'cell invisible'){
+		  		revealEmpty(state[1], state[2]);
+			}
+		});
+		fields.bind("contextmenu", function(event) {
+     		event.preventDefault();
+     		state = [this.getAttribute('class'),Number(this.getAttribute('realX')),Number(this.getAttribute('realY'))];
+     		if(state[0].indexOf('invisible')<0) return;
+			if(state[0].indexOf('marked') < 0 ){
+     			fieldArr[state[1]][state[2]].flag = generateFlag(state[1],state[2]);
+				svg.appendChild(fieldArr[state[1]][state[2]].flag);
+	     		counter.textContent = Number(counter.textContent)-1;
+	     		this.setAttribute('class', state[0]+" marked");
+				if (Number(counter.textContent) == 0)
+				if (checkWin()){
+					clearInterval(timing);
+					document.getElementById("finish").style.display = 'block';
+					document.getElementById("score").parentNode.style.display = 'block';
+					document.getElementById("score").parentNode.setAttribute('class',"win");
+					document.getElementById("message").textContent = 'You are WINNER!';
+				document.getElementById("message").setAttribute('class', 'win');
+					document.getElementById("score").textContent = (1000-Number(timer.textContent))*difficult.bombs;
+					svg.parentNode.removeChild(svg);
+					svg = null;
+					fieldArr = [];
+				}
+
+			}
+			else {
+				fieldArr[state[1]][state[2]].flag.parentNode.removeChild(fieldArr[state[1]][state[2]].flag);
+				counter.textContent = Number(counter.textContent)+1;
+				this.className.baseVal = this.className.baseVal.replace(/\b marked\b/g, "");
+			}
+     	});
+	}
+	function checkWin(){
+		count = 0;
+		$(".mined").each(function() {
+			if(this.getAttribute('class').indexOf('marked')>=0)count++;
+		});
+		return difficult.bombs == count;
+	}
+
+	function generateFlag(x, y){
+		group = document. createElementNS(svgns, "g");
+		temp =  (42/50*rectSize + rectSize/5 + rectSize*x + x * rectSize/3) + "," + (18/50*rectSize + rectSize*3.6 + rectSize*y + y * rectSize/3) + " ";
+		temp += (21/50*rectSize + rectSize/5 + rectSize*x + x * rectSize/3) + "," + (31/50*rectSize + rectSize*3.6 + rectSize*y + y * rectSize/3) + " ";
+		temp += (42/50*rectSize + rectSize/5 + rectSize*x + x * rectSize/3) + "," + (44/50*rectSize + rectSize*3.6 + rectSize*y + y * rectSize/3) ;
+ 		flag2 = document. createElementNS(svgns, "polygon");
+ 		flag2.setAttribute("points",temp);
+ 		flag2.setAttribute("fill", "#FF0000");
+ 		flag1 = document. createElementNS(svgns, "rect");
+ 		flag1.setAttribute("x",38/50*rectSize+rectSize/5   + rectSize*x + x * rectSize/3);
+		flag1.setAttribute("y",40/50*rectSize+rectSize*3.6 + rectSize*y + y * rectSize/3);
+		flag1.setAttribute("width",4/50*rectSize);
+		flag1.setAttribute("height",20/50*rectSize);
+ 		flag3 = document. createElementNS(svgns, "rect");
+ 		flag3.setAttribute("x",30/50*rectSize+rectSize/5   + rectSize*x + x * rectSize/3);
+		flag3.setAttribute("y",56/50*rectSize+rectSize*3.6 + rectSize*y + y * rectSize/3);
+		flag3.setAttribute("width",19/50*rectSize);
+		flag3.setAttribute("height",6/50*rectSize);
+		group.appendChild(flag1);
+		group.appendChild(flag2);
+		group.appendChild(flag3);
+		return group;
+	}
+
+	function revealEmpty(x,y){
+		near = minesNearly(x,y);
+		if(near == 0 && hasInvisible(x,y)) {
+			fieldArr[x][y].setAttribute('class', 'cell');
+			revealEmpty(x, y-1);
+			revealEmpty(x+1, y-1);
+			revealEmpty(x+1, y);
+			revealEmpty(x+1, y+1);
+			revealEmpty(x, y+1);
+			revealEmpty(x-1, y+1);
+			revealEmpty(x-1, y);
+			revealEmpty(x-1, y-1);
+		}
+		if(near > 0 && hasInvisible(x,y)) {
+			fieldArr[x][y].setAttribute('class', 'cell');
+			txt = document. createElementNS(svgns, "text");
+			txt.setAttribute("x", x * rectSize + rectSize/2 + rectSize/3*x+rectSize/4-1);
+	    	txt.setAttribute("y", y * rectSize + rectSize*4.5 + rectSize/3*y+rectSize/3);
+	    	txt.setAttribute('font-size', rectSize-2+"px");
+	    	txt.setAttribute('font-weight', "600");
+			txt.setAttribute('fill', colors[near-1]);
+			txt.textContent = near;
+			svg.appendChild(txt);
+		}
+	}
+
+	function minesNearly(x, y){
+		count  = hasMine(x, y-1);
+		count += hasMine(x+1, y-1);
+		count += hasMine(x+1, y);
+		count += hasMine(x+1, y+1);
+		count += hasMine(x, y+1);
+		count += hasMine(x-1, y+1);
+		count += hasMine(x-1, y);
+		count += hasMine(x-1, y-1);
+		return count;
+	}
+
+	function hasMine(x, y){
+		if(borderCheck(x,y)) return 0;
+		return fieldArr[x][y].getAttribute('class').indexOf('mined')>=0 ? 1 : 0;
+	}
+
+	function hasInvisible(x, y){
+		if(borderCheck(x,y)) return false;
+		return fieldArr[x][y].getAttribute('class').indexOf('invisible')>=0 ? true : false;
+	}
+
+	function borderCheck(x, y){
+		return (x<0 || x>fieldArr.length-1)||(y<0 || y>fieldArr[0].length-1);
+	}
+
+</script>
