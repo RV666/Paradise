@@ -1,0 +1,434 @@
+<div class="widthrep"></div>
+<div id="game1" style="overflow: hidden;height:600px;" >
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    id="canvas" viewBox="1 1 5 5"  width="400" height="100"
+    onload="init()"><style>
+	.widthrep{
+		min-width: 400px;
+		border: 1px double black;
+    	background: #fc3;
+	}
+	svg {
+		color: #aaa;
+		width:100px;
+	}
+
+</style>
+    <g id="preview" stroke-width="0.02"/>
+	<g id="board" stroke-width="0.02"/>
+	<rect x="14" y="8" rx="1" ry="1" width="9" height="3" fill="#7c7c9c"/>
+	<text x="15" y="9" font-size="1px" font-weight="600">Score:</text>
+	<text id="score" x="15.5" y="10.5" font-size="1px" font-weight="500">0</text>
+	<g style="stroke:none;font-size:2px;fill:white;stroke:black;stroke-width:0.04px;fill-opacity:0.8;">
+		<text x="14" y="13" font-size="0.4em" font-weight="600">Help:</text>
+		<text x="14" y="14" font-size="0.4em" font-weight="600">-------------------------------------</text>
+		<text x="14" y="15" font-size="0.4em" font-weight="600">p 	  : Toggle pause game</text>
+		<text x="14" y="16" font-size="0.4em" font-weight="600">up    : Rotate piece counterclockwise</text>
+		<text x="14" y="17" font-size="0.4em" font-weight="600">down  : Rotate piece clocwise</text>
+		<text x="14" y="18" font-size="0.4em" font-weight="600">left  : Move piece left</text>
+		<text x="14" y="19" font-size="0.4em" font-weight="600">right : Move piece right</text>
+		<text x="14" y="20" font-size="0.4em" font-weight="600">space : Drop piece</text>
+	</g>
+  	<script>
+      <![CDATA[
+      var SVG_NS ="http://www.w3.org/2000/svg";
+		var tickTimeReducer = 2;
+		var ROWS = 20;
+		var COLS = 10;
+
+		var HPAD = 2;
+		var VPAD = 2;
+
+		var SHAPE_DESCRIPTORS = [
+		  { color: "#bababa",   orientations: [ [[0,0],[1,0],[0,1],[1,1]] ] },
+		  { color: "#3f3f99",   orientations: [ [[0,0],[1,0],[2,0],[2,1]],
+		                                     [[1,0],[1,1],[1,2],[0,2]],
+		                                     [[0,0],[0,1],[1,1],[2,1]],
+		                                     [[0,0],[1,0],[0,1],[0,2]] ] },
+		  { color: "#ad519d", orientations: [ [[0,0],[0,1],[1,0],[2,0]],
+		                                     [[0,0],[1,0],[1,1],[1,2]],
+		                                     [[0,1],[1,1],[2,1],[2,0]],
+		                                     [[0,0],[0,1],[0,2],[1,2]] ] },
+		  { color: "#54aba9",   orientations: [ [[0,0],[1,0],[2,0],[3,0]],
+		                                     [[0,0],[0,1],[0,2],[0,3]] ] },
+		  { color: "#5a9150",  orientations: [ [[1,0],[2,0],[0,1],[1,1]],
+		                                     [[0,0],[0,1],[1,1],[1,2]] ] },
+		  { color: "#9e3333",    orientations: [ [[1,0],[1,1],[0,1],[0,2]],
+		                                     [[0,0],[1,0],[1,1],[2,1]] ] },
+		  { color: "#96943f", orientations: [ [[0,1],[1,1],[2,1],[1,0]],
+		                                     [[0,0],[0,1],[0,2],[1,1]],
+		                                     [[0,0],[1,0],[2,0],[1,1]],
+		                                     [[1,0],[1,1],[1,2],[0,1]] ] }
+		];
+
+		function mapcar(f, a) {
+		  var res = new Array(a.length);
+		  for (var i=0;i<a.length;++i) {
+		    res[i] = f(a[i]);
+		  }
+		  return res;
+		};
+
+		function mapc(f, a) {
+		  for (var i=0;i < a.length ; ++i) {
+		    f(a[i]);
+		  }
+		};
+
+		function every(p, a) {
+		  for (var i=0;i < a.length ; ++i) {
+		    if (!p(a[i])) return false;
+		  }
+		  return true;
+		};
+		function suspendRedraw()
+		{
+		  try {
+		    document.documentElement.suspendRedraw(0);
+		  }
+		  catch(e) {}
+		}
+
+		function unsuspendRedraw()
+		{
+		  try {
+		    document.documentElement.unsuspendRedraw(0);
+		  }
+		  catch(e) {}
+		}
+
+		function Shape(position) {
+		  this._descriptor = SHAPE_DESCRIPTORS[Math.round(Math.random()*(SHAPE_DESCRIPTORS.length-1))];
+		  this._orientation = Math.round(Math.random()*(this._descriptor.orientations.length-1));
+		  this._pos = position;
+		}
+
+		Shape.prototype = {
+		  getCellArray : function() {
+		    var s = this;
+		    return mapcar(function(coord) { return [coord[0]+s._pos[0],coord[1]+s._pos[1]]; },
+		               this._descriptor.orientations[this._orientation]);
+		  },
+		  getColor : function() {
+		    return this._descriptor.color;
+		  },
+		  move : function(dx,dy) {
+		    this._pos[0] += dx; this._pos[1] += dy;
+		  },
+		  rotate : function(dOrient) {
+		    this._orientation = (this._orientation+dOrient) % this._descriptor.orientations.length;
+		    if (this._orientation<0) this._orientation += this._descriptor.orientations.length;
+		  }
+		};
+
+		function Grid(cols, rows, color, bordercolor, x, y, width, height, node) {
+		  this._cols = cols;
+		  this._rows = rows;
+		  this._color = color;
+
+		  node.setAttribute("transform", "translate("+x+","+y+") scale("+(width/(cols+1))+","+(height/(rows+1))+") translate(0.5,0.5)");
+
+		  this._border = document.createElementNS(SVG_NS, "rect");
+		  this._border.setAttribute("fill", bordercolor);
+		  this._border.setAttribute("width", cols+1);
+		  this._border.setAttribute("height", rows+1);
+		  this._border.setAttribute("x", "-0.5");
+		  this._border.setAttribute("y", "-0.5");
+
+		  this._background = document.createElementNS(SVG_NS, "rect");
+		  this._background.setAttribute("fill", color);
+		  this._background.setAttribute("width", cols);
+		  this._background.setAttribute("height", rows);
+
+		  this._rowArray = document.createElementNS(SVG_NS, "g");
+		  for (var r=0;r<rows;++r) {
+		    var row_group = document.createElementNS(SVG_NS, "g");
+		    row_group.setAttribute("transform", "translate(0,"+r+")");
+
+		    for (var c=0;c<cols;++c) {
+		      var cell = document.createElementNS(SVG_NS, "rect");
+		      cell.setAttribute("x", c);
+		      cell.setAttribute("width", "1");
+		      cell.setAttribute("height", "1");
+		      cell.setAttribute("stroke", "grey");
+		      cell.setAttribute("fill", "none");
+		      cell.occupied = false;
+		      row_group.appendChild(cell);
+		    }
+		    this._rowArray.appendChild(row_group);
+		  }
+
+		  node.appendChild(this._border);
+		  node.appendChild(this._background);
+		  node.appendChild(this._rowArray);
+		}
+
+
+		Grid.prototype = {
+		  colorCell : function(coord, color) {
+		  try {
+		    this._rowArray.childNodes.item(coord[1]).childNodes.item(coord[0]).setAttribute("fill", color);
+			}catch(e) {
+			alert("error: coord="+coord);
+			}
+		  },
+		  clearCell : function(coord) {
+		    this.colorCell(coord, this._color);
+		  },
+		  occupyCell : function(coord) {
+		    this._rowArray.childNodes.item(coord[1]).childNodes.item(coord[0]).setAttribute("occupied", "true");
+		  },
+		  unoccupyCell : function(coord) {
+		    this._rowArray.childNodes.item(coord[1]).childNodes.item(coord[0]).setAttribute("occupied", "false");
+		  },
+		  cellInBounds : function(coord) {
+		    return (coord[0]>=0 && coord[1]>=0 && coord[0]<this._cols && coord[1]<this._rows);
+		  },
+		  cellOccupied : function(coord) {
+		    return this._rowArray.childNodes.item(coord[1]).childNodes.item(coord[0]).getAttribute("occupied")=="true";
+		  },
+		  eliminateFullRows : function() {
+		    var g = this;
+		    var bo = false;
+		    function rowFull(r) {
+		      for (var c=0;c<g._cols;++c) {
+		        if (!g.cellOccupied([c,r])) return false;
+		      }
+		      return true;
+		    }
+
+		    function moveCellDown(c,r) {
+		      var src = g._rowArray.childNodes.item(r).childNodes.item(c);
+		      var dest = g._rowArray.childNodes.item(r+1).childNodes.item(c);
+		      dest.setAttribute("fill", src.getAttribute("fill"));
+		      dest.setAttribute("occupied", src.getAttribute("occupied"));
+		      src.setAttribute("occupied", "false");
+		      src.setAttribute("fill", g._color);
+		    }
+
+		    function eliminateRow(row) {
+		      suspendRedraw();
+		      for (var c=0;c<g._cols;++c) {
+		        g.clearCell([c,row]);
+		        g.unoccupyCell([c,row]);
+		      }
+		      for (var r=row-1;r>=0;--r) {
+		        for (c=0;c<g._cols;++c) {
+		          if (g.cellOccupied([c,r]))
+		            moveCellDown(c,r);
+		        }
+		      }
+		      unsuspendRedraw();
+		    }
+
+		    for (var r=0;r<this._rows;++r) {
+		      if (rowFull(r)) {
+		        bo = true;
+		        eliminateRow(r);
+		        ++lines;
+		        document.getElementById("score").textContent=score+lines*10;
+		      }
+		    }
+		    if (bo) {
+		      tickTime=time(tickTime);
+		    }
+		  }
+		};
+
+
+		function Message(txt, position, style) {
+		  this._node = document.createElementNS(SVG_NS, "text");
+		  this._node.setAttribute("style", style);
+		  this._node.setAttribute("x", position[0]);
+		  this._node.setAttribute("y", position[1]);
+		  this._node.appendChild(document.createTextNode(txt));
+		}
+
+		Message.prototype = {
+		  show : function() {
+		    suspendRedraw();
+		    document.documentElement.appendChild(this._node);
+		    unsuspendRedraw();
+		  },
+		  hide : function() {
+		    document.documentElement.removeChild(this._node);
+		  }
+		};
+
+		function canPlace(shape, grid) {
+		  return every(function(coord){ return grid.cellInBounds(coord) && !grid.cellOccupied(coord); }, shape.getCellArray());
+		}
+
+		function show(shape, grid) {
+		  suspendRedraw();
+		  mapc(function(coord){ grid.colorCell(coord, shape.getColor()); }, shape.getCellArray());
+		  unsuspendRedraw();
+		}
+
+		function hide(shape, grid) {
+		  suspendRedraw();
+		  mapc(function(coord){ grid.clearCell(coord); }, shape.getCellArray());
+		  unsuspendRedraw();
+		}
+
+		function occupy(shape, grid) {
+		  mapc(function(coord){ grid.occupyCell(coord); }, shape.getCellArray());
+		}
+
+		function move(shape, grid, dx, dy) {
+		  shape.move(dx,dy);
+		  if (!canPlace(shape, grid)) {
+		    shape.move(-dx,-dy);
+		    return false;
+		  }
+		  suspendRedraw();
+		  shape.move(-dx, -dy);
+		  hide(shape, grid);
+		  shape.move(dx,dy);
+		  show(shape, grid);
+		  unsuspendRedraw();
+		  return true;
+		}
+
+		function rotate(shape, grid, dOrient) {
+		  shape.rotate(dOrient);
+		  if (!canPlace(shape, grid)) {
+		    shape.rotate(-dOrient);
+		    return false;
+		  }
+		  suspendRedraw();
+		  shape.rotate(-dOrient);
+		  hide(shape, grid);
+		  shape.rotate(dOrient);
+		  show(shape, grid);
+		  unsuspendRedraw();
+		  return true;
+		}
+
+		function drop(shape, grid) {
+		  suspendRedraw();
+		  while (move(shape, grid, 0, 1))
+		    /**/;
+		  unsuspendRedraw();
+		}
+
+		var board;
+		var preview;
+		var currentShape;
+		var lines;
+		var score;
+		var nextShape;
+		var gameState;
+		var tickTime;
+		function startNewGame() {
+		  score = 0;
+		  suspendRedraw();
+		  currentShape = new Shape([3,0]);
+		  lines = 0;
+		  show(currentShape, board);
+		  nextShape = new Shape([0,0]);
+		  show(nextShape, preview);
+		  unsuspendRedraw();
+		  gameState = "running";
+		  tickTime = 300;
+		  tick();
+		}
+
+		function runNextShape() {
+		  occupy(currentShape, board);
+		  board.eliminateFullRows();
+		  score = score+1;
+		  document.getElementById("score").textContent=score+lines*10;
+		  suspendRedraw();
+		  currentShape = nextShape;
+		  hide(nextShape, preview);
+		  currentShape.move(3,0);
+		  if (!canPlace(currentShape, board)) {
+		    unsuspendRedraw();
+		    return false;
+		  }
+		  show(currentShape, board);
+		  nextShape = new Shape([0,0]);
+		  show(nextShape, preview);
+		  unsuspendRedraw();
+		  return true;
+		}
+
+		function tick() {
+		  if (gameState != "running") return;
+
+		  if (!move(currentShape, board, 0, 1)) {
+		    if(!runNextShape()) {
+		      var m = new Message("Game Over! Score:"+score, [1,10], "stroke:none;font-size:2px;fill:red;stroke:black;stroke-width:0.04px;fill-opacity:0.8;");
+		      m.show();
+		      gameState = "finished";
+		      return;
+		    }
+		  }
+		  setTimeout("tick()", tickTime);
+		}
+
+		function time(tickTime) {
+		  tickTime = tickTime-tickTimeReducer;
+		  return tickTime;
+		}
+
+		function pause() {
+		  if (gameState == "running")
+		    gameState = "stopped";
+		}
+
+		function resume() {
+		  if (gameState == "stopped") {
+		    gameState = "running";
+		    tick();
+		  }
+		}
+
+		function keyHandler(event) {
+		  event.preventDefault();
+		  switch (event.keyCode) {
+		    case 32:
+		      if (gameState == "running")
+		        drop(currentShape, board);
+		      break;
+		    case 80:
+		      if (gameState == "running")
+		        pause();
+		      else
+		        resume();
+		      break;
+		    case 38:
+		      if (gameState == "running")
+		        rotate(currentShape, board, -1);
+		      break;
+		    case 40:
+		      if (gameState == "running")
+		        rotate(currentShape, board, 1);
+		      break;
+		    case 37:
+		      if (gameState == "running")
+		        move(currentShape, board, -1, 0);
+		      break;
+		    case 39:
+		      if (gameState == "running")
+		        move(currentShape, board, 1, 0);
+		      break;
+		  }
+		}
+
+		function init() {
+		  document.documentElement.setAttribute("viewBox", "0 0 "+(3*HPAD+(COLS+1)+5)+" "+(2*VPAD+(ROWS+1)));
+
+		  board = new Grid(COLS, ROWS, "black", "grey", HPAD, VPAD, COLS+1, ROWS+1, document.getElementById("board"));
+		  preview = new Grid(4,4, "black", "grey", 2*HPAD+COLS+1, VPAD, 5, 5, document.getElementById("preview"));
+
+		  startNewGame();
+
+		  document.documentElement.addEventListener("keydown", keyHandler, false);
+		}
+      ]]>
+    </script>
+</svg>
+</div>

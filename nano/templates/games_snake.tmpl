@@ -1,0 +1,182 @@
+<style>
+.widthrep{min-width: 400px;border: 1px double black;background: #fc3;margin:10px 0}
+.snake {fill: #2a2;}
+.apple {fill: #f00;}
+.gameover {fill:#c48 ;}
+</style>
+<div class="widthrep"></div>
+<div id="body">
+	<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    id="canvas"
+    onload="startup()">
+    	<g>
+			<rect x="5" y="510" rx="10" ry="10" width="80" height="48" fill="#7c7c9c"/>
+			<text x="10" y="528" font-size="1.5em" font-weight="600">Score:</text>
+			<text id="score" x="35" y="550" font-size="1.5em" font-weight="500">0</text>
+		</g>
+		<g style="stroke:none;font-size:2px;fill:white;stroke:black;stroke-width:0.04px;fill-opacity:0.8;">
+			<text x="100" y="510" font-size="7.2em" font-weight="600">Help:</text>
+			<text x="100" y="530" font-size="7.2em" font-weight="600">-----------------------------------------------------------</text>
+			<text x="100" y="550" font-size="7.2em" font-weight="600">up    : Turn snake up   </text>
+			<text x="100" y="570" font-size="7.2em" font-weight="600">down  : Turn snake down </text>
+			<text x="320" y="550" font-size="7.2em" font-weight="600">left  : Turn snake left </text>
+			<text x="320" y="570" font-size="7.2em" font-weight="600">right : Turn snake right</text>
+		</g>
+    </svg>
+</div>
+<script>
+	var svgns = "http://www.w3.org/2000/svg",
+		svg = document.getElementById("canvas"),
+		rectSize = 18,
+		matrixSizeX = 28,
+		matrixLimitX = matrixSizeX - 1;
+		matrixSizeY = 25,
+		matrixLimitY = matrixSizeY - 1;
+		speedMs = 250;
+    svg.setAttributeNS(null, 'width', rectSize * matrixSizeX);
+    svg.setAttributeNS(null, 'height', rectSize * matrixSizeY);
+    svg.setAttributeNS(null, 'style', 'border: ' + rectSize + 'px solid #ccc;');
+
+	var currentX = -1,
+		currentY = 0,
+		nextMoveX = 1,
+		nextMoveY = 0,
+		snakeL = 5,
+		swipe = 0,
+		rectArray = [];
+		gameIsOver = false;
+
+	function drawPoint(x, y) {
+		var rect = [document.createElementNS(svgns, 'rect'), x, y];
+		var rectObj = rect[0];
+		rectObj.setAttributeNS(null, 'x', x * rectSize);
+        rectObj.setAttributeNS(null, 'y', y * rectSize);
+        rectObj.setAttributeNS(null, 'height', rectSize);
+        rectObj.setAttributeNS(null, 'width', rectSize);
+        rectObj.setAttributeNS(null, 'class', 'snake');
+		rectArray.push(rect);
+    	svg.appendChild(rectObj);
+    	if (rectArray.length > snakeL) {
+    		svg.removeChild(rectArray[0][0]);
+    		rectArray.shift();
+    	}
+	}
+	function setApple() {
+		var appleX = Math.floor((Math.random() * matrixSizeX)),
+			appleY = Math.floor((Math.random() * matrixSizeY));
+		apple = [document.createElementNS(svgns, 'rect'), appleX, appleY];
+		var thisApple = apple[0];
+		thisApple.setAttributeNS(null, 'x', appleX * rectSize);
+        thisApple.setAttributeNS(null, 'y', appleY * rectSize);
+        thisApple.setAttributeNS(null, 'height', rectSize);
+        thisApple.setAttributeNS(null, 'width', rectSize);
+        thisApple.setAttributeNS(null, 'class', 'apple');
+    	svg.appendChild(thisApple);
+	}
+	function gameOver() {
+		svg.setAttributeNS(null, 'class', 'game-over');
+    	clearInterval(timing);
+		var text = document.createElementNS(svgns, 'text');
+        text.textContent = 'LoL, you died!';
+		text.setAttributeNS(null, 'x', text.textContent.length*3+10);
+        text.setAttributeNS(null, 'y', (rectSize * matrixSizeY)/2+rectSize);
+        text.setAttributeNS(null, 'height', rectSize);
+        text.setAttributeNS(null, 'width', rectSize);
+        text.setAttributeNS(null, 'class', 'gameover');
+        text.setAttributeNS(null, 'font-size', rectSize*3 +'px');
+    	svg.appendChild(text);
+    	gameIsOver = true;
+    	return;
+	}
+	var timing = setInterval(controllingSnake, speedMs);
+	function controllingSnake() {
+	    var nextX = currentX + nextMoveX,
+	    	nextY = currentY + nextMoveY;
+	    rectArray.forEach(function(element){
+	    	if (nextX === element[1] && nextY === element[2]) {
+	    		gameOver();
+	    	};
+	    });
+	    if (nextY < 0 || nextY > matrixLimitY || nextX < 0 || nextX > matrixLimitX) {
+	    	gameOver();
+	    }
+	    if (!gameIsOver) {
+	    	if (currentX === apple[1] && currentY === apple[2]) {
+	    		snakeL++;
+	    		document.getElementById("score").textContent=snakeL-5;
+		    	svg.removeChild(apple[0]);
+		    	setApple();
+	    	}
+	    	drawPoint(nextX, nextY);
+		    currentX = nextX;
+		    currentY = nextY;
+	    }
+	}
+	function changeDirection(dirCode) {
+		switch (dirCode) {
+	        case 37:
+	        	if (nextMoveX !== 1) {
+	        		nextMoveX = -1;
+	        		nextMoveY = 0;
+	        	}
+	        	break;
+	        case 38:
+	        	if (nextMoveY !== 1) {
+	        		nextMoveX = 0;
+	        		nextMoveY = -1;
+	        	}
+	        	break;
+	        case 39:
+	        	if (nextMoveX !== -1) {
+	        		nextMoveX = 1;
+	        		nextMoveY = 0;
+	        	}
+	        	break;
+	        case 40:
+	        	if (nextMoveY !== -1) {
+	        		nextMoveX = 0;
+	        		nextMoveY = 1;
+	        	}
+	    }
+	}
+	document.onkeydown = checkKey;
+	function checkKey(evt) {
+	    var evt = evt || window.event;
+	    changeDirection(evt.keyCode);
+	}
+	function is_touch_device() {
+		return (('ontouchstart' in window)
+		|| (navigator.MaxTouchPoints > 0)
+		|| (navigator.msMaxTouchPoints > 0));
+	}
+	function startup() {
+		if (is_touch_device()) {
+			tStartX = null;
+			tStartY = null;
+			document.body.addEventListener("touchstart", handleStart, false);
+			document.body.addEventListener("touchend", handleEnd, false);
+		} else {
+			console.log('Is not touch device');
+		}
+	}
+	function handleStart(evt) {
+		evt.preventDefault();
+		tStartX = evt.touches[0].screenX;
+		tStartY = evt.touches[0].screenY;
+	}
+	function handleEnd(evt) {
+		evt.preventDefault();
+		var tEndX = evt.changedTouches[0].screenX,
+			tEndY = evt.changedTouches[0].screenY,
+			totalX = tStartX - tEndX,
+			totalY = tStartY - tEndY;
+		if (Math.abs(totalX) > Math.abs(totalY)) {
+			swipe = (totalX >= 0) ? 37 : 39;
+		} else {
+			swipe = (totalY >= 0) ? 38 : 40;
+		}
+		changeDirection(swipe);
+	}
+	setApple();
+</script>
