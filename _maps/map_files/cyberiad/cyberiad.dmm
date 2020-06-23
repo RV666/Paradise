@@ -1188,6 +1188,13 @@
 	req_one_access = null;
 	req_one_access_txt = "0"
 	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1331;
+	master_tag = "vox_west_control";
+	req_one_access_txt = "152";
+	pixel_x = 28
+	},
 /turf/simulated/shuttle/plating/vox,
 /area/shuttle/vox)
 "adW" = (
@@ -1436,6 +1443,13 @@
 	req_access_txt = "152";
 	req_one_access = null;
 	req_one_access_txt = "0"
+	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1331;
+	master_tag = "vox_east_control";
+	req_one_access_txt = "152";
+	pixel_x = -30
 	},
 /turf/simulated/shuttle/plating/vox,
 /area/shuttle/vox)
@@ -2476,18 +2490,34 @@
 	req_one_access = null;
 	req_one_access_txt = "0"
 	},
-/turf/simulated/shuttle/plating/vox,
-/area/shuttle/vox)
-"agb" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1331;
 	master_tag = "vox_west_control";
-	req_one_access_txt = "152"
+	req_one_access_txt = "152";
+	pixel_x = -29
 	},
-/turf/simulated/shuttle/wall{
-	icon_state = "wall3"
+/turf/simulated/shuttle/plating/vox,
+/area/shuttle/vox)
+"agb" = (
+/obj/structure/rack,
+/obj/item/storage/belt/military{
+	pixel_x = -3;
+	pixel_y = 3
 	},
+/obj/item/storage/belt/military{
+	pixel_x = -1;
+	pixel_y = 1
+	},
+/obj/item/storage/belt/military{
+	pixel_x = 1;
+	pixel_y = -1
+	},
+/obj/item/storage/belt/military{
+	pixel_x = 3;
+	pixel_y = -3
+	},
+/turf/simulated/shuttle/floor4/vox,
 /area/shuttle/vox)
 "agc" = (
 /turf/space,
@@ -2523,18 +2553,14 @@
 	name = "northeast of SS13";
 	width = 19
 	},
-/turf/simulated/shuttle/plating/vox,
-/area/shuttle/vox)
-"age" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1331;
 	master_tag = "vox_east_control";
-	req_access_txt = "152"
+	req_access_txt = "152";
+	pixel_x = 28
 	},
-/turf/simulated/shuttle/wall{
-	icon_state = "wall3"
-	},
+/turf/simulated/shuttle/plating/vox,
 /area/shuttle/vox)
 "agf" = (
 /obj/machinery/light/spot{
@@ -3227,17 +3253,6 @@
 	icon_state = "darkredcorners"
 	},
 /area/security/brig)
-"ahl" = (
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1331;
-	master_tag = "vox_west_control";
-	req_one_access_txt = "152"
-	},
-/turf/simulated/shuttle/wall{
-	icon_state = "wall3"
-	},
-/area/shuttle/vox)
 "ahm" = (
 /obj/structure/table/wood,
 /obj/item/book/manual/sop_security,
@@ -3306,17 +3321,6 @@
 /turf/space,
 /turf/simulated/shuttle/wall{
 	icon_state = "diagonalWall3"
-	},
-/area/shuttle/vox)
-"aht" = (
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1331;
-	master_tag = "vox_east_control";
-	req_one_access_txt = "152"
-	},
-/turf/simulated/shuttle/wall{
-	icon_state = "wall3"
 	},
 /area/shuttle/vox)
 "ahu" = (
@@ -4693,6 +4697,9 @@
 /obj/item/clothing/suit/space/vox/carapace,
 /obj/item/clothing/head/helmet/space/vox/carapace,
 /obj/item/clothing/mask/breath,
+/obj/item/storage/backpack/duffel/syndie{
+	slowdown = 1
+	},
 /turf/simulated/shuttle/floor4/vox,
 /area/shuttle/vox)
 "ajF" = (
@@ -5227,6 +5234,14 @@
 /area/shuttle/vox)
 "akr" = (
 /obj/structure/rack,
+/obj/item/reagent_containers/glass/beaker/thermite{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/clothing/glasses/welding{
+	pixel_x = 4;
+	pixel_y = -4
+	},
 /turf/simulated/shuttle/floor4/vox,
 /area/shuttle/vox)
 "aks" = (
@@ -150762,7 +150777,7 @@ aaa
 aaa
 aaa
 aaa
-agb
+agZ
 ail
 ail
 adV
@@ -151022,7 +151037,7 @@ aaa
 aga
 agx
 add
-ahl
+agZ
 agZ
 agZ
 ail
@@ -153344,7 +153359,7 @@ aha
 ajF
 aka
 akr
-akr
+agb
 akP
 alA
 aml
@@ -154620,7 +154635,7 @@ aaa
 agd
 agC
 adL
-aht
+agZ
 agZ
 agZ
 ail
@@ -154874,7 +154889,7 @@ aaa
 aaa
 aaa
 aaa
-age
+agZ
 ail
 ail
 aen
