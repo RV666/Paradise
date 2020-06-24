@@ -110,6 +110,11 @@
 			to_chat(src, "<span class='name'>[speaker_name]</span>[speaker.GetAltName()] talks but you cannot hear [speaker.p_them()].")
 	else
 		to_chat(src, "<span class='game say'><span class='name'>[speaker_name]</span>[speaker.GetAltName()] [track][message]</span>")
+
+		// Create map text message
+		if (client?.prefs.chat_on_map && stat != UNCONSCIOUS && (client.prefs.see_chat_non_mob || ismob(speaker)))
+			create_chat_message(speaker, capitalize(multilingual_to_message(message_pieces)), FALSE, italics)
+
 		if(speech_sound && (get_dist(speaker, src) <= world.view && src.z == speaker.z))
 			var/turf/source = speaker? get_turf(speaker) : get_turf(src)
 			playsound_local(source, speech_sound, sound_vol, 1, sound_frequency)
@@ -150,6 +155,9 @@
 	var/speaker_name = handle_speaker_name(speaker, vname, hard_to_hear)
 	speaker_name = colorize_name(speaker, speaker_name)
 	track = handle_track(message, verb, speaker, speaker_name, follow_target, hard_to_hear)
+
+	if (client?.prefs.chat_on_map && stat != UNCONSCIOUS && (client.prefs.see_chat_non_mob || ismob(speaker)) && can_hear())
+		create_chat_message(speaker, capitalize(multilingual_to_message(message_pieces)), TRUE, FALSE)
 
 	if(src.mind && src.mind.special_role == SPECIAL_ROLE_TRAITOR)
 		for(var/code_phrase in GLOB.syndicate_code_phrase)
@@ -208,6 +216,10 @@
 	var/name = speaker.name
 	if(!say_understands(speaker))
 		name = speaker.voice_name
+
+	// Create map text message
+	if (client?.prefs.chat_on_map && stat != UNCONSCIOUS && (client.prefs.see_chat_non_mob || ismob(speaker)))
+		create_chat_message(speaker, capitalize(multilingual_to_message(message_pieces)), TRUE, FALSE)
 
 	var/rendered = "<span class='game say'><span class='name'>[name]</span> [message]</span>"
 	to_chat(src, rendered)

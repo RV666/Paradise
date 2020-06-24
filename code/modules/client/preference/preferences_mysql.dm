@@ -21,7 +21,10 @@
 					atklog,
 					fuid,
 					afk_watch,
-					parallax
+					parallax,
+					max_chat_length,
+					chat_on_map,
+					see_chat_non_mob
 					FROM [format_table_name("player")]
 					WHERE ckey='[C.ckey]'"}
 					)
@@ -56,6 +59,9 @@
 		fuid = text2num(query.item[19])
 		afk_watch = text2num(query.item[20])
 		parallax = text2num(query.item[21])
+		max_chat_length = text2num(query.item[22])
+		chat_on_map = text2num(query.item[23])
+		see_chat_non_mob = text2num(query.item[24])
 
 	//Sanitize
 	ooccolor		= sanitize_hexcolor(ooccolor, initial(ooccolor))
@@ -78,6 +84,9 @@
 	fuid = sanitize_integer(fuid, 0, 10000000, initial(fuid))
 	afk_watch = sanitize_integer(afk_watch, 0, 1, initial(afk_watch))
 	parallax = sanitize_integer(parallax, 0, 16, initial(parallax))
+	max_chat_length 	= sanitize_integer(max_chat_length, 1, CHAT_MESSAGE_MAX_LENGTH, initial(max_chat_length))
+	chat_on_map			= sanitize_integer(chat_on_map, 0, 1, initial(chat_on_map))
+	see_chat_non_mob	= sanitize_integer(see_chat_non_mob, 0, 1, initial(see_chat_non_mob))
 	return 1
 
 /datum/preferences/proc/save_preferences(client/C)
@@ -109,7 +118,10 @@
 					clientfps='[clientfps]',
 					atklog='[atklog]',
 					afk_watch='[afk_watch]',
-					parallax='[parallax]'
+					parallax='[parallax]',
+					max_chat_length='[max_chat_length]',
+					chat_on_map='[chat_on_map]',
+					see_chat_non_mob='[see_chat_non_mob]'
 					WHERE ckey='[C.ckey]'"}
 					)
 
