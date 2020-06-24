@@ -269,6 +269,9 @@ CREATE TABLE `SS13_player` (
   `fupdate` smallint(4) NULL DEFAULT '0',
   `afk_watch` tinyint(1) NOT NULL DEFAULT '0',
   `parallax` tinyint(1) DEFAULT '8',
+  `max_chat_length` tinyint(1) DEFAULT '110',
+  `chat_on_map` tinyint(1) DEFAULT '1',
+  `see_chat_non_mob` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `ckey` (`ckey`)
 ) ENGINE=InnoDB AUTO_INCREMENT=32446 DEFAULT CHARSET=utf8mb4;

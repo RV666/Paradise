@@ -204,6 +204,10 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 	// Parallax
 	var/parallax = PARALLAX_HIGH
 
+	var/chat_on_map = TRUE
+	var/max_chat_length = CHAT_MESSAGE_MAX_LENGTH
+	var/see_chat_non_mob = TRUE
+
 /datum/preferences/New(client/C)
 	parent = C
 	b_type = pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
@@ -453,6 +457,9 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 			dat += " - <b>Alpha (transparency):</b> <a href='?_src_=prefs;preference=UIalpha'><b>[UI_style_alpha]</b></a><br>"
 			dat += " - <b>Color:</b> <a href='?_src_=prefs;preference=UIcolor'><b>[UI_style_color]</b></a> <span style='border: 1px solid #161616; background-color: [UI_style_color];'>&nbsp;&nbsp;&nbsp;</span><br>"
 			dat += " - <b>UI Style:</b> <a href='?_src_=prefs;preference=ui'><b>[UI_style]</b></a><br>"
+			dat += "<b>Show Runechat Chat Bubbles:</b> <a href='?_src_=prefs;preference=chat_on_map'>[chat_on_map ? "Enabled" : "Disabled"]</a><br>"
+			dat += "<b>Runechat message char limit:</b> <a href='?_src_=prefs;preference=max_chat_length;task=input'>[max_chat_length]</a><br>"
+			dat += "<b>See Runechat for non-mobs:</b> <a href='?_src_=prefs;preference=see_chat_non_mob'>[see_chat_non_mob ? "Enabled" : "Disabled"]</a><br>"
 			dat += "<b>Deadchat Anonymity:</b> <a href='?_src_=prefs;preference=ghost_anonsay'><b>[ghost_anonsay ? "Anonymous" : "Not Anonymous"]</b></a><br>"
 			if(user.client.donator_level > 0)
 				dat += "<b>Donator Publicity:</b> <a href='?_src_=prefs;preference=donor_public'><b>[(toggles & DONATOR_PUBLIC) ? "Public" : "Hidden"]</b></a><br>"
@@ -1992,6 +1999,16 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 					if(ishuman(usr)) //mid-round preference changes, for aesthetics
 						var/mob/living/carbon/human/H = usr
 						H.remake_hud()
+
+				if ("max_chat_length")
+					var/desiredlength = input(user, "Choose the max character length of shown Runechat messages. Valid range is 1 to [CHAT_MESSAGE_MAX_LENGTH] (default: [initial(max_chat_length)]))", "Character Preference", max_chat_length)  as null|num
+					if (!isnull(desiredlength))
+						max_chat_length = clamp(desiredlength, 1, CHAT_MESSAGE_MAX_LENGTH)
+
+				if("chat_on_map")
+					chat_on_map = !chat_on_map
+				if("see_chat_non_mob")
+					see_chat_non_mob = !see_chat_non_mob
 
 				if("nanoui")
 					nanoui_fancy = !nanoui_fancy
