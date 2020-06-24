@@ -3,7 +3,6 @@
 /mob/proc/combine_message(var/list/message_pieces, var/verb, var/mob/speaker, always_stars = FALSE)
 	var/iteration_count = 0
 	var/msg = "" // This is to make sure that the pieces have actually added something
-	. = "[verb], \""
 	for(var/datum/multilingual_say_piece/SP in message_pieces)
 		iteration_count++
 		var/piece = SP.message
@@ -44,8 +43,10 @@
 		// There is literally no content left in this message, we need to shut this shit down
 		. = "" // hear_say will suppress it
 	else
-		. = trim(. + trim(msg))
-		. += "\""
+		if(verb)
+			. = "[verb], \"[trim(msg)]\""
+		else
+			. = trim(msg)
 
 /mob/proc/hear_say(list/message_pieces, verb = "says", italics = 0, mob/speaker = null, sound/speech_sound, sound_vol, sound_frequency)
 	if(!client)
@@ -78,10 +79,10 @@
 		var/mob/living/carbon/human/H = speaker
 		speaker_name = H.GetVoice()
 
-	var/message = combine_message(message_pieces, verb, speaker)
+	var/message = combine_message(message_pieces, "", speaker)
 	if(message == "")
 		return
-
+	var/message_clean = message
 	if(italics)
 		message = "<i>[message]</i>"
 
@@ -109,7 +110,12 @@
 		else
 			to_chat(src, "<span class='name'>[speaker_name]</span>[speaker.GetAltName()] talks but you cannot hear [speaker.p_them()].")
 	else
-		to_chat(src, "<span class='game say'><span class='name'>[speaker_name]</span>[speaker.GetAltName()] [track][message]</span>")
+		to_chat(src, "<span class='game say'><span class='name'>[speaker_name]</span>[speaker.GetAltName()] [track][verb], \"[message]\"</span>")
+
+		// Create map text message
+		if (client?.prefs.chat_on_map && stat != UNCONSCIOUS && (client.prefs.see_chat_non_mob || ismob(speaker)))
+			create_chat_message(speaker, message_clean, FALSE, italics)
+
 		if(speech_sound && (get_dist(speaker, src) <= world.view && src.z == speaker.z))
 			var/turf/source = speaker? get_turf(speaker) : get_turf(src)
 			playsound_local(source, speech_sound, sound_vol, 1, sound_frequency)
@@ -144,7 +150,7 @@
 		hear_sleep(multilingual_to_message(message_pieces))
 		return
 
-	var/message = combine_message(message_pieces, verb, speaker, always_stars = hard_to_hear)
+	var/message = combine_message(message_pieces, "", speaker, always_stars = hard_to_hear)
 	if(message == "")
 		return
 
@@ -156,6 +162,9 @@
 	speaker_name = colorize_name(speaker, speaker_name)
 	track = handle_track(message, verb, speaker, speaker_name, follow_target, hard_to_hear)
 
+	if (client?.prefs.chat_on_map && stat != UNCONSCIOUS && (client.prefs.see_chat_non_mob || ismob(speaker)) && can_hear())
+		create_chat_message(speaker, message, TRUE, FALSE)
+
 	if(src.mind && src.mind.special_role == SPECIAL_ROLE_TRAITOR)
 		for(var/code_phrase in GLOB.syndicate_code_phrase)
 			message = replacetext(message, code_phrase, "<span class='boldwarning'>[code_phrase]</span>")
@@ -166,9 +175,9 @@
 		if(prob(20))
 			to_chat(src, "<span class='warning'>You feel your headset vibrate but can hear nothing from it!</span>")
 	else if(track)
-		to_chat(src, "[part_a][track][part_b][message]</span></span>")
+		to_chat(src, "[part_a][track][part_b][verb], \"[message]\"</span></span>")
 	else
-		to_chat(src, "[part_a][speaker_name][part_b][message]</span></span>")
+		to_chat(src, "[part_a][speaker_name][part_b][verb], \"[message]\"</span></span>")
 
 /mob/proc/handle_speaker_name(mob/speaker = null, vname, hard_to_hear)
 	var/speaker_name = "unknown"
@@ -208,11 +217,15 @@
 	to_chat(src, heard)
 
 /mob/proc/hear_holopad_talk(list/message_pieces, var/verb = "says", var/mob/speaker = null)
-	var/message = combine_message(message_pieces, verb, speaker)
+	var/message = combine_message(message_pieces, "", speaker)
 
 	var/name = speaker.name
 	if(!say_understands(speaker))
 		name = speaker.voice_name
 
-	var/rendered = "<span class='game say'><span class='name'>[name]</span> [message]</span>"
+	// Create map text message
+	if (client?.prefs.chat_on_map && stat != UNCONSCIOUS && (client.prefs.see_chat_non_mob || ismob(speaker)))
+		create_chat_message(speaker, message, TRUE, FALSE)
+
+	var/rendered = "<span class='game say'><span class='name'>[name]</span> [verb], \"[message]\"</span>"
 	to_chat(src, rendered)
