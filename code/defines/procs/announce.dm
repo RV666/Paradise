@@ -4,7 +4,7 @@ GLOBAL_DATUM_INIT(command_announcement, /datum/announcement/priority/command, ne
 GLOBAL_DATUM_INIT(event_announcement, /datum/announcement/priority/command/event, new(do_log = 0, do_newscast = 0))
 
 /datum/announcement
-	var/title = "Внимание"
+	var/title = "Attention"
 	var/announcer = ""
 	var/log = 0
 	var/sound
@@ -26,13 +26,13 @@ GLOBAL_DATUM_INIT(event_announcement, /datum/announcement/priority/command/event
 
 /datum/announcement/priority/New(var/do_log = 1, var/new_sound = sound('sound/misc/notice2.ogg'), var/do_newscast = 0)
 	..(do_log, new_sound, do_newscast)
-	title = "Priority Announcement"
+	title = "Приоритетное Объявление"
 	announcement_type = "Priority Announcement"
 
 /datum/announcement/priority/command/New(var/do_log = 1, var/new_sound = sound('sound/misc/notice2.ogg'), var/do_newscast = 0)
 	..(do_log, new_sound, do_newscast)
 	admin_announcement = 1
-	title = "[command_name()] Update"
+	title = "Свежие Новости от [command_name()]"
 	announcement_type = "[command_name()] Update"
 
 /datum/announcement/priority/command/event/New(var/do_log = 1, var/new_sound = sound('sound/misc/notice2.ogg'), var/do_newscast = 0)
@@ -41,7 +41,7 @@ GLOBAL_DATUM_INIT(event_announcement, /datum/announcement/priority/command/event
 
 /datum/announcement/priority/security/New(var/do_log = 1, var/new_sound = sound('sound/misc/notice2.ogg'), var/do_newscast = 0)
 	..(do_log, new_sound, do_newscast)
-	title = "Security Announcement"
+	title = "Объявление Безопасности"
 	announcement_type = "Security Announcement"
 
 /datum/announcement/proc/Announce(var/message as text, var/new_title = "", var/new_sound = null, var/do_newscast = newscast, var/msg_sanitized = 0, var/from, var/msg_language)

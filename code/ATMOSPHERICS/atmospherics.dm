@@ -166,7 +166,7 @@ GLOBAL_DATUM_INIT(pipe_icon_manager, /datum/pipe_icon_manager, new())
 	if(can_unwrench && istype(W, /obj/item/wrench))
 		var/turf/T = get_turf(src)
 		if(level == 1 && isturf(T) && T.intact)
-			to_chat(user, "<span class='danger'>You must remove the plating first.</span>")
+			to_chat(user, "<span class='danger'>Ты должен убрать plating сначала.</span>")
 			return 1
 		var/datum/gas_mixture/int_air = return_air()
 		var/datum/gas_mixture/env_air = loc.return_air()
@@ -178,7 +178,7 @@ GLOBAL_DATUM_INIT(pipe_icon_manager, /datum/pipe_icon_manager, new())
 		var/internal_pressure = I - E
 
 		playsound(src.loc, W.usesound, 50, 1)
-		to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
+		to_chat(user, "<span class='notice'>Ты начинаешь откпреплять \the [src]...</span>")
 		if(internal_pressure > 2*ONE_ATMOSPHERE)
 			to_chat(user, "<span class='warning'>As you begin unwrenching \the [src] a gush of air blows in your face... maybe you should reconsider?</span>")
 			unsafe_wrenching = TRUE //Oh dear oh dear

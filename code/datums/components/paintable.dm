@@ -17,10 +17,10 @@
 		return
 	. = COMPONENT_NO_AFTERATTACK
 	if(spraycan.capped)
-		to_chat(user, "<span class='warning'>Take the cap off first!</span>")
+		to_chat(user, "<span class='warning'>Сначала снимите колпачек!</span>")
 		return
 	if(spraycan.uses < 2)
-		to_chat(user, "<span class ='warning'>There is not enough paint in the can!")
+		to_chat(user, "<span class ='warning'>В банке не осталось краски!")
 		return
 	RemoveCurrentCoat()
 	var/colour = spraycan.colour

@@ -109,7 +109,7 @@ SUBSYSTEM_DEF(vote)
 					else
 						factor = 1.4
 				choices["Initiate Crew Transfer"] = round(choices["Initiate Crew Transfer"] * factor)
-				to_chat(world, "<font color='purple'>Crew Transfer Factor: [factor]</font>")
+				to_chat(world, "<font color='purple'>Причина Перевода Экипажа: [factor]</font>")
 				greatest_votes = max(choices["Initiate Crew Transfer"], choices["Continue The Round"])
 
 
@@ -173,7 +173,7 @@ SUBSYSTEM_DEF(vote)
 						GLOB.master_mode = .
 				if(!SSticker.ticker_going)
 					SSticker.ticker_going = TRUE
-					to_chat(world, "<font color='red'><b>The round will start soon.</b></font>")
+					to_chat(world, "<font color='red'><b>Раунд скоро начнется.</b></font>")
 			if("crew_transfer")
 				if(. == "Initiate Crew Transfer")
 					init_shift_change(null, 1)

@@ -571,7 +571,7 @@
 					new_objective = new /datum/objective/destroy
 					new_objective.target = new_target.mind
 					new_objective.owner = src
-					new_objective.explanation_text = "Уничтожить [new_target.name], the experimental AI."
+					new_objective.explanation_text = "Уничтожить [new_target.name], экспериментальный ИИ."
 				else
 					to_chat(usr, "No active AIs with minds")
 

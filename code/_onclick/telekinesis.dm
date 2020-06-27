@@ -119,7 +119,7 @@
 	if(focus)
 		d = max(d,get_dist(user,focus)) // whichever is further
 	if(d > TK_MAXRANGE)
-		to_chat(user, "<span class='warning'>Your mind won't reach that far.</span>")
+		to_chat(user, "<span class='warning'>Ваш разум не может достичь такой дали.</span>")
 		return
 
 	if(!focus)

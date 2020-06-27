@@ -133,7 +133,7 @@
 		return
 
 	if(!allowed(user))
-		to_chat(user, "<span class='alert'>Access denied.</span>")
+		to_chat(user, "<span class='alert'>Доступ запрещен.</span>")
 		return
 
 	add_fingerprint(user)

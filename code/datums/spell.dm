@@ -137,7 +137,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell))
 					return 0
 			if("charges")
 				if(!charge_counter)
-					to_chat(user, "<span class='notice'>[name] has no charges left.</span>")
+					to_chat(user, "<span class='notice'>[name] не осталось зарядов.</span>")
 					return 0
 
 	if(!ghost)
@@ -145,7 +145,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell))
 			to_chat(user, "<span class='notice'>You can't cast this spell while incapacitated.</span>")
 			return 0
 		if(ishuman(user) && (invocation_type == "whisper" || invocation_type == "shout") && user.is_muzzled())
-			to_chat(user, "Mmmf mrrfff!")
+			to_chat(user, "МММММ мффмфммф!")
 			return 0
 
 	var/obj/effect/proc_holder/spell/noclothes/clothes_spell = locate() in (user.mob_spell_list | (user.mind ? user.mind.spell_list : list()))

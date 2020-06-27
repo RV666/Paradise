@@ -61,8 +61,8 @@ SUBSYSTEM_DEF(ticker)
 		if(GAME_STATE_STARTUP)
 			// This is ran as soon as the MC starts firing, and should only run ONCE, unless startup fails
 			round_start_time = world.time + (config.pregame_timestart * 10)
-			to_chat(world, "<B><FONT color='blue'>Welcome to the pre-game lobby!</FONT></B>")
-			to_chat(world, "Please, setup your character and select ready. Game will start in [config.pregame_timestart] seconds")
+			to_chat(world, "<B><FONT color='blue'>Добро пожаловать в предыгровое лобби!</FONT></B>")
+			to_chat(world, "Пожалуйста, настройте своего персонажа и выберите ready. Игра начнется через [config.pregame_timestart] секунд")
 			current_state = GAME_STATE_PREGAME
 			fire() // TG says this is a good idea
 		if(GAME_STATE_PREGAME)
@@ -169,7 +169,7 @@ SUBSYSTEM_DEF(ticker)
 			modes+=M.name
 		modes = sortList(modes)
 		to_chat(world, "<B>Текущий игровой режим - Секрет!</B>")
-		to_chat(world, "<B>Possibilities:</B> [english_list(modes)]")
+		to_chat(world, "<B>Возможные:</B> [english_list(modes)]")
 	else
 		src.mode.announce()
 
@@ -215,7 +215,7 @@ SUBSYSTEM_DEF(ticker)
 		world << sound('sound/AI/welcome.ogg')// Skie
 
 		if(SSholiday.holidays)
-			to_chat(world, "<font color='blue'>and...</font>")
+			to_chat(world, "<font color='blue'>и...</font>")
 			for(var/holidayname in SSholiday.holidays)
 				var/datum/holiday/holiday = SSholiday.holidays[holidayname]
 				to_chat(world, "<h4>[holiday.greet()]</h4>")
@@ -434,7 +434,7 @@ SUBSYSTEM_DEF(ticker)
 			m = pick(memetips)
 
 	if(m)
-		to_chat(world, "<span class='purple'><b>Tip of the round: </b>[html_encode(m)]</span>")
+		to_chat(world, "<span class='purple'><b>Совет раунда: </b>[html_encode(m)]</span>")
 
 /datum/controller/subsystem/ticker/proc/declare_completion()
 	GLOB.nologevent = 1 //end of round murder and shenanigans are legal; there's no need to jam up attack logs past this point.
@@ -443,20 +443,20 @@ SUBSYSTEM_DEF(ticker)
 	end_state.count()
 	var/station_integrity = min(round( 100.0 *  GLOB.start_state.score(end_state), 0.1), 100.0)
 
-	to_chat(world, "<BR>[TAB]Shift Duration: <B>[round(ROUND_TIME / 36000)]:[add_zero("[ROUND_TIME / 600 % 60]", 2)]:[ROUND_TIME / 100 % 6][ROUND_TIME / 100 % 10]</B>")
-	to_chat(world, "<BR>[TAB]Station Integrity: <B>[mode.station_was_nuked ? "<font color='red'>Destroyed</font>" : "[station_integrity]%"]</B>")
+	to_chat(world, "<BR>[TAB]Длительность Смены: <B>[round(ROUND_TIME / 36000)]:[add_zero("[ROUND_TIME / 600 % 60]", 2)]:[ROUND_TIME / 100 % 6][ROUND_TIME / 100 % 10]</B>")
+	to_chat(world, "<BR>[TAB]Целостность Станции: <B>[mode.station_was_nuked ? "<font color='red'>Destroyed</font>" : "[station_integrity]%"]</B>")
 	to_chat(world, "<BR>")
 
 	//Silicon laws report
 	for(var/mob/living/silicon/ai/aiPlayer in GLOB.mob_list)
 		if(aiPlayer.stat != 2)
-			to_chat(world, "<b>[aiPlayer.name] (Played by: [aiPlayer.key])'s laws at the end of the game were:</b>")
+			to_chat(world, "<b>[aiPlayer.name] (Played by: [aiPlayer.key])'s законы на конец игры были:</b>")
 		else
-			to_chat(world, "<b>[aiPlayer.name] (Played by: [aiPlayer.key])'s laws when it was deactivated were:</b>")
+			to_chat(world, "<b>[aiPlayer.name] (Played by: [aiPlayer.key])'s законы на момент отключения были:</b>")
 		aiPlayer.show_laws(1)
 
 		if(aiPlayer.connected_robots.len)
-			var/robolist = "<b>The AI's loyal minions were:</b> "
+			var/robolist = "<b>Верными приспешниками ИИ были:</b> "
 			for(var/mob/living/silicon/robot/robo in aiPlayer.connected_robots)
 				robolist += "[robo.name][robo.stat?" (Deactivated) (Played by: [robo.key]), ":" (Played by: [robo.key]), "]"
 			to_chat(world, "[robolist]")
