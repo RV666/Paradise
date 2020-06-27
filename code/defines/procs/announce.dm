@@ -4,7 +4,7 @@ GLOBAL_DATUM_INIT(command_announcement, /datum/announcement/priority/command, ne
 GLOBAL_DATUM_INIT(event_announcement, /datum/announcement/priority/command/event, new(do_log = 0, do_newscast = 0))
 
 /datum/announcement
-	var/title = "Attention"
+	var/title = "Внимание"
 	var/announcer = ""
 	var/log = 0
 	var/sound
@@ -21,7 +21,7 @@ GLOBAL_DATUM_INIT(event_announcement, /datum/announcement/priority/command/event
 
 /datum/announcement/minor/New(var/do_log = 0, var/new_sound = sound('sound/misc/notice2.ogg'), var/do_newscast = 0)
 	..(do_log, new_sound, do_newscast)
-	title = "Attention"
+	title = "Внимание"
 	announcement_type = "Minor Announcement"
 
 /datum/announcement/priority/New(var/do_log = 1, var/new_sound = sound('sound/misc/notice2.ogg'), var/do_newscast = 0)

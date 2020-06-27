@@ -421,27 +421,27 @@ SUBSYSTEM_DEF(jobs)
 
 		CreateMoneyAccount(H, rank, job)
 
-	to_chat(H, "<B>You are the [alt_title ? alt_title : rank].</B>")
-	to_chat(H, "<b>As the [alt_title ? alt_title : rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
-	to_chat(H, "<b>For more information on how the station works, see <a href=\"http://rv666.asuscomm.com/wiki/index.php/Standard_Operating_Procedure\">Standard Operating Procedure (SOP)</a></b>")
+	to_chat(H, "<B>Вы [alt_title ? alt_title : rank].</B>")
+	to_chat(H, "<b>Как [alt_title ? alt_title : rank] вы подчиняетесь напрямую [job.supervisors]. Особые обстоятельства могут изменить это.</b>")
+	to_chat(H, "<b>Для получения дополнительной информации о том, как работает станция, смотрите <a href=\"http://rv666.asuscomm.com/wiki/index.php/Standard_Operating_Procedure\">Стандартные Процедуры (СП)</a></b>")
 	if(job.is_service)
-		to_chat(H, "<b>As a member of Service, make sure to read up on your <a href=\"http://rv666.asuscomm.com/wiki/index.php/Standard_Operating_Procedure_&#40;Service&#41\">Department SOP</a></b>")
+		to_chat(H, "<b>Как члену Service, не забудьте прочитать про ваш <a href=\"http://rv666.asuscomm.com/wiki/index.php/Standard_Operating_Procedure_&#40;Service&#41\">Department SOP</a></b>")
 	if(job.is_supply)
-		to_chat(H, "<b>As a member of Supply, make sure to read up on your <a href=\"http://rv666.asuscomm.com/wiki/index.php/Standard_Operating_Procedure_&#40;Supply&#41\">Department SOP</a></b>")
+		to_chat(H, "<b>Как члену Supply, не забудьте прочитать про ваш <a href=\"http://rv666.asuscomm.com/wiki/index.php/Standard_Operating_Procedure_&#40;Supply&#41\">Department SOP</a></b>")
 	if(job.is_command)
-		to_chat(H, "<b>As an important member of Command, read up on your <a href=\"http://rv666.asuscomm.com/wiki/index.php/Standard_Operating_Procedure_&#40;Command&#41\">Department SOP</a></b>")
+		to_chat(H, "<b>Как важный член Команды, читайте <a href=\"http://rv666.asuscomm.com/wiki/index.php/Standard_Operating_Procedure_&#40;Command&#41\">Department SOP</a></b>")
 	if(job.is_legal)
-		to_chat(H, "<b>Your job requires complete knowledge of <a href=\"http://rv666.asuscomm.com/wiki/index.php/Космический_Закон\">Space Law</a> and <a href=\"http://rv666.asuscomm.com/wiki/index.php/Legal_Standard_Operating_Procedure\">Legal Standard Operating Procedure</a></b>")
+		to_chat(H, "<b>Ваша работа требует полного знания <a href=\"http://rv666.asuscomm.com/wiki/index.php/Космический_Закон\">Space Law</a> и <a href=\"http://rv666.asuscomm.com/wiki/index.php/Legal_Standard_Operating_Procedure\">Legal Standard Operating Procedure</a></b>")
 	if(job.is_engineering)
-		to_chat(H, "<b>As a member of Engineering, make sure to read up on your <a href=\"http://rv666.asuscomm.com/wiki/index.php/Standard_Operating_Procedure_&#40;Engineering&#41\">Department SOP</a></b>")
+		to_chat(H, "<b>Как члену Engineering, не забудьте прочитать про ваш <a href=\"http://rv666.asuscomm.com/wiki/index.php/Standard_Operating_Procedure_&#40;Engineering&#41\">Department SOP</a></b>")
 	if(job.is_medical)
-		to_chat(H, "<b>As a member of Medbay, make sure to read up on your <a href=\"http://rv666.asuscomm.com/wiki/index.php/Standard_Operating_Procedure_&#40;Medical&#41\">Department SOP</a></b>")
+		to_chat(H, "<b>Как члену Medbay, не забудьте прочитать про ваш <a href=\"http://rv666.asuscomm.com/wiki/index.php/Standard_Operating_Procedure_&#40;Medical&#41\">Department SOP</a></b>")
 	if(job.is_science)
-		to_chat(H, "<b>As a member of Science, make sure to read up on your <a href=\"http://rv666.asuscomm.com/wiki/index.php/Standard_Operating_Procedure_&#40;Science&#41\">Department SOP</a></b>")
+		to_chat(H, "<b>Как члену Science, не забудьте прочитать про ваш <a href=\"http://rv666.asuscomm.com/wiki/index.php/Standard_Operating_Procedure_&#40;Science&#41\">Department SOP</a></b>")
 	if(job.is_security)
-		to_chat(H, "<b>As a member of Security, you are to know <a href=\"http://rv666.asuscomm.com/wiki/index.php/Космический_Закон\">Space Law</a>, <a href=\"http://rv666.asuscomm.com/wiki/index.php/Legal_Standard_Operating_Procedure\">Legal Standard Operating Procedure</a>, as well as your <a href=\"http://rv666.asuscomm.com/wiki/index.php/Standard_Operating_Procedure_&#40;Security&#41\">Department SOP</a></b>")
+		to_chat(H, "<b>Как члену Security, вам необходимо знать <a href=\"http://rv666.asuscomm.com/wiki/index.php/Космический_Закон\">Space Law</a>, <a href=\"http://rv666.asuscomm.com/wiki/index.php/Legal_Standard_Operating_Procedure\">Legal Standard Operating Procedure</a>, а также ваш <a href=\"http://rv666.asuscomm.com/wiki/index.php/Standard_Operating_Procedure_&#40;Security&#41\">Department SOP</a></b>")
 	if(job.req_admin_notify)
-		to_chat(H, "<b>You are playing a job that is important for the game progression. If you have to disconnect, please go to cryo and inform command. If you are unable to do so, please notify the admins via adminhelp.</b>")
+		to_chat(H, "<b>Вы играете на работе, которая важна для развития игры. Если вам нужно выйти из игры, пройдите к крио и сообщите команде. Если вы не можете сделать это, пожалуйста, сообщите администраторам через adminhelp.</b>")
 
 	return H
 /datum/controller/subsystem/jobs/proc/EquipRank(mob/living/carbon/human/H, rank, joined_late = 0) // Equip and put them in an area
@@ -612,7 +612,7 @@ SUBSYSTEM_DEF(jobs)
 	H.mind.initial_account = M
 
 	spawn(0)
-		to_chat(H, "<span class='boldnotice'>Your account number is: [M.account_number], your account pin is: [M.remote_access_pin]</span>")
+		to_chat(H, "<span class='boldnotice'>Номер вашего аккаунта: [M.account_number], пин-код вашего аккаунта: [M.remote_access_pin]</span>")
 
 /datum/controller/subsystem/jobs/proc/format_jobs_for_id_computer(obj/item/card/id/tgtcard)
 	var/list/jobs_to_formats = list()
@@ -651,7 +651,7 @@ SUBSYSTEM_DEF(jobs)
 	var/table_headers = list("Crewman", "Old Rank", "New Rank", "Authorized By", "Time")
 	var/hidden_fields = list("deletedby")
 	if(centcom)
-		table_headers += "<span class='bad'>Deleted By</span>"
+		table_headers += "<span class='bad'>Удалил</span>"
 	record_html += "<TR>"
 	for(var/thisheader in table_headers)
 		record_html += "<TD><B>[thisheader]</B></TD>"

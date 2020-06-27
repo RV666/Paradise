@@ -26,7 +26,7 @@ SUBSYSTEM_DEF(nightshift)
 	check_nightshift()
 
 /datum/controller/subsystem/nightshift/proc/announce(message)
-	GLOB.priority_announcement.Announce(message, new_sound = 'sound/misc/notice2.ogg', new_title = "Automated Lighting System Announcement")
+	GLOB.priority_announcement.Announce(message, new_sound = 'sound/misc/notice2.ogg', new_title = "Обьявление Автоматизированной Системы Освещения")
 
 /datum/controller/subsystem/nightshift/proc/check_nightshift(check_canfire=FALSE)
 	if(check_canfire && !can_fire)
@@ -40,9 +40,9 @@ SUBSYSTEM_DEF(nightshift)
 		if(night_time)
 			announcing = FALSE
 			if(!emergency)
-				announce("Restoring night lighting configuration to normal operation.")
+				announce("Восстановление конфигурации ночного освещения до нормальной работы.")
 			else
-				announce("Disabling night lighting: Station is in a state of emergency.")
+				announce("Отключение ночного освещения: станция находится в аварийном состоянии.")
 	if(emergency)
 		night_time = FALSE
 	if(nightshift_active != night_time)
@@ -52,9 +52,9 @@ SUBSYSTEM_DEF(nightshift)
 	nightshift_active = active
 	if(announce)
 		if(active)
-			announce("Good evening, crew. To reduce power consumption and stimulate the circadian rhythms of some species, all of the lights aboard the station have been dimmed for the night.")
+			announce("Добрый вечер, экипаж. Чтобы снизить энергопотребление и стимулировать циркадные ритмы некоторых видов, все огни на борту станции были выключены на ночь.")
 		else
-			announce("Good morning, crew. As it is now day time, all of the lights aboard the station have been restored to their former brightness.")
+			announce("Доброе утро, экипаж. Поскольку сейчас дневное время, все огни на борту станции восстановили свою прежнюю яркость.")
 	for(var/A in GLOB.apcs)
 		var/obj/machinery/power/apc/APC = A
 		if(is_station_level(APC.z))

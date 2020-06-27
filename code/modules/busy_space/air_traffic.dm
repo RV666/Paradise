@@ -12,7 +12,7 @@ GLOBAL_DATUM_INIT(atc, /datum/lore/atc_controller, new)
 
 /datum/lore/atc_controller/New()
 	spawn(30 SECONDS) //Lots of lag at the start of a shift.
-		msg("New shift beginning, resuming traffic control.")
+		msg("Новая смена началась")
 	next_message = world.time + rand(delay_min, delay_max)
 	process()
 

@@ -23,7 +23,7 @@
 
 	if(wear_mask)
 		skipface |= wear_mask.flags_inv & HIDEFACE
-	var/msg = "<span class='info'>*---------*\nThis is "
+	var/msg = "<span class='info'>*---------*\nЭто "
 
 	if(!(skipjumpsuit && skipface) && icon) //big suits/masks/helmets make it hard to tell their gender
 		msg += "[bicon(icon(icon, dir=SOUTH))] " //fucking BYOND: this should stop dreamseeker crashing if we -somehow- examine somebody before their icon is generated
@@ -54,23 +54,23 @@
 				tie_msg += " with [english_accessory_list(U)]"
 
 		if(w_uniform.blood_DNA)
-			msg += "<span class='warning'>[p_they(TRUE)] [p_are()] wearing [bicon(w_uniform)] [w_uniform.gender==PLURAL?"some":"a"] [w_uniform.blood_color != "#030303" ? "blood-stained":"oil-stained"] [w_uniform.name][tie_msg]!</span>\n"
+			msg += "<span class='warning'>[p_they(TRUE)] [p_are()] носит [bicon(w_uniform)] [w_uniform.gender==PLURAL?"some":"a"] [w_uniform.blood_color != "#030303" ? "blood-stained":"oil-stained"] [w_uniform.name][tie_msg]!</span>\n"
 		else
-			msg += "[p_they(TRUE)] [p_are()] wearing [bicon(w_uniform)] \a [w_uniform][tie_msg].\n"
+			msg += "[p_they(TRUE)] [p_are()] носит [bicon(w_uniform)] \a [w_uniform][tie_msg].\n"
 
 	//head
 	if(head && !(head.flags & ABSTRACT))
 		if(head.blood_DNA)
-			msg += "<span class='warning'>[p_they(TRUE)] [p_are()] wearing [bicon(head)] [head.gender==PLURAL?"some":"a"] [head.blood_color != "#030303" ? "blood-stained":"oil-stained"] [head.name] on [p_their()] head!</span>\n"
+			msg += "<span class='warning'>[p_they(TRUE)] [p_are()] носит [bicon(head)] [head.gender==PLURAL?"some":"a"] [head.blood_color != "#030303" ? "blood-stained":"oil-stained"] [head.name] on [p_their()] head!</span>\n"
 		else
-			msg += "[p_they(TRUE)] [p_are()] wearing [bicon(head)] \a [head] on [p_their()] head.\n"
+			msg += "[p_they(TRUE)] [p_are()] носит [bicon(head)] \a [head] на [p_their()] голове.\n"
 
 	//suit/armour
 	if(wear_suit && !(wear_suit.flags & ABSTRACT))
 		if(wear_suit.blood_DNA)
-			msg += "<span class='warning'>[p_they(TRUE)] [p_are()] wearing [bicon(wear_suit)] [wear_suit.gender==PLURAL?"some":"a"] [wear_suit.blood_color != "#030303" ? "blood-stained":"oil-stained"] [wear_suit.name]!</span>\n"
+			msg += "<span class='warning'>[p_they(TRUE)] [p_are()] носит [bicon(wear_suit)] [wear_suit.gender==PLURAL?"some":"a"] [wear_suit.blood_color != "#030303" ? "blood-stained":"oil-stained"] [wear_suit.name]!</span>\n"
 		else
-			msg += "[p_they(TRUE)] [p_are()] wearing [bicon(wear_suit)] \a [wear_suit].\n"
+			msg += "[p_they(TRUE)] [p_are()] носит [bicon(wear_suit)] \a [wear_suit].\n"
 
 		//suit/armour storage
 		if(s_store && !skipsuitstorage)
@@ -128,9 +128,9 @@
 	//shoes
 	if(shoes && !skipshoes && !(shoes.flags & ABSTRACT))
 		if(shoes.blood_DNA)
-			msg += "<span class='warning'>[p_they(TRUE)] [p_are()] wearing [bicon(shoes)] [shoes.gender==PLURAL?"some":"a"] [shoes.blood_color != "#030303" ? "blood-stained":"oil-stained"] [shoes.name] on [p_their()] feet!</span>\n"
+			msg += "<span class='warning'>[p_they(TRUE)] [p_are()] носит [bicon(shoes)] [shoes.gender==PLURAL?"some":"a"] [shoes.blood_color != "#030303" ? "blood-stained":"oil-stained"] [shoes.name] on [p_their()] feet!</span>\n"
 		else
-			msg += "[p_they(TRUE)] [p_are()] wearing [bicon(shoes)] \a [shoes] on [p_their()] feet.\n"
+			msg += "[p_they(TRUE)] [p_are()] носит [bicon(shoes)] \a [shoes] on [p_their()] feet.\n"
 	else if(blood_DNA)
 		msg += "<span class='warning'>[p_they(TRUE)] [p_have()] [feet_blood_color != "#030303" ? "blood-stained":"oil-stained"] feet!</span>\n"
 
@@ -159,7 +159,7 @@
 
 	//ID
 	if(wear_id)
-		msg += "[p_they(TRUE)] [p_are()] wearing [bicon(wear_id)] \a [wear_id].\n"
+		msg += "[p_they(TRUE)] [p_are()] носит [bicon(wear_id)] \a [wear_id].\n"
 
 	//Jitters
 	switch(jitteriness)
@@ -176,7 +176,7 @@
 		appears_dead = TRUE
 		if(suiciding)
 			msg += "<span class='warning'>[p_they(TRUE)] appear[p_s()] to have committed suicide... there is no hope of recovery.</span>\n"
-		msg += "<span class='deadsay'>[p_they(TRUE)] [p_are()] limp and unresponsive; there are no signs of life"
+		msg += "<span class='deadsay'>[p_they(TRUE)] [p_are()] не реагирует и не показывает признаков жизни"
 		if(get_int_organ(/obj/item/organ/internal/brain))
 			if(!key)
 				var/foundghost = FALSE
@@ -192,7 +192,7 @@
 		msg += "...</span>\n"
 
 	if(!get_int_organ(/obj/item/organ/internal/brain))
-		msg += "<span class='deadsay'>It appears that [p_their()] brain is missing...</span>\n"
+		msg += "<span class='deadsay'>It appears that [p_their()] мозг отсутсвует...</span>\n"
 
 	msg += "<span class='warning'>"
 

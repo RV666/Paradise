@@ -102,7 +102,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 
 	var/obj/structure/AIcore/deactivated/linked_core //For exosuit control
 
-	var/arrivalmsg = "$name, $rank, has arrived on the station."
+	var/arrivalmsg = "$name, $rank, прибыл на станцию."
 
 	var/multicam_allowed = FALSE
 	var/multicam_on = FALSE

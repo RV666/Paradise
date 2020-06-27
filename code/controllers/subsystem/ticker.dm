@@ -168,7 +168,7 @@ SUBSYSTEM_DEF(ticker)
 		for(var/datum/game_mode/M in runnable_modes)
 			modes+=M.name
 		modes = sortList(modes)
-		to_chat(world, "<B>The current game mode is - Secret!</B>")
+		to_chat(world, "<B>Текущий игровой режим - Секрет!</B>")
 		to_chat(world, "<B>Possibilities:</B> [english_list(modes)]")
 	else
 		src.mode.announce()
@@ -211,7 +211,7 @@ SUBSYSTEM_DEF(ticker)
 			for(var/obj/effect/landmark/spacepod/random/R in L)
 				qdel(R)
 
-		to_chat(world, "<FONT color='blue'><B>Enjoy the game!</B></FONT>")
+		to_chat(world, "<FONT color='blue'><B>Наслаждайтесь игрой!</B></FONT>")
 		world << sound('sound/AI/welcome.ogg')// Skie
 
 		if(SSholiday.holidays)

@@ -67,7 +67,7 @@
 	var/turf/T = src.loc
 	if(!T || !istype(T)) return
 
-	usr.visible_message("<span class='warning'>[user] starts climbing onto \the [src]!</span>")
+	usr.visible_message("<span class='warning'>[user] начинает забираться на \the [src]!</span>")
 	climber = user
 	if(!do_after(user, 50, target = src))
 		climber = null
@@ -79,7 +79,7 @@
 
 	usr.loc = get_turf(src)
 	if(get_turf(user) == get_turf(src))
-		usr.visible_message("<span class='warning'>[user] climbs onto \the [src]!</span>")
+		usr.visible_message("<span class='warning'>[user] лезет на \the [src]!</span>")
 
 	climber = null
 
