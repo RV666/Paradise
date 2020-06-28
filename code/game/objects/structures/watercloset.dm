@@ -329,7 +329,7 @@
 		return
 	if(!I.tool_use_check(user, 0))
 		return
-	visible_message("<span class='notice'>[user] begins slicing [src] free...</span>", "<span class='notice'>You begin slicing [src] free...</span>", "<span class='warning'>You hear welding.</span>")
+	visible_message("<span class='notice'>[user] begins slicing [src] free...</span>", "<span class='notice'>You begin slicing [src] free...</span>", "<span class='warning'>Вы слышите сварку.</span>")
 	if(I.use_tool(src, user, 40, volume = I.tool_volume))
 		if(mymist)
 			qdel(mymist)

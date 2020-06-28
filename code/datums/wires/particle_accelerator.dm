@@ -41,7 +41,7 @@
 			C.interface_control = !C.interface_control
 
 		if(PARTICLE_LIMIT_POWER_WIRE)
-			C.visible_message("[bicon(C)]<b>[C]</b> makes a large whirring noise.")
+			C.visible_message("[bicon(C)]<b>[C]</b> издает сильный жужащий звук.")
 	..()
 
 /datum/wires/particle_acc/control_box/UpdateCut(index, mended)

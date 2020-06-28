@@ -172,7 +172,7 @@
 
 /obj/machinery/autolathe/attackby(obj/item/O, mob/user, params)
 	if(busy)
-		to_chat(user, "<span class='alert'>The autolathe is busy. Please wait for completion of previous operation.</span>")
+		to_chat(user, "<span class='alert'>Автолат занят. Пожалуйста подождите окончания операции.</span>")
 		return 1
 	if(exchange_parts(user, O))
 		return
@@ -184,20 +184,20 @@
 		if(istype(O, /obj/item/disk/design_disk))
 			var/obj/item/disk/design_disk/D = O
 			if(D.blueprint)
-				user.visible_message("[user] begins to load \the [O] in \the [src]...",
-					"You begin to load a design from \the [O]...",
-					"You hear the chatter of a floppy drive.")
+				user.visible_message("[user] начинает загружать \the [O] в \the [src]...",
+					"Вы начинаете грузить дизайн с \the [O]...",
+					"Вы слышите шум флоппи драйва.")
 				playsound(get_turf(src), 'sound/goonstation/machines/printer_dotmatrix.ogg', 50, 1)
 				busy = 1
 				if(do_after(user, 14.4, target = src))
 					files.AddDesign2Known(D.blueprint)
 				busy = 0
 			else
-				to_chat(user, "<span class='warning'>That disk does not have a design on it!</span>")
+				to_chat(user, "<span class='warning'>На это диске нет дизайна!</span>")
 			return 1
 		else
 			// So that people who are bad at computers don't shred their disks
-			to_chat(user, "<span class='warning'>This is not the correct type of disk for the autolathe!</span>")
+			to_chat(user, "<span class='warning'>Это не правильный тип диска для автолата!</span>")
 			return 1
 
 	return ..()
@@ -207,7 +207,7 @@
 		return
 	. = TRUE
 	if(busy)
-		to_chat(user, "<span class='alert'>The autolathe is busy. Please wait for completion of previous operation.</span>")
+		to_chat(user, "<span class='alert'>Автолат занят. Пожалуйста подождите окончания операции.</span>")
 		return
 	if(panel_open)
 		default_deconstruction_crowbar(user, I)
@@ -218,7 +218,7 @@
 		return
 	. = TRUE
 	if(busy)
-		to_chat(user, "<span class='alert'>The autolathe is busy. Please wait for completion of previous operation.</span>")
+		to_chat(user, "<span class='alert'>Автолат занят. Пожалуйста подождите окончания операции.</span>")
 		return
 	if(default_deconstruction_screwdriver(user, "autolathe_t", "autolathe", I))
 		SSnanoui.update_uis(src)
@@ -231,7 +231,7 @@
 		return
 	. = TRUE
 	if(busy)
-		to_chat(user, "<span class='alert'>The autolathe is busy. Please wait for completion of previous operation.</span>")
+		to_chat(user, "<span class='alert'>Автолат занят. Пожалуйста подождите окончания операции.</span>")
 		return
 	interact(user)
 
@@ -242,7 +242,7 @@
 		return
 	. = TRUE
 	if(busy)
-		to_chat(user, "<span class='alert'>The autolathe is busy. Please wait for completion of previous operation.</span>")
+		to_chat(user, "<span class='alert'>Автолат занят. Пожалуйста подождите окончания операции.</span>")
 		return
 	interact(user)
 
@@ -301,7 +301,7 @@
 		if((queue.len + 1) < queue_max_len)
 			add_to_queue(design_last_ordered,multiplier)
 		else
-			to_chat(usr, "<span class='warning'>The autolathe queue is full!</span>")
+			to_chat(usr, "<span class='warning'>Очередь автолата заполнена!</span>")
 		if(!busy)
 			busy = 1
 			process_queue()
@@ -444,7 +444,7 @@
 			being_built = new /list()
 			return 0
 		if(!can_build(D, multiplier))
-			visible_message("[bicon(src)] <b>\The [src]</b> beeps, \"Not enough resources. Queue processing terminated.\"")
+			visible_message("[bicon(src)] <b>\The [src]</b> сигналит, \"Недостаточно ресурсов. Очередь отменена.\"")
 			queue = list()
 			being_built = new /list()
 			return 0

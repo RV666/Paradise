@@ -153,7 +153,7 @@ GLOBAL_VAR(bomb_set)
 	if(removal_stage == NUKE_INTACT)
 		visible_message("<span class='notice'>[user] starts cutting loose the anchoring bolt covers on [src].</span>",\
 		"<span class='notice'>You start cutting loose the anchoring bolt covers with [I]...</span>",\
-		"<span class='warning'>You hear welding.</span>")
+		"<span class='warning'>Вы слышите сварку.</span>")
 		if(!I.use_tool(src, user, 40, 5, volume = I.tool_volume) || removal_stage != NUKE_INTACT)
 			return
 		visible_message("<span class='notice'>[user] cuts through the bolt covers on [src].</span>",\
@@ -162,7 +162,7 @@ GLOBAL_VAR(bomb_set)
 	else if(removal_stage == NUKE_COVER_OPEN)
 		visible_message("<span class='notice'>[user] starts cutting apart the anchoring system sealant on [src].</span>",\
 		"<span class='notice'>You start cutting apart the anchoring system's sealant with [I]...</span>",\
-		"<span class='warning'>You hear welding.</span>")
+		"<span class='warning'>Вы слышите сварку.</span>")
 		if(!I.use_tool(src, user, 40, 5, volume = I.tool_volume) || removal_stage != NUKE_COVER_OPEN)
 			return
 		visible_message("<span class='notice'>[user] cuts apart the anchoring system sealant on [src].</span>",\

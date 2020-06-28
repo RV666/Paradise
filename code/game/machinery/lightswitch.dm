@@ -161,7 +161,7 @@
 	. = TRUE
 	if(!I.tool_use_check(user, 0))
 		return
-	user.visible_message("<span class='notice'>[user] starts unwrenching [src] from the wall...</span>", "<span class='notice'>You are unwrenching [src] from the wall...</span>", "<span class='warning'>You hear ratcheting.</span>")
+	user.visible_message("<span class='notice'>[user] starts unwrenching [src] from the wall...</span>", "<span class='notice'>You are unwrenching [src] from the wall...</span>", "<span class='warning'>Вы слышите гаечный ключ.</span>")
 	. = TRUE
 	if(!I.use_tool(src, user, 30, volume = I.tool_volume))
 		return

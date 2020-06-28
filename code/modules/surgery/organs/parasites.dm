@@ -22,14 +22,14 @@
 			if(prob(12))
 				owner.reagents.add_reagent("histamine", 5)
 		if(5)
-			to_chat(owner, "<span class='danger'>You feel like something is tearing its way out of your skin...</span>")
+			to_chat(owner, "<span class='danger'>Вы чувствуете, как что-то вырывается из под вашей кожи...</span>")
 			owner.reagents.add_reagent("histamine", 10)
 			if(prob(30))
 				owner.emote("scream")
 				var/spiders = rand(3,5)
 				for(var/i in 1 to spiders)
 					new/obj/structure/spider/spiderling(get_turf(owner))
-				owner.visible_message("<span class='danger'>[owner] bursts open! Holy fuck!</span>")
+				owner.visible_message("<span class='danger'>[owner] разрывается на куски! Ебануться!</span>")
 				owner.gib()
 
 /obj/item/organ/internal/body_egg/spider_eggs/remove(var/mob/living/carbon/M, var/special = 0)
@@ -113,7 +113,7 @@
 			infection_completed = TRUE
 	S.immediate_ventcrawl = TRUE
 	eggs_hatched++
-	to_chat(owner, "<span class='warning'>A strange prickling sensation moves across your skin... then suddenly the whole world seems to spin around you!</span>")
+	to_chat(owner, "<span class='warning'>Странное покалывающее ощущение движется по вашей коже ... и вдруг весь мир, начинает вращается вокруг!</span>")
 	owner.Paralyse(10)
 	if(infection_completed && !QDELETED(src))
 		qdel(src)

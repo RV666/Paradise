@@ -38,7 +38,7 @@
 /obj/item/organ/internal/heart/attack_self(mob/user)
 	..()
 	if(status & ORGAN_DEAD)
-		to_chat(user, "<span class='warning'>You can't restart a dead heart.</span>")
+		to_chat(user, "<span class='warning'>Вы не можете запустить мертвое сердце.</span>")
 		return
 	if(!beating)
 		Restart()

@@ -270,11 +270,11 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 /obj/proc/atmosanalyzer_scan(var/datum/gas_mixture/air_contents, mob/user, var/obj/target = src)
 	var/obj/icon = target
-	user.visible_message("[user] has used the analyzer on [target].", "<span class='notice'>You use the analyzer on [target].</span>")
+	user.visible_message("[user] использовал анализатор на [target].", "<span class='notice'>Вы используете анализатор на [target].</span>")
 	var/pressure = air_contents.return_pressure()
 	var/total_moles = air_contents.total_moles()
 
-	user.show_message("<span class='notice'>Results of analysis of [bicon(icon)] [target].</span>", 1)
+	user.show_message("<span class='notice'>Результаты анализа [bicon(icon)] [target].</span>", 1)
 	if(total_moles>0)
 		var/o2_concentration = air_contents.oxygen/total_moles
 		var/n2_concentration = air_contents.nitrogen/total_moles
@@ -293,7 +293,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		user.show_message("<span class='notice'>Total: [round(total_moles,0.01)] moles</span>", 1)
 		user.show_message("<span class='notice'>Temperature: [round(air_contents.temperature-T0C)] &deg;C</span>", 1)
 	else
-		user.show_message("<span class='notice'>[target] is empty!</span>", 1)
+		user.show_message("<span class='notice'>[target] пуст!</span>", 1)
 	return
 
 //Picks a string of symbols to display as the law number for hacked or ion laws
@@ -338,7 +338,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 /proc/select_active_ai(var/mob/user)
 	var/list/ais = active_ais()
 	if(ais.len)
-		if(user)	. = input(usr,"AI signals detected:", "AI selection") in ais
+		if(user)	. = input(usr,"Сигнал ИИ обнаружен:", "AI selection") in ais
 		else		. = pick(ais)
 	return .
 

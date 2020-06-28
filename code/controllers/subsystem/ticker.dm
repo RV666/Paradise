@@ -62,7 +62,7 @@ SUBSYSTEM_DEF(ticker)
 			// This is ran as soon as the MC starts firing, and should only run ONCE, unless startup fails
 			round_start_time = world.time + (config.pregame_timestart * 10)
 			to_chat(world, "<B><FONT color='blue'>Добро пожаловать в предыгровое лобби!</FONT></B>")
-			to_chat(world, "Пожалуйста, настройте своего персонажа и выберите ready. Игра начнется через [config.pregame_timestart] секунд")
+			to_chat(world, "Пожалуйста, настройте своего персонажа и выберите готовность. Игра начнется через [config.pregame_timestart] секунд")
 			current_state = GAME_STATE_PREGAME
 			fire() // TG says this is a good idea
 		if(GAME_STATE_PREGAME)
@@ -419,7 +419,7 @@ SUBSYSTEM_DEF(ticker)
 	if(captainless)
 		for(var/mob/M in GLOB.player_list)
 			if(!istype(M,/mob/new_player))
-				to_chat(M, "Captainship not forced on anyone.")
+				to_chat(M, "Никто не выбрал капитана.")
 
 /datum/controller/subsystem/ticker/proc/send_tip_of_the_round()
 	var/m

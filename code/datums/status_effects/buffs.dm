@@ -11,7 +11,7 @@
 	icon_state = "shadow_mend"
 
 /datum/status_effect/shadow_mend/on_apply()
-	owner.visible_message("<span class='notice'>Violet light wraps around [owner]'s body!</span>", "<span class='notice'>Violet light wraps around your body!</span>")
+	owner.visible_message("<span class='notice'>Фиолетовое свечение окружает тело [owner]!</span>", "<span class='notice'>Фиолетовое свечение окружает ваше тело!</span>")
 	playsound(owner, 'sound/magic/teleport_app.ogg', 50, 1)
 	return ..()
 

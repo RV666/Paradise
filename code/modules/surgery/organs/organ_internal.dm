@@ -255,7 +255,7 @@
 /obj/item/organ/internal/honktumor/on_life()
 	if(organhonked < world.time)
 		organhonked = world.time + suffering_delay
-		to_chat(owner, "<font color='red' size='7'>HONK</font>")
+		to_chat(owner, "<font color='red' size='7'>ХОНК</font>")
 		owner.SetSleeping(0)
 		owner.Stuttering(20)
 		owner.MinimumDeafTicks(30)

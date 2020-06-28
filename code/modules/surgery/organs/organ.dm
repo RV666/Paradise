@@ -68,7 +68,7 @@
 		var/obj/item/stack/nanopaste/nano = I
 		nano.use(1)
 		rejuvenate()
-		to_chat(user, "<span class='notice'>You repair the damage on [src].</span>")
+		to_chat(user, "<span class='notice'>Вы починили урон на [src].</span>")
 		return
 	return ..()
 

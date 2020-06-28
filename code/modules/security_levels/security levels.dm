@@ -38,11 +38,11 @@ GLOBAL_DATUM_INIT(security_announcement_down, /datum/announcement/priority/secur
 					var/mob/living/silicon/robot/R = M
 					if(istype(R.module, /obj/item/robot_module/combat) && !R.crisis)
 						R.reset_module()
-						to_chat(R, "<span class='warning'>Crisis mode deactivated. The combat module is no longer available and your module has been reset.</span>")
+						to_chat(R, "<span class='warning'>Кризисный режим отключен. Боевой модуль больше ндоступен и ваш модуль был сброшен.</span>")
 
 		switch(level)
 			if(SEC_LEVEL_GREEN)
-				GLOB.security_announcement_down.Announce("All threats to the station have passed. All weapons need to be holstered and privacy laws are once again fully enforced.","Attention! Security level lowered to green.")
+				GLOB.security_announcement_down.Announce("Все угрозы станции исчезли.  Все оружие должно храниться в кобуре, и законы о приватности вновь полностью соблюдаются.","Внимание! Уровень безопасности понижен до Green.")
 				GLOB.security_level = SEC_LEVEL_GREEN
 
 				post_status("alert", "outline")
@@ -55,9 +55,9 @@ GLOBAL_DATUM_INIT(security_announcement_down, /datum/announcement/priority/secur
 
 			if(SEC_LEVEL_BLUE)
 				if(GLOB.security_level < SEC_LEVEL_BLUE)
-					GLOB.security_announcement_up.Announce("The station has received reliable information about possible hostile activity on the station. Security staff may have weapons visible and random searches are permitted.","Attention! Security level elevated to blue.")
+					GLOB.security_announcement_up.Announce("Станция получила достоверную информацию о возможной враждебной деятельности на станции. У сотрудники службы безопасности могут открыто носить оружие, и разрешены случайные обыски.","Внимание! Уровень безопасности повышен до Blue.")
 				else
-					GLOB.security_announcement_down.Announce("The immediate threat has passed. Security may no longer have weapons drawn at all times, but may continue to have them visible. Random searches are still allowed.","Attention! Security level lowered to blue.")
+					GLOB.security_announcement_down.Announce("Непосредственная угроза прошла. Охранники могут больше не брать оружие в любое время, но могут продолжать держать их видимыми. Случайный обыск все еще разрешен.","Внимание! Уровень безопасности понижен до Blue.")
 				GLOB.security_level = SEC_LEVEL_BLUE
 
 				post_status("alert", "default")
@@ -70,9 +70,9 @@ GLOBAL_DATUM_INIT(security_announcement_down, /datum/announcement/priority/secur
 
 			if(SEC_LEVEL_RED)
 				if(GLOB.security_level < SEC_LEVEL_RED)
-					GLOB.security_announcement_up.Announce("There is an immediate and serious threat to the station. Security may have weapons unholstered at all times. Random searches are allowed and advised.","Attention! Code Red!")
+					GLOB.security_announcement_up.Announce("Существует непосредственная и серьезная угроза для станции. У сотрудников службы безопасности всегда может быть оружие без кобуры. Случайные обыски разрешены и рекомендуются.","Внимание! Код Red!")
 				else
-					GLOB.security_announcement_down.Announce("The station's self-destruct mechanism has been deactivated, but there is still an immediate and serious threat to the station. Security may have weapons unholstered at all times. Random searches are allowed and advised.","Attention! Code Red!")
+					GLOB.security_announcement_down.Announce("Механизм самоуничтожения станции был деактивирован, но все еще существует непосредственная и серьезная угроза для станции. У сотрудников службы безопасности всегда может быть оружие без кобуры. Случайные обыски разрешены и рекомендуются.","Внимание! Код Red!")
 				GLOB.security_level = SEC_LEVEL_RED
 
 				var/obj/machinery/door/airlock/highsecurity/red/R = locate(/obj/machinery/door/airlock/highsecurity/red) in GLOB.airlocks
@@ -89,7 +89,7 @@ GLOBAL_DATUM_INIT(security_announcement_down, /datum/announcement/priority/secur
 						FA.update_icon()
 
 			if(SEC_LEVEL_GAMMA)
-				GLOB.security_announcement_up.Announce("Central Command has ordered the Gamma security level on the station. Security is to have weapons equipped at all times, and all civilians are to immediately seek their nearest head for transportation to a secure location. The station's Gamma armory has been unlocked and is ready for use.","Attention! Gamma security level activated!", new_sound = sound('sound/effects/new_siren.ogg'))
+				GLOB.security_announcement_up.Announce("Центральное командование установило уровень безопасности Gamma на станции. Служба безопасности всегда носит оружие экипированным, и все гражданские лица должны немедленно найти ближайшего главу для транспортировки в безопасное место. Гамма арсенал станции был разблокирован и готов к использованию.","Внимание! Gamma уровень безопасности установлен!", new_sound = sound('sound/effects/new_siren.ogg'))
 				GLOB.security_level = SEC_LEVEL_GAMMA
 
 				move_gamma_ship()
@@ -114,7 +114,7 @@ GLOBAL_DATUM_INIT(security_announcement_down, /datum/announcement/priority/secur
 						FA.update_icon()
 
 			if(SEC_LEVEL_EPSILON)
-				GLOB.security_announcement_up.Announce("Central Command has ordered the Epsilon security level on the station. Consider all contracts terminated.","Attention! Epsilon security level activated!", new_sound = sound('sound/effects/purge_siren.ogg'))
+				GLOB.security_announcement_up.Announce("Центральное командование установило уровень безопасности Epsilon на станции. Считайте, что все ваши контракты с корпорацией расторгнуты.","Внимание! Epsilon уровень безопасности установлен!", new_sound = sound('sound/effects/purge_siren.ogg'))
 				GLOB.security_level = SEC_LEVEL_EPSILON
 
 				post_status("alert", "epsilonalert")
@@ -126,7 +126,7 @@ GLOBAL_DATUM_INIT(security_announcement_down, /datum/announcement/priority/secur
 						FA.update_icon()
 
 			if(SEC_LEVEL_DELTA)
-				GLOB.security_announcement_up.Announce("The station's self-destruct mechanism has been engaged. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill.","Attention! Delta security level reached!", new_sound = sound('sound/effects/deltaalarm.ogg'))
+				GLOB.security_announcement_up.Announce("Механизм самоуничтожения станции задействован. Весь экипаж обязан соблюдать все приказы, данные главами. Любые нарушения этих приказов могут быть наказаны смертью. Это не учения.","Внимание! Delta уровень безопасности установлен!", new_sound = sound('sound/effects/deltaalarm.ogg'))
 				GLOB.security_level = SEC_LEVEL_DELTA
 
 				post_status("alert", "deltaalert")

@@ -18,11 +18,11 @@
 	var/msg
 	switch(amount)
 		if(1 to 10)
-			msg = "<b>Your [partname] hurts.</b>"
+			msg = "<b>Ваша [partname] болит.</b>"
 		if(11 to 90)
-			msg = "<b><font size=2>Your [partname] hurts badly.</font></b>"
+			msg = "<b><font size=2>Ваша [partname] сильно болит.</font></b>"
 		if(91 to INFINITY)
-			msg = "<b><font size=3>OH GOD! Your [partname] is hurting terribly!</font></b>"
+			msg = "<b><font size=3>ГОСПОДИ! Ваша [partname] болит просто невыносимо!</font></b>"
 	if(msg && (msg != last_pain_message || prob(10)))
 		last_pain_message = msg
 		to_chat(src, msg)
@@ -81,4 +81,4 @@ mob/living/carbon/human/proc/handle_pain()
 			continue
 		if(I.damage > 2 && prob(2))
 			var/obj/item/organ/external/parent = get_organ(I.parent_organ)
-			custom_pain("You feel a sharp pain in your [parent.limb_name]")
+			custom_pain("Вы чувствуете острую боль в вашей [parent.limb_name]")

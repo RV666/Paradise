@@ -199,9 +199,9 @@
 	flags = NODECONSTRUCT
 	var/base_icon_state = "body_scanner_0"
 	var/occupied_icon_state = "body_scanner_1"
-	var/on_store_message = "has entered long-term storage."
+	var/on_store_message = "вошел в долгосрочное криохранение."
 	var/on_store_name = "Cryogenic Oversight"
-	var/on_enter_occupant_message = "You feel cool air surround you. You go numb as your senses turn inward."
+	var/on_enter_occupant_message = "Вы чувствуете, как прохладный воздух окружает вас. Вы немеете и ваши чувства угасают."
 	var/allow_occupant_types = list(/mob/living/carbon/human)
 	var/disallow_occupant_types = list()
 
@@ -478,7 +478,7 @@
 		var/obj/item/grab/G = I
 
 		if(occupant)
-			to_chat(user, "<span class='notice'>[src] is in use.</span>")
+			to_chat(user, "<span class='notice'>[src] используется.</span>")
 			return
 
 		if(!ismob(G.affecting))
@@ -496,7 +496,7 @@
 			return
 
 		if(M.client)
-			if(alert(M,"Would you like to enter long-term storage?",,"Yes","No") == "Yes")
+			if(alert(M,"Вы хотит войти в долгосрочное криохранение?",,"Yes","No") == "Yes")
 				if(!M || !G || !G.affecting) return
 				willing = willing_time_divisor
 		else

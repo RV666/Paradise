@@ -57,14 +57,14 @@
 	var/real_name = client.prefs.real_name
 	if(client.prefs.randomslot)
 		real_name = "Random Character Slot"
-	var/output = {"<meta charset="UTF-8"><center><p><a href='byond://?src=[UID()];show_preferences=1'>Setup Character</A><br /><i>[real_name]</i></p>"}
+	var/output = {"<meta charset="UTF-8"><center><p><a href='byond://?src=[UID()];show_preferences=1'>Настроить Персонажа</A><br /><i>[real_name]</i></p>"}
 
 	if(!SSticker || SSticker.current_state <= GAME_STATE_PREGAME)
-		if(!ready)	output += "<p><a href='byond://?src=[UID()];ready=1'>Declare Ready</A></p>"
-		else	output += "<p><b>You are ready</b> (<a href='byond://?src=[UID()];ready=2'>Cancel</A>)</p>"
+		if(!ready)	output += "<p><a href='byond://?src=[UID()];ready=1'>Обьявить Готовность</A></p>"
+		else	output += "<p><b>Вы готовы</b> (<a href='byond://?src=[UID()];ready=2'>Отменить</A>)</p>"
 	else
-		output += "<p><a href='byond://?src=[UID()];manifest=1'>View the Crew Manifest</A></p>"
-		output += "<p><a href='byond://?src=[UID()];late_join=1'>Join Game!</A></p>"
+		output += "<p><a href='byond://?src=[UID()];manifest=1'>Посмотреть Crew Manifest</A></p>"
+		output += "<p><a href='byond://?src=[UID()];late_join=1'>Войти в Игру!</A></p>"
 
 	var/list/antags = client.prefs.be_special
 	if(antags && antags.len)
@@ -72,10 +72,10 @@
 		else	output += "<p><a href='byond://?src=[UID()];skip_antag=2'>Global Antag Candidacy</A>"
 		output += "<br /><small>You are <b>[client.skip_antag ? "ineligible" : "eligible"]</b> for all antag roles.</small></p>"
 
-	output += "<p><a href='byond://?src=[UID()];observe=1'>Observe</A></p>"
+	output += "<p><a href='byond://?src=[UID()];observe=1'>Наблюдать</A></p>"
 
 	if(GLOB.join_tos)
-		output += "<p><a href='byond://?src=[UID()];tos=1'>Terms of Service</A></p>"
+		output += "<p><a href='byond://?src=[UID()];tos=1'>Правила Пользования</A></p>"
 
 	if(!IsGuestKey(src.key))
 		establish_db_connection()
@@ -92,9 +92,9 @@
 				break
 
 			if(newpoll)
-				output += "<p><b><a href='byond://?showpoll=1'>Show Player Polls</A> (NEW!)</b></p>"
+				output += "<p><b><a href='byond://?showpoll=1'>Показать Голосования Игроков</A> (НОВЫЕ!)</b></p>"
 			else
-				output += "<p><a href='byond://?showpoll=1'>Show Player Polls</A></p>"
+				output += "<p><a href='byond://?showpoll=1'>Показать Голосования Игроков</A></p>"
 
 	output += "</center>"
 
@@ -179,7 +179,7 @@
 			to_chat(usr, "<span class='warning'>You must consent to the terms of service before you can join!</span>")
 			return 0
 
-		if(alert(src,"Are you sure you wish to observe?[(config.respawn_observer ? "" : " You cannot normally join the round after doing this!")]","Player Setup","Yes","No") == "Yes")
+		if(alert(src,"Вы уверены, что хотите стать наблюдателем?[(config.respawn_observer ? "" : " Вы не сможете войти в раунд после этого!")]","Player Setup","Yes","No") == "Yes")
 			if(!client)
 				return 1
 			var/mob/dead/observer/observer = new()
@@ -333,7 +333,7 @@
 
 		// IsJobAvailable for AI checks that there is an empty core available in this list
 		ai_character.moveToEmptyCore()
-		AnnounceCyborg(ai_character, rank, "has been downloaded to the empty core in \the [get_area(ai_character)]")
+		AnnounceCyborg(ai_character, rank, "был загружен в пустое ядро в \the [get_area(ai_character)]")
 
 		SSticker.mode.latespawn(ai_character)
 		qdel(src)
@@ -350,7 +350,7 @@
 			character.loc = pick(GLOB.syndicateofficer)
 		else
 			character.forceMove(pick(GLOB.aroomwarp))
-		join_message = "has arrived"
+		join_message = "прибыл"
 	else
 		if(spawning_at)
 			S = GLOB.spawntypes[spawning_at]
@@ -361,10 +361,10 @@
 			else
 				to_chat(character, "Your chosen spawnpoint ([S.display_name]) is unavailable for your chosen job. Spawning you at the Arrivals shuttle instead.")
 				character.forceMove(pick(GLOB.latejoin))
-				join_message = "has arrived on the station"
+				join_message = "прибыл на станцию"
 		else
 			character.forceMove(pick(GLOB.latejoin))
-			join_message = "has arrived on the station"
+			join_message = "прибыл на станцию"
 
 	character.lastarea = get_area(loc)
 	// Moving wheelchair if they have one
@@ -419,7 +419,7 @@
 				if((character.mind.assigned_role != "Cyborg") && (character.mind.assigned_role != character.mind.special_role))
 					if(character.mind.role_alt_title)
 						rank = character.mind.role_alt_title
-					GLOB.global_announcer.autosay("[character.real_name],[rank ? " [rank]," : " visitor," ] [join_message ? join_message : "has arrived on the station"].", "Arrivals Announcement Computer")
+					GLOB.global_announcer.autosay("[character.real_name],[rank ? " [rank]," : " visitor," ] [join_message ? join_message : "прибыл на станцию"].", "Компьютер Объявления о Прибытии")
 
 /mob/new_player/proc/AddEmploymentContract(mob/living/carbon/human/employee)
 	spawn(30)
@@ -437,13 +437,13 @@
 			var/mob/living/silicon/ai/announcer = pick(ailist)
 			if(character.mind)
 				if(character.mind.assigned_role != character.mind.special_role)
-					var/arrivalmessage = "A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the station"]."
+					var/arrivalmessage = "A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "прибыл на станцию"]."
 					announcer.say(";[arrivalmessage]")
 		else
 			if(character.mind)
 				if(character.mind.assigned_role != character.mind.special_role)
 					// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Android has arrived"/etc.
-					GLOB.global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the station"].", "Arrivals Announcement Computer")
+					GLOB.global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "прибыл на станцию"].", "Компьютер Объявления о Прибытии")
 
 /mob/new_player/proc/LateChoices()
 	var/mills = ROUND_TIME // 1/10 of a second, not real milliseconds but whatever
@@ -455,12 +455,12 @@
 	dat += "Round Duration: [round(hours)]h [round(mins)]m<br>"
 
 	if(SSshuttle.emergency.mode >= SHUTTLE_ESCAPE)
-		dat += "<font color='red'><b>The station has been evacuated.</b></font><br>"
+		dat += "<font color='red'><b>Станция была эвакуирована.</b></font><br>"
 	else if(SSshuttle.emergency.mode >= SHUTTLE_CALL)
-		dat += "<font color='red'>The station is currently undergoing evacuation procedures.</font><br>"
+		dat += "<font color='red'>Станция в данный момент в стадии эвакуации.</font><br>"
 
 	if(length(SSjobs.prioritized_jobs))
-		dat += "<font color='lime'>The station has flagged these jobs as high priority: "
+		dat += "<font color='lime'>Станция установила высший приоритет на эти работы: "
 		var/amt = length(SSjobs.prioritized_jobs)
 		var/amt_count
 		for(var/datum/job/a in SSjobs.prioritized_jobs)
@@ -510,7 +510,7 @@
 				categorizedJobs["Miscellaneous"]["jobs"] += job
 
 	if(num_jobs_available)
-		dat += "Choose from the following open positions:<br><br>"
+		dat += "Выберите из следующих открытых позиций :<br><br>"
 		dat += "<table><tr><td valign='top'>"
 		for(var/jobcat in categorizedJobs)
 			if(categorizedJobs[jobcat]["colBreak"])

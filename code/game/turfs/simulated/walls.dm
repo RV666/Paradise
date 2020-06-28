@@ -60,18 +60,18 @@
 	. = ..()
 
 	if(!damage)
-		. += "<span class='notice'>It looks fully intact.</span>"
+		. += "<span class='notice'>Выглядит полностью целым.</span>"
 	else
 		var/dam = damage / damage_cap
 		if(dam <= 0.3)
-			. += "<span class='warning'>It looks slightly damaged.</span>"
+			. += "<span class='warning'>Выглядит немного поврежденным.</span>"
 		else if(dam <= 0.6)
-			. += "<span class='warning'>It looks moderately damaged.</span>"
+			. += "<span class='warning'>Выглядит частично поврежденным.</span>"
 		else
-			. += "<span class='danger'>It looks heavily damaged.</span>"
+			. += "<span class='danger'>Выглядит серьезно поврежденным.</span>"
 
 	if(rotting)
-		. += "<span class='warning'>There is fungus growing on [src].</span>"
+		. += "<span class='warning'>Здесь растет грибок на [src].</span>"
 
 /turf/simulated/wall/proc/update_icon()
 	if(!damage_overlays[1]) //list hasn't been populated
@@ -191,7 +191,7 @@
 	if(our_rpd.mode == RPD_ATMOS_MODE)
 		if(!our_rpd.ranged)
 			playsound(src, "sound/weapons/circsawhit.ogg", 50, 1)
-			user.visible_message("<span class='notice'>[user] starts drilling a hole in [src]...</span>", "<span class='notice'>You start drilling a hole in [src]...</span>", "<span class='warning'>You hear drilling.</span>")
+			user.visible_message("<span class='notice'>[user] начинает сверлить дыру в [src]...</span>", "<span class='notice'>Вы начинаете сверлить дыру в [src]...</span>", "<span class='warning'>Вы слышите звук сверла.</span>")
 			if(!do_after(user, our_rpd.walldelay, target = src)) //Drilling into walls takes time
 				return
 		our_rpd.create_atmos_pipe(user, src)
@@ -205,7 +205,7 @@
 	switch(M.damtype)
 		if(BRUTE)
 			playsound(src, 'sound/weapons/punch4.ogg', 50, TRUE)
-			M.visible_message("<span class='danger'>[M.name] hits [src]!</span>", "<span class='danger'>You hit [src]!</span>")
+			M.visible_message("<span class='danger'>[M.name] ударяет [src]!</span>", "<span class='danger'>Вы ударили [src]!</span>")
 			if(prob(hardness + M.force) && M.force > 20)
 				dismantle_wall(1)
 				playsound(src, 'sound/effects/meteorimpact.ogg', 100, TRUE)
@@ -253,7 +253,7 @@
 	F.burn_tile()
 	F.icon_state = "plating"
 	if(user)
-		to_chat(user, "<span class='warning'>The thermite starts melting through the wall.</span>")
+		to_chat(user, "<span class='warning'>Термит начинает плавить стену.</span>")
 
 	spawn(wait)
 		if(O)	qdel(O)
@@ -267,13 +267,13 @@
 	if((M.environment_smash & ENVIRONMENT_SMASH_WALLS) || (M.environment_smash & ENVIRONMENT_SMASH_RWALLS))
 		if(M.environment_smash & ENVIRONMENT_SMASH_RWALLS)
 			dismantle_wall(1)
-			to_chat(M, "<span class='info'>You smash through the wall.</span>")
+			to_chat(M, "<span class='info'>Ты пробиваешься сквозь стену.</span>")
 		else
-			to_chat(M, text("<span class='notice'>You smash against the wall.</span>"))
+			to_chat(M, text("<span class='notice'>Ты разбиваешься о стену.</span>"))
 			take_damage(rand(25, 75))
 			return
 
-	to_chat(M, "<span class='notice'>You push the wall but nothing happens!</span>")
+	to_chat(M, "<span class='notice'>Ты толкаешь стену, но ничего не происходит!</span>")
 	return
 
 /turf/simulated/wall/attack_hulk(mob/user, does_attack_animation = FALSE)
@@ -281,26 +281,26 @@
 
 	if(prob(hardness) || rotting)
 		playsound(src, 'sound/effects/meteorimpact.ogg', 100, 1)
-		user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ))
+		user.say(pick(";РАААААААРГХ!", ";НГХХХХХХХХХГ!", ";ГВААААААААААААРГХ!", "НННННННГГГГГГГХХХХХХХ!", ";ААААААААААРРРРРГГГГХХХ!" ))
 		dismantle_wall(TRUE)
 	else
 		playsound(src, 'sound/effects/bang.ogg', 50, 1)
 		add_dent(WALL_DENT_HIT)
-		to_chat(user, text("<span class='notice'>You punch the wall.</span>"))
+		to_chat(user, text("<span class='notice'>Ты ударяешь стену.</span>"))
 	return TRUE
 
 /turf/simulated/wall/attack_hand(mob/user)
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(rotting)
 		if(hardness <= 10)
-			to_chat(user, "<span class='notice'>This wall feels rather unstable.</span>")
+			to_chat(user, "<span class='notice'>Эта стена кажется довольно нестабильной.</span>")
 			return
 		else
-			to_chat(user, "<span class='notice'>The wall crumbles under your touch.</span>")
+			to_chat(user, "<span class='notice'>Стена рассыпается под твоим прикосновением.</span>")
 			dismantle_wall()
 			return
 
-	to_chat(user, "<span class='notice'>You push the wall but nothing happens!</span>")
+	to_chat(user, "<span class='notice'>Ты толкаешь стену, но ничего не происходит!</span>")
 	playsound(src, 'sound/weapons/genhit.ogg', 25, 1)
 	add_fingerprint(user)
 	return ..()
@@ -338,7 +338,7 @@
 			for(var/obj/effect/overlay/wall_rot/WR in src)
 				qdel(WR)
 			rotting = FALSE
-			to_chat(user, "<span class='notice'>You burn off the fungi with [I].</span>")
+			to_chat(user, "<span class='notice'>Ты сжигаешь грибы с помощью [I].</span>")
 		return
 
 	if(!I.tool_use_check(user, 0)) //Wall repair stuff
@@ -352,9 +352,9 @@
 		intention = "Repair"
 		if(can_dismantle_with_welder)
 			var/moved_away = user.loc
-			intention = alert(user, "Would you like to repair or dismantle [src]?", "[src]", "Repair", "Dismantle")
+			intention = alert(user, "Хотите отремонтировать или разобрать [src]?", "[src]", "Repair", "Dismantle")
 			if(user.loc != moved_away)
-				to_chat(user, "<span class='notice'>Stay still while doing this!</span>")
+				to_chat(user, "<span class='notice'>Не двигайся пока это делаешь!</span>")
 				return
 			if(intention == "Repair")
 				time_required = max(5, damage / 5)
@@ -376,20 +376,20 @@
 
 /turf/simulated/wall/proc/try_rot(obj/item/I, mob/user, params)
 	if((!is_sharp(I) && I.force >= 10) || I.force >= 20)
-		to_chat(user, "<span class='notice'>[src] crumbles away under the force of your [I.name].</span>")
+		to_chat(user, "<span class='notice'>[src] рассыпается под силой вашей [I.name].</span>")
 		dismantle_wall(1)
 		return TRUE
 	return FALSE
 
 /turf/simulated/wall/proc/try_decon(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/gun/energy/plasmacutter))
-		to_chat(user, "<span class='notice'>You begin slicing through the outer plating.</span>")
+		to_chat(user, "<span class='notice'>Вы начинаете резать внешнюю обшивку.</span>")
 		playsound(src, I.usesound, 100, 1)
 
 		if(do_after(user, istype(sheet_type, /obj/item/stack/sheet/mineral/diamond) ? 120 * I.toolspeed : 60 * I.toolspeed, target = src))
-			to_chat(user, "<span class='notice'>You remove the outer plating.</span>")
+			to_chat(user, "<span class='notice'>Вы убираете внешнюю обшивку.</span>")
 			dismantle_wall()
-			visible_message("<span class='warning'>[user] slices apart [src]!</span>", "<span class='warning'>You hear metal being sliced apart.</span>")
+			visible_message("<span class='warning'>[user] разрезает на части [src]!</span>", "<span class='warning'>Вы слышите звук разрезаемого металла.</span>")
 			return TRUE
 
 	return FALSE
@@ -398,21 +398,21 @@
 	var/isdiamond = istype(sheet_type, /obj/item/stack/sheet/mineral/diamond) // snowflake bullshit
 
 	if(istype(I, /obj/item/pickaxe/drill/diamonddrill))
-		to_chat(user, "<span class='notice'>You begin to drill though the wall.</span>")
+		to_chat(user, "<span class='notice'>Вы начинаете сверлить стену.</span>")
 
 		if(do_after(user, isdiamond ? 480 * I.toolspeed : 240 * I.toolspeed, target = src)) // Diamond pickaxe has 0.25 toolspeed, so 120/60
-			to_chat(user, "<span class='notice'>Your [I.name] tears though the last of the reinforced plating.</span>")
+			to_chat(user, "<span class='notice'>Ваша [I.name] пробивается сквозь бронированную обшивку.</span>")
 			dismantle_wall()
-			visible_message("<span class='warning'>[user] drills through [src]!</span>", "<span class='warning'>You hear the grinding of metal.</span>")
+			visible_message("<span class='warning'>[user] просверливает сквозь [src]!</span>", "<span class='warning'>Вы слышите скрежет металла.</span>")
 			return TRUE
 
 	else if(istype(I, /obj/item/pickaxe/drill/jackhammer))
-		to_chat(user, "<span class='notice'>You begin to disintegrates the wall.</span>")
+		to_chat(user, "<span class='notice'>Вы начинаете разрушать стену.</span>")
 
 		if(do_after(user, isdiamond ? 600 * I.toolspeed : 300 * I.toolspeed, target = src)) // Jackhammer has 0.1 toolspeed, so 60/30
-			to_chat(user, "<span class='notice'>Your [I.name] disintegrates the reinforced plating.</span>")
+			to_chat(user, "<span class='notice'>Your [I.name] разрушает бронированную обшивку.</span>")
 			dismantle_wall()
-			visible_message("<span class='warning'>[user] disintegrates [src]!</span>","<span class='warning'>You hear the grinding of metal.</span>")
+			visible_message("<span class='warning'>[user] разрушает [src]!</span>","<span class='warning'>Вы слышите скрежет металла.</span>")
 			return TRUE
 
 	return FALSE

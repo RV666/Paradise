@@ -250,7 +250,7 @@
 			return
 	else
 		var/adjective = welded ? "open" : "shut"
-		user.visible_message("<span class='notice'>[user] begins welding [src] [adjective]...</span>", "<span class='notice'>You begin welding [src] [adjective]...</span>", "<span class='warning'>You hear welding.</span>")
+		user.visible_message("<span class='notice'>[user] begins welding [src] [adjective]...</span>", "<span class='notice'>You begin welding [src] [adjective]...</span>", "<span class='warning'>Вы слышите сварку.</span>")
 		if(I.use_tool(src, user, 15, volume = I.tool_volume))
 			if(opened)
 				to_chat(user, "<span class='notice'>Keep [src] shut while doing that!</span>")

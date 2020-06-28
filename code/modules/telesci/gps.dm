@@ -42,16 +42,16 @@ GLOBAL_LIST_EMPTY(GPS_list)
 		to_chat(user, "<span class='warning'>It's busted!</span>")
 	if(tracking)
 		overlays -= "working"
-		to_chat(user, "[src] is no longer tracking, or visible to other GPS devices.")
+		to_chat(user, "[src] больше не отслеживается, или не виден другим устройствам GPS.")
 		tracking = FALSE
 	else
 		overlays += "working"
-		to_chat(user, "[src] is now tracking, and visible to other GPS devices.")
+		to_chat(user, "[src] теперь отслеживается, и виден другим устройствам GPS.")
 		tracking = TRUE
 
 /obj/item/gps/attack_self(mob/user as mob)
 	if(!tracking)
-		to_chat(user, "<span class='warning'>[src] is turned off. Use alt+click to toggle it back on.</span>")
+		to_chat(user, "<span class='warning'>[src] выключен. Используйте alt+click чтобы включить его.</span>")
 		return
 
 	var/obj/item/gps/t = ""

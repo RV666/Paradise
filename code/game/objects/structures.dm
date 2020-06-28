@@ -61,7 +61,7 @@
 		return
 	var/blocking_object = density_check()
 	if(blocking_object)
-		to_chat(user, "<span class='warning'>You cannot climb [src], as it is blocked by \a [blocking_object]!</span>")
+		to_chat(user, "<span class='warning'>Вы не можете забраться на [src], так как \a [blocking_object] мешает!</span>")
 		return
 
 	var/turf/T = src.loc
@@ -90,14 +90,14 @@
 		if(M.lying) return //No spamming this on people.
 
 		M.Weaken(5)
-		to_chat(M, "<span class='warning'>You topple as \the [src] moves under you!</span>")
+		to_chat(M, "<span class='warning'>Вы падаете так как \the [src] двигается под вашими ногами!</span>")
 
 		if(prob(25))
 
 			var/damage = rand(15,30)
 			var/mob/living/carbon/human/H = M
 			if(!istype(H))
-				to_chat(H, "<span class='warning'>You land heavily!</span>")
+				to_chat(H, "<span class='warning'>Вы тяжело приземлились!</span>")
 				M.adjustBruteLoss(damage)
 				return
 
@@ -116,12 +116,12 @@
 					affecting = H.get_organ("head")
 
 			if(affecting)
-				to_chat(M, "<span class='warning'>You land heavily on your [affecting.name]!</span>")
+				to_chat(M, "<span class='warning'>Вы тяжело приземлились на вашу [affecting.name]!</span>")
 				affecting.receive_damage(damage, 0)
 				if(affecting.parent)
 					affecting.parent.add_autopsy_data("Misadventure", damage)
 			else
-				to_chat(H, "<span class='warning'>You land heavily!</span>")
+				to_chat(H, "<span class='warning'>Вы тяжело приземлились!</span>")
 				H.adjustBruteLoss(damage)
 
 			H.UpdateDamageIcon()
@@ -133,12 +133,12 @@
 	if(!Adjacent(user))
 		return 0
 	if(user.restrained() || user.buckled)
-		to_chat(user, "<span class='notice'>You need your hands and legs free for this.</span>")
+		to_chat(user, "<span class='notice'>Вам нужно освободить руки и ноги для этого.</span>")
 		return 0
 	if(user.stat || user.paralysis || user.sleeping || user.lying || user.IsWeakened())
 		return 0
 	if(issilicon(user))
-		to_chat(user, "<span class='notice'>You need hands for this.</span>")
+		to_chat(user, "<span class='notice'>Вам нужны руки для этого.</span>")
 		return 0
 	return 1
 
@@ -146,9 +146,9 @@
 	. = ..()
 	if(!(resistance_flags & INDESTRUCTIBLE))
 		if(resistance_flags & ON_FIRE)
-			. += "<span class='warning'>It's on fire!</span>"
+			. += "<span class='warning'>Оно в огне!</span>"
 		if(broken)
-			. += "<span class='notice'>It appears to be broken.</span>"
+			. += "<span class='notice'>Выглядит сломанным.</span>"
 		var/examine_status = examine_status(user)
 		if(examine_status)
 			. += examine_status
@@ -157,9 +157,9 @@
 	var/healthpercent = (obj_integrity/max_integrity) * 100
 	switch(healthpercent)
 		if(50 to 99)
-			return  "It looks slightly damaged."
+			return  "Выглядит немного поврежденным."
 		if(25 to 50)
-			return  "It appears heavily damaged."
+			return  "Выглядит сильно поврежденным."
 		if(0 to 25)
 			if(!broken)
-				return  "<span class='warning'>It's falling apart!</span>"
+				return  "<span class='warning'>Оно разваливается!</span>"

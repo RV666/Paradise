@@ -228,7 +228,7 @@
 		var/obj/item/stack/sheet/mineral/mineral_path = text2path("/obj/item/stack/sheet/mineral/[mineral]")
 		visible_message("<span class='notice'>[user] welds the [mineral] plating off [src].</span>",\
 			"<span class='notice'>You start to weld the [mineral] plating off [src]...</span>",\
-			"<span class='warning'>You hear welding.</span>")
+			"<span class='warning'>Вы слышите сварку.</span>")
 		if(!I.use_tool(src, user, 40, volume = I.tool_volume))
 			return
 		to_chat(user, "<span class='notice'>You weld the [mineral] plating off.</span>")
@@ -238,7 +238,7 @@
 	else if(glass)
 		visible_message("<span class='notice'>[user] welds the glass panel out of [src].</span>",\
 			"<span class='notice'>You start to weld the glass panel out of the [src]...</span>",\
-			"<span class='warning'>You hear welding.</span>")
+			"<span class='warning'>Вы слышите сварку.</span>")
 		if(!I.use_tool(src, user, 40, volume = I.tool_volume))
 			return
 		to_chat(user, "<span class='notice'>You weld the glass panel out.</span>")
@@ -251,7 +251,7 @@
 	else if(!anchored)
 		visible_message("<span class='warning'>[user] disassembles [src].</span>", \
 			"<span class='notice'>You start to disassemble [src]...</span>",\
-			"<span class='warning'>You hear welding.</span>")
+			"<span class='warning'>Вы слышите сварку.</span>")
 		if(!I.use_tool(src, user, 40, volume = I.tool_volume))
 			return
 		to_chat(user, "<span class='notice'>You disassemble the airlock assembly.</span>")

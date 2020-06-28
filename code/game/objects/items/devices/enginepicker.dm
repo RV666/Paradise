@@ -29,7 +29,7 @@
 
 	locatebeacons()
 	var/default = null
-	var/E = input("Select the station's Engine:", "[src]", default) as null|anything in list_enginebeacons
+	var/E = input("Выберите engine для станции:", "[src]", default) as null|anything in list_enginebeacons
 	if(E)
 		processchoice(E, user)
 	else
@@ -80,7 +80,7 @@
 			ailist += A
 		if(ailist.len)
 			var/mob/living/silicon/ai/announcer = pick(ailist)
-			announcer.say(";Engine delivery detected. Type: [engtype].")	//Let's announce the terrible choice to everyone
+			announcer.say(";Обнаружена доставка engine. Тип: [engtype].")	//Let's announce the terrible choice to everyone
 
 		visible_message("<span class='notice'>\The [src] begins to violently vibrate and hiss, then promptly disintegrates!</span>")
 		qdel(src)	//Self-destructs to prevent crew from spawning multiple engines.

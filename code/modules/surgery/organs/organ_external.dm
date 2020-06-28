@@ -44,7 +44,7 @@
 	// Internal organs of this body part
 	var/list/internal_organs = list()
 
-	var/damage_msg = "<span class='warning'>You feel an intense pain</span>"
+	var/damage_msg = "<span class='warning'>Вы испытываете сильную боль</span>"
 	var/broken_description
 
 	var/open = 0  // If the body part has an open incision from surgery
@@ -67,7 +67,7 @@
 	if(dead_icon)
 		icon_state = dead_icon
 	if(owner)
-		to_chat(owner, "<span class='notice'>You can't feel your [name] anymore...</span>")
+		to_chat(owner, "<span class='notice'>Вы больше не чувствуете вашу [name]...</span>")
 		owner.update_body()
 		if(vital)
 			owner.death()

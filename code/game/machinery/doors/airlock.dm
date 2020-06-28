@@ -976,7 +976,7 @@ About the new airlock wires panel:
 				return
 			visible_message("<span class='notice'>[user] cuts through \the [src]'s shielding.</span>",
 				"<span class='notice'>You cut through \the [src]'s shielding.</span>",
-				"<span class='italics'>You hear welding.</span>")
+				"<span class='italics'>Вы слышите сварку.</span>")
 			security_level = AIRLOCK_SECURITY_NONE
 			spawn_atom_to_turf(/obj/item/stack/sheet/metal, user.loc, 2)
 		if(AIRLOCK_SECURITY_PLASTEEL_O)
@@ -987,7 +987,7 @@ About the new airlock wires panel:
 				return
 			visible_message("<span class='notice'>[user] cuts through \the [src]'s shielding.</span>",
 				"<span class='notice'>You cut through \the [src]'s shielding.</span>",
-				"<span class='italics'>You hear welding.</span>")
+				"<span class='italics'>Вы слышите сварку.</span>")
 			security_level = AIRLOCK_SECURITY_PLASTEEL_O_S
 		if(AIRLOCK_SECURITY_PLASTEEL_I)
 			to_chat(user, "<span class='notice'>You begin cutting the inner layer of shielding...</span>")
@@ -997,13 +997,13 @@ About the new airlock wires panel:
 				return
 			user.visible_message("<span class='notice'>[user] cuts through \the [src]'s shielding.</span>",
 				"<span class='notice'>You cut through \the [src]'s shielding.</span>",
-				"<span class='italics'>You hear welding.</span>")
+				"<span class='italics'>Вы слышите сварку.</span>")
 			security_level = AIRLOCK_SECURITY_PLASTEEL_I_S
 		else
 			if(user.a_intent != INTENT_HELP)
 				user.visible_message("[user] is [welded ? "unwelding":"welding"] the airlock.", \
 					"<span class='notice'>You begin [welded ? "unwelding":"welding"] the airlock...</span>", \
-					"<span class='italics'>You hear welding.</span>")
+					"<span class='italics'>Вы слышите сварку.</span>")
 
 				if(I.use_tool(src, user, 40, volume = I.tool_volume, extra_checks = CALLBACK(src, .proc/weld_checks, I, user)))
 					if(!density && !welded)
@@ -1015,7 +1015,7 @@ About the new airlock wires panel:
 			else if(obj_integrity < max_integrity)
 				user.visible_message("[user] is welding the airlock.", \
 					"<span class='notice'>You begin repairing the airlock...</span>", \
-					"<span class='italics'>You hear welding.</span>")
+					"<span class='italics'>Вы слышите сварку.</span>")
 				if(I.use_tool(src, user, 40, volume = I.tool_volume, extra_checks = CALLBACK(src, .proc/weld_checks, I, user)))
 					obj_integrity = max_integrity
 					stat &= ~BROKEN

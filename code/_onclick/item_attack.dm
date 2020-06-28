@@ -101,7 +101,7 @@
 
 /obj/attacked_by(obj/item/I, mob/living/user)
 	if(I.force)
-		user.visible_message("<span class='danger'>[user] has hit [src] with [I]!</span>", "<span class='danger'>You hit [src] with [I]!</span>")
+		user.visible_message("<span class='danger'>[user] ударил [src] при помощи [I]!</span>", "<span class='danger'>Вы ударили [src] при помощи [I]!</span>")
 	take_damage(I.force, I.damtype, "melee", 1)
 
 /mob/living/attacked_by(obj/item/I, mob/living/user, def_zone)
@@ -119,11 +119,11 @@
 
 /mob/living/simple_animal/attacked_by(obj/item/I, mob/living/user)
 	if(!I.force)
-		user.visible_message("<span class='warning'>[user] gently taps [src] with [I].</span>",\
-						"<span class='warning'>This weapon is ineffective, it does no damage!</span>")
+		user.visible_message("<span class='warning'>[user] мягко стукаете [src] при помощи [I].</span>",\
+						"<span class='warning'>Это оружие неефективно, оно не нанесло урона!</span>")
 	else if(I.force < force_threshold || I.damtype == STAMINA)
-		visible_message("<span class='warning'>[I] bounces harmlessly off of [src].</span>",\
-					"<span class='warning'>[I] bounces harmlessly off of [src]!</span>")
+		visible_message("<span class='warning'>[I] безвредно отскакивает от [src].</span>",\
+					"<span class='warning'>[I] безвредно отскакивает от [src]!</span>")
 	else
 		return ..()
 
@@ -142,17 +142,17 @@
 /mob/living/proc/send_item_attack_message(obj/item/I, mob/living/user, hit_area)
 	if(I.discrete)
 		return
-	var/message_verb = "attacked"
+	var/message_verb = "атакован"
 	if(I.attack_verb && I.attack_verb.len)
 		message_verb = "[pick(I.attack_verb)]"
 	else if(!I.force)
 		return
 	var/message_hit_area = ""
 	if(hit_area)
-		message_hit_area = " in the [hit_area]"
-	var/attack_message = "[src] has been [message_verb][message_hit_area] with [I]."
+		message_hit_area = " в [hit_area]"
+	var/attack_message = "[src] был [message_verb][message_hit_area] при помощи [I]."
 	if(user in viewers(src, null))
-		attack_message = "[user] has [message_verb] [src][message_hit_area] with [I]!"
+		attack_message = "[user] has [message_verb] [src][message_hit_area] при помощи [I]!"
 	visible_message("<span class='combat danger'>[attack_message]</span>",\
 		"<span class='combat userdanger'>[attack_message]</span>")
 	return 1
