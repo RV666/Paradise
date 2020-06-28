@@ -17,7 +17,8 @@
 	var/delay = 0								//Delay for energy weapons
 	var/randomspread = 0						//Randomspread for automatics
 	var/click_cooldown_override = 0				//Override this to make your gun have a faster fire rate, in tenths of a second. 4 is the default gun cooldown.
-	var/harmful = TRUE //pacifism check for boolet, set to FALSE if bullet is non-lethal
+	var/harmful = TRUE							//pacifism check for boolet, set to FALSE if bullet is non-lethal
+	var/leaves_residue      		    		//Остается ли порох на руках и одежде?
 
 /obj/item/ammo_casing/New()
 	..()
@@ -78,6 +79,14 @@
 			else
 				to_chat(user, "<span class='notice'>There is no bullet in the casing to inscribe anything into.</span>")
 		..()
+
+/obj/item/ammo_casing/proc/leave_residue(mob/living/carbon/human/H)
+	for(H)
+		if(H.gloves)
+			var/obj/item/clothing/G = H.gloves
+			G.gunshot_residue = caliber
+		else
+			H.gunshot_residue = caliber
 
 //Boxes of ammo
 /obj/item/ammo_box
