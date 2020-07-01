@@ -8,30 +8,30 @@ export const DisposalBin = (props, context) => {
   let stateText;
   if (data.mode === 2) {
     stateColor = "good";
-    stateText = "Ready";
+    stateText = "Готово";
   } else if (data.mode <= 0) {
     stateColor = "bad";
-    stateText = "N/A";
+    stateText = "Нет данных";
   } else if (data.mode === 1) {
     stateColor = "average";
-    stateText = "Pressurizing";
+    stateText = "Набор давления";
   } else {
     stateColor = "average";
-    stateText = "Idle";
+    stateText = "Ожидание";
   }
   return (
     <Window>
       <Window.Content>
         <Section>
           <Box bold m={1}>
-            Status
+            Статус
           </Box>
           <LabeledList>
-            <LabeledList.Item label="State" color={stateColor}>
+            <LabeledList.Item label="Состояние" color={stateColor}>
               {stateText}
             </LabeledList.Item>
             <LabeledList.Item
-              label="Pressure">
+              label="Давление">
               <ProgressBar
                 ranges={{
                   bad: [-Infinity, 0],
@@ -44,46 +44,46 @@ export const DisposalBin = (props, context) => {
             </LabeledList.Item>
           </LabeledList>
           <Box bold m={1}>
-            Controls
+            Управление
           </Box>
           <LabeledList>
-            <LabeledList.Item label="Handle">
+            <LabeledList.Item label="Клапан">
               <Button
                 icon="toggle-off"
                 disabled={data.isAI || data.panel_open}
-                content="Disengaged"
+                content="Закрыть"
                 selected={data.flushing ? null : "selected"}
                 onClick={() => act("disengageHandle")}
               />
               <Button
                 icon="toggle-on"
                 disabled={data.isAI || data.panel_open}
-                content="Engaged"
+                content="Открыть"
                 selected={data.flushing ? "selected" : null}
                 onClick={() => act("engageHandle")}
               />
             </LabeledList.Item>
-            <LabeledList.Item label="Power">
+            <LabeledList.Item label="Питание">
               <Button
                 icon="toggle-off"
                 disabled={data.mode === -1}
-                content="Off"
+                content="Выкл"
                 selected={data.mode ? null : "selected"}
                 onClick={() => act("pumpOff")}
               />
               <Button
                 icon="toggle-on"
                 disabled={data.mode === -1}
-                content="On"
+                content="Вкл"
                 selected={data.mode ? "selected" : null}
                 onClick={() => act("pumpOn")}
               />
             </LabeledList.Item>
-            <LabeledList.Item label="Eject">
+            <LabeledList.Item label="Извлечь">
               <Button
                 icon="sign-out-alt"
                 disabled={data.isAI}
-                content="Eject Contents"
+                content="Извлечь содержимое"
                 onClick={() => act("eject")}
               />
             </LabeledList.Item>

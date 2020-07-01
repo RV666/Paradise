@@ -28,13 +28,13 @@ export const CrewMonitor = (props, context) => {
             <Table>
               <Table.Row header>
                 <Table.Cell>
-                  Name
+                  Имя
                 </Table.Cell>
                 <Table.Cell>
-                  Status
+                  Статус
                 </Table.Cell>
                 <Table.Cell>
-                  Location
+                  Местоположение
                 </Table.Cell>
               </Table.Row>
               {crew.map(crewmember => (
@@ -45,7 +45,7 @@ export const CrewMonitor = (props, context) => {
                   <TableCell>
                     <Box inline
                       color={crewmember.dead ? 'red' : 'green'}>
-                      {crewmember.dead ? 'Deceased' : 'Living'}
+                      {crewmember.dead ? 'Мёртвый' : 'Живой'}
                     </Box>
                     {crewmember.sensor_type >= 2 ? (
                       <Box inline>
@@ -85,7 +85,7 @@ export const CrewMonitor = (props, context) => {
                       ) : (
                         crewmember.area+" ("+crewmember.x+", "+crewmember.y+")"
                       )
-                    ) : "Not Available"}
+                    ) : "Не доступно"}
                   </TableCell>
                 </Table.Row>
               ))}
