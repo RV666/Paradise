@@ -310,7 +310,7 @@
               {{:helper.link(value.desc, '', {'choice' : 'access', 'access_target' : value.ref, 'allowed' : value.allowed}, null, value.allowed ? 'selected' : null)}}
             {{/for}}
 			<div class="item">
-			<div class='average'><b>Скин карточки</b></div>
+			<div class='average'><b>Внешний вид карточки</b></div>
 			{{for data.all_centcom_skins}}
 				{{:helper.link(value.display_name, '', {'choice' : 'skin', 'skin_target' : value.skin}, null,(data.current_skin == value.skin) ? 'selected' : null )}}
 			{{/for}}
@@ -333,7 +333,7 @@
                </div>
              {{/for}}
              <div style='float: left;'>
-			<div class='average'><b>Скин карточки</b></div>
+			<div class='average'><b>Внешний вид карточки</b></div>
 		 	  {{for data.card_skins}}
 		 		{{:helper.link(value.display_name, '', {'choice' : 'skin', 'skin_target' : value.skin}, null,(data.current_skin == value.skin) ? 'selected' : null )}}
 		  	  {{/for}}

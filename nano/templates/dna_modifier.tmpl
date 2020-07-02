@@ -59,7 +59,7 @@ Used In File(s): D:\Development\SS13-BS12\code\game\dna\dna_modifier.dm
 	<div class="item">
 		{{:helper.link('Модифицировать У.И.', 'link', {'selectMenuKey' : 'ui'}, data.selectedMenuKey == 'ui' ? 'selected' : null)}}
 		{{:helper.link('Модифицировать С.Э.', 'link', {'selectMenuKey' : 'se'}, data.selectedMenuKey == 'se' ? 'selected' : null)}}
-		{{:helper.link('Буфферы переноса', 'floppy-o', {'selectMenuKey' : 'buffer'}, data.selectedMenuKey == 'buffer' ? 'selected' : null)}}
+		{{:helper.link('Буферы переноса', 'floppy-o', {'selectMenuKey' : 'buffer'}, data.selectedMenuKey == 'buffer' ? 'selected' : null)}}
 		{{:helper.link('Омолодители', 'plus', {'selectMenuKey' : 'rejuvenators'}, data.selectedMenuKey == 'rejuvenators' ? 'selected' : null)}}
 	</div>
 
@@ -94,9 +94,9 @@ Used In File(s): D:\Development\SS13-BS12\code\game\dna\dna_modifier.dm
 			</div>
 		</div>
 	{{else data.selectedMenuKey == 'buffer'}}
-		<h3>Буфферы переноса</h3>
+		<h3>Буферы переноса</h3>
 		{{for data.buffers}}
-			<h4>Буффер {{:(index + 1)}}</h4>
+			<h4>Буфер {{:(index + 1)}}</h4>
 			<div class="itemGroup">
 				<div class="item">
 					<div class="itemLabelNarrow">
@@ -138,7 +138,7 @@ Used In File(s): D:\Development\SS13-BS12\code\game\dna\dna_modifier.dm
 				{{else}}
 					<div class="item">
 						<div class="itemContentWide">
-							<span class="highlight">Этот буффер пуст.</span>
+							<span class="highlight">Этот буфер пуст.</span>
 						</div>
 					</div>
 				{{/if}}

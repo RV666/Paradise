@@ -39,13 +39,13 @@
 
 	<div class="item">
 		<div class="itemLabel">
-			Внешний питание:
+			Внешнее питание:
 		</div>
 		<div class="itemContent">
 			{{if data.externalPower == 2}}
-				<span class='good'>Хорошо</span>
+				<span class='good'>Достаточное</span>
 			{{else data.externalPower == 1}}
-				<span class='average'>Низко</span>
+				<span class='average'>Нехватка</span>
 			{{else}}
 				<span class='bad'>Отсутствует</span>
 			{{/if}}
@@ -145,17 +145,17 @@
 
 	<div class="item">
 		<div class="itemLabel">
-			Замок крышки:
+			Блокировка панели:
 		</div>
 		<div class="itemContent">
 			{{if data.locked && !data.siliconUser}}
 				{{if data.coverLocked}}
-					<span class='good'>Включен</span>
+					<span class='good'>Включить</span>
 				{{else}}
-					<span class='bad'>Отключен</span>
+					<span class='bad'>Отключить</span>
 				{{/if}}
 			{{else}}
-				{{:helper.link('Включен', 'lock', {'lock' : 1}, data.coverLocked ? 'selected' : null)}}{{:helper.link('Отключен', 'unlock', {'lock' : 1}, data.coverLocked ? null : 'selected')}}
+				{{:helper.link('Включить', 'lock', {'lock' : 1}, data.coverLocked ? 'selected' : null)}}{{:helper.link('Отключить', 'unlock', {'lock' : 1}, data.coverLocked ? null : 'selected')}}
 			{{/if}}
 		</div>
 	</div>

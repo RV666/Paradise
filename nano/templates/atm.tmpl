@@ -34,7 +34,7 @@ Used In File(s): /code/modules/economy/ATM.dm
 </div>
 <hr>
 {{if data.ticks_left_locked_down > 0}}
-	<span class='exclamation-triangle'>Максимальное число попыток ввода пин-кода исчерпано! Доступ в этот банкомат был временно недоступен.</span>
+	<span class='exclamation-triangle'>Максимальное число попыток ввода пин-кода исчерпано! Доступ в этот банкомат временно приостановлен.</span>
 {{else data.authenticated_account}}
 	{{if data.view_screen == 1}} <!-- CHANGE_SECURITY_LEVEL -->
 		<h4>Выберите новый уровень безопасности для этого аккаунта:</h4>

@@ -1,7 +1,7 @@
 <h1>Приоритетные оповещения</h1>
 {{for data.priority_alarms}}
 	<div class="item">
-        {{:value.name}} {{:helper.link('Reset', null, {'clear_alarm' : value.ref})}}
+        {{:value.name}} {{:helper.link('Сброс', null, {'clear_alarm' : value.ref})}}
 	</div>
 {{empty}}
 	Приоритетные оповещения не обнаружены.
@@ -10,7 +10,7 @@
 <h3>Незначительные оповещения</h3>
 {{for data.minor_alarms}}
     <div class="item">
-        {{:value.name}} {{:helper.link('Reset', null, {'clear_alarm' : value.ref})}}
+        {{:value.name}} {{:helper.link('Сброс', null, {'clear_alarm' : value.ref})}}
     </div>
 {{empty}}
 	Незначительные оповещения не обнаружены.

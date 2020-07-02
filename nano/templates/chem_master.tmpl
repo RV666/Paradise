@@ -1,7 +1,7 @@
 {{if data.beaker}}
-	<div class='item'>{{:helper.link('Извлечь мензурку и очистить буффер', 'eject', {'eject': 1})}}</div>
+	<div class='item'>{{:helper.link('Извлечь мензурку и очистить буфер', 'eject', {'eject': 1})}}</div>
 	<div class='statusDisplay'>
-		<h3>Добавить в буффер:</h3>
+		<h3>Добавить в буфер:</h3>
 		{{for data.beaker_reagents}}
 			<div class='line'>
 				<div class='itemLabel'>{{:value.name}}, {{:value.volume}} юнитов</div>
@@ -45,7 +45,7 @@
 							{{:helper.link('Создать таблетку (100ю макс)', 'arrow-right', {'createpill': 1})}}
 						</td>
 						<td>
-							{{:helper.link('Множество', 'arrow-right', {'createpill_multiple': 1})}}
+							{{:helper.link('Несколько', 'arrow-right', {'createpill_multiple': 1})}}
 						</td>
 						<td>
 							{{:helper.link('Стиль', 'pencil', {'change_pill': 1})}}
@@ -59,7 +59,7 @@
 							{{:helper.link('Создать пластырь (20ю макс)', 'arrow-right', {'createpatch': 1})}}
 						</td>
 						<td>
-							{{:helper.link('Множество', 'arrow-right', {'createpatch_multiple': 1})}}
+							{{:helper.link('Несколько', 'arrow-right', {'createpatch_multiple': 1})}}
 						</td>
 					</tr>
 					<tr>

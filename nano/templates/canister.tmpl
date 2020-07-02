@@ -27,11 +27,11 @@
 		</div>
 	</div>
 
-	<h3>Статус помещённого бака</h3>
+	<h3>Статус помещённого баллона</h3>
 	{{if data.hasHoldingTank}}
 		<div class="item">
 			<div class="itemLabel">
-				Этикетка бака:
+				Этикетка баллона:
 			</div>
 			<div class="itemContent">
 				<div style="float: left; width: 180px;">{{:data.holdingTank.name}}</div> {{:helper.link('Eject', 'eject', {'remove_tank' : 1})}}
@@ -40,14 +40,14 @@
 
 		<div class="item">
 			<div class="itemLabel">
-				Давление бака:
+				Давление баллона:
 			</div>
 			<div class="itemContent">
 				{{:helper.smoothRound(data.holdingTank.tankPressure)}} кПа
 			</div>
 		</div>
 	{{else}}
-		<div class="item"><span class="average"><i>Бак не вставлен.</i></span></div>
+		<div class="item"><span class="average"><i>Баллон не вставлен.</i></span></div>
 		<div class="item">&nbsp;</div>
 	{{/if}}
 

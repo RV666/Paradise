@@ -57,13 +57,13 @@
                 {{:helper.link('Изменить второстепенный цвет волос на лице', null, { 'secondary_facial_hair_color' : 1})}}
             {{/if}}
             {{if data.change_head_marking_color}}
-                {{:helper.link('Изменить цвет головных отметин', null, { 'head_marking_color' : 1})}}
+                {{:helper.link('Изменить цвет отметин на голове', null, { 'head_marking_color' : 1})}}
             {{/if}}
             {{if data.change_body_marking_color}}
-                {{:helper.link('Изменить цвет туловищных отметин', null, { 'body_marking_color' : 1})}}
+                {{:helper.link('Изменить цвет отметин на туловище', null, { 'body_marking_color' : 1})}}
             {{/if}}
             {{if data.change_tail_marking_color}}
-                {{:helper.link('Изменить цвет хвостовых отметин', null, { 'tail_marking_color' : 1})}}
+                {{:helper.link('Изменить цвет отметин на хвостн', null, { 'tail_marking_color' : 1})}}
             {{/if}}
         </div>
     </div>
@@ -111,7 +111,7 @@
 {{if data.change_head_markings}}
     <div class="item">
         <div class="itemLabelNarrow">
-            Стиль лицевых отметин:
+            Стиль отметин на лице:
         </div>
         <div class="itemContentWide">
             {{for data.head_marking_styles}}
@@ -124,7 +124,7 @@
 {{if data.change_body_markings}}
     <div class="item">
         <div class="itemLabelNarrow">
-            Стиль туловищных отметин:
+            Стиль отметин на туловище:
         </div>
         <div class="itemContentWide">
             {{for data.body_marking_styles}}
@@ -137,7 +137,7 @@
 {{if data.change_tail_markings}}
     <div class="item">
         <div class="itemLabelNarrow">
-            Стиль хвостовых отметин:
+            Стиль отметин на хвосте:
         </div>
         <div class="itemContentWide">
             {{for data.tail_marking_styles}}
