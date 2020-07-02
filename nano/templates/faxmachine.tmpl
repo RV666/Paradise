@@ -1,13 +1,13 @@
-<!-- 
-Title: Fax Machine UI 
+<!--
+Title: Fax Machine UI
 Used In File(s): \code\modules\paperwork\faxmachine.dm
 -->
 <div class='item'>
-  <h2>Authorization</h2>
+  <h2>Авторизация</h2>
 </div>
 <div class='item'>
 	<div class='itemLabel'>
-		Confirm identity:
+		Подтвердите личность:
 	</div>
 	<div class='itemContent'>
 		{{:helper.link(data.scan_name, 'eject', {'scan' : 1})}}
@@ -15,20 +15,20 @@ Used In File(s): \code\modules\paperwork\faxmachine.dm
 </div>
 <div class='item'>
 	<div class='itemLabel'>
-		Authorize:
+		Авторизация:
 	</div>
 	<div class='itemContent'>
-		{{:helper.link(data.authenticated ? 'Log Out' : 'Log In', data.authenticated ? 'unlock' : 'lock', {'auth' : 1})}}
+		{{:helper.link(data.authenticated ? 'Выход' : 'Вход', data.authenticated ? 'unlock' : 'lock', {'auth' : 1})}}
 	</div>
 </div>
 <hr>
 <div class='item'>
-  <h2>Fax Menu</h2>
+  <h2>Меню факса</h2>
 </div>
 <div class="item">
 	<div class='itemLabel'>
-		Network:
-	</div> 
+		Сеть:
+	</div>
 
 	<div class='itemContent'>
 		{{:data.network}}
@@ -36,32 +36,32 @@ Used In File(s): \code\modules\paperwork\faxmachine.dm
 </div>
 <div class="item">
 	<div class='itemLabel'>
-		Currently sending:
-	</div> 
+		Документ:
+	</div>
 	<div class='itemContent'>
 		{{:helper.link(data.paper, 'eject', {'paper' : 1})}}
 		{{if data.paperinserted}}
-			{{:helper.link('Rename', 'pencil', {'rename' : 1})}}
+			{{:helper.link('Переименовать', 'pencil', {'rename' : 1})}}
 		{{/if}}
 	</div>
 </div>
 <div class="item">
 	<div class='itemLabel'>
-		Sending to:
-	</div> 
+		Получатель:
+	</div>
 	<div class='itemContent'>
 		{{:helper.link(data.destination, 'print', {'dept' : 1}, !data.authenticated ? 'disabled' : '')}}
 	</div>
 </div>
 <div class="item">
 	<div class='itemLabel'>
-		Action:
+		Действие:
 	</div>
 	<div class="itemContent">
 		{{if data.authenticated}}
-			{{:helper.link(data.cooldown && data.respectcooldown ? "Realigning" : "Send", data.cooldown && data.respectcooldown ? 'clock-o' : "envelope-o", {'send' : 1}, data.cooldown && data.respectcooldown ? 'disabled' : "")}}
+			{{:helper.link(data.cooldown && data.respectcooldown ? "Перенастройка" : "Отправить", data.cooldown && data.respectcooldown ? 'clock-o' : "envelope-o", {'send' : 1}, data.cooldown && data.respectcooldown ? 'disabled' : "")}}
 		{{else}}
-			{{:helper.link(data.cooldown && data.respectcooldown ? "Realigning" : "Send", data.cooldown && data.respectcooldown ? 'clock-o' : "envelope-o", null, !data.authenticated ? 'disabled' : "")}}
+			{{:helper.link(data.cooldown && data.respectcooldown ? "Перенастройка" : "Отправить", data.cooldown && data.respectcooldown ? 'clock-o' : "envelope-o", null, !data.authenticated ? 'disabled' : "")}}
 		{{/if}}
 	</div>
 </div>

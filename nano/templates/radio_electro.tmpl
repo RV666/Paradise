@@ -1,20 +1,20 @@
-<!-- 
+<!--
 Title: Electropack UI
 Used In File(s): /code/game/objects/item/devices/radio/electropack.dm
 -->
 <div class="item">
 	<div class="itemLabel">
-		Power
+		Питание
 	</div>
 	<div class="itemContent">
-		{{:helper.link('On', null, {'power' : 1}, data.power ? 'selected' : null)}}
-		{{:helper.link('Off', null, {'power' : 1}, data.power ? null : 'selected')}}
+		{{:helper.link('Вкл', null, {'power' : 1}, data.power ? 'selected' : null)}}
+		{{:helper.link('Выкл', null, {'power' : 1}, data.power ? null : 'selected')}}
 	</div>
 </div>
 
 <div class="item">
 	<div class="itemLabel">
-		Frequency: {{:data.freq}}
+		Частота: {{:data.freq}}
 	</div>
 	<div class="itemContent">
 		{{:helper.link('--', null, {'freq' : -10})}}
@@ -26,7 +26,7 @@ Used In File(s): /code/game/objects/item/devices/radio/electropack.dm
 
 <div class="item">
 	<div class="itemLabel">
-		Code: {{:data.code}}
+		Код: {{:data.code}}
 	</div>
 	<div class="itemContent">
 		{{:helper.link('--', null, {'code' : -5})}}

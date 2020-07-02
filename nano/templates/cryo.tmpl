@@ -2,26 +2,26 @@
 	Title: Cryo Cell Status UI
 	Used In File(s): \code\game\machinery\cryo.dm
 	 -->
-	<h3>Cryo Cell Status</h3>
+	<h3>Статус крио капсулы</h3>
 
 	<div class="statusDisplay">
 		{{if !data.hasOccupant}}
-			<div class="line">Cell Unoccupied</div>
+			<div class="line">Капсула не занята</div>
 		{{else}}
 			<div class="line">
 				{{:data.occupant.name}}&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;
 				{{if data.occupant.stat == 0}}
-					<span class="good">Conscious</span>
+					<span class="good">В сознании</span>
 				{{else data.occupant.stat == 1}}
-					<span class="average">Unconscious</span>
+					<span class="average">Без сознания</span>
 				{{else}}
-					<span class="bad">DEAD</span>
+					<span class="bad">МЁРТВ</span>
 				{{/if}}
 			</div>
 
 			{{if data.occupant.stat < 2}}
 				<div class="line">
-					<div class="statusLabel">Health:</div>
+					<div class="statusLabel">Здоровье:</div>
 					{{if data.occupant.health >= 0}}
 						{{:helper.displayBar(data.occupant.health, 0, data.occupant.maxHealth, 'good')}}
 					{{else}}
@@ -31,25 +31,25 @@
 				</div>
 
 				<div class="line">
-					<div class="statusLabel"><i class="fa fa-arrow-right"></i> Brute Damage:</div>
+					<div class="statusLabel"><i class="fa fa-arrow-right"></i> Физические повреждения:</div>
 					{{:helper.displayBar(data.occupant.bruteLoss, 0, data.occupant.maxHealth, 'bad')}}
 					<div class="statusValue">{{:helper.smoothRound(data.occupant.bruteLoss)}}</div>
 				</div>
 
 				<div class="line">
-					<div class="statusLabel"><i class="fa fa-arrow-right"></i> Resp. Damage:</div>
+					<div class="statusLabel"><i class="fa fa-arrow-right"></i> Респираторные повреждения:</div>
 					{{:helper.displayBar(data.occupant.oxyLoss, 0, data.occupant.maxHealth, 'bad')}}
 					<div class="statusValue">{{:helper.smoothRound(data.occupant.oxyLoss)}}</div>
 				</div>
 
 				<div class="line">
-					<div class="statusLabel"><i class="fa fa-arrow-right"></i> Toxin Damage:</div>
+					<div class="statusLabel"><i class="fa fa-arrow-right"></i> Токсические повреждения:</div>
 					{{:helper.displayBar(data.occupant.toxLoss, 0, data.occupant.maxHealth, 'bad')}}
 					<div class="statusValue">{{:helper.smoothRound(data.occupant.toxLoss)}}</div>
 				</div>
 
 				<div class="line">
-					<div class="statusLabel"><i class="fa fa-arrow-right"></i> Burn Severity:</div>
+					<div class="statusLabel"><i class="fa fa-arrow-right"></i> Тяжесть ожогов:</div>
 					{{:helper.displayBar(data.occupant.fireLoss, 0, data.occupant.maxHealth, 'bad')}}
 					<div class="statusValue">{{:helper.smoothRound(data.occupant.fireLoss)}}</div>
 				</div>
@@ -58,60 +58,60 @@
 		<br>
 		<hr>
 		<div class="line">
-			<div class="statusLabel">Cell Temperature:</div><div class="statusValue">
+			<div class="statusLabel">Температура капсулы:</div><div class="statusValue">
 				<span class="{{:data.cellTemperatureStatus}}">{{:helper.smoothRound(data.cellTemperature)}} K</span>
 			</div>
 		</div>
 	</div>
 
-	<h3>Cryo Cell Operation</h3>
+	<h3>Операции крио капсулы</h3>
 	<div class="item">
 		<div class="itemLabel">
-			Cryo Cell Status:
+			Статус крио капсулы:
 		</div>
 		<div class="itemContent" style="width: 40%;">
-			{{:helper.link('On', 'power-off', {'switchOn' : 1}, data.isOperating ? 'selected' : null)}}{{:helper.link('Off', 'close', {'switchOff' : 1}, data.isOperating ? null : 'selected')}}
+			{{:helper.link('Вкл', 'power-off', {'switchOn' : 1}, data.isOperating ? 'selected' : null)}}{{:helper.link('Выкл', 'close', {'switchOff' : 1}, data.isOperating ? null : 'selected')}}
 		</div>
 		<div class="itemContent" style="width: 26%;">
-			{{:helper.link('Eject Occupant', 'arrow-circle-o-down', {'ejectOccupant' : 1}, data.hasOccupant ? null : 'disabled')}}
+			{{:helper.link('Извлечь тело', 'arrow-circle-o-down', {'ejectOccupant' : 1}, data.hasOccupant ? null : 'disabled')}}
 		</div>
 	</div>
 	<div class="item">&nbsp;</div>
 	<div class="item">
 		<div class="itemLabel">
-			Beaker:
+			Мензурка:
 		</div>
 		<div class="itemContent" style="width: 40%;">
 			{{if data.isBeakerLoaded}}
-				{{:data.beakerLabel ? data.beakerLabel : '<span class="average">No label</span>'}}<br>
+				{{:data.beakerLabel ? data.beakerLabel : '<span class="average">Нет этикетки</span>'}}<br>
 				{{if data.beakerVolume}}
-					<span class="highlight">{{:helper.smoothRound(data.beakerVolume)}} units remaining</span><br>
+					<span class="highlight">{{:helper.smoothRound(data.beakerVolume)}} юнитов осталось</span><br>
 				{{else}}
-					<span class="bad">Beaker is empty</span>
+					<span class="bad">Мензурка пуста</span>
 				{{/if}}
 			{{else}}
-				<span class="average"><i>No beaker loaded</i></span>
+				<span class="average"><i>Мензурка не загружена</i></span>
 			{{/if}}
 		</div>
 		<div class="itemContent" style="width: 26%;">
-			{{:helper.link('Eject Beaker', 'eject', {'ejectBeaker' : 1}, data.isBeakerLoaded ? null : 'disabled')}}
+			{{:helper.link('Извлечь мензурку', 'eject', {'ejectBeaker' : 1}, data.isBeakerLoaded ? null : 'disabled')}}
 		</div>
 	</div>
 
 	<div class="item">&nbsp;</div>
 	<div class="item">
 		<div class="itemLabel" style="width: 70%">
-			Auto-eject healthy patients:
+			Авто-извлечение здоровых пациентов:
 		</div>
 		<div class="itemContent" style="width: 30%;">
-			{{:helper.link('On', 'power-off', {'auto_eject_healthy_on' : 1}, data.auto_eject_healthy ? 'selected' : null)}}{{:helper.link('Off', 'close', {'auto_eject_healthy_off' : 0}, data.auto_eject_healthy ? null : 'selected')}}
+			{{:helper.link('Вкл', 'power-off', {'auto_eject_healthy_on' : 1}, data.auto_eject_healthy ? 'selected' : null)}}{{:helper.link('Выкл', 'close', {'auto_eject_healthy_off' : 0}, data.auto_eject_healthy ? null : 'selected')}}
 		</div>
 	</div>
 	<div class="item">
 		<div class="itemLabel" style="width: 70%">
-			Auto-eject dead patients:
+			Авто-извлечение мёртвых пациентов:
 		</div>
 		<div class="itemContent" style="width: 30%;">
-			{{:helper.link('On', 'power-off', {'auto_eject_dead_on' : 1}, data.auto_eject_dead ? 'selected' : null)}}{{:helper.link('Off', 'close', {'auto_eject_dead_off' : 0}, data.auto_eject_dead ? null : 'selected')}}
+			{{:helper.link('Вкл', 'power-off', {'auto_eject_dead_on' : 1}, data.auto_eject_dead ? 'selected' : null)}}{{:helper.link('Выкл', 'close', {'auto_eject_dead_off' : 0}, data.auto_eject_dead ? null : 'selected')}}
 		</div>
 	</div>

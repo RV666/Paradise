@@ -9,135 +9,135 @@ Used In File(s): /code/game/machinery/computers/communications.dm
 #define COMM_SCREEN_SECLEVEL	4
 -->
 {{if !data.authenticated}}
-<div class="notice">Please swipe your ID card. {{:helper.link('Log In','unlock',{'login':1},null,'fixed')}}</div>
+<div class="notice">Пожалуйста, проведите Вашей ID картой. {{:helper.link('Войти','unlock',{'login':1},null,'fixed')}}</div>
 {{else}}
 	{{if !data.is_ai}}
-	<div class="notice">Please remember to {{:helper.link('Log Out','lock',{'logout':1},null,'fixed')}}</div>
+	<div class="notice">Пожалуйста, не забывайте {{:helper.link('Выйти','lock',{'logout':1},null,'fixed')}}</div>
 	{{/if}}
 	{{if data.lastCallLoc}}
-	<div class="line">Most recent shuttle call/recall traced to: <b>{{:data.lastCallLoc}}</b></div>
+	<div class="line">Самый недавний вызов шаттла произошёл в: <b>{{:data.lastCallLoc}}</b></div>
 	{{else}}
-	<div class="line">Unable to trace most recent shuttle call/recall signal.</div>
+	<div class="line">Не удаётся отследить сигнал самого недавнего вызова/отзыва шаттла.</div>
 	{{/if}}
 	<div class="item">
-		<h3>Emergency Shuttle:</h3>
+		<h3>Аварийный шаттл:</h3>
 		{{if data.shuttle.eta}}
 			<div class="itemLabel">ETA:</div>
 			<div class="itemContents">
 				{{>data.shuttle.eta}}
 			</div>
 		{{/if}}<!-- SHUTTLE ETA -->
-		<div class="itemLabel">Options:</div>
+		<div class="itemLabel">Опции:</div>
 		<div class="itemContents">
 			{{if data.shuttle.callStatus == 1 && !data.is_ai}}
-				{{:helper.link('Cancel Shuttle','arrow-left',{'operation':'cancelshuttle'})}}
+				{{:helper.link('Отменить шаттл','arrow-left',{'operation':'cancelshuttle'})}}
 			{{else data.shuttle.callStatus == 2}}
-				{{:helper.link('Call Shuttle','arrow-circle-down',{'operation':'callshuttle'})}}
+				{{:helper.link('Вызвать шаттл','arrow-circle-down',{'operation':'callshuttle'})}}
 			{{/if}}
 		</div>
 	</div>
 
 	{{if data.screen==1}}
 		<!-- MAIN SCREEN -->
-		<h3>Menu</h3>
+		<h3>Меню</h3>
 		<div class="item">
 			{{if data.authenticated==2}}
 				<div class="line">
-					{{:helper.link('Make an Announcement','info',{'operation':'announce'})}}
+					{{:helper.link('Сделать объявление','info',{'operation':'announce'})}}
 				</div>
 				<div class="line">
 				{{if data.emagged}}
-					{{:helper.link('Message [UNKNOWN]','envelope',{'operation':'MessageSyndicate'})}}
+					{{:helper.link('Написать [UNKNOWN]','envelope',{'operation':'MessageSyndicate'})}}
 					</div>
 					<div class="line">
-					{{:helper.link('Reset Relays','refresh',{'operation':'RestoreBackup'})}}
+					{{:helper.link('Сброить реле','refresh',{'operation':'RestoreBackup'})}}
 				{{else}}
-					{{:helper.link('Message CentComm','envelope',{'operation':'MessageCentcomm'})}}
+					{{:helper.link('Написать в ЦентКом','envelope',{'operation':'MessageCentcomm'})}}
 				{{/if}}
 				</div>
 				<div class="line">
-					{{:helper.link('Request Nuclear Authentication Codes','exclamation-triangle',{'operation':'nukerequest'})}}
+					{{:helper.link('Запросить коды аутентификации ядерной бомбы','exclamation-triangle',{'operation':'nukerequest'})}}
 				</div>
 			{{/if}}
 			<div class="line">
-				{{:helper.link('Change Alert Level','signal',{'operation':'changeseclevel'})}}
+				{{:helper.link('Изменить уровень угрозы','signal',{'operation':'changeseclevel'})}}
 			</div>
 			<div class="line">
-				{{:helper.link('Change Status Displays','info',{'operation':'status'})}}
+				{{:helper.link('Изменить статус дисплеев','info',{'operation':'status'})}}
 			</div>
 			<div class="line">
-				{{:helper.link('Message List','comment',{'operation':'messagelist'})}}
+				{{:helper.link('Список сообщений','comment',{'operation':'messagelist'})}}
 			</div>
 			<div class="line">
-				{{:helper.link('Restart Nano-Mob Hunter GO! Server','power-off',{'operation':'RestartNanoMob'})}}
+				{{:helper.link('Перезагрузить сервер Nano-Mob Hunter GO!','power-off',{'operation':'RestartNanoMob'})}}
 			</div>
 			<div class="line">
 				{{if data.atcSquelched}}
-					{{:helper.link('Enable ATC Relay', 'signal', {'operation': 'ToggleATC'})}}
+					{{:helper.link('Включить ATC реле', 'signal', {'operation': 'ToggleATC'})}}
 				{{else}}
-					{{:helper.link('Disable ATC Relay', 'signal', {'operation': 'ToggleATC'})}}
+					{{:helper.link('Отключить ATC реле', 'signal', {'operation': 'ToggleATC'})}}
 				{{/if}}
 			</div>
 		</div>
 	{{else data.screen==2}}
 		<!-- STATUS DISPLAYS -->
-		<h2>Status Displays</h2>
-		{{:helper.link('Back','home',{'operation':'main'})}}
-		<h3>Presets</h3>
+		<h2>Статус дисплеев</h2>
+		{{:helper.link('Назад','home',{'operation':'main'})}}
+		<h3>Пресеты</h3>
 		{{for data.stat_display.presets}}
 			<div class="line">
 				<div class="statusLabel">{{:helper.link(value.label,'info',{'operation':'setstat','statdisp':value.name},null,(name==data.stat_display.type?'linkOn':''))}}</div>
 			</div>
 		{{/for}}
-		<h3>Alerts</h3>
+		<h3>Тревоги</h3>
 		{{for data.stat_display.alerts}}
 			<div class="line">
 				<div class="statusLabel">{{:helper.link(value.label,'exclamation-triangle',{'operation':'setstat','statdisp':'alert','alert':value.alert},null,(value.alert==data.stat_display.type?'linkOn':''))}}</div>
 			</div>
 		{{/for}}
-		<h3>Messages</h3>
+		<h3>Сообщения</h3>
 		<div class="item">
 			{{if data.stat_display.type}}
 			<div class="line">
-				<div class="statusLabel">{{:helper.link('Line 1:','gear',{'operation':'setmsg1'})}}</div>
+				<div class="statusLabel">{{:helper.link('Строка 1:','gear',{'operation':'setmsg1'})}}</div>
 				<div class="statusValue">{{>data.stat_display.line_1}}</div>
 			</div>
 			<div class="line">
-				<div class="statusLabel">{{:helper.link('Line 2:','gear',{'operation':'setmsg2'})}}</div>
+				<div class="statusLabel">{{:helper.link('Строка 2:','gear',{'operation':'setmsg2'})}}</div>
 				<div class="statusValue">{{>data.stat_display.line_2}}</div>
 			</div>
 			{{/if}}
 		</div>
 	{{else data.screen==3}}
 		<!-- MESSAGES -->
-		<h3>Messages</h3>
+		<h3>Сообщения</h3>
 		{{if data.current_message}}
-			{{:helper.link('Messages','home',{'operation':'messagelist'})}}
+			{{:helper.link('Список сообщений','home',{'operation':'messagelist'})}}
 			<h3>{{:data.current_message_title}}</h3>
 			<div class="item">
 				{{:data.current_message}}
 			</div>
 		{{else}}
-			{{:helper.link('Back','home',{'operation':'main'})}}
+			{{:helper.link('Назад','home',{'operation':'main'})}}
 			{{for data.messages}}
 				<div class="line">
 					<b>{{:value.title}}</b><br>
-					{{:helper.link('Open','envelope-o',{'operation':'messagelist','msgid':value.id})}}
-					{{:helper.link('Delete','close',{'operation':'delmessage','msgid':value.id})}}
+					{{:helper.link('Открыть','envelope-o',{'operation':'messagelist','msgid':value.id})}}
+					{{:helper.link('Удалить','close',{'operation':'delmessage','msgid':value.id})}}
 				</div>
 			{{/for}}
 		{{/if}}
 	{{else data.screen==4}}
 		<!-- ALERT LEVEL -->
-		<h3>Security Level</h3>
-		{{:helper.link('Back','home',{'operation':'main'})}}
+		<h3>Уровень угрозы</h3>
+		{{:helper.link('Назад','home',{'operation':'main'})}}
 		<div class="item">
 			<div class="line">
-				<div class="itemLabel">Security Level:</div>
+				<div class="itemLabel">Уровень угрозы:</div>
 				<div class="itemContents">{{>data.str_security_level}}</div>
 			</div>
 			<div class="line">
-				<div class="itemLabel">Presets:</div>
+				<div class="itemLabel">Пресеты:</div>
 				<div class="itemContents">
 					{{for data.levels}}
 						{{:helper.link(value.name,'comment',{'operation':'newalertlevel','level':value.id},null,(value.id==data.security_level?'linkOn':''))}}

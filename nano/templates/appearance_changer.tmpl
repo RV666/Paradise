@@ -1,7 +1,7 @@
 {{if data.change_race}}
     <div class="item">
         <div class="itemLabelNarrow">
-            Species:
+            Расы:
         </div>
         <div class="itemContentWide">
             {{for data.species}}
@@ -14,13 +14,13 @@
 {{if data.change_gender}}
     <div class="item">
         <div class="itemLabelNarrow">
-            Gender:
+            Гендер:
         </div>
         <div class="itemContentWide">
-            {{:helper.link('Male', null, { 'gender' : 'male'}, null, data.gender == 'male' ? 'selected' : null)}}
-            {{:helper.link('Female', null, { 'gender' : 'female'}, null, data.gender == 'female' ? 'selected' : null)}}
+            {{:helper.link('Мужской', null, { 'gender' : 'male'}, null, data.gender == 'male' ? 'selected' : null)}}
+            {{:helper.link('Женский', null, { 'gender' : 'female'}, null, data.gender == 'female' ? 'selected' : null)}}
 						{{if !data.has_gender}}
-							{{:helper.link('Genderless', null, { 'gender' : 'plural'}, null, data.gender == 'plural' ? 'selected' : null)}}
+							{{:helper.link('Гендерквир', null, { 'gender' : 'plural'}, null, data.gender == 'plural' ? 'selected' : null)}}
 						{{/if}}
         </div>
     </div>
@@ -29,41 +29,41 @@
 {{if data.change_eye_color || data.change_skin_tone || data.change_skin_color || data.change_head_accessory_color || data.change_hair_color || data.change_facial_hair_color || data.change_head_marking_color || data.change_body_marking_color || data.change_tail_marking_color}}
     <div class="item">
         <div class="itemLabelNarrow">
-            Colors:
+            Цвета:
         </div>
         <div class="itemContentWide">
             {{if data.change_eye_color}}
-                {{:helper.link('Change eye color', null, { 'eye_color' : 1})}}
+                {{:helper.link('Изменить цвет глаз', null, { 'eye_color' : 1})}}
             {{/if}}
             {{if data.change_skin_tone}}
-                {{:helper.link('Change skin tone', null, { 'skin_tone' : 1})}}
+                {{:helper.link('Изменить тон кожи', null, { 'skin_tone' : 1})}}
             {{/if}}
             {{if data.change_skin_color}}
-                {{:helper.link('Change skin color', null, { 'skin_color' : 1})}}
+                {{:helper.link('Изменить цвет кожи', null, { 'skin_color' : 1})}}
             {{/if}}
             {{if data.change_head_accessory_color}}
-                {{:helper.link('Change head accessory color', null, { 'head_accessory_color' : 1})}}
+                {{:helper.link('Изменить цвет головного аксессуара', null, { 'head_accessory_color' : 1})}}
             {{/if}}
             {{if data.change_hair_color}}
-                {{:helper.link('Change hair color', null, { 'hair_color' : 1})}}
+                {{:helper.link('Изменить цвет волос', null, { 'hair_color' : 1})}}
             {{/if}}
             {{if data.change_secondary_hair_color}}
-                {{:helper.link('Change secondary hair color', null, { 'secondary_hair_color' : 1})}}
+                {{:helper.link('Изменить второстепенный цвет волос', null, { 'secondary_hair_color' : 1})}}
             {{/if}}
             {{if data.change_facial_hair_color}}
-                {{:helper.link('Change facial hair color', null, { 'facial_hair_color' : 1})}}
+                {{:helper.link('Изменить цвет волос на лице', null, { 'facial_hair_color' : 1})}}
             {{/if}}
             {{if data.change_secondary_facial_hair_color}}
-                {{:helper.link('Change secondary facial hair color', null, { 'secondary_facial_hair_color' : 1})}}
+                {{:helper.link('Изменить второстепенный цвет волос на лице', null, { 'secondary_facial_hair_color' : 1})}}
             {{/if}}
             {{if data.change_head_marking_color}}
-                {{:helper.link('Change head marking color', null, { 'head_marking_color' : 1})}}
+                {{:helper.link('Изменить цвет головных отметин', null, { 'head_marking_color' : 1})}}
             {{/if}}
             {{if data.change_body_marking_color}}
-                {{:helper.link('Change body marking color', null, { 'body_marking_color' : 1})}}
+                {{:helper.link('Изменить цвет туловищных отметин', null, { 'body_marking_color' : 1})}}
             {{/if}}
             {{if data.change_tail_marking_color}}
-                {{:helper.link('Change tail marking color', null, { 'tail_marking_color' : 1})}}
+                {{:helper.link('Изменить цвет хвостовых отметин', null, { 'tail_marking_color' : 1})}}
             {{/if}}
         </div>
     </div>
@@ -72,7 +72,7 @@
 {{if data.change_head_accessory}}
     <div class="item">
         <div class="itemLabelNarrow">
-            Head accessory styles:
+            Стили головных аксессуаров:
         </div>
         <div class="itemContentWide">
             {{for data.head_accessory_styles}}
@@ -85,7 +85,7 @@
 {{if data.change_hair}}
     <div class="item">
         <div class="itemLabelNarrow">
-            Hair styles:
+            Стиль волос:
         </div>
         <div class="itemContentWide">
             {{for data.hair_styles}}
@@ -98,7 +98,7 @@
 {{if data.change_facial_hair}}
     <div class="item">
         <div class="itemLabelNarrow">
-            Facial hair styles:
+            Стиль волос на лице:
         </div>
         <div class="itemContentWide">
             {{for data.facial_hair_styles}}
@@ -111,7 +111,7 @@
 {{if data.change_head_markings}}
     <div class="item">
         <div class="itemLabelNarrow">
-            Head Marking styles:
+            Стиль лицевых отметин:
         </div>
         <div class="itemContentWide">
             {{for data.head_marking_styles}}
@@ -124,7 +124,7 @@
 {{if data.change_body_markings}}
     <div class="item">
         <div class="itemLabelNarrow">
-            Body Marking styles:
+            Стиль туловищных отметин:
         </div>
         <div class="itemContentWide">
             {{for data.body_marking_styles}}
@@ -137,7 +137,7 @@
 {{if data.change_tail_markings}}
     <div class="item">
         <div class="itemLabelNarrow">
-            Tail Marking styles:
+            Стиль хвостовых отметин:
         </div>
         <div class="itemContentWide">
             {{for data.tail_marking_styles}}
@@ -150,7 +150,7 @@
 {{if data.change_body_accessory}}
     <div class="item">
         <div class="itemLabelNarrow">
-            Body accessory styles:
+            Стиль туловщиных аксессуаров:
         </div>
         <div class="itemContentWide">
             {{for data.body_accessory_styles}}
@@ -163,7 +163,7 @@
 {{if data.change_alt_head}}
     <div class="item">
         <div class="itemLabelNarrow">
-            Alternate Heads:
+            Изменить голову:
         </div>
         <div class="itemContentWide">
             {{for data.alt_head_styles}}

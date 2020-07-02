@@ -1,4 +1,4 @@
-<!-- 
+<!--
 Title: Newscaster
 Used In File(s): /code/game/machinery/newscaster.dm
 -->
@@ -18,36 +18,36 @@ Used In File(s): /code/game/machinery/newscaster.dm
 #define NEWSCASTER_W_ISSUE		11
 -->
 
-<h3>Welcome to Newscasting Unit #{{:data.unit_no}}.</h3>
-<font size=1>Interface & News networks Operational.<br>
-Property of Nanotrasen</font><br>
+<h3>Приветствуем в терминале новостей #{{:data.unit_no}}.</h3>
+<font size=1>Интерфейс & оперативные сети новостей.<br>
+Собственность Nanotrasen</font><br>
 <hr>
 {{if data.temp}}
 	<div class='line'>{{:data.temp}}</div>
-	<div class='line'>{{:helper.link('Return', 'arrow-left', {'setScreen' : data.temp_back_screen})}}</div>
+	<div class='line'>{{:helper.link('Назад', 'arrow-left', {'setScreen' : data.temp_back_screen})}}</div>
 {{else}}
 	{{if data.screen == 0}} <!-- NEWSCASTER_MAIN -->
 		<div class='item'>
 			{{if data.wanted_issue}}
-				<div class='line'>{{:helper.link('Read Wanted issue', 'exclamation-triangle', {'view_wanted' : 1})}}</div>
+				<div class='line'>{{:helper.link('Читать выпуск Разыскивается', 'exclamation-triangle', {'view_wanted' : 1})}}</div>
 			{{/if}}
-			<div class='line'>{{:helper.link('View available NT jobs', 'share', {'jobs' : 1})}}</div>
-			<div class='line'>{{:helper.link('Create feed channel', 'plus', {'create_channel' : 1})}}</div>
-			<div class='line'>{{:helper.link('View feed channels', 'arrow-right', {'view' : 1})}}</div>
-			<div class='line'>{{:helper.link('Submit new feed story', 'share', {'create_feed_story' : 1})}}</div>
-			<div class='line'>{{:helper.link('Print newspaper', 'print', {'menu_paper' : 1})}}</div>
-			<div class='line'>{{:helper.link(data.silence ? 'Unsilence unit' : 'Silence unit', data.silence ? 'volume-up' : 'volume-off', {'silence_unit' : 1})}}</div>
-			<div class='line'>{{:helper.link('Re-scan user', 'refresh', {'refresh' : 1})}}</div>
+			<div class='line'>{{:helper.link('Посмотреть доступные NT должности', 'share', {'jobs' : 1})}}</div>
+			<div class='line'>{{:helper.link('Создать ленту новостей', 'plus', {'create_channel' : 1})}}</div>
+			<div class='line'>{{:helper.link('Посмотреть ленты новостей', 'arrow-right', {'view' : 1})}}</div>
+			<div class='line'>{{:helper.link('Добавить новость в ленту', 'share', {'create_feed_story' : 1})}}</div>
+			<div class='line'>{{:helper.link('Напечатать газету', 'print', {'menu_paper' : 1})}}</div>
+			<div class='line'>{{:helper.link(data.silence ? 'Включить звук' : 'Выключить звук', data.silence ? 'volume-up' : 'volume-off', {'silence_unit' : 1})}}</div>
+			<div class='line'>{{:helper.link('Пересканировать пользователя', 'refresh', {'refresh' : 1})}}</div>
 			{{if data.securityCaster}}
-				<div class='line'><b>Feed Security functions:</b></div>
-				<div class='line'>{{:helper.link(data.wanted_issue ? 'Manage wanted issue' : 'Publish wanted issue', data.wanted_issue ? 'pencil' : 'share', {'menu_wanted' : 1})}}</div>
-				<div class='line'>{{:helper.link('Censor feed stories', 'ban', {'menu_censor_story' : 1})}}</div>
-				<div class='line'>{{:helper.link('Mark feed channel with Nanotrasen D-Notice', 'thumb-tack', {'menu_censor_channel' : 1})}}</div>
-				<div class='line'>The newscaster recognises you as: <span class='good'>{{:data.scanned_user}}</span></div>
+				<div class='line'><b>Функции ленты Службы Безопасности:</b></div>
+				<div class='line'>{{:helper.link(data.wanted_issue ? 'Управление выпуском Разыскивается' : 'Опубликовать выпуск Разыскивается', data.wanted_issue ? 'pencil' : 'share', {'menu_wanted' : 1})}}</div>
+				<div class='line'>{{:helper.link('Цензурировать новости в лентах', 'ban', {'menu_censor_story' : 1})}}</div>
+				<div class='line'>{{:helper.link('Пометить ленту D-уведомлением Nanotrasen ', 'thumb-tack', {'menu_censor_channel' : 1})}}</div>
+				<div class='line'>Терминал новостей распазнаёт тебя как: <span class='good'>{{:data.scanned_user}}</span></div>
 			{{/if}}
 		</div>
 	{{else data.screen == 1}} <!-- NEWSCASTER_FC_LIST -->
-		<h4>Station Feed Channels</h4>
+		<h4>Новостные ленты</h4>
 		<div class='item'>
 			{{for data.channels}}
 				<div class='line'>
@@ -58,114 +58,114 @@ Property of Nanotrasen</font><br>
 					{{/if}}
 				</div>
 			{{empty}}
-				<i class='average'>No active channels found...</i>
+				<i class='average'>Активные ленты не найдены...</i>
 			{{/for}}
 		</div>
 		<hr>
 		<div class='item'>
-			<div class='line'>{{:helper.link('Refresh', 'refresh', {'refresh' : 1})}}</div>
-			<div class='line'>{{:helper.link('Back', 'arrow-left', {'setScreen' : 0})}}</div>
+			<div class='line'>{{:helper.link('Обновить', 'refresh', {'refresh' : 1})}}</div>
+			<div class='line'>{{:helper.link('Назад', 'arrow-left', {'setScreen' : 0})}}</div>
 		</div>
 	{{else data.screen == 2}} <!-- NEWSCASTER_CREATE_FC -->
-		<h4>Creating new feed channel...</h4>
+		<h4>Создание новой ленты...</h4>
 		<div class='item'>
-			<div class='itemLabel'>Channel name:</div>
+			<div class='itemLabel'>Название ленты:</div>
 			<div class='itemContent'>
 				<a style='float: left; padding-right: 6px;'>{{:data.channel_name}}</a>
-				{{:helper.link('Edit', 'pencil', {'set_channel_name' : 1})}}
+				{{:helper.link('Редактировать', 'pencil', {'set_channel_name' : 1})}}
 			</div>
 		</div>
 		<div class='item'>
-			<div class='itemLabel'>Channel author:</div>
+			<div class='itemLabel'>Автор ленты:</div>
 			<div class='itemContent good'>{{:data.scanned_user}}</div>
 		</div>
 		<div class='item'>
-			<div class='itemLabel'>Accept public feeds:</div>
-			<div class='itemContent'>{{:helper.link(data.c_locked ? 'NO' : 'YES', data.c_locked ? 'times' : 'check', {'set_channel_lock' : 1})}}</div>
+			<div class='itemLabel'>Кто может добавлять новости:</div>
+			<div class='itemContent'>{{:helper.link(data.c_locked ? 'Только я' : 'Любой', data.c_locked ? 'times' : 'check', {'set_channel_lock' : 1})}}</div>
 		</div>
 		<div class='item'>
-			{{:helper.link('Submit', 'share', {'submit_new_channel' : 1})}}
-			{{:helper.link('Cancel', 'arrow-left', {'setScreen' : 0})}}
+			{{:helper.link('Подтвердить', 'share', {'submit_new_channel' : 1})}}
+			{{:helper.link('Отменить', 'arrow-left', {'setScreen' : 0})}}
 		</div>
 	{{else data.screen == 3}} <!-- NEWSCASTER_CREATE_FM -->
-		<b>Creating new feed message...</b>
+		<b>Создание нового записи...</b>
 		<div class='item'>
-			<div class='itemLabel'>Receiving channel:</div>
+			<div class='itemLabel'>Публикуется в ленту:</div>
 			<div class='itemContent'>
 				<a style='float: left; padding-right: 6px;'>{{:data.channel_name}}</a>
-				{{:helper.link('Edit', 'pencil', {'set_channel_receiving' : 1})}}
+				{{:helper.link('Редактировать', 'pencil', {'set_channel_receiving' : 1})}}
 			</div>
 		</div>
 		<div class='item'>
-			<div class='itemLabel'>Title:</div>
+			<div class='itemLabel'>Заголовок:</div>
 			<div class='itemContent'>
 				<a style='float: left; padding-right: 6px;'>{{:data.title}}</a>
-				{{:helper.link('Edit', 'pencil', {'set_message_title' : 1})}}
+				{{:helper.link('Редактировать', 'pencil', {'set_message_title' : 1})}}
 			</div>
 		</div>
 		<div class='item'>
-			<div class='itemLabel'>Message body:</div>
+			<div class='itemLabel'>Контент:</div>
 			<div class='itemContent'>
 				<a style='float: left; padding-right: 6px;'>{{:data.msg}}</a>
-				{{:helper.link('Edit', 'pencil', {'set_new_message' : 1})}}
+				{{:helper.link('Редактировать', 'pencil', {'set_new_message' : 1})}}
 			</div>
 		</div>
 		<div class='item'>
-			<div class='itemLabel'>Attached photo:</div>
-			<div class='itemContent'>{{:helper.link(data.photo ? 'Dettach photo' : 'Attach photo', data.photo ? 'times' : 'paperclip', {'set_attachment' : 1})}}</div>
+			<div class='itemLabel'>Прикрепить фотографию:</div>
+			<div class='itemContent'>{{:helper.link(data.photo ? 'Открепить фото' : 'Прикрепить фото', data.photo ? 'times' : 'paperclip', {'set_attachment' : 1})}}</div>
 		</div>
 		<div class='item'>
-			{{:helper.link('Submit', 'share', {'submit_new_message' : 1})}}
-			{{:helper.link('Cancel', 'arrow-left', {'setScreen' : 0})}}
+			{{:helper.link('Подтвердить', 'share', {'submit_new_message' : 1})}}
+			{{:helper.link('Отменить', 'arrow-left', {'setScreen' : 0})}}
 		</div>
 	{{else data.screen == 4}} <!-- NEWSCASTER_PRINT -->
-		Network currently serves a total of {{:data.total_num}} feed channels, {{:data.active_num}} of which are active, and a total of {{:data.message_num}} feed stories.
+		Сеть в настоящее время обслуживает в общей сложности {{:data.total_num}} лент, из которых {{:data.active_num}} активны, и в сумме {{:data.message_num}} новостей.
 		<div class='item'>
-			<div class='itemLabel'>Liquid paper remaining:</div>
-			<div class='itemContent'>{{:data.paper_remaining}} cm<sup>3</sup></div>
+			<div class='itemLabel'>Осталось жидкой бумаги:</div>
+			<div class='itemContent'>{{:data.paper_remaining}} см<sup>3</sup></div>
 		</div>
 		<div class='item'>
-			{{:helper.link('Print paper', 'print', {'print_paper' : 0})}}
-			{{:helper.link('Cancel', 'arrow-left', {'setScreen' : 0})}}
+			{{:helper.link('Распечатать', 'print', {'print_paper' : 0})}}
+			{{:helper.link('Отменить', 'arrow-left', {'setScreen' : 0})}}
 		</div>
 	{{else data.screen == 5}} <!-- NEWSCASTER_VIEW_FC -->
-		<b>{{:data.channel_name}}</b> <i><font size=1>[created by: <span class='good'>{{:data.author}}</span>]</font></i><br>
-		<i><font size=1>Feed view count: {{:data.total_view_count}}</font></i><br>
+		<b>{{:data.channel_name}}</b> <i><font size=1>[создано: <span class='good'>{{:data.author}}</span>]</font></i><br>
+		<i><font size=1>Счётчик просмотров ленты: {{:data.total_view_count}}</font></i><br>
 		{{if data.censored}}
 			<div class='statusDisplay'>
-				<b class='bad'>ATTENTION: </b>This channel has been deemed as threatening to the welfare of the station, and marked with a Nanotrasen D-Notice.<BR>
-				No further feed story additions are allowed while the D-Notice is in effect.
+				<b class='bad'>ВНИМАНИЕ: </b>Этот канал был признан угрожающим благополучию станции и помечен D-уведомлением Nanotrasen.<BR>
+				Дальнейшее добавление новостей в ленту не допускается, пока действует D-уведомление.
 			</div>
 		{{else}}
 			{{for data.messages}}
 				<div class='statusDisplay'>
-					<p style='text-align: center;'> 
+					<p style='text-align: center;'>
 						<font size="5"><b>{{:value.title}}</b></font><br>
 					</p>
 					{{if value.img}}
 						<img src='tmp_photo{{:value.message_number}}.png' style='display: block; margin-left: auto; margin-right: auto;' width=350><br>
-					{{/if}}		
-					<p style='text-align: justify;'> 					
+					{{/if}}
+					<p style='text-align: justify;'>
 						{{:value.body}}<br>
 					</p>
-					<i><font size=1>[{{:value.message_type}} by <span class='good'>{{:value.author}}</span>]</font></i><br>
-					<i><font size=1>Message view count: {{:value.view_count}}</font></i>
+					<i><font size=1>[{{:value.message_type}} от <span class='good'>{{:value.author}}</span>]</font></i><br>
+					<i><font size=1>Счётчик просмотров новости: {{:value.view_count}}</font></i>
 				</div>
 			{{empty}}
-				<i>No feed messages found in channel...</i>
+				<i>Новости в ленте не найдены...</i>
 			{{/for}}
 		{{/if}}
 		<hr>
 		<div class='item'>
-			<div class='line'>{{:helper.link('Refresh', 'refresh', {'refresh' : 0})}}</div>
-			<div class='line'>{{:helper.link('Back', 'arrow-left', {'setScreen' : 1})}}</div>
+			<div class='line'>{{:helper.link('Обновить', 'refresh', {'refresh' : 0})}}</div>
+			<div class='line'>{{:helper.link('Назад', 'arrow-left', {'setScreen' : 1})}}</div>
 		</div>
 	{{else data.screen == 6}} <!-- NEWSCASTER_NT_CENSOR -->
-		<B>Nanotrasen Feed Censorship Tool</B><BR>
-		<i><font size=1>NOTE: Due to the nature of news Feeds, total deletion of a Feed Story is not possible. 
-		Keep in mind that users attempting to view a censored feed will instead see the <b class='bad'>[REDACTED]</b> tag above it.</font></i>
+		<B>Инструмент цензуры лент Nanotrasen</B><BR>
+		<i><font size=1>НА ЗАМЕТКУ: Из-за характера новостных лент полное удаление новостной ленты невозможно.
+		Помните, что пользователи, пытающиеся просмотреть цензурированный канал, вместо этого увидят тег <b class='bad'>[УДАЛЕНО]</b> над ним.</font></i>
 		<hr>
-		Select feed channel to get stories from:
+		Выберите ленту для загрузки новостей:
 		<div class='item'>
 			{{for data.channels}}
 				<div class='line'>
@@ -176,17 +176,17 @@ Property of Nanotrasen</font><br>
 					{{/if}}
 				</div>
 			{{empty}}
-				<i>No feed channels found active...</i>
+				<i>Нет активных лент...</i>
 			{{/for}}
 		</div>
 		<div class='item'>
-			<div class='line'>{{:helper.link('Back', 'arrow-left', {'setScreen' : 0})}}</div>
+			<div class='line'>{{:helper.link('Назад', 'arrow-left', {'setScreen' : 0})}}</div>
 		</div>
 	{{else data.screen == 7}} <!-- NEWSCASTER_D_NOTICE -->
-		<B>Nanotrasen D-Notice Handler</B><BR>
-		<i><font size=1>A D-Notice is to be bestowed upon the channel if the handling Authority deems it as harmful for the station<>s morale, integrity or disciplinary behaviour.
-		A D-Notice will render a channel unable to be updated by anyone, without deleting any feedstories it might contain at the time.
-		You can lift a D-Notice if you have the required access at any time.</font></i>
+		<B>Nanotrasen D-удедомление</B><BR>
+		<i><font size=1>D-уведомление направляется на канал, если Орган по управлению считает его вредным для морального состояния, целостности или дисциплинарного поведения станций.
+			D-уведомление сделает канал невозможным для обновления кем-либо, без удаления каких-либо новостей, которые он может содержать в данный момент.
+			Вы можете отменить D-уведомление, если у вас есть необходимый доступ в любое время.</font></i>
 		<hr>
 		<div class='item'>
 			{{for data.channels}}
@@ -198,16 +198,16 @@ Property of Nanotrasen</font><br>
 					{{/if}}
 				</div>
 			{{empty}}
-				<i>No feed channels found active...</i>
+				<i>Нет активных лент...</i>
 			{{/for}}
 		</div>
 		<hr>
 		<div class='item'>
-			<div class='line'>{{:helper.link('Back', 'arrow-left', {'setScreen' : 0})}}</div>
+			<div class='line'>{{:helper.link('Назад', 'arrow-left', {'setScreen' : 0})}}</div>
 		</div>
 	{{else data.screen == 8}} <!-- NEWSCASTER_CENSOR_FC -->
-		<b>{{:data.channel_name}}</b> <i><font size=1>[created by: <span class='good'>{{:data.author}}</span>]</font></i><br>
-		<i>{{:helper.link(data.author_redacted ? 'Undo author censorship' : 'Censor channel author', null, {'censor_channel_author' : data.ref})}}</i><br><hr>
+		<b>{{:data.channel_name}}</b> <i><font size=1>[создано: <span class='good'>{{:data.author}}</span>]</font></i><br>
+		<i>{{:helper.link(data.author_redacted ? 'Отменить цензуру автора' : 'Цензурировать автора канала', null, {'censor_channel_author' : data.ref})}}</i><br><hr>
 		{{for data.messages}}
 			<div class='statusDisplay'>
 				<b>{{:value.title}}</b><br>
@@ -215,26 +215,26 @@ Property of Nanotrasen</font><br>
 				{{if value.img}}
 					<img src='{{:value.img}}' width=180><br>
 				{{/if}}
-				<i><font size=1>[{{:value.message_type}} by <span class='good'>{{:value.author}}</span>]</font></i><br>
+				<i><font size=1>[{{:value.message_type}} от <span class='good'>{{:value.author}}</span>]</font></i><br>
 				<i>
-				{{:helper.link(value.body_redacted ? 'Undo story censorship' : 'Censor story', null, {'censor_channel_story_body' : value.ref})}}
-				{{:helper.link(value.author_redacted ? 'Undo author censorship' : 'Censor message author', null, {'censor_channel_story_author' : value.ref})}}
+				{{:helper.link(value.body_redacted ? 'Отменить цензуру новости' : 'Цензурировать новость', null, {'censor_channel_story_body' : value.ref})}}
+				{{:helper.link(value.author_redacted ? 'Отменить цензуру автора' : 'Цензурировать автора канала', null, {'censor_channel_story_author' : value.ref})}}
 				</i>
 			</div>
 		{{empty}}
-			<i>No feed messages found in channel...</i>
+			<i>Новости в ленте не найдены...</i>
 		{{/for}}
 		<hr>
 		<div class='item'>
-			<div class='line'>{{:helper.link('Back', 'arrow-left', {'setScreen' : 6})}}</div>
+			<div class='line'>{{:helper.link('Назад', 'arrow-left', {'setScreen' : 6})}}</div>
 		</div>
 	{{else data.screen == 9}} <!-- NEWSCASTER_D_NOTICE_FC -->
-		<b>{{:data.channel_name}}</b> <i><font size=1>[created by: <span class='good'>{{:data.author}}</span>]</font></i><br>
-		<i>Channel messages listed below. If you deem them dangerous to the station, you can <div style='clear: both;'>{{:helper.link(data.censored ? 'Remove the D-Notice on the channel' : 'Bestow a D-Notice upon the channel', null, {'toggle_d_notice' : data.ref})}}</div></i><br><hr>
+		<b>{{:data.channel_name}}</b> <i><font size=1>[создано: <span class='good'>{{:data.author}}</span>]</font></i><br>
+		<i>Ниже распложены новости ленты. Если вы считаете их опасными для станции, вы можете <div style='clear: both;'>{{:helper.link(data.censored ? 'Снять D-уведомление с ленты' : 'Пометить D-уведомлением ленту', null, {'toggle_d_notice' : data.ref})}}</div></i><br><hr>
 		{{if data.censored}}
 			<div class='statusDisplay'>
-				<b class='bad'>ATTENTION: </b>This channel has been deemed as threatening to the welfare of the station, and marked with a Nanotrasen D-Notice. 
-				No further feed story additions are allowed while the D-Notice is in effect.
+				<b class='bad'>ВНИМАНИЕ: </b>Этот канал был признан угрожающим благополучию станции и помечен D-уведомлением Nanotrasen.
+				Дальнейшее добавление новостей в ленту не допускается, пока действует D-уведомление.
 			</div>
 		{{else}}
 			{{for data.messages}}
@@ -244,90 +244,90 @@ Property of Nanotrasen</font><br>
 					{{if value.img}}
 						<img src='{{:value.img}}' width=180><br>
 					{{/if}}
-					<i><font size=1>[{{:value.message_type}} by <span class='good'>{{:value.author}}</span>]</font></i>
+					<i><font size=1>[{{:value.message_type}} от <span class='good'>{{:value.author}}</span>]</font></i>
 				</div>
 			{{empty}}
-				<i>No feed messages found in channel...</i>
+				<i>Новости в ленте не найдены...</i>
 			{{/for}}
 		{{/if}}
 		<div class='item'>
-			<div class='line'>{{:helper.link('Back', 'arrow-left', {'setScreen' : 7})}}</div>
+			<div class='line'>{{:helper.link('Назад', 'arrow-left', {'setScreen' : 7})}}</div>
 		</div>
 	{{else data.screen == 10}} <!-- NEWSCASTER_W_ISSUE_H -->
-		<b>Wanted Issue handler:</b><br>
+		<b>Управление выпуском Разыскивается:</b><br>
 		{{if data.wanted_already}}
-			<i>A wanted issue is already in Feed Circulation. You can edit or cancel it below.</i><br>
+			<i>Выпуск Разыскивается уже в ленте. Вы можете редактировать или отменить его ниже.</i><br>
 		{{/if}}
 		<div class='item'>
-			<div class='itemLabel'>Criminal name:</div>
+			<div class='itemLabel'>Имя преступника:</div>
 			<div class='itemContent'>
 				<a style='float: left; padding-right: 6px;'>{{:data.channel_name}}</a>
-				{{:helper.link('Edit', 'pencil', {'set_wanted_name' : 1})}}
+				{{:helper.link('Редактировать', 'pencil', {'set_wanted_name' : 1})}}
 			</div>
 		</div>
 		<div class='item'>
-			<div class='itemLabel'>Description:</div>
+			<div class='itemLabel'>Описание:</div>
 			<div class='itemContent'>
 				<a style='float: left; padding-right: 6px;'>{{:data.msg}}</a>
-				{{:helper.link('Edit', 'pencil', {'set_wanted_desc' : 1})}}
+				{{:helper.link('Редактировать', 'pencil', {'set_wanted_desc' : 1})}}
 			</div>
 		</div>
 		<div class='item'>
-			<div class='itemLabel'>Attached photo:</div>
-			<div class='itemContent'>{{:helper.link(data.photo ? 'Dettach photo' : 'Attach photo', data.photo ? 'times' : 'paperclip', {'set_attachment' : 1})}}</div>
+			<div class='itemLabel'>Прикрепить фото:</div>
+			<div class='itemContent'>{{:helper.link(data.photo ? 'Открепить фото' : 'Прикрепить фото', data.photo ? 'times' : 'paperclip', {'set_attachment' : 1})}}</div>
 		</div>
 		<div class='item'>
-			<div class='itemLabel'>Author:</div>
+			<div class='itemLabel'>Автор:</div>
 			<div class='itemContent good'>{{:data.wanted_already ? data.author : data.scanned_user}}</div>
 		</div>
 		<hr>
 		<div class='item'>
-			{{:helper.link(data.wanted_already ? 'Edit issue' : 'Submit', data.wanted_already ? 'pencil' : 'share', {'submit_wanted' : data.end_param})}}
+			{{:helper.link(data.wanted_already ? 'Изменить выпуск' : 'Подтвердить', data.wanted_already ? 'pencil' : 'share', {'submit_wanted' : data.end_param})}}
 			{{if data.wanted_already}}
-				{{:helper.link('Take down issue', 'times', {'cancel_wanted' : 1})}}
+				{{:helper.link('Распубликовать выпуск', 'times', {'cancel_wanted' : 1})}}
 			{{/if}}
 			{{:helper.link('Back', 'arrow-left', {'setScreen' : 0})}}
 		</div>
 	{{else data.screen == 11}} <!-- NEWSCASTER_W_ISSUE -->
-		<center><h3 class='bad'>STATIONWIDE WANTED ISSUE</h3>
-		<i><font size=1>[Submitted by: <span class='good'>{{:data.author}}</span>]</font></i></center><hr>
+		<center><h3 class='bad'>РАЗЫСКИВАЕТСЯ</h3>
+		<i><font size=1>[Предоставлен: <span class='good'>{{:data.author}}</span>]</font></i></center><hr>
 		<div class='item'>
-			<div class='itemLabel'>Criminal:</div>
+			<div class='itemLabel'>Преступник:</div>
 			<div class='itemContent'>{{:data.criminal}}</div>
 		</div>
 		<div class='item'>
-			<div class='itemLabel'>Description:</div>
+			<div class='itemLabel'>Описание:</div>
 			<div class='itemContent'>{{:data.description}}</div>
 		</div>
 		<div class='item'>
-			<div class='itemLabel'>Photo:</div><br>
+			<div class='itemLabel'>Фото:</div><br>
 			<div class='itemContent'>
 				{{if data.photo}}
 					<img src='tmp_photow.png' width=350><br>
 				{{else}}
-					None
+					Отсутствует
 				{{/if}}
 			</div>
 		</div>
 		<div class='item'>
-			<div class='line'>{{:helper.link('Back', 'arrow-left', {'setScreen' : 0})}}</div>
+			<div class='line'>{{:helper.link('Назад', 'arrow-left', {'setScreen' : 0})}}</div>
 		</div>
 	{{else data.screen == 12}} <!-- NEWSCASTER_JOBS -->
-		<center><h3 class='good'>CAREERS AT NANOTRASEN</h3>
-		<i><font size=1>Work for a better future.</font></i></center>
+		<center><h3 class='good'>Карьера в NANOTRASEN</h3>
+		<i><font size=1>Работай ради лучшего будущего.</font></i></center>
 		<hr>
 		{{for data.jobs}}
 			<div class='jobValues'>
 				{{:value.title}}<br>
 			</div>
 			{{empty}}
-				<i>No available jobs...</i>
+				<i>Нет доступных вакансий...</i>
 		{{/for}}
-		
+
 		<hr>
 		<div class='item'>
-			<div class='line'>{{:helper.link('Refresh', 'refresh', {'refresh' : 0})}}</div>
-			<div class='line'>{{:helper.link('Back', 'arrow-left', {'setScreen' : 1})}}</div>
+			<div class='line'>{{:helper.link('Обновить', 'refresh', {'refresh' : 0})}}</div>
+			<div class='line'>{{:helper.link('Назад', 'arrow-left', {'setScreen' : 1})}}</div>
 		</div>
 	{{/if}}
 {{/if}}

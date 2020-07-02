@@ -4,15 +4,15 @@ Used In File(s): \code\modules\reagents\newchem\chem_heater.dm
 -->
 <div class="item">
 	<div class="itemLabel">
-		Status:
+		Статус:
 	</div>
 	<div class="itemContent">
-		{{:helper.link(data.isActive ? 'On' : 'Off', 'power-off', {'toggle_on' : 1}, data.isBeakerLoaded ? null : 'disabled')}}
+		{{:helper.link(data.isActive ? 'Вкл' : 'Выкл', 'power-off', {'toggle_on' : 1}, data.isBeakerLoaded ? null : 'disabled')}}
 	</div>
 </div>
 <div class="item">
 	<div class="itemLabel">
-		Target:
+		Цель:
 	</div>
 	<div class="itemContent">
 		{{:helper.link(data.targetTemp + 'K', 'gear', {'adjust_temperature' : 'input'}, null)}}
@@ -20,10 +20,10 @@ Used In File(s): \code\modules\reagents\newchem\chem_heater.dm
 </div>
 <div class="item">
 	<div class="itemLabel">
-		Beaker
+		Мензурка
 	</div>
 	<div class="itemContent">
-		{{:helper.link('Eject', 'eject', {'eject_beaker' : 1}, data.isBeakerLoaded ? null : 'disabled', 'floatRight')}}
+		{{:helper.link('Извлечь', 'eject', {'eject_beaker' : 1}, data.isBeakerLoaded ? null : 'disabled', 'floatRight')}}
 	</div>
 </div>
 <div class="statusDisplay">
@@ -32,13 +32,13 @@ Used In File(s): \code\modules\reagents\newchem\chem_heater.dm
 			<div class="itemContent">
 				<div style="width: 100%;">
 					{{if data.isBeakerLoaded}}
-						<b>Volume:&nbsp;{{:helper.smoothRound(data.beakerCurrentVolume)}}&nbsp;/&nbsp;{{:data.beakerMaxVolume}}</b><br>
-						<b>Temperature:&nbsp;{{:helper.smoothRound(data.currentTemp)}}&nbsp;Kelvin</b><br>
+						<b>Объём:&nbsp;{{:helper.smoothRound(data.beakerCurrentVolume)}}&nbsp;/&nbsp;{{:data.beakerMaxVolume}}</b><br>
+						<b>Температура:&nbsp;{{:helper.smoothRound(data.currentTemp)}}&nbsp;Кельвин</b><br>
 						{{for data.beakerContents}}
-							<span class="highlight">{{:value.volume}} units of {{:value.name}}</span><br>
+							<span class="highlight">{{:value.volume}} юнитов {{:value.name}}</span><br>
 						{{/for}}
 					{{else}}
-						<span class="average"><i>No beaker loaded</i></span>
+						<span class="average"><i>Мензурка не загружена</i></span>
 					{{/if}}
 				</div>
 			</div>

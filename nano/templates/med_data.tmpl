@@ -14,7 +14,7 @@ Used In File(s): \code\game\machinery\computer\medical.dm
 
 <div class="item">
 	<div class="itemLabelNarrow">
-		<b>Confirm Identity:</b>
+		<b>Подтвердите личность:</b>
 	</div>
 	<div class="itemContent">
 		{{:helper.link(data.scan ? data.scan : "----------", 'eject', {'scan' : 1}, null, data.scan ? 'itemContentWide' : 'fixedLeft')}}
@@ -23,33 +23,33 @@ Used In File(s): \code\game\machinery\computer\medical.dm
 <hr>
 {{if data.authenticated}}
 	{{if data.screen == 1}} <!-- MED_DATA_MAIN -->
-		<h3>Menu</h3>
+		<h3>Меню</h3>
 		<div class="item">
-			<div class="line">{{:helper.link('Search Records', 'search', {'search' : 1})}}</div>
-			<div class="line">{{:helper.link('List Records', 'list', {'screen' : 2})}}</div>
-			<div class="line">{{:helper.link('Virus Database', 'database', {'screen' : 5})}}</div>
-			<div class="line">{{:helper.link('Medbot Tracking', 'plus-square', {'screen' : 6})}}</div>
-			<div class="line">{{:helper.link('Record Maintenance', 'wrench', {'screen' : 3})}}</div>
-			<div class="line">{{:helper.link('Logout', 'lock', {'logout' : 1})}}</div>
+			<div class="line">{{:helper.link('Искать записи', 'search', {'search' : 1})}}</div>
+			<div class="line">{{:helper.link('Список записей', 'list', {'screen' : 2})}}</div>
+			<div class="line">{{:helper.link('База данных вирусов', 'database', {'screen' : 5})}}</div>
+			<div class="line">{{:helper.link('Медбот слежение', 'plus-square', {'screen' : 6})}}</div>
+			<div class="line">{{:helper.link('Обслуживание записей', 'wrench', {'screen' : 3})}}</div>
+			<div class="line">{{:helper.link('Выход', 'lock', {'logout' : 1})}}</div>
 		</div>
 	{{else data.screen == 2}} <!-- MED_DATA_R_LIST -->
-		<h3><center>Record List</center></h3>
+		<h3><center>Список записей</center></h3>
 		{{for data.records}}
 			<div class="line">{{:helper.link(value.id + ': ' + value.name, 'user', {'d_rec' : value.ref})}}</div>
 		{{/for}}
 		<br><hr>
 		<div class="line">{{:helper.link('Back', 'arrow-left', {'screen' : 1})}}</div>
 	{{else data.screen == 3}} <!-- MED_DATA_MAINT -->
-		<h3>Records Maintenance</h3>
-		<div class="line">{{:helper.link('Backup To Disk', 'download', {'back' : 1}, 'disabled')}}</div>
-		<div class="line">{{:helper.link('Upload From disk', 'upload', {'u_load' : 1}, 'disabled')}}</div>
-		<div class="line">{{:helper.link('Delete All Records', 'trash', {'del_all' : 1})}}</div>
-		<div class="line">{{:helper.link('Back', 'arrow-left', {'screen' : 1})}}</div>
+		<h3>Обслуживание записей</h3>
+		<div class="line">{{:helper.link('Резервное копирование на диск', 'download', {'back' : 1}, 'disabled')}}</div>
+		<div class="line">{{:helper.link('Загрузить с диска', 'upload', {'u_load' : 1}, 'disabled')}}</div>
+		<div class="line">{{:helper.link('Удалить все записи', 'trash', {'del_all' : 1})}}</div>
+		<div class="line">{{:helper.link('Назад', 'arrow-left', {'screen' : 1})}}</div>
 	{{else data.screen == 4}} <!-- MED_DATA_RECORD -->
-		<h3><center>Medical Record</center></h3>
-		<h4><center>General Data</center></h4>
+		<h3><center>Медицинские записи</center></h3>
+		<h4><center>Основные данные</center></h4>
 		{{if data.general.empty}}
-			<span class="bad"><center>General Record Lost!</center></span>
+			<span class="bad"><center>Основные записи потеряны!</center></span>
 		{{else}}
 			<div class="statusDisplayRecords">
 				<table style='width:100%'><tr>
@@ -73,14 +73,14 @@ Used In File(s): \code\game\machinery\computer\medical.dm
 				</tr></table>
 			</div>
 		{{/if}}
-		
-		<h4><center>Medical Data</center></h4>
+
+		<h4><center>Медицинские данные</center></h4>
 		{{if data.medical.empty}}
-			<span class="bad"><center>Medical Record Lost!</center></span>
+			<span class="bad"><center>Медицинские записи потеряны!</center></span>
 			<div style="text-align: center;">
-				<div style="display: inline-block;">{{:helper.link('New Record', 'plus', {'new' : 1})}}</div>
+				<div style="display: inline-block;">{{:helper.link('Новая запись', 'plus', {'new' : 1})}}</div>
 			</div>
-			<h3><center>Menu</center></h3>
+			<h3><center>Меню</center></h3>
 		{{else}}
 			{{for data.medical.fields}}
 				<div class="item">
@@ -91,54 +91,54 @@ Used In File(s): \code\game\machinery\computer\medical.dm
 					<br>
 				{{/if}}
 			{{/for}}
-				
-			<h4><center>Comments/Log</center></h4>
+
+			<h4><center>Комментарии/Логи</center></h4>
 			{{for data.medical.comments}}
 				<div class="line">{{:value}}</div>
-				<div class="line">{{:helper.link('Remove entry', 'trash', {'del_c' : index})}}</div>
+				<div class="line">{{:helper.link('Убрать элемент', 'trash', {'del_c' : index})}}</div>
 				<br><hr>
 			{{/for}}
-			
+
 			<div style="text-align: center;">
-				<div style="display: inline-block;">{{:helper.link('Add Entry', 'plus', {'add_c' : 1})}}</div>
+				<div style="display: inline-block;">{{:helper.link('Добавить элемент', 'plus', {'add_c' : 1})}}</div>
 			</div>
-			
-			<h3><center>Menu</center></h3>
-			<div class="line">{{:helper.link('Delete Record (Medical Only)', 'trash', {'del_r' : 1})}}</div>
+
+			<h3><center>Меню</center></h3>
+			<div class="line">{{:helper.link('Удалить запись (только медицинские)', 'trash', {'del_r' : 1})}}</div>
 		{{/if}}
-		
-		<div class="line">{{:helper.link('Print Record', 'print', {'print_p' : 1})}}</div>
-		<div class="line">{{:helper.link('Back', 'arrow-left', {'screen' : 2})}}</div>
+
+		<div class="line">{{:helper.link('Печать записи', 'print', {'print_p' : 1})}}</div>
+		<div class="line">{{:helper.link('Назад', 'arrow-left', {'screen' : 2})}}</div>
 	{{else data.screen == 5}} <!-- MED_DATA_V_DATA -->
-		<h3><center>Virus Database</center></h3>
+		<h3><center>База данных вирусов</center></h3>
 		{{for data.virus}}
 			<div class="line">{{:helper.link(value.name, 'arrow-right', {'vir' : value.D})}}</div>
 		{{/for}}
 		<br><hr>
 		{{:helper.link('Back', 'arrow-left', {'screen' : 1})}}
 	{{else data.screen == 6}} <!-- MED_DATA_MEDBOT -->
-		<h3><center>Medical Robot Monitor</center></h3>
+		<h3><center>Наблюдение медицинского робота</center></h3>
 		{{for data.medbots}}
 			<h4>{{:value.name}}</h4>
 			<div class="item">
-				<div class="itemLabel">Location:</div>
+				<div class="itemLabel">Локация:</div>
 				<div class="itemContent">{{:value.x}}, {{:value.y}}</div>
 			</div>
 			<div class="item">
-				<div class="itemLabel">Status:</div>
+				<div class="itemLabel">Статус:</div>
 				<div class="itemContent">
-					{{:value.on ? "<span class='good'>Online</span>" : "<span class='average'>Offline</span>"}}. {{if value.use_beaker}}Reservoir: [{{:value.total_volume}}/{{:value.maximum_volume}}]{{else}}Using internal synthesizer.{{/if}}
+					{{:value.on ? "<span class='good'>Онлайн</span>" : "<span class='average'>Оффлайн</span>"}}. {{if value.use_beaker}}Резервуар: [{{:value.total_volume}}/{{:value.maximum_volume}}]{{else}}Используя встроенный синтезатор.{{/if}}
 				</div>
 			</div>
 			<hr>
 		{{empty}}
-			<h4 class="bad"><center>None detected!</center></h4>
+			<h4 class="bad"><center>Не обнаружено!</center></h4>
 		{{/for}}
-		<div class="line">{{:helper.link('Back', 'arrow-left', {'screen' : 1})}}</div>
+		<div class="line">{{:helper.link('Назад', 'arrow-left', {'screen' : 1})}}</div>
 	{{/if}}
 {{else}}
 	<h3>Menu</h3>
-	{{:helper.link('Login', 'unlock', {'login' : 1})}}
+	{{:helper.link('Войти', 'unlock', {'login' : 1})}}
 {{/if}}
 
 {{if data.temp}}
@@ -150,7 +150,7 @@ Used In File(s): \code\game\machinery\computer\medical.dm
 				<center>{{:data.temp.text}}</center>
 			{{/if}}
 
-			
+
 			{{if data.temp.has_buttons}}
 				<div class="line">
 					<div style="display: inline-block;">
@@ -162,9 +162,9 @@ Used In File(s): \code\game\machinery\computer\medical.dm
 					</div>
 				</div>
 			{{/if}}
-			
+
 			<div style="display: inline-block;">
-				<div class="item">{{:helper.link('Clear screen', 'home', {'temp' : 1})}}</div>
+				<div class="item">{{:helper.link('Очистить экран', 'home', {'temp' : 1})}}</div>
 			</div>
 		</div>
 	</div>

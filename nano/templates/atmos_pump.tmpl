@@ -1,23 +1,23 @@
 <div class="item">
-	<div class="itemLabel">Power:</div>
-	<div class="itemContent">{{:helper.link(data.on ? 'On' : 'Off', data.on ? 'power-off' : 'times', {'power' : 1}, null, data.on ? 'selected' : null)}}</div>
+	<div class="itemLabel">Питание:</div>
+	<div class="itemContent">{{:helper.link(data.on ? 'Вкл' : 'Выкл', data.on ? 'power-off' : 'times', {'power' : 1}, null, data.on ? 'selected' : null)}}</div>
 </div>
 {{if data.max_rate}}
 	<div class="item">
-		<div class="itemLabel">Transfer Rate:</div>
+		<div class="itemLabel">Скорость передачи:</div>
 		<div class="itemContent">
-			{{:helper.link('Set', 'pencil', {'rate' : 'input'})}}
-			{{:helper.link('Max', 'plus', {'rate' : 'max'}, data.rate == data.max_rate ? 'disabled' : null)}}
-			{{:helper.smoothRound(data.rate)}} L/s
+			{{:helper.link('Указать', 'pencil', {'rate' : 'input'})}}
+			{{:helper.link('Макс', 'plus', {'rate' : 'max'}, data.rate == data.max_rate ? 'disabled' : null)}}
+			{{:helper.smoothRound(data.rate)}} Л/с
 		</div>
 	</div>
 {{else}}
 	<div class="item">
-		<div class="itemLabel">Output Pressure:</div>
+		<div class="itemLabel">Выходное давление:</div>
 		<div class="itemContent">
-			{{:helper.link('Set', 'pencil', {'pressure' : 'input'})}}
-			{{:helper.link('Max', 'plus', {'pressure' : 'max'}, data.pressure == data.max_pressure ? 'disabled' : null)}}
-			{{:helper.smoothRound(data.pressure)}} kPa
+			{{:helper.link('Указать', 'pencil', {'pressure' : 'input'})}}
+			{{:helper.link('Макс', 'plus', {'pressure' : 'max'}, data.pressure == data.max_pressure ? 'disabled' : null)}}
+			{{:helper.smoothRound(data.pressure)}} кПа
 		</div>
 	</div>
 {{/if}}

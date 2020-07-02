@@ -1,53 +1,53 @@
-<!-- 
+<!--
 Title: FireAlarm UI.
 Used In File(s): \code\game\machinery\firealarm.dm
  -->
 <div class="item">
     <div class="itemLabel">
-        Fire Alarm
+        Пожарная тревога
     </div>
     <div class="itemContent">
-        {{:helper.link('Activated',   'lightbulb-o', {'alarm' : 1}, data.fire ? 'selected' : '')}}
-        {{:helper.link('Deactivated', 'lightbulb-o', {'reset' : 1}, data.fire ? '' : 'selected')}}
+        {{:helper.link('Активирована',   'lightbulb-o', {'alarm' : 1}, data.fire ? 'selected' : '')}}
+        {{:helper.link('Деактивирована', 'lightbulb-o', {'reset' : 1}, data.fire ? '' : 'selected')}}
     </div>
 </div>
 
 <div class="item">
     <div class="itemLabel">
-        Security Level
+        Уровень угрозы
     </div>
     <div class="itemContent">
         {{if data.sec_level == "green"}}
-            <span class="good">Green</span>
+            <span class="good">Зелёный</span>
         {{else data.sec_level == "blue"}}
-            <span class="highlight">Blue</span>
+            <span class="highlight">Синий</span>
         {{else data.sec_level == "red"}}
             <span class="bad">Red</span>
         {{else data.sec_level == "gamma"}}
-            <span class="average">Gamma</span>
+            <span class="average">Гамма</span>
         {{else data.sec_level == "epsilon"}}
-            <span class="bad"><b>Contracts terminated.</b></span>
+            <span class="bad"><b>Контракты уничтожены.</b></span>
         {{else data.sec_level == "delta"}}
-            <span class="notice">Nuclear device primed.</span>
+            <span class="notice">Ядерное устройство взведено.</span>
         {{else}}
-            ERR: Unable to ascertain security level. Please see an authorized NT fire alarm technician.
+            ERR: Не удаётся констатировать уровень угрозы. Пожалуйста, расскажите об это авторизованному пожарному технику.
         {{/if}}
     </div>
 </div>
 
 <div class="item">
     <div class="itemLabel">
-        Timer System
+        Таймер система
     </div>
     <div class="itemContent">
-        {{:helper.link('Initiate', 'play',  {'time': 1}, data.timing ? 'selected' : '')}}
-        {{:helper.link('Stop',     'pause', {'time': 0}, data.timing ? '' : 'selected')}}
+        {{:helper.link('Инициировать', 'play',  {'time': 1}, data.timing ? 'selected' : '')}}
+        {{:helper.link('Стоп',     'pause', {'time': 0}, data.timing ? '' : 'selected')}}
     </div>
 </div>
 
 <div class="item">
     <div class="itemLabel">
-        Time Modifiers
+        Модификаторы времени
     </div>
     <div class="itemContent">
         {{:helper.link('30', 'minus', {'tp': -30})}}
@@ -60,7 +60,7 @@ Used In File(s): \code\game\machinery\firealarm.dm
 {{if data.timing}}
 <div class="item">
     <div class="itemLabel">
-        Time Left
+        Времени осталось
     </div>
     <div class="itemContent">
         {{:data.time_left}}

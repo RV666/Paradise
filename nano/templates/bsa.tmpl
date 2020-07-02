@@ -5,47 +5,47 @@ Used In File(s): \code\modules\station_goals\bsa.dm
 {{if data.notice}}
 	<div class="notice">{{:data.notice}}</div>
 {{/if}}
-<h3>Bluespace Artillery Control</h3>
+<h3>Управление Блюспейс Артиллерией</h3>
 <div class="item">
 	<div class="itemLabel">
-		Target:
+		Цель:
 	</div>
 	<div class="itemContent">
-		{{:helper.link(data.target ? data.target : "None", 'crosshairs', {'recalibrate' : 1})}}
+		{{:helper.link(data.target ? data.target : "Нет", 'crosshairs', {'recalibrate' : 1})}}
 	</div>
 </div>
 <div class="item">
 	<div class="itemLabel">
-		Reload Cooldown:
+		Откат перезарядки:
 	</div>
 	<div class="itemContent">
 		{{if data.ready}}
-			<span class='good'>Ready</span>
+			<span class='good'>Готово</span>
 		{{else data.reloadtime_mins || data.reloadtime_secs}}
 			<span class='bad'>{{:data.reloadtime_mins}}:{{:data.reloadtime_secs}}</span>
 		{{else}}
-			<span class='bad'>No cannon connected!</span>
-		{{/if}}	
+			<span class='bad'>Пушка не подключена!</span>
+		{{/if}}
 	</div>
 </div>
 <div class="item">
 	<div class="itemLabel">
-		Controls:
+		Управление:
 	</div>
 	<div class="itemContent">
-		{{:helper.link('FIRE!', 'warning', {'fire' : 1}, data.ready && data.target ? null : 'disabled')}}
+		{{:helper.link('ОГОНЬ!', 'warning', {'fire' : 1}, data.ready && data.target ? null : 'disabled')}}
 	</div>
 </div>
 {{if !data.connected}}
 <div class="item">
 	<div class="itemLabel">
-		Maintenance:
+		Обслуживание:
 	</div>
 	<div class="itemContent">
-		{{:helper.link('Complete Deployment', 'wrench', {'build' : 1})}}
+		{{:helper.link('Завершить развёртывание', 'wrench', {'build' : 1})}}
 	</div>
 </div>
 {{else}}
 <hr>
-<b>Deployment of weapon authorized by Nanotrasen Naval Command. Remember, friendly fire is grounds for termination of your contract and life.</b>
+<b>Развёртывание этого оружия авторизировано командованием ВМС Nanotrasen. Помните, дружественный огонь — основание для уничтожения вашего контракта и жизни.</b>
 {{/if}}

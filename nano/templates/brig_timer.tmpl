@@ -1,10 +1,10 @@
-<!-- 
+<!--
 Title: Brig Timer
 Used In File(s): \code\game\machinery\doors\brigdoors.dm
  -->
  <div class="item">
 	<div class="itemLabel">
-		Cell:
+		Камера:
 	</div>
 	<div class="itemContent">
 		{{:data.cell_id}}
@@ -12,7 +12,7 @@ Used In File(s): \code\game\machinery\doors\brigdoors.dm
 </div>
 <div class="item">
 	<div class="itemLabel">
-		Occupant:
+		Задержанный:
 	</div>
 	<div class="itemContent">
 		{{:data.occupant}}
@@ -20,7 +20,7 @@ Used In File(s): \code\game\machinery\doors\brigdoors.dm
 </div>
 <div class="item">
 	<div class="itemLabel">
-		Crimes:
+		Преступления:
 	</div>
 	<div class="itemContent">
 		{{:data.crimes}}
@@ -28,7 +28,7 @@ Used In File(s): \code\game\machinery\doors\brigdoors.dm
 </div>
 <div class="item">
 	<div class="itemLabel">
-		Brigged By:
+		Задержан (кем?):
 	</div>
 	<div class="itemContent">
 		{{:data.brigged_by}}
@@ -36,7 +36,7 @@ Used In File(s): \code\game\machinery\doors\brigdoors.dm
 </div>
 <div class="item">
 	<div class="itemLabel">
-		Time Brigged For:
+		Срок отбытия:
 	</div>
 	<div class="itemContent">
 		{{:data.time_set}}
@@ -44,7 +44,7 @@ Used In File(s): \code\game\machinery\doors\brigdoors.dm
 </div>
 <div class="item">
 	<div class="itemLabel">
-		Time Left:
+		Времени осталось:
 	</div>
 	<div class="itemContent">
 		{{:data.time_left}}
@@ -53,39 +53,39 @@ Used In File(s): \code\game\machinery\doors\brigdoors.dm
 {{if data.isAllowed}}
 	<div class="item">
 		<div class="itemLabel">
-			Actions:
+			Действия:
 		</div>
 		<div class="itemContent">
-			{{:helper.link('Flash', 'flash', {'flash' : 1}, null, data.isAllowed ? '' : 'dsabled')}}	
-			{{:helper.link('Release', null, {'release' : 1}, null, data.isAllowed ? '' : 'disabled')}}
-		</div> 	
+			{{:helper.link('Ослепить', 'flash', {'flash' : 1}, null, data.isAllowed ? '' : 'dsabled')}}
+			{{:helper.link('Выпустить', null, {'release' : 1}, null, data.isAllowed ? '' : 'disabled')}}
+		</div>
 	</div>
 	{{if !data.timing}}
 		<h3>Inmate Information</h3>
 		<div class="item">
 			<div class="itemLabel">
-				Name:
-			</div>	
+				Имя:
+			</div>
 			<div class="itemContent">
-				{{:helper.link('Set', 'pencil', {'prisoner_name' : 'input'})}} {{:data.prisoner_name}}
+				{{:helper.link('Указать', 'pencil', {'prisoner_name' : 'input'})}} {{:data.prisoner_name}}
 			</div>
 		</div>
 		<div class="item">
 			<div class="itemLabel">
-				Charge:
-			</div>	
+				Обвинения:
+			</div>
 			<div class="itemContent">
-				{{:helper.link('Set', 'pencil', {'prisoner_charge' : 'input'})}} {{:data.prisoner_charge}}
+				{{:helper.link('Указать', 'pencil', {'prisoner_charge' : 'input'})}} {{:data.prisoner_charge}}
 			</div>
 		</div>
 		<div class="item">
 			<div class="itemLabel">
-				Time (in minutes):
-			</div>	
+				Время (в минутах):
+			</div>
 			<div class="itemContent">
-				{{:helper.link('Set', 'pencil', {'prisoner_time' : 'input'})}} {{:data.prisoner_time}}
+				{{:helper.link('Указать', 'pencil', {'prisoner_time' : 'input'})}} {{:data.prisoner_time}}
 			</div>
 		</div>
-		{{:helper.link('Submit', null, {'set_timer' : 1}, null, data.isAllowed ? '' : 'disabled')}}
+		{{:helper.link('Подтвердить', null, {'set_timer' : 1}, null, data.isAllowed ? '' : 'disabled')}}
 	{{/if}}
 {{/if}}

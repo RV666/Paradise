@@ -1,6 +1,6 @@
 <div class="item">
   <div class="itemLabelNarrow">
-    <b>Machine</b>:
+    <b>Терминал</b>:
   </div>
   <div class="itemContent">
     <span class="average">{{:data.machine_id}}</span>
@@ -17,15 +17,15 @@
 
 {{if data.access_level > 0}}
   <div class='item'>
-    <h2>Menu</h2>
+    <h2>Меню</h2>
   </div>
-  {{:helper.link('Home', 'home', {'choice' : 'view_accounts_list'}, !data.creating_new_account && !data.detailed_account_view ? 'disabled' : null, 'fixedLeft')}}
-  {{:helper.link('New Account', 'gear', {'choice' : 'create_account'}, data.creating_new_account ? 'disabled' : null, 'fixedLeft')}}
-  {{:helper.link('Print', 'print', {'choice' : 'print'}, data.creating_new_account ? 'disabled' : null, 'fixedLeft')}}
+  {{:helper.link('Обзор', 'home', {'choice' : 'view_accounts_list'}, !data.creating_new_account && !data.detailed_account_view ? 'disabled' : null, 'fixedLeft')}}
+  {{:helper.link('Новый аккаунт', 'gear', {'choice' : 'create_account'}, data.creating_new_account ? 'disabled' : null, 'fixedLeft')}}
+  {{:helper.link('Печать', 'print', {'choice' : 'print'}, data.creating_new_account ? 'disabled' : null, 'fixedLeft')}}
 
    {{if data.creating_new_account}}
     <div class='item'>
-      <h2>Create Account</h2>
+      <h2>Создать аккаунт</h2>
     </div>
 
     <form name='create_account' action='?src={{:data.src}}' method='get'>
@@ -33,7 +33,7 @@
       <input type='hidden' name='choice' value='finalise_create_account'>
       <div class='item'>
         <div class='itemLabel'>
-          <b>Account Holder</b>:
+          <b>Владелец аккаунта</b>:
         </div>
         <div class='itemContent'>
           <input type='text' id='holder_name' name='holder_name'>
@@ -41,7 +41,7 @@
       </div>
       <div class='item'>
         <div class='itemLabel'>
-          <b>Initial Deposit</b>:
+          <b>Начальный депозит</b>:
         </div>
         <div class='itemContent'>
           <input type='text' id='starting_funds' name='starting_funds'>
@@ -51,14 +51,14 @@
         <input type='submit' value='Create'>
       </div>
     </form>
-  {{else data.detailed_account_view}}  
+  {{else data.detailed_account_view}}
     <div class='item'>
-      <h2>Account Details</h2>
+      <h2>Детали аккаунта</h2>
     </div>
 
     <div class='item'>
       <div class="itemLabel">
-        <span class='average'><b>Account Number</b>:</span>
+        <span class='average'><b>Номер аккаунта</b>:</span>
       </div>
       <div class="itemContent">
         #{{:data.account_number}}
@@ -67,7 +67,7 @@
 
     <div class='item'>
       <div class="itemLabel">
-        <span class='average'><b>Holder</b>:</span>
+        <span class='average'><b>Владелец</b>:</span>
       </div>
       <div class="itemContent">
         {{:data.owner_name}}
@@ -76,7 +76,7 @@
 
     <div class='item'>
       <div class="itemLabel">
-        <span class='average'><b>Balance</b>:</span>
+        <span class='average'><b>Баланс</b>:</span>
       </div>
       <div class="itemContent">
         ${{:helper.formatNumber(data.money)}}
@@ -85,16 +85,16 @@
 
     <div class='item'>
       <div class="itemLabel">
-        <span class='average'><b>Status</b>:</span>
+        <span class='average'><b>Статус</b>:</span>
       </div>
       <div class="itemContent">
         <span class='{{:data.suspended ? "bad" : "good"}}'>
-          {{:data.suspended ? "Suspended" : "Active"}}
+          {{:data.suspended ? "Заморожен" : "Активен"}}
         </span>
       </div>
     </div>
     <div class='item'>
-      {{:helper.link(data.suspended ? "Unsuspend" : "Suspend", 'gear', {'choice' : 'toggle_suspension'})}}
+      {{:helper.link(data.suspended ? "Разморозить" : "Заморозить", 'gear', {'choice' : 'toggle_suspension'})}}
     </div>
 
     <div class="statusDisplay" style="overflow: auto;">
@@ -102,11 +102,11 @@
       <table style='width: 100%'>
         <thead>
           <tr>
-            <th><b>Timestamp</b></th>
-            <th><b>Target</b></th>
-            <th><b>Reason</b></th>
-            <th><b>Value</b></th>
-            <th><b>Terminal</b></th>
+            <th><b>Время</b></th>
+            <th><b>Цель</b></th>
+            <th><b>Назначение</b></th>
+            <th><b>Сумма</b></th>
+            <th><b>Терминал</b></th>
           </th>
         </thead>
         <tbody>
@@ -122,12 +122,12 @@
         </tbody>
       </table>
       {{else}}
-        <span class='exclamation-triangle'>This account has no financial transactions on record for today.</span>
+        <span class='exclamation-triangle'>Данный аккаунт не имеет записей о совершённых финансовых транзакциях за сегодня.</span>
       {{/if}}
     </div>
   {{else}}
     <div class='item'>
-      <h2>Nanotrasen Accounts</h2>
+      <h2>Аккаунты Nanotrasen</h2>
     </div>
     {{if data.accounts}}
       <table style="width: 100%">
@@ -140,7 +140,7 @@
         {{/for}}
       </table>
     {{else}}
-      <span class='exclamation-triangle'>There are no accounts available.</span>
+      <span class='exclamation-triangle'>Доступные аккаунты отсутствуют.</span>
     {{/if}}
   {{/if}}
 {{/if}}

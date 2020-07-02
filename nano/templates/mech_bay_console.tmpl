@@ -1,33 +1,33 @@
-<h3>Subsystems</h3>
+<h3>Подсистемы</h3>
 	<div class="item">
 		<div class="itemLabel">
-			Power Port:
+			Порт питания:
 		</div>
 		<div class="itemContent">
 			{{if data.recharge_port}}
 				<span class='good'>OK</span>
 			{{else}}
-				<span class='bad'>ERROR</span>
+				<span class='bad'>ОШИБКА</span>
 			{{/if}}
 		</div>
 	</div>
 	<div class="item">
 		<div class="itemLabel">
-			Mecha:
+			Меха:
 		</div>
 		<div class="itemContent">
 			{{if data.has_mech}}
-				<span class='good'>LOCATED ({{:data.mecha_name}})</span>
+				<span class='good'>РАСПОЛОЖЕН ({{:data.mecha_name}})</span>
 			{{else}}
-				<span class='average'>NONE</span>
+				<span class='average'>НЕТ</span>
 			{{/if}}
 		</div>
 	</div>
 {{if data.has_mech}}
-	<h3>Charging</h3>
+	<h3>Зарядка</h3>
 		<div class="item">
 			<div class="itemLabel">
-				Charge Level:
+				Уровень заряда:
 			</div>
 			<div class="itemContent">
 				{{:helper.displayBar(data.mecha_charge_percentage, 0, 100)}}
@@ -38,7 +38,7 @@
 		</div>
 		<div class="item">
 			<div class="itemLabel">
-				Cell Rating:
+				Рейтинг аккумулятора:
 			</div>
 			<div class="itemContent">
 				{{:data.mecha_maxcharge}}
@@ -46,7 +46,7 @@
 		</div>
 		<div class="item">
 			<div class="itemLabel">
-				Cell Charge:
+				Заряд аккумулятора:
 			</div>
 			<div class="itemContent">
 				{{:helper.smoothRound(data.mecha_charge)}}

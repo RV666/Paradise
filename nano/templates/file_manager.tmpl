@@ -1,26 +1,26 @@
 {{if data.error}}
-	<h2>An error has occurred and this program can not continue.</h2>
-	Additional information: {{:data.error}}<br>
-	<i>Please try again. If the problem persists contact your system administrator for assistance.</i>
+	<h2>Произошла ошибка, продолжение программы невозможно.</h2>
+	Дополнительная информация: {{:data.error}}<br>
+	<i>Пожалуйста, попробуйте снова. Если проблема сохраняется, свяжитесь с вашим системным администратором за помощью.</i>
 	{{:helper.link('Restart program', null, {'action' : 'PRG_closefile'})}}
 {{else}}
 	{{if data.filename}}
-		<h2>Viewing file {{:data.filename}}</h2>
+		<h2>Просматриваемый файл {{:data.filename}}</h2>
 		<div class='item'>
-		{{:helper.link('CLOSE', null, {'action' : 'PRG_closefile'})}}
-		{{:helper.link('EDIT', null, {'action' : 'PRG_edit'})}}
-		{{:helper.link('PRINT', null, {'action' : 'PRG_printfile'})}}
+		{{:helper.link('ЗАКРЫТЬ', null, {'action' : 'PRG_closefile'})}}
+		{{:helper.link('РЕДАКТИРОВАТЬ', null, {'action' : 'PRG_edit'})}}
+		{{:helper.link('ПЕЧАТЬ', null, {'action' : 'PRG_printfile'})}}
 		</div><hr>
 		{{:data.filedata}}
 	{{else}}
-		<h2>Available files (local):</h2>
+		<h2>Доступные файлы (локально):</h2>
 		<div class='statusDisplay'>
 			<table>
 				<tr>
-					<th>File name</th>
-					<th>File type</th>
-					<th>File size (GQ)</th>
-					<th>Operations</th>
+					<th>Название файла</th>
+					<th>Тип файла</th>
+					<th>Размер файла (GQ)</th>
+					<th>Операции</th>
 				</tr>
 				{{for data.files}}
 					<tr>
@@ -28,17 +28,17 @@
 						<td>.{{:value.type}}</td>
 						<td>{{:value.size}}GQ</td>
 						<td>
-							{{:helper.link('VIEW', 'eye', {'action' : 'PRG_openfile', 'name' : value.name})}}
-							{{:helper.link('DELETE', 'trash', {'action' : 'PRG_deletefile', 'name' : value.name}, value.undeletable ? 'disabled' : null)}}
-							{{:helper.link('RENAME', 'pencil', {'action' : 'PRG_rename', 'name' : value.name}, value.undeletable ? 'disabled' : null)}}
-							{{:helper.link('CLONE', 'files-o', {'action' : 'PRG_clone', 'name' : value.name}, value.undeletable ? 'disabled' : null)}}
+							{{:helper.link('ПОСМОТРЕТЬ', 'eye', {'action' : 'PRG_openfile', 'name' : value.name})}}
+							{{:helper.link('УДАЛИТЬ', 'trash', {'action' : 'PRG_deletefile', 'name' : value.name}, value.undeletable ? 'disabled' : null)}}
+							{{:helper.link('ПЕРЕИМЕНОВАТЬ', 'pencil', {'action' : 'PRG_rename', 'name' : value.name}, value.undeletable ? 'disabled' : null)}}
+							{{:helper.link('КЛОНИРОВАТЬ', 'files-o', {'action' : 'PRG_clone', 'name' : value.name}, value.undeletable ? 'disabled' : null)}}
 							{{if !value.encrypted}}
-								{{:helper.link('ENCRYPT', null, {'action' : 'PRG_encrypt', 'name' : value.name}, value.undeletable ? 'disabled' : null)}}
+								{{:helper.link('ЗАШИФРОВАТЬ', null, {'action' : 'PRG_encrypt', 'name' : value.name}, value.undeletable ? 'disabled' : null)}}
 							{{else}}
-								{{:helper.link('DECRYPT', null, {'action' : 'PRG_decrypt', 'name' : value.name}, value.undeletable ? 'disabled' : null)}}
+								{{:helper.link('РАСШИФРОВАТЬ', null, {'action' : 'PRG_decrypt', 'name' : value.name}, value.undeletable ? 'disabled' : null)}}
 							{{/if}}
 							{{if data.usbconnected}}
-								{{:helper.link('EXPORT', 'upload', {'action' : 'PRG_copytousb', 'name' : value.name}, value.undeletable ? 'disabled' : null)}}
+								{{:helper.link('ЭКСПОРТ', 'upload', {'action' : 'PRG_copytousb', 'name' : value.name}, value.undeletable ? 'disabled' : null)}}
 							{{/if}}
 						</td>
 					</tr>
@@ -46,14 +46,14 @@
 			</table>
 		</div>
 		{{if data.usbconnected}}
-			<h2>Available files (portable device):</h2>
+			<h2>Доступные файлы (портативное устройство):</h2>
 			<div class='statusDisplay'>
 				<table>
 					<tr>
-						<th>File name</th>
-						<th>File type</th>
-						<th>File size (GQ)</th>
-						<th>Operations</th>
+						<th>азвание файла</th>
+						<th>Тип файла</th>
+						<th>Размер файла (GQ)</th>
+						<th>Операции</th>
 					</tr>
 					{{for data.usbfiles}}
 						<tr>
@@ -61,9 +61,9 @@
 							<td>.{{:value.type}}</td>
 							<td>{{:value.size}}GQ</td>
 							<td>
-								{{:helper.link('DELETE', 'trash', {'action' : 'PRG_usbdeletefile', 'name' : value.name}, value.undeletable ? 'disabled' : null)}}
+								{{:helper.link('УДАЛИТЬ', 'trash', {'action' : 'PRG_usbdeletefile', 'name' : value.name}, value.undeletable ? 'disabled' : null)}}
 								{{if data.usbconnected}}
-									{{:helper.link('IMPORT', 'download', {'action' : 'PRG_copyfromusb', 'name' : value.name}, value.undeletable ? 'disabled' : null)}}
+									{{:helper.link('ИМПОРТ', 'download', {'action' : 'PRG_copyfromusb', 'name' : value.name}, value.undeletable ? 'disabled' : null)}}
 								{{/if}}
 							</td>
 						</tr>
@@ -71,6 +71,6 @@
 				</table>
 			</div>
 		{{/if}}
-		{{:helper.link('NEW DATA FILE', 'file-text', {'action' : 'PRG_newtextfile'})}}
-	{{/if}}	
+		{{:helper.link('НОВЫЙ ФАЙЛ', 'file-text', {'action' : 'PRG_newtextfile'})}}
+	{{/if}}
 {{/if}}

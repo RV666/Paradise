@@ -7,33 +7,33 @@ Used In File(s): \code\modules\nano\modules\alarm_monitor.dm
 	<h2 style="color: #e9c183;">{{:value.category}}</h2>
 	{{for value.alarms :alarmValue:alarmIndex}}
 		{{if alarmValue.origin_lost}}
-			<b>{{:alarmValue.name}} <span class='notice'>Alarm Origin Lost</span></b><br />
+			<b>{{:alarmValue.name}} <span class='notice'>Происхождение тревоги потеряно</span></b><br />
 		{{else}}
 			<b>{{:alarmValue.name}}</b><br />
 		{{/if}}
 		{{if alarmValue.has_cameras || alarmValue.lost_sources != ""}}
 			<div class="item">
 				{{if alarmValue.has_cameras}}
-					<div class="itemContent" style="width: 100%;">	
+					<div class="itemContent" style="width: 100%;">
 						{{for alarmValue.cameras :cameraValue:cameraIndex}}
 							{{if cameraValue.deact}}
-								{{:helper.link(cameraValue.name + " (deactivated)", '', {}, 'inactive')}}
+								{{:helper.link(cameraValue.name + " (деактивирована)", '', {}, 'inactive')}}
 							{{else}}
 								{{:helper.link(cameraValue.name, '', {'switchTo' : cameraValue.camera})}}
 							{{/if}}
 						{{/for}}
-					</div>		
+					</div>
 				{{else}}
-					No cameras found.
+					Камеры не найдены.
 				{{/if}}
 				{{if alarmValue.lost_sources != ""}}
 					<div class="itemContent" style="width: 100%;">
-							<H4><span class='notice'>Lost Alarm Sources: {{:alarmValue.lost_sources}}</span></H4>
+							<H4><span class='notice'>Источники потерянных тревог: {{:alarmValue.lost_sources}}</span></H4>
 					</div>
 				{{/if}}
 			</div>
 		{{/if}}
-	{{empty}}	
-		<span class="white">--All Systems Nominal</span>
+	{{empty}}
+		<span class="white">--Все системы номинальны</span>
 	{{/for}}
 {{/for}}

@@ -1,37 +1,37 @@
 {{if data.printing}}
-	<h5 class='average'>The computer is currently busy.</h5>
+	<h5 class='average'>Компьютер в текущий момент занят.</h5>
 	<div class='notice'>
-		<center><span class='bad'>Printing...</span></center>
+		<center><span class='bad'>Печать...</span></center>
 	</div>
 	<p>
-		Thank you for your patience!
+		Спасибо за Ваше терпение!
 	</p>
 {{else}}
-	{{:helper.link('Access Modification', 'home', {'choice' : 'mode', 'mode_target' : 0}, !data.mode ? 'disabled' : null)}}
-	{{if !data.target_dept}}{{:helper.link('Job Management', 'gear', {'choice' : 'mode', 'mode_target' : 1}, data.mode == 1 ? 'disabled' : null)}}{{/if}}
-	{{:helper.link('Crew Manifest', 'folder-open', {'choice' : 'mode', 'mode_target' : 2}, data.mode == 2 ? 'disabled' : null)}}
-	{{if !data.target_dept}}{{:helper.link('Print', 'print', {'choice' : 'print'}, (data.mode == 2 || data.has_modify && !data.mode) ? null : 'disabled')}}{{/if}}
-	{{:helper.link('Records', 'file', {'choice' : 'mode', 'mode_target' : 3}, (data.mode == 3) ? 'disabled' : null)}}
-	
+	{{:helper.link('Модификация доступа', 'home', {'choice' : 'mode', 'mode_target' : 0}, !data.mode ? 'disabled' : null)}}
+	{{if !data.target_dept}}{{:helper.link('Управление занятостью', 'gear', {'choice' : 'mode', 'mode_target' : 1}, data.mode == 1 ? 'disabled' : null)}}{{/if}}
+	{{:helper.link('Манифест экипажа', 'folder-open', {'choice' : 'mode', 'mode_target' : 2}, data.mode == 2 ? 'disabled' : null)}}
+	{{if !data.target_dept}}{{:helper.link('Печать', 'print', {'choice' : 'print'}, (data.mode == 2 || data.has_modify && !data.mode) ? null : 'disabled')}}{{/if}}
+	{{:helper.link('Записи', 'file', {'choice' : 'mode', 'mode_target' : 3}, (data.mode == 3) ? 'disabled' : null)}}
+
 	{{if data.mode == 1 && !data.target_dept}}
 	<div class='item'>
-		<h2>Job Management</h2>
+		<h2>JУправление занятостью</h2>
 	</div>
     <div class='item'>
 		<div class='itemLabel'>
-			Authorized Identity:
+			Авторизованная личность:
 		</div>
 		<div class='itemContent'>
 			{{:helper.link(data.scan_name, 'eject', {'choice' : 'scan'})}}
 		</div>
 		<div class='itemLabel'>
-			Cooldown:
+			Откат:
 		</div>
 		<div class='itemContent'>
 			{{if data.cooldown_mins > 0 || data.cooldown_mins == 0 && data.cooldown_secs > 0}}
-				<span class='bad'>Next change in: {{:data.cooldown_mins}}:{{:data.cooldown_secs}}</span>
+				<span class='bad'>Следующее изменение через: {{:data.cooldown_mins}}:{{:data.cooldown_secs}}</span>
 			{{else}}
-				<span class='good'>Ready</span>
+				<span class='good'>Готово</span>
 			{{/if}}
 		</div>
     </div>
@@ -42,24 +42,24 @@
 				<span class="average" style="font-weight: bold;">{{:value.title}}: {{:value.current_positions}}/{{:value.total_positions}}</span>
 				{{:helper.link('-', null, {'choice' : 'make_job_unavailable', 'job' : value.title}, value.can_close == 1 && data.authenticated ? null : 'disabled')}}
 				{{:helper.link('+', null, {'choice' : 'make_job_available', 'job' : value.title}, value.can_open == 1 && data.authenticated ? null : 'disabled')}}
-				{{:helper.link('Pri', null, {'choice' : 'prioritize_job', 'job' : value.title}, value.can_prioritize > 0 && data.authenticated ? null : 'disabled')}} {{if value.can_prioritize == 2}}<span class='warning'>Priority Job</span> {{/if}}
+				{{:helper.link('При', null, {'choice' : 'prioritize_job', 'job' : value.title}, value.can_prioritize > 0 && data.authenticated ? null : 'disabled')}} {{if value.can_prioritize == 2}}<span class='warning'>Приоритетная должность</span> {{/if}}
 			</div>
 		{{/for}}
 	</div>
 	{{else data.mode == 2}}
 		<div class='item'>
-			<h2>Crew Manifest</h2>
+			<h2>Манифест экипажа</h2>
 		</div>
 		<div class='item'>
 			{{:data.manifest}}
 		</div>
 	{{else data.mode == 3}}
 		<div class='item'>
-		    <h2>Records</h2>
+		    <h2>Записи</h2>
         </div>
         <div class='item'>
 		    <div class='itemLabel'>
-				Authorized Identity:
+				Авторизованная личность:
 		    </div>
 		    <div class='itemContent'>
 				{{:helper.link(data.scan_name, 'eject', {'choice' : 'scan'})}}
@@ -69,27 +69,27 @@
 		    {{if data.authenticated}}
 				{{:data.id_change_html}}
 				{{if data.centcom_access}}
-					{{:helper.link('Delete Records By: ' + data.scan_owner, null, {'choice' : 'wipe_my_logs'}, null, 'linkDanger')}}
+					{{:helper.link('Удалить записи о: ' + data.scan_owner, null, {'choice' : 'wipe_my_logs'}, null, 'linkDanger')}}
 				{{/if}}
 				{{if !data.target_dept}}
-					{{:helper.link('Delete ALL Records', null, {'choice' : 'wipe_all_logs'}, null, 'linkDanger')}}
+					{{:helper.link('Удалить ВСЕ записи', null, {'choice' : 'wipe_all_logs'}, null, 'linkDanger')}}
 				{{/if}}
 		    {{else}}
-				<span class='exclamation-triangle'><i>Please insert an authorized ID into the terminal to proceed.</i></span><br>
+				<span class='exclamation-triangle'><i>Пожалуйста, вставьте авторизированный ID в терминал для продолжения.</i></span><br>
 		    {{/if}}
 		</div>
 	{{else}}
     <div class='item'>
-      <h2>Access Modification</h2>
+      <h2>Модификация доступа</h2>
     </div>
 
     {{if !data.authenticated}}
-      <span class='exclamation-triangle'><i>Please insert the IDs into the terminal to proceed.</i></span><br>
+      <span class='exclamation-triangle'><i>Пожалуйста, вставьте ID в терминал для продолжения.</i></span><br>
     {{/if}}
 
     <div class='item'>
       <div class='itemLabel'>
-        Target Identity:
+        Целевая личность:
       </div>
       <div class='itemContent'>
         {{:helper.link(data.target_name, 'eject', {'choice' : 'modify'})}}
@@ -97,7 +97,7 @@
     </div>
     <div class='item'>
       <div class='itemLabel'>
-        Authorized Identity:
+        Авторизованная личность:
       </div>
       <div class='itemContent'>
         {{:helper.link(data.scan_name, 'eject', {'choice' : 'scan'})}}
@@ -140,7 +140,7 @@
       {{if data.has_modify}}
       {{if !data.target_dept}}
         <div class='item'>
-          <h2>Details</h2>
+          <h2>Детали</h2>
         </div>
 
         <form name='cardcomp' action='?src={{:data.src}}' method='get'>
@@ -148,11 +148,11 @@
             <div class='itemLabel'>
               <input type='hidden' name='src' value='{{:data.src}}'>
               <input type='hidden' name='choice' value='reg'>
-              Registered Name:
+              Зарегистрированное имя:
             </div>
             <div class='itemContent'>
               <input type='text' id='namefield' name='reg' value='{{:data.target_owner}}' onchange='markRed()'>
-              <input type='submit' value='Rename' onclick='markGreen()'>
+              <input type='submit' value='Переименовать' onclick='markGreen()'>
             </div>
           </div>
         </form>
@@ -162,11 +162,11 @@
             <div class='itemLabel'>
               <input type='hidden' name='src' value='{{:data.src}}'>
               <input type='hidden' name='choice' value='account'>
-              Account Number:
+              Номер аккаунта:
             </div>
             <div class='itemContent'>
               <input type='text' id='accountfield' name='account' value='{{:data.account_number}}' onchange='markAccountRed()'>
-              <input type='submit' value='Modify' onclick='markAccountGreen()'>
+              <input type='submit' value='Модифицировать' onclick='markAccountGreen()'>
             </div>
           </div>
         </form>
@@ -174,13 +174,13 @@
       {{if data.target_rank != "Terminated"}}
 	  <div class='item'>
           <div class='itemLabel'>
-            Demotions:
+            Понижение:
           </div>
           <div class='itemContent'>
 			{{if data.target_rank == "Demoted"}}
-				<span class='bad'>{{:data.target_owner}} has already been demoted!</span>
+				<span class='bad'>{{:data.target_owner}} уже понижен!</span>
 			{{else}}
-				{{:helper.link('Demote ' + data.target_owner, 'gear', {'choice' : 'demote'}, (data.target_rank == "Civilian" || data.target_rank == "Unassigned") ? 'disabled' : null, (data.target_rank == "Civilian" || data.target_rank == "Unassigned") ? 'disabled' : 'linkDanger')}}
+				{{:helper.link('Понизить ' + data.target_owner, 'gear', {'choice' : 'demote'}, (data.target_rank == "Civilian" || data.target_rank == "Unassigned") ? 'disabled' : null, (data.target_rank == "Civilian" || data.target_rank == "Unassigned") ? 'disabled' : 'linkDanger')}}
 			{{/if}}
           </div>
         </div>
@@ -188,25 +188,25 @@
       {{if !data.target_dept}}
         <div class='item'>
           <div class='itemLabel'>
-            Terminations:
+            Уничтожение:
           </div>
           <div class='itemContent'>
 			{{if data.target_rank == "Terminated"}}
-				<span class='bad'>{{:data.target_owner}} has already been terminated!</span>
+				<span class='bad'>{{:data.target_owner}} уже уничтожен!</span>
 			{{else}}
-				{{:helper.link('Terminate ' + data.target_owner, 'gear', {'choice' : 'terminate'}, data.target_rank == "Terminated" ? 'disabled' : null, data.target_rank == "Terminated" ? 'disabled' : 'linkDanger')}}
+				{{:helper.link('Уничтожить ' + data.target_owner, 'gear', {'choice' : 'terminate'}, data.target_rank == "Terminated" ? 'disabled' : null, data.target_rank == "Terminated" ? 'disabled' : 'linkDanger')}}
 			{{/if}}
           </div>
         </div>
 
         <div class='item'>
-          <h2>Assignment</h2>
+          <h2>Назначения</h2>
         </div>
 
         {{else}}
 
         <div class='item'>
-          <h2>Assignment for {{:data.target_owner}}</h2>
+          <h2>Назначения для {{:data.target_owner}}</h2>
         </div>
 
         {{/if}}
@@ -221,7 +221,7 @@
             <table>
               {{if !data.target_dept}}
               <tr>
-                <th>Special</th>
+                <th>Особые</th>
                 <td>
                   {{for data.top_jobs}}
                     {{:helper.link(value.display_name, '', {'choice' : 'assign', 'assign_target' : value.job}, value.jlinkformat == 'disabled' ? 'disabled' : null, value.jlinkformat ? value.jlinkformat : null)}}
@@ -231,7 +231,7 @@
               {{/if}}
               {{if !data.target_dept || data.target_dept == 5}}
               <tr>
-                <th style="color: '#FFA500';">Engineering</th>
+                <th style="color: '#FFA500';">Инженерный</th>
                 <td>
                   {{for data.engineering_jobs}}
                     {{:helper.link(value.display_name, '', {'choice' : 'assign', 'assign_target' : value.job}, value.jlinkformat == 'disabled' ? 'disabled' : null, value.jlinkformat ? value.jlinkformat : null)}}
@@ -241,7 +241,7 @@
               {{/if}}
               {{if !data.target_dept || data.target_dept == 3}}
               <tr>
-                <th style="color: '#008000';">Medical</th>
+                <th style="color: '#008000';">Медицинский</th>
                 <td>
                   {{for data.medical_jobs}}
                     {{:helper.link(value.display_name, '', {'choice' : 'assign', 'assign_target' : value.job}, value.jlinkformat == 'disabled' ? 'disabled' : null, value.jlinkformat ? value.jlinkformat : null)}}
@@ -251,7 +251,7 @@
               {{/if}}
               {{if !data.target_dept || data.target_dept == 2}}
               <tr>
-                <th style="color: '#DD0000';">Security</th>
+                <th style="color: '#DD0000';">Служба безопасности</th>
                 <td>
                   {{for data.security_jobs}}
                     {{:helper.link(value.display_name, '', {'choice' : 'assign', 'assign_target' : value.job}, value.jlinkformat == 'disabled' ? 'disabled' : null, value.jlinkformat ? value.jlinkformat : null)}}
@@ -261,17 +261,17 @@
               {{/if}}
               {{if !data.target_dept || data.target_dept == 4}}
               <tr>
-                <th style="color: '#C060C0';">Science</th>
+                <th style="color: '#C060C0';">Научный</th>
                 <td>
                   {{for data.science_jobs}}
                     {{:helper.link(value.display_name, '', {'choice' : 'assign', 'assign_target' : value.job}, value.jlinkformat == 'disabled' ? 'disabled' : null, value.jlinkformat ? value.jlinkformat : null)}}
                   {{/for}}
-                </td> 
+                </td>
               </tr>
               {{/if}}
               {{if !data.target_dept}}
               <tr>
-                <th style="color: '#A0A0A0';">Support</th>
+                <th style="color: '#A0A0A0';">Поддержка</th>
                 <td>
                   {{for data.support_jobs}}
                     {{:helper.link(value.display_name, '', {'choice' : 'assign', 'assign_target' : value.job}, value.jlinkformat == 'disabled' ? 'disabled' : null, value.jlinkformat ? value.jlinkformat : null)}}
@@ -280,7 +280,7 @@
               </tr>
               {{/if}}
               <tr>
-                <th style="color: '#808080';">Civilian</th>
+                <th style="color: '#808080';">Гражданские</th>
                 <td>
                   {{for data.civilian_jobs}}
                     {{:helper.link(value.display_name, '', {'choice' : 'assign', 'assign_target' : value.job}, value.jlinkformat == 'disabled' ? 'disabled' : null, value.jlinkformat ? value.jlinkformat : null)}}
@@ -289,7 +289,7 @@
               </tr>
               {{if data.centcom_access}}
                 <tr>
-                  <th style="color: '#A52A2A';">CentComm</th>
+                  <th style="color: '#A52A2A';">ЦентКом</th>
                   <td>
                     {{for data.centcom_jobs}}
                       {{:helper.link(value.display_name, '', {'choice' : 'assign', 'assign_target' : value.job}, value.jlinkformat == 'disabled' ? 'disabled' : null, value.jlinkformat ? value.jlinkformat : null)}}
@@ -303,17 +303,17 @@
 
         {{if data.centcom_access}}
           <div class='item'>
-            <h2>Central Command</h2>
+            <h2>Центральное Командование</h2>
           </div>
           <div class='item'>
             {{for data.all_centcom_access}}
               {{:helper.link(value.desc, '', {'choice' : 'access', 'access_target' : value.ref, 'allowed' : value.allowed}, null, value.allowed ? 'selected' : null)}}
             {{/for}}
 			<div class="item">
-			<div class='average'><b>Card Skin</b></div>
+			<div class='average'><b>Скин карточки</b></div>
 			{{for data.all_centcom_skins}}
 				{{:helper.link(value.display_name, '', {'choice' : 'skin', 'skin_target' : value.skin}, null,(data.current_skin == value.skin) ? 'selected' : null )}}
-			{{/for}}	
+			{{/for}}
 			</div>
           </div>
         {{else}}
@@ -333,7 +333,7 @@
                </div>
              {{/for}}
              <div style='float: left;'>
-			<div class='average'><b>Card Skin</b></div>
+			<div class='average'><b>Скин карточки</b></div>
 		 	  {{for data.card_skins}}
 		 		{{:helper.link(value.display_name, '', {'choice' : 'skin', 'skin_target' : value.skin}, null,(data.current_skin == value.skin) ? 'selected' : null )}}
 		  	  {{/for}}

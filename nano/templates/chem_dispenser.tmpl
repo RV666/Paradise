@@ -4,16 +4,16 @@ Used In File(s): \code\modules\reagents\Chemistry-Machinery.dm
  -->
 <div class="item">
 	<div class="itemLabel">
-		Energy:
+		Энергия:
 	</div>
 	<div class="itemContent">
-		{{:helper.displayBar(data.energy, 0, data.maxEnergy, 'good', data.energy + ' Units')}}
+		{{:helper.displayBar(data.energy, 0, data.maxEnergy, 'good', data.energy + ' Юнитов')}}
 	</div>
 </div>
 
 <div class="item">
 	<div class="itemLabel">
-		Dispense:
+		Выдавать:
 	</div>
 	<div class="itemContent">
 		{{:helper.link('1', 'gear', {'amount' : 1}, (data.amount == 1) ? 'selected' : null)}}
@@ -28,9 +28,9 @@ Used In File(s): \code\modules\reagents\Chemistry-Machinery.dm
 <div class="item">
 	<div class="itemLabel" style="width: 100%;">
 		{{if data.glass}}
-			Drink Dispenser
+			Раздатчик напитков
 		{{else}}
-			Chemical Dispenser
+			Раздатчик химикатов
 		{{/if}}
 	</div>
 </div>
@@ -46,13 +46,13 @@ Used In File(s): \code\modules\reagents\Chemistry-Machinery.dm
 <div class="item">
 	<div class="itemLabel">
 		{{if data.glass}}
-			Glass
+			Посуда
 		{{else}}
-			Beaker
-		{{/if}} Contents
+			Мензурка
+		{{/if}} содержит
 	</div>
 	<div class="itemContent">
-		{{:helper.link(data.glass ? 'Eject Glass' : 'Eject Beaker', 'eject', {'ejectBeaker' : 1}, data.isBeakerLoaded ? null : 'disabled', 'floatRight')}}
+		{{:helper.link(data.glass ? 'Извлечь посуду' : 'Извлечь мензурку', 'eject', {'ejectBeaker' : 1}, data.isBeakerLoaded ? null : 'disabled', 'floatRight')}}
 	</div>
 </div>
 <div class="statusDisplay" style="min-height: 180px;">
@@ -60,32 +60,32 @@ Used In File(s): \code\modules\reagents\Chemistry-Machinery.dm
 		<div class="itemContent" style="width: 100%;">
 			{{if data.isBeakerLoaded}}
 				{{if data.beakerCurrentVolume}}
-					<span class="floatRight" style="width: 115px;"><b>Dispose:</b></span>
+					<span class="floatRight" style="width: 115px;"><b>В отходы:</b></span>
 				{{/if}}
 				<b>Volume:&nbsp;{{:data.beakerCurrentVolume}}&nbsp;/&nbsp;{{:data.beakerMaxVolume}}</b><br>
 				{{for data.beakerContents}}
 					<div style="min-height: 22px;">
 						<div class="floatLeft">
 							<span class="highlight">
-								{{:value.volume}} units of {{:value.name}}
+								{{:value.volume}} юнитов {{:value.name}}
 							</span>
 						</div>
 						<div class="floatRight">
-							{{:helper.link('Isolate', null, {'remove' : value.id, 'removeamount' : -1})}}
+							{{:helper.link('Изолировать', null, {'remove' : value.id, 'removeamount' : -1})}}
 							{{:helper.link('1', null, {'remove' : value.id, 'removeamount' : 1})}}
 							{{:helper.link('5', null, {'remove' : value.id, 'removeamount' : 5})}}
 							{{:helper.link('10', null, {'remove' : value.id, 'removeamount' : 10})}}
-							{{:helper.link('ALL', null, {'remove' : value.id, 'removeamount' : value.volume})}}
+							{{:helper.link('ВСЁ', null, {'remove' : value.id, 'removeamount' : value.volume})}}
 						</div>
 					</div>
 					<div style="height:2px"></div> <!-- This is necessary to prevent the link margins from hitting each other and causing weird things to happen. It's essentialy a smaller <br> tag. -->
 				{{empty}}
-					<span class="bad">{{if data.glass}}Glass{{else}}Beaker{{/if}} is empty
+					<span class="bad">{{if data.glass}}Посуда{{else}}Мензурка{{/if}} пуста
 					</span>
 				{{/for}}
 			{{else}}
 				<span class="average"><i>
-					No {{if data.glass}}Glass{{else}}Beaker{{/if}} loaded
+					{{if data.glass}}Посуда{{else}}Мензурка{{/if}} не загружена
 				</i></span>
 			{{/if}}
 		</div>

@@ -7,50 +7,50 @@ Used In File(s): \code\game\mecha\mecha_control_console.dm
 		<hr>
 		<div class='item'>
 			<h2>{{:value.name}}</h2>
-			<h3>Information</h3>
+			<h3>Информация</h3>
 			<div class="itemLabel">
-				Pilot:
+				Пилот:
 			</div>
 			<div class="itemContent">
 				{{:value.pilot}}
 			</div>
 			<div class="itemLabel">
-				Integrity:
+				Целостность:
 			</div>
 			<div class="itemContent">
 				<span class="{{if value.integrity >= 75}}good{{else value.integrity >= 25}}average{{else}}bad{{/if}}">{{:helper.smoothRound(value.integrity)}}%</span>
 			</div>
 			<div class="itemLabel">
-				Location:
+				Локация:
 			</div>
 			<div class="itemContent">
 				{{:value.location}}
 			</div>
 			<div class="itemLabel">
-				Airtank:
+				Баллон с воздухом:
 			</div>
 			<div class="itemContent">
-				{{:helper.smoothRound(value.airtank)}}kPa
+				{{:helper.smoothRound(value.airtank)}}кПа
 			</div>
 			<div class="itemLabel">
-				Active Equipment:
+				Активное оборудование:
 			</div>
 			<div class="itemContent">
 				{{:value.equipment}}
 			</div>
 			{{if value.hascargo}}
 				<div class="itemLabel">
-					Cargo Used:
+					Используемый груз:
 				</div>
 				<div class="itemContent">
 					{{:value.cargo}}%
 				</div>
 			{{/if}}
 
-		<h3>Power Cell</h3>
+		<h3>Аккумулятор</h3>
 		{{if value.cell}}
 			<span class="itemLabel">
-				Rating:
+				Рейтинг:
 			</span>
 			<span class="itemContent">
 				{{:value.cell_capacity}}
@@ -58,24 +58,24 @@ Used In File(s): \code\game\mecha\mecha_control_console.dm
 			{{:helper.displayBar(value.cell_percentage, 0, 100, (value.cell_percentage >= 50) ? 'good' : (value.cell_percentage >= 25) ? 'average' : 'bad')}}
 			<b> {{:helper.smoothRound(value.cell_percentage)}}%</b>
 		{{else}}
-			<b><i>Not Installed</i></b>
+			<b><i>Не установлена</i></b>
 			{{:helper.displayBar(100, 0, 100, 'bad')}}
 		{{/if}}
 
 
-		<h3>Actions</h3>
-		{{:helper.link('Send Message', 'envelope', {'send_message' : value.reference})}}
-		{{:helper.link('Exosuit Log', 'search', {'get_log' : value.reference})}}
-		{{:helper.link('EMP Pulse', 'exclamation-triangle', {'shock' : value.reference}, null, 'redButton')}}
+		<h3>Действия</h3>
+		{{:helper.link('Отправить сообщение', 'envelope', {'send_message' : value.reference})}}
+		{{:helper.link('Лог экзокостюма', 'search', {'get_log' : value.reference})}}
+		{{:helper.link('EMP Пульс', 'exclamation-triangle', {'shock' : value.reference}, null, 'redButton')}}
 	</div>
 	{{empty}}
 		<div class='item'>
-			<h3>No mecha trackers were found.</h3>
+			<h3>Меха трекеры не найдены</h3>
 		</div>
 	{{/for}}
 {{else}}
 	<div style="margin-bottom: 10px;" class="item">
-		{{:helper.link('Return', 'close', {'return' : 1})}}
+		{{:helper.link('Возврат', 'close', {'return' : 1})}}
 	</div>
 	{{:data.log}}
 {{/if}}

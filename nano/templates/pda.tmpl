@@ -6,7 +6,7 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
 	<head>
 		<style type="text/css">
 			html {
-				height: 100%; 
+				height: 100%;
 				overflow: auto;
 			}
 
@@ -22,15 +22,15 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
 			.good {
 				color: #444444;
 			}
-			
+
 			.average {
 				color: #222222;
 			}
-			
+
 			.bad {
 				color: #333333;
 			}
-			
+
 			.pdanote {
 				color: #777777;
 			}
@@ -53,16 +53,16 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
 				cursor: default;
 				white-space: nowrap;
 			}
-			
+
 			.pdalink.disabled {
 				color: #333;
 				background: #565D4B;
 			}
-			
+
 			#pdaFooter {
 				background: #6F7961;
 			}
-			
+
 			.pdaFooterButton {
 				background: none;
 				color: #000;
@@ -70,11 +70,11 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
 			.pdaFooterButton.disabled {
 				color: #444 !important;
 			}
-			
+
 			div.clock {
 				color: black;
 			}
-			
+
 			h1, h2, h3, h4, h5, h6 {
 				color: #000000;
 			}
@@ -82,7 +82,7 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
 			.fixedLeft, .fixedLeftWide, .fixedLeftWider, .fixedLeftWidest, .floatRight {
 				color: #000000;
 			}
-			
+
 			.floatRight {
 				min-width: 15px;
 				height: 16px;
@@ -92,7 +92,7 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
 				padding: 0px 4px 4px 4px;
 				margin: 0 2px 2px 0;
 			}
-			
+
 			.uiIcon16 {
 				background-image: none;
 				float: left;
@@ -100,23 +100,23 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
 				height: auto;
 				margin: 0 0 0 0;
 			}
-			
+
 			#uiTitleText, #pdaFooter {
 				color: #000000;
 			}
-			
+
 			.pmon {
 				background: black;
 			}
-			
+
 			.itemLabel {
 				color: black;
 			}
-			
+
 			.statusDisplayRecords .good, .statusDisplay .good {
 				color: #020;
 			}
-			
+
 			.statusDisplayRecords .average, .statusDisplay .average {
 				color: #110;
 			}
@@ -132,7 +132,7 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
 			{{if data.cartridge_name}}
 				{{:helper.link(data.cartridge_name, 'eject', {'choice' : "Eject"}, null, 'pdalink fixedLeftWidest')}}
 			{{/if}}
-			{{:helper.link('Toggle R.E.T.R.O. mode', 'gear', {'choice': "Retro"}, null, 'pdalink fixedLeftWide')}}
+			{{:helper.link('Переключить тему', 'gear', {'choice': "Retro"}, null, 'pdalink fixedLeftWide')}}
 		</div>
 		<div class="clock">
 			{{:data.stationTime}}
@@ -144,13 +144,13 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
 		<div id="uiApp"></div>
 		<div class="pdaFooterButton disabled">&nbsp;</div>
 	{{/if}}
-	
+
 	<div id="pdaFooter">
 		{{:helper.link("", 'undo', {'choice' : "Back"}, data.app.has_back ? null : 'disabled', 'link pdaFooterButton')}}
 		{{:helper.link("", 'home', {'choice' : "Home"}, data.app.is_home ? 'disabled' : null, 'link pdaFooterButton')}}
 	</div>
 {{else}}
     <div class="wholeScreen">
-        <br><br><br><br><br><br><br>No Owner information found, please swipe ID
+        <br><br><br><br><br><br><br>Не найдена информация о владельце, пожалуйста, проведите ID карту.
     </div>
 {{/if}}

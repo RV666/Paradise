@@ -1,17 +1,17 @@
 <div class="item">
-	<div class="itemLabel">Power:</div>
-	<div class="itemContent">{{:helper.link(data.on ? 'On' : 'Off', data.on ? 'power-off' : 'times', {'power' : 1}, null, data.on ? 'selected' : null)}}</div>
+	<div class="itemLabel">Питание:</div>
+	<div class="itemContent">{{:helper.link(data.on ? 'Вкл' : 'Выкл', data.on ? 'power-off' : 'times', {'power' : 1}, null, data.on ? 'selected' : null)}}</div>
 </div>
 <div class="item">
-	<div class="itemLabel">Output Pressure:</div>
+	<div class="itemLabel">Выходное давление:</div>
 	<div class="itemContent">
-		{{:helper.link('Set', 'pencil', {'pressure' : 'input'})}}
-		{{:helper.link('Max', 'plus', {'pressure' : 'max'}, data.pressure == data.max_pressure ? 'disabled' : null)}}
-		{{:helper.smoothRound(data.pressure)}} kPa
+		{{:helper.link('Указать', 'pencil', {'pressure' : 'input'})}}
+		{{:helper.link('Макс', 'plus', {'pressure' : 'max'}, data.pressure == data.max_pressure ? 'disabled' : null)}}
+		{{:helper.smoothRound(data.pressure)}} кПа
 	</div>
 </div>
 <div class="item">
-	<div class="itemLabel">Node 1:</div>
+	<div class="itemLabel">Узел 1:</div>
 	<div class="itemContent">
 		{{:helper.link('<i class="fa fa-fast-backward"></i>', null, {'node1' : -0.1}, data.node1_concentration == 0 ? 'disabled' : null)}}
 		{{:helper.link('<i class="fa fa-backward"></i>', null, {'node1' : -0.01}, data.node1_concentration == 0 ? 'disabled' : null)}}
@@ -21,7 +21,7 @@
 	</div>
 </div>
 <div class="item">
-	<div class="itemLabel">Node 2:</div>
+	<div class="itemLabel">Узел 2:</div>
 	<div class="itemContent">
 		{{:helper.link('<i class="fa fa-fast-backward"></i>', null, {'node2' : -0.1}, data.node2_concentration == 0 ? 'disabled' : null)}}
 		{{:helper.link('<i class="fa fa-backward"></i>', null, {'node2' : -0.01}, data.node2_concentration == 0 ? 'disabled' : null)}}

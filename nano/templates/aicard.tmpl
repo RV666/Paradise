@@ -3,96 +3,96 @@
 Title: inteliCard interface
 Used In File(s): \code\game\objects\items\devices\aicard.dm
  -->
- 
+
  <style type="text/css">
     table.borders   {
-        width:95%; 
-        margin-left:2.4%; 
+        width:95%;
+        margin-left:2.4%;
         margin-right:2.4%;
     }
 
     table.borders, table.borders tr {
         border: 1px solid White;
     }
-    
+
     td.law_index {
         width: 50px;
     }
-    
+
     td.state {
         width: 63px;
-		text-align:center; 
+		text-align:center;
     }
-    
+
     td.add {
         width: 36px;
     }
-    
+
     td.edit {
         width: 36px;
-		text-align:center; 
+		text-align:center;
     }
-    
+
     td.delete {
         width: 53px;
-		text-align:center; 
+		text-align:center;
     }
-    
+
     td.law_type {
         width: 65px;
     }
-    
+
     td.position {
         width: 37px;
     }
 </style>
- 
+
 {{if data.has_ai}}
     <div class="item">
         <div class="itemLabel">
-            Hardware Integrity:
+            Целостность железа:
         </div>
         <div class="itemContent">
             {{:data.hardware_integrity}}%
         </div>
     </div>
-    
-    {{if data.has_laws}}    
+
+    {{if data.has_laws}}
 		<table class='borders'>
-		<tr><td class='law_index'>Index</td><td>Law</td></tr>
-    
+		<tr><td class='law_index'>Индекс</td><td>Law</td></tr>
+
 		<div class="itemLabelNarrow">
-			Laws:
+			Законы:
 		</div>
 		{{for data.laws}}
 			<tr><td valign="top">{{:value.index}}.</td><td>{{:value.law}}</td></tr>
 		{{/for}}
 		</table>
     {{else}}
-        <span class='notice'>No laws found.</span>
+        <span class='notice'>Законы не найдены.</span>
 	{{/if}}
-    
-    {{if data.operational}}    
+
+    {{if data.operational}}
         <table>
             <tr>
-                <td><span class='itemLabelWidest'>Radio Subspace Transceiver</span></td>
-                <td>{{:helper.link("Enabled", null, {'radio' : 0}, data.radio ? 'selected' : null)}}</td>
-                <td>{{:helper.link("Disabled", null, {'radio' : 1}, data.radio ? null : 'redButton' )}}</td>
+                <td><span class='itemLabelWidest'>Радио подпространственный приёмопередатчик</span></td>
+                <td>{{:helper.link("Включен", null, {'radio' : 0}, data.radio ? 'selected' : null)}}</td>
+                <td>{{:helper.link("Отключен", null, {'radio' : 1}, data.radio ? null : 'redButton' )}}</td>
             </tr>
-            <tr><td><span class='itemLabelWidest'>Wireless Interface</span></td>
-                <td>{{:helper.link("Enabled", null, {'wireless' : 0}, data.wireless ? 'selected' : null)}}</td>
-                <td>{{:helper.link("Disabled", null, {'wireless' : 1}, data.wireless ? null : 'redButton' )}}</td>
+            <tr><td><span class='itemLabelWidest'>Беспроводной интерфейс</span></td>
+                <td>{{:helper.link("Включен", null, {'wireless' : 0}, data.wireless ? 'selected' : null)}}</td>
+                <td>{{:helper.link("Отключен", null, {'wireless' : 1}, data.wireless ? null : 'redButton' )}}</td>
             </tr>
             {{if data.flushing}}
-                <tr><td><span class='notice'>AI wipe in progress...</span></td></tr>
+                <tr><td><span class='notice'>Стирание ИИ в процессе...</span></td></tr>
             {{else}}
                 <tr>
-                    <td><span class='itemLabelWidest'>Wipe AI</span></td>
+                    <td><span class='itemLabelWidest'>Стереть ИИ</span></td>
                     <td>{{:helper.link("Wipe", 'exclamation-circle', {'wipe' : 1}, null, 'redButton')}}</td>
                 </tr>
             {{/if}}
         </table>
     {{/if}}
 {{else}}
-    Stored AI: <span class='notice'>No AI detected.</span>
+    Stored AI: <span class='notice'>ИИ не обнаружен.</span>
 {{/if}}

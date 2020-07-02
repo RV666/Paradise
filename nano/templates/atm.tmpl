@@ -1,4 +1,4 @@
-<!-- 
+<!--
 Title: ATM
 Used In File(s): /code/modules/economy/ATM.dm
 -->
@@ -22,69 +22,69 @@ Used In File(s): /code/modules/economy/ATM.dm
 	}
 </style>
 
-<h1>Nanotrasen Automatic Teller Machine</h1>
-For all your monetary needs!
+<h1>Банковский автомат Nanotrasen</h1>
+Для всех ваших денежных потребностей!
 <br>
-<i>This terminal is</i> {{:data.machine_id}}. <i>Report this code when contacting Nanotrasen IT Support</i>
+<i>Номер терминала: </i> {{:data.machine_id}}. <i>Сообщайте этот код, когда связываетесь со службой поддержки Nanotrasen</i>
 <br>
 
 <div class="item">
-	<div class='itemLabel'>Card:</div>
+	<div class='itemLabel'>Карта:</div>
 	<div class='itemContent'>{{:helper.link(data.held_card_name, 'eject', {'choice' : 'insert_card'})}}</div>
 </div>
 <hr>
 {{if data.ticks_left_locked_down > 0}}
-	<span class='exclamation-triangle'>Maximum number of pin attempts exceeded! Access to this ATM has been temporarily disabled.</span>
+	<span class='exclamation-triangle'>Максимальное число попыток ввода пин-кода исчерпано! Доступ в этот банкомат был временно недоступен.</span>
 {{else data.authenticated_account}}
 	{{if data.view_screen == 1}} <!-- CHANGE_SECURITY_LEVEL -->
-		<h4>Select a new security level for this account:</h4>
+		<h4>Выберите новый уровень безопасности для этого аккаунта:</h4>
 		<div class="item">
-			<div class='itemLabel'>Level:</div>
-			<div class='itemContent'>{{:helper.link('Zero', 'unlock', {'choice' : 'change_security_level', 'new_security_level' : 0}, data.security_level == 0 ? 'selected' : null)}}</div>
+			<div class='itemLabel'>Уровень:</div>
+			<div class='itemContent'>{{:helper.link('Нулевой', 'unlock', {'choice' : 'change_security_level', 'new_security_level' : 0}, data.security_level == 0 ? 'selected' : null)}}</div>
 		</div>
 		<div class="item">
-			<div class='itemLabel'>Description:</div>
-			<div class='itemContent'>Either the account number or card is required to access this account. EFTPOS transactions will require a card and ask for a pin, but not verify the pin is correct.</div>
-		</div>
-		<hr>
-		<div class="item">
-			<div class='itemLabel'>Level:</div>
-			<div class='itemContent'>{{:helper.link('One', 'unlock-alt', {'choice' : 'change_security_level', 'new_security_level' : 1}, data.security_level == 1 ? 'selected' : null)}}</div>
-		</div>
-		<div class="item">
-			<div class='itemLabel'>Description:</div>
-			<div class='itemContent'>An account number and pin must be manually entered to access this account and process transactions.</div>
+			<div class='itemLabel'>Описание:</div>
+			<div class='itemContent'>Для доступа к этому аккаунту потребуется или номер аккаунта, или карта. EFTPOS транзакции будут требовать карту и спрашивать пин-код, но не будут верифицировать его корректно.</div>
 		</div>
 		<hr>
 		<div class="item">
-			<div class='itemLabel'>Level:</div>
-			<div class='itemContent'>{{:helper.link('Two', 'lock', {'choice' : 'change_security_level', 'new_security_level' : 2}, data.security_level == 2 ? 'selected' : null)}}</div>
+			<div class='itemLabel'>Уровень:</div>
+			<div class='itemContent'>{{:helper.link('Первый', 'unlock-alt', {'choice' : 'change_security_level', 'new_security_level' : 1}, data.security_level == 1 ? 'selected' : null)}}</div>
 		</div>
 		<div class="item">
-			<div class='itemLabel'>Description:</div>
-			<div class='itemContent'>In addition to account number and pin, a card is required to access this account and process transactions.</div>
+			<div class='itemLabel'>Описание:</div>
+			<div class='itemContent'>Для доступа к этому аккаунту и совершения транзакций должны быть вручную введены номер аккаунта и пин-код.</div>
+		</div>
+		<hr>
+		<div class="item">
+			<div class='itemLabel'>Уровень:</div>
+			<div class='itemContent'>{{:helper.link('Второй', 'lock', {'choice' : 'change_security_level', 'new_security_level' : 2}, data.security_level == 2 ? 'selected' : null)}}</div>
+		</div>
+		<div class="item">
+			<div class='itemLabel'>Описание:</div>
+			<div class='itemContent'>Для доступа к этому аккаунту и совершения транзакций в дополнение к номеру аккаунта и пин-коду также потребуется карта.</div>
 		</div>
 		<hr>
 		{{:helper.link('Back', 'arrow-left', {'choice' : 'view_screen', 'view_screen' : 0})}}
 	{{else data.view_screen == 2}} <!-- TRANSFER_FUNDS -->
-		<div class='line'><b>Account balance:</b> ${{:helper.smoothRound(data.money)}}</div>
+		<div class='line'><b>Баланс аккаунта:</b> ${{:helper.smoothRound(data.money)}}</div>
 		<form name='transfer' id='transfer' action='?src={{:data.src}}' method='get'>
 			<input type='hidden' name='src' value='{{:data.src}}'>
 			<input type='hidden' name='choice' value='transfer'>
-			<div class='itemLabel'>Target account number:</div>
+			<div class='itemLabel'>Целевой номер аккаунта:</div>
 			<div class='itemContent'><input type='text' name='target_acc_number' value='' style='width:200px;'></div>
-			
-			<div class='itemLabel'>Funds to transfer:</div>
+
+			<div class='itemLabel'>Сумма для перевода:</div>
 			<div class='itemContent'><input type='text' name='funds_amount' value='' style='width:200px;'></div>
 
-			<div class='itemLabel'>Transaction purpose:</div>
+			<div class='itemLabel'>Назначение платежа:</div>
 			<div class='itemContent'><input type='text' name='purpose' value='Funds transfer' style='width:200px;'></div>
 			<input type='submit' value='Transfer funds'>
 		</form>
 		<hr>
 		{{:helper.link('Back', 'arrow-left', {'choice' : 'view_screen', 'view_screen' : 0})}}
 	{{else data.view_screen == 3}} <!-- VIEW_TRANSACTION_LOGS -->
-		<h4>Transaction logs</h4>
+		<h4>Лог транзакций</h4>
 		<div class='item'>{{:helper.link('Back', 'arrow-left', {'choice' : 'view_screen', 'view_screen' : 0})}}</div>
 
 		<div class="statusDisplay" style="overflow: auto;">
@@ -92,11 +92,11 @@ For all your monetary needs!
 				<table style='width: 100%'>
 					<thead>
 						<tr>
-							<th><b>Timestamp</b></th>
-							<th><b>Target</b></th>
-							<th><b>Reason</b></th>
-							<th><b>Value</b></th>
-							<th><b>Terminal</b></th>
+							<th><b>Время</b></th>
+							<th><b>Цель</b></th>
+							<th><b>Назначение</b></th>
+							<th><b>Сумма</b></th>
+							<th><b>Терминал</b></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -112,38 +112,38 @@ For all your monetary needs!
 					</tbody>
 				</table>
 			{{else}}
-				<span class='exclamation-triangle'>Your account has no financial transactions on record for today.</span>
+				<span class='exclamation-triangle'>Ваш аккаунт не имеет записей о совершённых финансовых транзакциях за сегодня.</span>
 			{{/if}}
 		</div>
 	{{else}} <!-- NO_SCREEN -->
-		Welcome, <b>{{:data.owner_name}}</b>.<br>
-		<b>Account balance:</b> ${{:helper.smoothRound(data.money)}}
+		Приветствуем, <b>{{:data.owner_name}}</b>.<br>
+		<b>Баланс аккаунта:</b> ${{:helper.smoothRound(data.money)}}
 		<form name='withdrawal' action='?src={{:data.src}}' method='get'>
 			<input type='hidden' name='src' value='{{:data.src}}'>
 			<input type='hidden' name='choice' value='withdrawal'>
 			<input type='text' name='funds_amount' value=''>  <input type='submit' value='Withdraw funds'><br>
 		</form>
 		<hr>
-		
+
 		<h3>Menu</h3>
-		<div class="line">{{:helper.link('Change account security level', 'lock', {'choice' : 'view_screen', 'view_screen' : 1})}}</div>
-		<div class="line">{{:helper.link('Make transfer', 'exchange', {'choice' : 'view_screen', 'view_screen' : 2})}}</div>
-		<div class="line">{{:helper.link('View transaction log', 'list', {'choice' : 'view_screen', 'view_screen' : 3})}}</div>
-		<div class="line">{{:helper.link('Print balance statement', 'print', {'choice' : 'balance_statement'})}}</div>
-		<div class="line">{{:helper.link('Logout', 'sign-out', {'choice' : 'logout'})}}</div>
+		<div class="line">{{:helper.link('Сменить уровень безопасности аккаунта', 'lock', {'choice' : 'view_screen', 'view_screen' : 1})}}</div>
+		<div class="line">{{:helper.link('Совершить перевод', 'exchange', {'choice' : 'view_screen', 'view_screen' : 2})}}</div>
+		<div class="line">{{:helper.link('Посмотреть логи транзакций', 'list', {'choice' : 'view_screen', 'view_screen' : 3})}}</div>
+		<div class="line">{{:helper.link('Распечатать банковскую выписку', 'print', {'choice' : 'balance_statement'})}}</div>
+		<div class="line">{{:helper.link('Выйти', 'sign-out', {'choice' : 'logout'})}}</div>
 	{{/if}}
 {{else data.linked_db}}
 	<form name='atm_auth' action='?src={{:data.src}}' method='get'>
 		<input type='hidden' name='src' value='{{:data.src}}'>
 		<input type='hidden' name='choice' value='attempt_auth'>
-		<div class='itemLabel'>Account:</div> 
+		<div class='itemLabel'>Аккаунт:</div>
 		<div class='itemContent'><input type='text' id='account_num' name='account_num' style='width:250px;'></div>
-		
-		<div class='itemLabel'>PIN:</div>
+
+		<div class='itemLabel'>ПИН:</div>
 		<div class='itemContent'><input type='text' id='account_pin' name='account_pin' style='width:250px;'></div>
 		<br>
 		<input type='submit' value='Submit'>
 	</form>
 {{else}}
-	<span class='exclamation-triangle'>Unable to connect to accounts database, please retry and if the issue persists contact Nanotrasen IT support.</span>
+	<span class='exclamation-triangle'>Не удаётся подключиться к базе данных. Пожалуйста повторите попытку и если ошибка сохраняется свяжитесь со службой поддержки Nanotrasen</span>
 {{/if}}

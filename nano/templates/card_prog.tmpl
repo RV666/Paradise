@@ -1,37 +1,37 @@
 {{if data.printing}}
-	<h5 class='average'>The computer is currently busy.</h5>
+	<h5 class='average'>Компьютер в текущий момент занят.</h5>
 	<div class='notice'>
-		<center>Printing...</center>
+		<center>Печать...</center>
 	</div>
 	<p>
-		Thank you for your patience!
+		Спасибо за Ваше терпение!
 	</p>
 {{else}}
-	{{:helper.link('Access Modification', 'home', {'action' : 'PRG_mode', 'mode_target' : 0}, !data.mode ? 'disabled' : null)}}
-	{{:helper.link('Job Management', 'gear', {'action' : 'PRG_mode', 'mode_target' : 1}, data.mode == 1 ? 'disabled' : null)}}
-	{{:helper.link('Crew Manifest', 'folder-open', {'action' : 'PRG_mode', 'mode_target' : 2}, data.mode == 2 ? 'disabled' : null)}}
-	{{:helper.link('Print', 'print', {'action' : 'PRG_print'}, data.printer && (data.mode == 2 || data.has_modify && !data.mode) ? null : 'disabled')}}
-	{{:helper.link('Records', 'file', {'action' : 'PRG_mode', 'mode_target' : 3}, (data.mode == 3) ? 'disabled' : null)}}
+	{{:helper.link('Модификация доступа', 'home', {'action' : 'PRG_mode', 'mode_target' : 0}, !data.mode ? 'disabled' : null)}}
+	{{:helper.link('Управление занятостью', 'gear', {'action' : 'PRG_mode', 'mode_target' : 1}, data.mode == 1 ? 'disabled' : null)}}
+	{{:helper.link('Манифест экипажа', 'folder-open', {'action' : 'PRG_mode', 'mode_target' : 2}, data.mode == 2 ? 'disabled' : null)}}
+	{{:helper.link('Печать', 'print', {'action' : 'PRG_print'}, data.printer && (data.mode == 2 || data.has_modify && !data.mode) ? null : 'disabled')}}
+	{{:helper.link('Записи', 'file', {'action' : 'PRG_mode', 'mode_target' : 3}, (data.mode == 3) ? 'disabled' : null)}}
 
 	{{if data.mode == 1}}
 	<div class='item'>
-		<h2>Job Management</h2>
+		<h2>Управление занятостью</h2>
 	</div>
     <div class='item'>
 		<div class='itemLabel'>
-			Authorized Identity:
+			Авторизованная личность:
 		</div>
 		<div class='itemContent'>
 			{{:helper.link(data.scan_name, 'eject', {'action' : 'PRG_scan'})}}
 		</div>
 		<div class='itemLabel'>
-			Cooldown:
+			Откат:
 		</div>
 		<div class='itemContent'>
 			{{if data.cooldown_mins > 0 || data.cooldown_mins == 0 && data.cooldown_secs > 0}}
-				<span class='bad'>Next change in: {{:data.cooldown_mins}}:{{:data.cooldown_secs}}</span>
+				<span class='bad'>Следующее изменение через: {{:data.cooldown_mins}}:{{:data.cooldown_secs}}</span>
 			{{else}}
-				<span class='good'>Ready</span>
+				<span class='good'>Готово</span>
 			{{/if}}
 		</div>
     </div>
@@ -42,24 +42,24 @@
 				<span class="average" style="font-weight: bold;">{{:value.title}}: {{:value.current_positions}}/{{:value.total_positions}}</span>
 				{{:helper.link('-', null, {'action' : 'PRG_make_job_unavailable', 'job' : value.title}, value.can_close == 1 && data.authenticated ? null : 'disabled')}}
 				{{:helper.link('+', null, {'action' : 'PRG_make_job_available', 'job' : value.title}, value.can_open == 1 && data.authenticated ? null : 'disabled')}}
-				{{:helper.link('Pri', null, {'action' : 'PRG_prioritize_job', 'job' : value.title}, value.can_prioritize > 0 && data.authenticated ? null : 'disabled')}} {{if value.can_prioritize == 2}}<span class='warning'>Priority Job</span> {{/if}}
+				{{:helper.link('При', null, {'action' : 'PRG_prioritize_job', 'job' : value.title}, value.can_prioritize > 0 && data.authenticated ? null : 'disabled')}} {{if value.can_prioritize == 2}}<span class='warning'>Приоритетная должность</span> {{/if}}
 			</div>
 		{{/for}}
 	</div>
 	{{else data.mode == 2}}
 		<div class='item'>
-			<h2>Crew Manifest</h2>
+			<h2>Манифест экипажа</h2>
 		</div>
 		<div class='item'>
 			{{:data.manifest}}
 		</div>
 	{{else data.mode == 3}}
 		<div class='item'>
-		    <h2>Records</h2>
+		    <h2>Записи</h2>
         </div>
         <div class='item'>
 		    <div class='itemLabel'>
-				Authorized Identity:
+				Авторизованная личность:
 		    </div>
 		    <div class='itemContent'>
 				{{:helper.link(data.scan_name, 'eject', {'action' : 'PRG_scan'})}}
@@ -69,27 +69,27 @@
 		    {{if data.authenticated}}
 				{{:data.id_change_html}}
 				{{if data.centcom_access}}
-					{{:helper.link('Delete Records By: ' + data.scan_owner, null, {'action' : 'PRG_wipe_my_logs'}, null, 'linkDanger')}}
+					{{:helper.link('Удалить записи о: ' + data.scan_owner, null, {'action' : 'PRG_wipe_my_logs'}, null, 'linkDanger')}}
 				{{/if}}
 				{{if !data.target_dept}}
-					{{:helper.link('Delete ALL Records', null, {'action' : 'PRG_wipe_all_logs'}, null, 'linkDanger')}}
+					{{:helper.link('Удалить ВСЕ записи', null, {'action' : 'PRG_wipe_all_logs'}, null, 'linkDanger')}}
 				{{/if}}
 		    {{else}}
-				<span class='exclamation-triangle'><i>Please insert an authorized ID into the terminal to proceed.</i></span><br>
+				<span class='exclamation-triangle'><i>Пожалуйста, вставьте авторизированный ID в терминал для продолжения.</i></span><br>
 		    {{/if}}
 		</div>
 	{{else}}
     <div class='item'>
-      <h2>Access Modification</h2>
+      <h2>Модификация доступа</h2>
     </div>
 
     {{if !data.authenticated}}
-      <span class='exclamation-triangle'><i>Please insert the IDs into the terminal to proceed.</i></span><br>
+      <span class='exclamation-triangle'><i>Пожалуйста, вставьте ID в терминал для продолжения.</i></span><br>
     {{/if}}
 
     <div class='item'>
       <div class='itemLabel'>
-        Target Identity:
+        Целевая личность:
       </div>
       <div class='itemContent'>
         {{:helper.link(data.target_name, 'eject', {'action' : 'PRG_modify'})}}
@@ -97,7 +97,7 @@
     </div>
     <div class='item'>
       <div class='itemLabel'>
-        Authorized Identity:
+        Авторизованная личность:
       </div>
       <div class='itemContent'>
         {{:helper.link(data.scan_name, 'eject', {'action' : 'PRG_scan'})}}
@@ -125,7 +125,7 @@
         }
         function showAll(){
           var allJobsSlot = document.getElementById('allvalue.jobsslot');
-          allJobsSlot.innerHTML = "<a href='#' onclick='hideAll()'>Hide</a><br>";
+          allJobsSlot.innerHTML = "<a href='#' onclick='hideAll()'>Спрятать</a><br>";
           var allJobs = document.getElementById('all-value.jobs');
           allJobs.style.display = 'block';
         }
@@ -139,7 +139,7 @@
 
       {{if data.has_modify}}
         <div class='item'>
-          <h2>Details</h2>
+          <h2>Детали</h2>
         </div>
 
         <form name='cardcomp' action='?src={{:data.src}}' method='get'>
@@ -147,11 +147,11 @@
             <div class='itemLabel'>
               <input type='hidden' name='src' value='{{:data.src}}'>
               <input type='hidden' name='action' value='PRG_reg'>
-              Registered Name:
+              Зарегистрированное имя:
             </div>
             <div class='itemContent'>
               <input type='text' id='namefield' name='reg' value='{{:data.target_owner}}' onchange='markRed()'>
-              <input type='submit' value='Rename' onclick='markGreen()'>
+              <input type='submit' value='Переименовать' onclick='markGreen()'>
             </div>
           </div>
         </form>
@@ -161,30 +161,30 @@
             <div class='itemLabel'>
               <input type='hidden' name='src' value='{{:data.src}}'>
               <input type='hidden' name='action' value='PRG_account'>
-              Account Number:
+              Номер аккаунта:
             </div>
             <div class='itemContent'>
               <input type='text' id='accountfield' name='account' value='{{:data.account_number}}' onchange='markAccountRed()'>
-              <input type='submit' value='Modify' onclick='markAccountGreen()'>
+              <input type='submit' value='Модифицировать' onclick='markAccountGreen()'>
             </div>
           </div>
         </form>
 
         <div class='item'>
           <div class='itemLabel'>
-            Terminations:
+            Уничтожение:
           </div>
           <div class='itemContent'>
 			{{if data.target_rank == "Terminated"}}
-				<span class='bad'>{{:data.target_owner}} has already been terminated!</span>
+				<span class='bad'>{{:data.target_owner}} уже уничтожен!</span>
 			{{else}}
-				{{:helper.link('Terminate ' + data.target_owner, 'gear', {'action' : 'PRG_terminate'}, data.target_rank == "Terminated" ? 'disabled' : null, data.target_rank == "Terminated" ? 'disabled' : 'linkDanger')}}
+				{{:helper.link('Уничтожить ' + data.target_owner, 'gear', {'action' : 'PRG_terminate'}, data.target_rank == "Terminated" ? 'disabled' : null, data.target_rank == "Terminated" ? 'disabled' : 'linkDanger')}}
 			{{/if}}
           </div>
         </div>
 
         <div class='item'>
-          <h2>Assignment</h2>
+          <h2>Назначения</h2>
         </div>
 
         <div class='item'>
@@ -196,7 +196,7 @@
           <div id="all-value.jobs" style='display: none;'>
             <table>
               <tr>
-                <th>Special</th>
+                <th>Особые</th>
                 <td>
 					{{for data.top_jobs}}
 						{{:helper.link(value.display_name, '', {'action' : 'PRG_assign', 'assign_target' : value.job}, value.jlinkformat == 'disabled' ? 'disabled' : null, value.jlinkformat ? value.jlinkformat : null)}}
@@ -204,7 +204,7 @@
                 </td>
               </tr>
               <tr>
-                <th style="color: '#FFA500';">Engineering</th>
+                <th style="color: '#FFA500';">Инженерный</th>
                 <td>
                   {{for data.engineering_jobs}}
                     {{:helper.link(value.display_name, '', {'action' : 'PRG_assign', 'assign_target' : value.job}, value.jlinkformat == 'disabled' ? 'disabled' : null, value.jlinkformat ? value.jlinkformat : null)}}
@@ -212,7 +212,7 @@
                 </td>
               </tr>
               <tr>
-                <th style="color: '#008000';">Medical</th>
+                <th style="color: '#008000';">Медицинский</th>
                 <td>
                   {{for data.medical_jobs}}
                     {{:helper.link(value.display_name, '', {'action' : 'PRG_assign', 'assign_target' : value.job}, value.jlinkformat == 'disabled' ? 'disabled' : null, value.jlinkformat ? value.jlinkformat : null)}}
@@ -220,7 +220,7 @@
                 </td>
               </tr>
               <tr>
-                <th style="color: '#DD0000';">Security</th>
+                <th style="color: '#DD0000';">Служба безопасности</th>
                 <td>
                   {{for data.security_jobs}}
                     {{:helper.link(value.display_name, '', {'action' : 'PRG_assign', 'assign_target' : value.job}, value.jlinkformat == 'disabled' ? 'disabled' : null, value.jlinkformat ? value.jlinkformat : null)}}
@@ -228,7 +228,7 @@
                 </td>
               </tr>
               <tr>
-                <th style="color: '#C060C0';">Science</th>
+                <th style="color: '#C060C0';">Научный</th>
                 <td>
                   {{for data.science_jobs}}
                     {{:helper.link(value.display_name, '', {'action' : 'PRG_assign', 'assign_target' : value.job}, value.jlinkformat == 'disabled' ? 'disabled' : null, value.jlinkformat ? value.jlinkformat : null)}}
@@ -236,7 +236,7 @@
                 </td>
               </tr>
               <tr>
-                <th style="color: '#A0A0A0';">Support</th>
+                <th style="color: '#A0A0A0';">Поддержка</th>
                 <td>
                   {{for data.support_jobs}}
                     {{:helper.link(value.display_name, '', {'action' : 'PRG_assign', 'assign_target' : value.job}, value.jlinkformat == 'disabled' ? 'disabled' : null, value.jlinkformat ? value.jlinkformat : null)}}
@@ -244,7 +244,7 @@
                 </td>
               </tr>
               <tr>
-                <th style="color: '#808080';">Civilian</th>
+                <th style="color: '#808080';">Гражданские</th>
                 <td>
                   {{for data.civilian_jobs}}
                     {{:helper.link(value.display_name, '', {'action' : 'PRG_assign', 'assign_target' : value.job}, value.jlinkformat == 'disabled' ? 'disabled' : null, value.jlinkformat ? value.jlinkformat : null)}}
@@ -253,7 +253,7 @@
               </tr>
               {{if data.centcom_access}}
                 <tr>
-                  <th style="color: '#A52A2A';">CentComm</th>
+                  <th style="color: '#A52A2A';">ЦентКом</th>
                   <td>
                     {{for data.centcom_jobs}}
                       {{:helper.link(value.display_name, '', {'action' : 'PRG_assign', 'assign_target' : value.job}, value.jlinkformat == 'disabled' ? 'disabled' : null, value.jlinkformat ? value.jlinkformat : null)}}
@@ -267,17 +267,17 @@
 
         {{if data.centcom_access}}
           <div class='item'>
-            <h2>Central Command</h2>
+            <h2>Центральное Командование</h2>
           </div>
           <div class='item'>
             {{for data.all_centcom_access}}
               {{:helper.link(value.desc, '', {'action' : 'PRG_access', 'access_target' : value.ref, 'allowed' : value.allowed}, null, value.allowed ? 'selected' : null)}}
             {{/for}}
 			<div class="item">
-			<div class='average'><b>Card Skin</b></div>
+			<div class='average'><b>Скин карточки</b></div>
 			{{for data.all_centcom_skins}}
 				{{:helper.link(value.display_name, '', {'action' : 'PRG_skin', 'skin_target' : value.skin}, null,(data.current_skin == value.skin) ? 'selected' : null )}}
-			{{/for}}	
+			{{/for}}
 			</div>
           </div>
         {{else}}
@@ -296,7 +296,7 @@
               </div>
             {{/for}}
             <div style='float: left;'>
-			<div class='average'><b>Card Skin</b></div>
+			<div class='average'><b>Скин карточки</b></div>
 			  {{for data.card_skins}}
 				{{:helper.link(value.display_name, '', {'action' : 'PRG_skin', 'skin_target' : value.skin}, null,(data.current_skin == value.skin) ? 'selected' : null )}}
 			  {{/for}}

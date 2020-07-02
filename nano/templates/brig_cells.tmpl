@@ -1,4 +1,4 @@
-<!-- 
+<!--
 Title: Brig Cell Management
 Used In File(s): \code\game\machinery\computer\brigcells.dm
  -->
@@ -7,13 +7,13 @@ Used In File(s): \code\game\machinery\computer\brigcells.dm
 		<table style='width: 100%' id='maintable_data'>
 			<thead>
 				<tr>
-					<th>Cell</th>
-					<th>Occupant</th>
-					<th>Crimes</th>
-					<th>Brigged By</th>
-					<th>Time Brigged For</th>
-					<th>Time Left</th>
-					<th>Release</th>
+					<th>Камера</th>
+					<th>Задержанный</th>
+					<th>Преступления</th>
+					<th>Задержан (кем?)</th>
+					<th>Срок отбытия</th>
+					<th>Времени осталось</th>
+					<th>Выпустить</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -25,7 +25,7 @@ Used In File(s): \code\game\machinery\computer\brigcells.dm
 						<td>{{:value.brigged_by}}</td>
 						<td>{{:value.time_set}}</td>
 						<td>{{:value.time_left}}</td>
-						<td>{{:helper.link('Release', null, {'release' : value.ref}, null, 'infoButton')}}</td>
+						<td>{{:helper.link('Выпустить', null, {'release' : value.ref}, null, 'infoButton')}}</td>
 					</tr>
 				{{/for}}
 			</tbody>

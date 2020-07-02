@@ -1,14 +1,14 @@
-<h2>Shift's target : {{:data.explosion_target}}</h2>
-<h2>Current Technology Level : {{:data.toxins_tech}}</h2>
-<h2>Logged explosions:</h2>
+<h2>Цель смены : {{:data.explosion_target}}</h2>
+<h2>Текущий технологический уровень: {{:data.toxins_tech}}</h2>
+<h2>Зарегистрированные взрывы:</h2>
 {{if data.explosion_data == 0}}
-	<p>No explosions logged this shift.</p>
+	<p>Взрывы не зарегистрированы в текущей смене.</p>
 {{else}}
 	<div>
-		<span style="display:inline-block;width:20%;">Time logged</span>
-		<span style="display:inline-block;width:20%;">Epicenter</span>
-		<span style="display:inline-block;width:20%;">Actual size</span>
-		<span style="display:inline-block;width:25%;">Theoretical size<span>
+		<span style="display:inline-block;width:20%;">Время</span>
+		<span style="display:inline-block;width:20%;">Эпицентр</span>
+		<span style="display:inline-block;width:20%;">Фактический размер</span>
+		<span style="display:inline-block;width:25%;">Теоритический размер<span>
 	</div>
 	<hr/>
 	{{for data.explosion_data}}
@@ -18,10 +18,10 @@
 				<span style="display:inline-block;width:20%;">{{:value.epicenter}}</span>
 				<span style="display:inline-block;width:20%;">{{:value.actual_size_message}}</span>
 				<span style="display:inline-block;width:25%;">{{:value.theoretical_size_message}}</span>
-				<span style="display:inline-block;width:15%;vertical-align:middle;">{{:helper.link("Delete", "trash", {"log_to_delete": value.unique_datum_id})}}</span>
+				<span style="display:inline-block;width:15%;vertical-align:middle;">{{:helper.link("Удалить", "trash", {"log_to_delete": value.unique_datum_id})}}</span>
 			</span>
 		</div>
 	{{/for}}
 	<br/>
-	{{:helper.link("Print all logs", "print", {"print_logs": 'yes'}, data.printing ? 'disabled' : null)}}
+	{{:helper.link("Распечатать все логи", "print", {"print_logs": 'yes'}, data.printing ? 'disabled' : null)}}
 {{/if}}

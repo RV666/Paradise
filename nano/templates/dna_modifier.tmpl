@@ -2,30 +2,30 @@
 Title: DNA Modifier UI
 Used In File(s): D:\Development\SS13-BS12\code\game\dna\dna_modifier.dm
  -->
-<h3>Status</h3>
+<h3>Статус</h3>
 
 <div class="statusDisplay">
 	{{if !data.hasOccupant}}
-		<div class="line">Cell Unoccupied</div>
+		<div class="line">Капсула не занята</div>
 	{{else}}
 		<div class="line">
 			{{:data.occupant.name}}&nbsp;=>&nbsp;
 			{{if data.occupant.stat == 0}}
-				<span class="good">Conscious</span>
+				<span class="good">В сознании</span>
 			{{else data.occupant.stat == 1}}
-				<span class="average">Unconscious</span>
+				<span class="average">Без сознания</span>
 			{{else}}
-				<span class="bad">DEAD</span>
+				<span class="bad">МЁРТВ</span>
 			{{/if}}
 		</div>
 
 		{{if !data.occupant.isViableSubject || !data.occupant.uniqueIdentity || !data.occupant.structuralEnzymes}}
 			<div class="notice">
-				The occupant's DNA structure is ruined beyond recognition, please insert a subject with an intact DNA structure.
+				ДНК структура тела разрушена до неузноваемости. Пожалуйста, вставьте субъект с неповреждённой структурой ДНК.
 			</div>
 		{{else data.occupant.stat < 2}}
 			<div class="line">
-				<div class="statusLabel">Health:</div>
+				<div class="statusLabel">Здоровье:</div>
 					{{if data.occupant.health >= 0}}
 						{{:helper.displayBar(data.occupant.health, 0, data.occupant.maxHealth, 'good')}}
 					{{else}}
@@ -35,14 +35,14 @@ Used In File(s): D:\Development\SS13-BS12\code\game\dna\dna_modifier.dm
 			</div>
 
 			<div class="line">
-				<div class="statusLabel">Radiation:</div>
+				<div class="statusLabel">Радиация:</div>
 					{{:helper.displayBar(data.occupant.radiationLevel, 0, 100, 'average')}}
 				<div class="statusValue">{{:helper.smoothRound(data.occupant.radiationLevel)}}</div>
 			</div>
 
 			<div class="line">
-				<div class="statusLabel">Unique Enzymes:</div>
-				<div class="statusValue">{{:data.occupant.uniqueEnzymes ? data.occupant.uniqueEnzymes : '<span class="bad">Unknown</span>'}}</div>
+				<div class="statusLabel">Уникальные энзимы:</div>
+				<div class="statusValue">{{:data.occupant.uniqueEnzymes ? data.occupant.uniqueEnzymes : '<span class="bad">Неизвестно</span>'}}</div>
 			</div>
 
 		{{/if}}
@@ -50,23 +50,23 @@ Used In File(s): D:\Development\SS13-BS12\code\game\dna\dna_modifier.dm
     <div class="clearBoth"></div>
 </div>
 
-	<h3>Operations</h3>
+	<h3>Операции</h3>
 	{{if !data.occupant.isViableSubject || !data.occupant.uniqueIdentity || !data.occupant.structuralEnzymes}}
 		<div class="notice">
-			No operation possible on this subject
+			Операции не возможны на этом субъекте
 		</div>
 	{{else}}
 	<div class="item">
-		{{:helper.link('Modify U.I.', 'link', {'selectMenuKey' : 'ui'}, data.selectedMenuKey == 'ui' ? 'selected' : null)}}
-		{{:helper.link('Modify S.E.', 'link', {'selectMenuKey' : 'se'}, data.selectedMenuKey == 'se' ? 'selected' : null)}}
-		{{:helper.link('Transfer Buffers', 'floppy-o', {'selectMenuKey' : 'buffer'}, data.selectedMenuKey == 'buffer' ? 'selected' : null)}}
-		{{:helper.link('Rejuvenators', 'plus', {'selectMenuKey' : 'rejuvenators'}, data.selectedMenuKey == 'rejuvenators' ? 'selected' : null)}}
+		{{:helper.link('Модифицировать У.И.', 'link', {'selectMenuKey' : 'ui'}, data.selectedMenuKey == 'ui' ? 'selected' : null)}}
+		{{:helper.link('Модифицировать С.Э.', 'link', {'selectMenuKey' : 'se'}, data.selectedMenuKey == 'se' ? 'selected' : null)}}
+		{{:helper.link('Буфферы переноса', 'floppy-o', {'selectMenuKey' : 'buffer'}, data.selectedMenuKey == 'buffer' ? 'selected' : null)}}
+		{{:helper.link('Омолодители', 'plus', {'selectMenuKey' : 'rejuvenators'}, data.selectedMenuKey == 'rejuvenators' ? 'selected' : null)}}
 	</div>
 
 	<div class="item">&nbsp;</div>
 
 	{{if !data.selectedMenuKey || data.selectedMenuKey == 'ui'}}
-		<h3>Modify Unique Identifier</h3>
+		<h3>Модифицировать Уникальные Идентификаторы</h3>
 	    {{:helper.displayDNABlocks(data.occupant.uniqueIdentity, data.selectedUIBlock, data.selectedUISubBlock, data.dnaBlockSize, 'UI')}}
 	    <div class="clearBoth"></div>
 		<div class="item">
@@ -81,38 +81,38 @@ Used In File(s): D:\Development\SS13-BS12\code\game\dna\dna_modifier.dm
 		</div>
 	    <div class="item">
 			<div class="itemContentWide">
-				{{:helper.link('Irradiate Block', 'exclamation-circle', {'pulseUIRadiation' : 1}, !data.occupant.isViableSubject ? 'disabled' : null)}}
+				{{:helper.link('Облучить блок', 'exclamation-circle', {'pulseUIRadiation' : 1}, !data.occupant.isViableSubject ? 'disabled' : null)}}
 			</div>
 		</div>
 	{{else data.selectedMenuKey == 'se'}}
-		<h3>Modify Structural Enzymes</h3>
+		<h3>Модифицировать Структурные Энзимы</h3>
 	    {{:helper.displayDNABlocks(data.occupant.structuralEnzymes, data.selectedSEBlock, data.selectedSESubBlock, data.dnaBlockSize, 'SE')}}
 	    <div class="clearBoth"></div>
 	    <div class="item">
 			<div class="itemContentWide">
-				{{:helper.link('Irradiate Block', 'exclamation-circle', {'pulseSERadiation' : 1}, !data.occupant.isViableSubject ? 'disabled' : null)}}
+				{{:helper.link('Облучить блок', 'exclamation-circle', {'pulseSERadiation' : 1}, !data.occupant.isViableSubject ? 'disabled' : null)}}
 			</div>
 		</div>
 	{{else data.selectedMenuKey == 'buffer'}}
-		<h3>Transfer Buffers</h3>
+		<h3>Буфферы переноса</h3>
 		{{for data.buffers}}
-			<h4>Buffer {{:(index + 1)}}</h4>
+			<h4>Буффер {{:(index + 1)}}</h4>
 			<div class="itemGroup">
 				<div class="item">
 					<div class="itemLabelNarrow">
-						Load Data:
+						Загрузить данные:
 					</div>
 					<div class="itemContentWide">
-						{{:helper.link('Subject U.I.', 'link', {'bufferOption' : 'saveUI', 'bufferId' : (index + 1)}, !data.hasOccupant ? 'disabled' : null)}}
-						{{:helper.link('Subject U.I. + U.E.', 'link', {'bufferOption' : 'saveUIAndUE', 'bufferId' : (index + 1)}, !data.hasOccupant ? 'disabled' : null)}}
-						{{:helper.link('Subject S.E.', 'link', {'bufferOption' : 'saveSE', 'bufferId' : (index + 1)}, !data.hasOccupant ? 'disabled' : null)}}
-						{{:helper.link('From Disk', 'floppy-o', {'bufferOption' : 'loadDisk', 'bufferId' : (index + 1)}, (!data.hasDisk || !data.disk.data) ? 'disabled' : null)}}
+						{{:helper.link('Субъект У.И.', 'link', {'bufferOption' : 'saveUI', 'bufferId' : (index + 1)}, !data.hasOccupant ? 'disabled' : null)}}
+						{{:helper.link('Субъект У.И. + У.Э.', 'link', {'bufferOption' : 'saveUIAndUE', 'bufferId' : (index + 1)}, !data.hasOccupant ? 'disabled' : null)}}
+						{{:helper.link('Субъект С.Э.', 'link', {'bufferOption' : 'saveSE', 'bufferId' : (index + 1)}, !data.hasOccupant ? 'disabled' : null)}}
+						{{:helper.link('Из диска', 'floppy-o', {'bufferOption' : 'loadDisk', 'bufferId' : (index + 1)}, (!data.hasDisk || !data.disk.data) ? 'disabled' : null)}}
 					</div>
 				</div>
 				{{if value.data}}
 					<div class="item">
 						<div class="itemLabelNarrow">
-							Label:
+							Этикетка:
 						</div>
 						<div class="itemContentWide">
 							{{:helper.link(value.label, 'file', {'bufferOption' : 'changeLabel', 'bufferId' : (index + 1)})}}
@@ -120,101 +120,101 @@ Used In File(s): D:\Development\SS13-BS12\code\game\dna\dna_modifier.dm
 					</div>
 					<div class="item">
 						<div class="itemLabelNarrow">
-							Subject:
+							Субъект:
 						</div>
 						<div class="itemContentWide">
-							{{:value.owner ? value.owner : '<span class="average">Unknown</span>'}}
+							{{:value.owner ? value.owner : '<span class="average">Неизвестный</span>'}}
 						</div>
 					</div>
 					<div class="item">
 						<div class="itemLabelNarrow">
-							Stored Data:
+							Хранимые данные:
 						</div>
 						<div class="itemContentWide">
-							{{:value.data == 'ui' ? 'Unique Identifiers' : 'Structural Enzymes'}}
-							{{:value.ue ? ' + Unique Enzymes' : ''}}
+							{{:value.data == 'ui' ? 'Уникальные Идентификаторы' : 'Структурные Энзимы'}}
+							{{:value.ue ? ' + Уникальные Энзимы' : ''}}
 						</div>
 					</div>
 				{{else}}
 					<div class="item">
 						<div class="itemContentWide">
-							<span class="highlight">This buffer is empty.</span>
+							<span class="highlight">Этот буффер пуст.</span>
 						</div>
 					</div>
 				{{/if}}
 				<div class="item">
 					<div class="itemLabelNarrow">
-						Options:
+						Опции:
 					</div>
 					<div class="itemContentWide">
-						{{:helper.link('Clear', 'trash', {'bufferOption' : 'clear', 'bufferId' : (index + 1)}, !value.data ? 'disabled' : null)}}
-						{{:helper.link('Injector', data.isInjectorReady ? 'pencil' : 'clock-o', {'bufferOption' : 'createInjector', 'bufferId' : (index + 1)}, (!data.isInjectorReady || !value.data) ? 'disabled' : null)}}
-						{{:helper.link('Block Injector', data.isInjectorReady ? 'pencil' : 'clock-o', {'bufferOption' : 'createInjector', 'bufferId' : (index + 1), 'createBlockInjector' : 1}, (!data.isInjectorReady || !value.data) ? 'disabled' : null)}}
-						{{:helper.link('Transfer', 'exclamation-circle', {'bufferOption' : 'transfer', 'bufferId' : (index + 1)}, (!data.hasOccupant || !value.data) ? 'disabled' : null)}}
-						{{:helper.link('Save To Disk', 'floppy-o', {'bufferOption' : 'saveDisk', 'bufferId' : (index + 1)}, (!value.data || !data.hasDisk) ? 'disabled' : null)}}
+						{{:helper.link('Очистить', 'trash', {'bufferOption' : 'clear', 'bufferId' : (index + 1)}, !value.data ? 'disabled' : null)}}
+						{{:helper.link('Инъектор', data.isInjectorReady ? 'pencil' : 'clock-o', {'bufferOption' : 'createInjector', 'bufferId' : (index + 1)}, (!data.isInjectorReady || !value.data) ? 'disabled' : null)}}
+						{{:helper.link('Инъектор блока', data.isInjectorReady ? 'pencil' : 'clock-o', {'bufferOption' : 'createInjector', 'bufferId' : (index + 1), 'createBlockInjector' : 1}, (!data.isInjectorReady || !value.data) ? 'disabled' : null)}}
+						{{:helper.link('Перенос', 'exclamation-circle', {'bufferOption' : 'transfer', 'bufferId' : (index + 1)}, (!data.hasOccupant || !value.data) ? 'disabled' : null)}}
+						{{:helper.link('Сохранить на диск', 'floppy-o', {'bufferOption' : 'saveDisk', 'bufferId' : (index + 1)}, (!value.data || !data.hasDisk) ? 'disabled' : null)}}
 					</div>
 				</div>
 			</div>
 		{{/for}}
 
-		<h4>Data Disk</h4>
+		<h4>Диск с данными</h4>
 		<div class="itemGroup">
 			{{if data.hasDisk}}
 				{{if data.disk.data}}
 					<div class="item">
 						<div class="itemLabelNarrow">
-							Label:
+							Этикетка:
 						</div>
 						<div class="itemContentWide">
-							{{:data.disk.label ? data.disk.label : 'No Label'}}
+							{{:data.disk.label ? data.disk.label : 'Нет этикетки'}}
 						</div>
 					</div>
 					<div class="item">
 						<div class="itemLabelNarrow">
-							Subject:
+							Субъект:
 						</div>
 						<div class="itemContentWide">
-							{{:data.disk.owner ? data.disk.owner : '<span class="average">Unknown</span>'}}
+							{{:data.disk.owner ? data.disk.owner : '<span class="average">Неизвестный</span>'}}
 						</div>
 					</div>
 					<div class="item">
 						<div class="itemLabelNarrow">
-							Stored Data:
+							Хранимые данные:
 						</div>
 						<div class="itemContentWide">
-							{{:data.disk.data == 'ui' ? 'Unique Identifiers' : 'Structural Enzymes'}}
-							{{:data.disk.ue ? ' + Unique Enzymes' : ''}}
+							{{:data.disk.data == 'ui' ? 'Уникальные Идентификаторы' : 'Структурные Энзимы'}}
+							{{:data.disk.ue ? ' + Уникальные Энзимы' : ''}}
 						</div>
 					</div>
 				{{else}}
 					<div class="item">
 						<div class="itemContentWide">
-							<span class="average">Disk is blank.</span>
+							<span class="average">Диск пустой.</span>
 						</div>
 					</div>
 				{{/if}}
 			{{else}}
 				<div class="item">
 					<div class="itemContentWide">
-						<span class="highlight">No disk inserted.</span>
+						<span class="highlight">Диск не вставлен.</span>
 					</div>
 				</div>
 			{{/if}}
 			<div class="item">
 				<div class="itemLabelNarrow">
-					Options:
+					Опции:
 				</div>
 				<div class="itemContentWide">
-					{{:helper.link('Wipe Disk', 'trash', {'bufferOption' : 'wipeDisk'}, (!data.hasDisk || !data.disk.data) ? 'disabled' : null)}}
-					{{:helper.link('Eject Disk', 'eject', {'bufferOption' : 'ejectDisk'}, !data.hasDisk ? 'disabled' : null)}}
+					{{:helper.link('Стереть диск', 'trash', {'bufferOption' : 'wipeDisk'}, (!data.hasDisk || !data.disk.data) ? 'disabled' : null)}}
+					{{:helper.link('Извлечь диск', 'eject', {'bufferOption' : 'ejectDisk'}, !data.hasDisk ? 'disabled' : null)}}
 				</div>
 			</div>
 		</div>
 	{{else data.selectedMenuKey == 'rejuvenators'}}
-		<h3>Rejuvenators</h3>
+		<h3>Омолодители</h3>
 		<div class="item">
 			<div class="itemLabelNarrow">
-				Inject:
+				Вколоть:
 			</div>
 			<div class="itemContentWide">
 				{{:helper.link('5', 'pencil', {'injectRejuvenators' : 5}, (!data.hasOccupant || !data.beakerVolume) ? 'disabled' : null)}}
@@ -227,22 +227,22 @@ Used In File(s): D:\Development\SS13-BS12\code\game\dna\dna_modifier.dm
 		<div class="item">&nbsp;</div>
 		<div class="item">
 			<div class="itemLabelNarrow">
-				Beaker:
+				Мензурка:
 			</div>
 			<div class="itemContentWide" style="width: 40%;">
 				{{if data.isBeakerLoaded}}
-					{{:data.beakerLabel ? data.beakerLabel : '<span class="average">No label</span>'}}<br>
+					{{:data.beakerLabel ? data.beakerLabel : '<span class="average">Нет этикетки</span>'}}<br>
 					{{if data.beakerVolume}}
-						<span class="highlight">{{:data.beakerVolume}} units remaining</span><br>
+						<span class="highlight">{{:data.beakerVolume}} юнитов осталось</span><br>
 					{{else}}
-						<span class="bad">Beaker is empty</span>
+						<span class="bad">Мензурка пуста</span>
 					{{/if}}
 				{{else}}
-					<span class="average"><i>No beaker loaded</i></span>
+					<span class="average"><i>Мензурка не загружена</i></span>
 				{{/if}}
 			</div>
 			<div class="itemContentWide" style="width: 26%;">
-				{{:helper.link('Eject Beaker', 'eject', {'ejectBeaker' : 1}, data.isBeakerLoaded ? null : 'disabled')}}
+				{{:helper.link('Извлечь мензурку', 'eject', {'ejectBeaker' : 1}, data.isBeakerLoaded ? null : 'disabled')}}
 			</div>
 		</div>
 	{{/if}}
@@ -250,10 +250,10 @@ Used In File(s): D:\Development\SS13-BS12\code\game\dna\dna_modifier.dm
 	<div class="item">&nbsp;</div>
 
 	{{if !data.selectedMenuKey || data.selectedMenuKey == 'ui' || data.selectedMenuKey == 'se'}}
-		<h3>Radiation Emitter Settings</h3>
+		<h3>Настройки радиоционного излучателя</h3>
 		<div class="item">
 			<div class="itemLabelNarrow">
-				Intensity:
+				Интенсивность:
 			</div>
 			<div class="itemContentWide">
 				{{:helper.link('-', null, {'radiationIntensity' : 0}, (data.radiationIntensity > 1) ? null : 'disabled')}}
@@ -263,7 +263,7 @@ Used In File(s): D:\Development\SS13-BS12\code\game\dna\dna_modifier.dm
 		</div>
 		<div class="item">
 			<div class="itemLabelNarrow">
-				Duration:
+				Длительность:
 			</div>
 			<div class="itemContentWide">
 				{{:helper.link('-', null, {'radiationDuration' : 0}, (data.radiationDuration > 2) ? null : 'disabled')}}
@@ -276,7 +276,7 @@ Used In File(s): D:\Development\SS13-BS12\code\game\dna\dna_modifier.dm
 				&nbsp;
 			</div>
 			<div class="itemContentWide">
-				{{:helper.link('Pulse Radiation', 'exclamation-circle', {'pulseRadiation' : 1}, !data.hasOccupant ? 'disabled' : null)}}
+				{{:helper.link('Импульс излучения', 'exclamation-circle', {'pulseRadiation' : 1}, !data.hasOccupant ? 'disabled' : null)}}
 			</div>
 		</div>
 	{{/if}}
@@ -287,27 +287,27 @@ Used In File(s): D:\Development\SS13-BS12\code\game\dna\dna_modifier.dm
 
 <div class="item">
 	<div class="itemLabelNarrow">
-		Occupant:
+		Тело:
 	</div>
 	<div class="itemContentWide">
-		{{:helper.link('Eject Occupant', 'eject', {'ejectOccupant' : 1}, data.locked || !data.hasOccupant || data.irradiating ? 'disabled' : null)}}
+		{{:helper.link('Извлечь тело', 'eject', {'ejectOccupant' : 1}, data.locked || !data.hasOccupant || data.irradiating ? 'disabled' : null)}}
 	</div>
 </div>
 <div class="item">
 	<div class="itemLabelNarrow">
-		Door Lock:
+		Блокировка дверцы:
 	</div>
 	<div class="itemContentWide">
-		{{:helper.link('Engaged', 'lock', {'toggleLock' : 1}, data.locked ? 'selected' : !data.hasOccupant ? 'disabled' : null)}}
-        {{:helper.link('Disengaged', 'unlock', {'toggleLock' : 1}, !data.locked ? 'selected' : data.irradiating ? 'disabled' : null)}}
+		{{:helper.link('Включить', 'lock', {'toggleLock' : 1}, data.locked ? 'selected' : !data.hasOccupant ? 'disabled' : null)}}
+        {{:helper.link('Отключить', 'unlock', {'toggleLock' : 1}, !data.locked ? 'selected' : data.irradiating ? 'disabled' : null)}}
 	</div>
 </div>
 
 {{if data.irradiating}}
 	<div class="mask">
 		<div class="maskContent">
-			<h1>Irradiating Subject</h1>
-			<h3>For {{:data.irradiating}} seconds.</h3>
+			<h1>Облучение субъекта</h1>
+			<h3>На {{:data.irradiating}} секунд.</h3>
 		</div>
 	</div>
 {{/if}}
