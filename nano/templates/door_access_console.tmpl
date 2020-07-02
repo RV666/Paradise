@@ -35,7 +35,7 @@
 		{{if data.interior_status.state == "open"}}
 			{{:helper.link('Заблокировать внутренний шлюз', 'exclamation-triangle', {'command' : 'force_int'}, data.processing ? 'disabled' : null)}}
 		{{else}}
-			{{:helper.link('Цикл возвращения', 'arrow-circle-right', {'command' : 'cycle_int_door'}, data.processing ? 'disabled' : null)}}
+			{{:helper.link('Цикл входа', 'arrow-circle-right', {'command' : 'cycle_int_door'}, data.processing ? 'disabled' : null)}}
 		{{/if}}
 		</div>
 	</div>

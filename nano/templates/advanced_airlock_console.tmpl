@@ -37,7 +37,7 @@
 	<div class="item" style="width: auto; float: left">
 		<div class="itemContent">
 			{{:helper.link('Цикл выхода', 'arrow-circle-o-left', {'command' : 'cycle_ext'}, data.processing ? 'disabled' : null)}}
-			{{:helper.link('Цикл возвращения', 'arrow-circle-right', {'command' : 'cycle_int'}, data.processing ? 'disabled' : null)}}
+			{{:helper.link('Цикл входа', 'arrow-circle-right', {'command' : 'cycle_int'}, data.processing ? 'disabled' : null)}}
 		</div>
 		<div class="itemContent" style="padding-top: 2px">
 			{{:helper.link('Форсировать внешний шлюз', 'exclamation-triangle', {'command' : 'force_ext'}, null, data.processing ? 'yellowButton' : null)}}
@@ -47,7 +47,7 @@
 	<div style="padding-left: 10px; width: 80px; float: left">
 		<div class="item">
 			<div class="itemContent" style="padding-bottom: 2px; width: auto">
-				{{:helper.link('Purge', 'refresh', {'command' : 'purge'}, data.processing ? 'disabled' : null, data.purge ? 'linkOn' : null)}}
+				{{:helper.link('Выдув газа', 'refresh', {'command' : 'purge'}, data.processing ? 'disabled' : null, data.purge ? 'linkOn' : null)}}
 			</div>
 			<div class="itemContent" style="width: auto">
 				{{:helper.link('Защитить', data.secure ? 'lock' : 'unlock', {'command' : 'secure'}, data.processing ? 'disabled' : null, data.secure ? 'linkOn' : null)}}

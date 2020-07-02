@@ -78,7 +78,7 @@ Used In File(s): /code/game/machinery/alarm.dm
 			{{else data.air.danger.overall == 1}}
 				<div class="average">Осторожно</div>
 			{{else}}
-				<div class="notice">ОПАСНОСТЬ: системы подачи воздуха обязательны для ношения</div>
+				<div class="notice">ОПАСНОСТЬ: СИЗ органов дыхания обязательны</div>
 			{{/if}}
 			{{if !data.locked}}
 				{{if data.alarmActivated}}
@@ -147,7 +147,7 @@ Used In File(s): /code/game/machinery/alarm.dm
 					</div>
 				</div>
 				<div class="line">
-					<div class="statusLabel">Цель внешнего давления:</div>
+					<div class="statusLabel">Граница внешнего давления:</div>
 					<div class="statusValue">
 						{{:helper.smoothRound(value.external,4)}} кПа
 					</div>

@@ -4,7 +4,7 @@ Used In File(s): \code\game\machinery\adv_med.dm
  -->
 
 {{if !data.occupied}}
-	<h3>Тело не обнаружено.</h3>
+	<h3>Пациент не обнаружен.</h3>
 {{else}}
 	<h4><b>Результаты сканирования:</b></h4>
 	<div class="item">
@@ -63,7 +63,7 @@ Used In File(s): \code\game\machinery\adv_med.dm
 
 	<br>
 	{{:helper.link('Печать', 'print', {'print_p' : 1, 'name' : data.occupant.name})}}
-	{{:helper.link('Извлечь тело', 'arrow-circle-o-down', {'ejectify' : 1}, data.occupied ? null : 'disabled')}}
+	{{:helper.link('Извлечь пациента', 'arrow-circle-o-down', {'ejectify' : 1}, data.occupied ? null : 'disabled')}}
 	<br> <br>
 
 	<b>Повреждения: </b>

@@ -7,7 +7,7 @@ Used In File(s): \code\modules\nano\modules\alarm_monitor.dm
 	<h2 style="color: #e9c183;">{{:value.category}}</h2>
 	{{for value.alarms :alarmValue:alarmIndex}}
 		{{if alarmValue.origin_lost}}
-			<b>{{:alarmValue.name}} <span class='notice'>Происхождение тревоги потеряно</span></b><br />
+			<b>{{:alarmValue.name}} <span class='notice'>Причина тревоги не найдена</span></b><br />
 		{{else}}
 			<b>{{:alarmValue.name}}</b><br />
 		{{/if}}
@@ -34,6 +34,6 @@ Used In File(s): \code\modules\nano\modules\alarm_monitor.dm
 			</div>
 		{{/if}}
 	{{empty}}
-		<span class="white">--Все системы номинальны</span>
+		<span class="white">--Все системы в порядке</span>
 	{{/for}}
 {{/for}}
