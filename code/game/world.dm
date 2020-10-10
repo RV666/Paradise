@@ -140,7 +140,7 @@ GLOBAL_LIST_EMPTY(world_topic_handlers)
 	if(delay > sound_length) // If there's time, play the round-end sound before rebooting
 		spawn(delay - sound_length)
 			if(!SSticker.delay_end)
-				world << round_end_sound
+				world << sound(round_end_sound, volume = 80)
 	sleep(delay)
 	if(SSticker.delay_end)
 		to_chat(world, "<span class='boldannounce'>Reboot was cancelled by an admin.</span>")
