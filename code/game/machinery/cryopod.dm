@@ -53,7 +53,7 @@
 	user.set_machine(src)
 	add_fingerprint(usr)
 
-	var/dat
+	var/dat = {"<meta charset="UTF-8">"}
 
 	if(!( SSticker ))
 		return
@@ -79,7 +79,7 @@
 
 	if(href_list["log"])
 
-		var/dat = "<b>Recently stored [storage_type]</b><br/><hr/><br/>"
+		var/dat = {"<meta charset="UTF-8"><b>Recently stored [storage_type]</b><br/><hr/><br/>"}
 		for(var/person in frozen_crew)
 			dat += "[person]<br/>"
 		dat += "<hr/>"
@@ -89,7 +89,7 @@
 	if(href_list["view"])
 		if(!allow_items) return
 
-		var/dat = "<b>Recently stored objects</b><br/><hr/><br/>"
+		var/dat = {"<meta charset="UTF-8"><b>Recently stored objects</b><br/><hr/><br/>"}
 		for(var/obj/item/I in frozen_items)
 			dat += "[I.name]<br/>"
 		dat += "<hr/>"

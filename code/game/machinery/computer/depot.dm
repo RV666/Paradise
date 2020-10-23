@@ -69,7 +69,7 @@
 		to_chat(user, "<span class='warning'>Access Denied.</span>")
 		return
 	user.set_machine(src)
-	var/dat = get_menu(user)
+	var/dat = {"<meta charset="UTF-8">"} + get_menu(user)
 	user << browse(dat, "window=computer;size=575x450")
 	onclose(user, "computer")
 
