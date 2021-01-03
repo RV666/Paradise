@@ -291,10 +291,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 			dat += "<b>Disabilities:</b> <a href='?_src_=prefs;preference=disabilities'>\[Set\]</a><br>"
 			dat += "<b>Nanotrasen Relation:</b> <a href ='?_src_=prefs;preference=nt_relation;task=input'>[nanotrasen_relation]</a><br>"
 			dat += "<a href='byond://?_src_=prefs;preference=flavor_text;task=input'>Set Flavor Text</a><br>"
-			if(length(flavor_text) <= 40)
-				if(!length(flavor_text))	dat += "\[...\]<br>"
-				else						dat += "[flavor_text]<br>"
-			else dat += "[TextPreview(flavor_text)]...<br>"
+			dat += "[TextPreview(flavor_text)]<br>"
 
 			dat += "<h2>Hair & Accessories</h2>"
 
