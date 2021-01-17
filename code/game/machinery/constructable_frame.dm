@@ -675,6 +675,10 @@ to destroy them and players will be able to make replacements.
 	name = "Circuit board (Beer Machine)"
 	build_path = /obj/machinery/chem_dispenser/beer
 
+/obj/item/circuitboard/chem_dispenser/botanical
+	name = "Circuit board (Botanical Chem Dispenser)"
+	build_path = /obj/machinery/chem_dispenser/botanical
+
 /obj/item/circuitboard/circuit_imprinter
 	name = "Circuit board (Circuit Imprinter)"
 	build_path = /obj/machinery/r_n_d/circuit_imprinter
