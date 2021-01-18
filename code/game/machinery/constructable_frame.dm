@@ -579,6 +579,32 @@ to destroy them and players will be able to make replacements.
 							/obj/item/stack/sheet/glass = 1,
 							/obj/item/stock_parts/cell = 1)
 
+	var/list/chem_dispenser_names_paths = list(
+							"circuit board (Chem Dispenser)" = /obj/machinery/chem_dispenser,
+							"Circuit board (Botanical Chem Dispenser)" = /obj/machinery/chem_dispenser/botanical
+	)
+
+/obj/item/circuitboard/chem_dispenser/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/screwdriver))
+		set_type(null, user)
+		return
+	return ..()
+
+/obj/item/circuitboard/chem_dispenser/proc/set_type(typepath, mob/user)
+	var/new_name = ""
+	if(!typepath)
+		new_name = input("Circuit Setting", "What would you change the board setting to?") in chem_dispenser_names_paths
+		typepath = chem_dispenser_names_paths[new_name]
+	else
+		for(var/name in chem_dispenser_names_paths)
+			if(chem_dispenser_names_paths[name] == typepath)
+				new_name = name
+				break
+	build_path = typepath
+	name = new_name
+	if(user)
+		to_chat(user, "<span class='notice'>You set the board to [new_name].</span>")
+
 /obj/item/circuitboard/chem_master
 	name = "circuit board (ChemMaster 3000)"
 	build_path = /obj/machinery/chem_master
