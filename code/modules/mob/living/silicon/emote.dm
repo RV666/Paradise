@@ -12,7 +12,7 @@
 	switch(act)
 		//Cooldown-inducing emotes
 		if("scream", "screams")
-			on_CD = handle_emote_CD(50) //longer cooldown
+			on_CD = handle_emote_CD(120) //longer cooldown
 		if("ping","pings","buzz","buzzs","buzzes","beep","beeps","yes","no", "buzz2")
 			//halt is exempt because it's used to stop criminal scum //WHOEVER THOUGHT THAT WAS A GOOD IDEA IS GOING TO GET SHOT.
 			on_CD = handle_emote_CD()			//proc located in code\modules\mob\emote.dm

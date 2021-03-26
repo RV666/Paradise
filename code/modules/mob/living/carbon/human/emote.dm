@@ -127,7 +127,7 @@
 		if("choke", "chokes","giggle", "giggles","cry", "cries","sigh", "sighs","laugh", "laughs","moan", "moans","snore", "snores","wink", "winks","whistle", "whistles", "yawn", "yawns")
 			on_CD = handle_emote_CD(50) //longer cooldown
 		if("scream", "screams")
-			on_CD = handle_emote_CD(50) //longer cooldown
+			on_CD = handle_emote_CD(120) //longer cooldown
 		if("fart", "farts", "flip", "flips", "snap", "snaps")
 			on_CD = handle_emote_CD()				//proc located in code\modules\mob\emote.dm
 		if("cough", "coughs", "slap", "slaps", "highfive")
