@@ -244,7 +244,7 @@
 	singular_name = "Aloe Vera leaf"
 	desc = "A cold leaf that is rubbed on burns."
 	icon = 'icons/obj/hydroponics/harvest.dmi'
-	icon_state = "aloe"
+	icon_state = "ambrosiavulgaris"
 	color = "#4CC5C7"
 	heal_burn = 12
 
