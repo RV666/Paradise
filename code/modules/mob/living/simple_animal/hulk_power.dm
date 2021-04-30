@@ -5,6 +5,8 @@
 	name = "Dash"
 	desc = ""
 	panel = "Hulk"
+	action_icon_state = "charge_hulk"
+	action_background_icon_state = "bg_hulk"
 	charge_max = 130
 	clothes_req = 0
 	range = 5
@@ -169,6 +171,8 @@
 	name = "Leap"
 	desc = ""
 	panel = "Hulk"
+	action_icon_state = "jump_hulk"
+	action_background_icon_state = "bg_hulk"
 	charge_max = 130
 	clothes_req = 0
 	range = 5
@@ -278,6 +282,8 @@
 	name = "HulkHONK"
 	desc = ""
 	panel = "Hulk"
+	action_icon_state = "honk_hulk"
+	action_background_icon_state = "bg_hulk"
 	charge_max = 250
 	clothes_req = 0
 	range = 2
@@ -310,6 +316,8 @@
 	name = "Joke"
 	desc = ""
 	panel = "Hulk"
+	action_icon_state = "joke_hulk"
+	action_background_icon_state = "bg_hulk"
 	charge_max = 350
 	clothes_req = 0
 	range = 2
@@ -339,6 +347,8 @@
 	name = "Windmill"
 	desc = ""
 	panel = "Hulk"
+	action_icon_state = "mill_hulk"
+	action_background_icon_state = "bg_hulk"
 	charge_max = 200
 	clothes_req = 0
 	range = 2
@@ -390,6 +400,8 @@
 	desc = ""
 	panel = "Hulk"
 	invocation_type = "shout"
+	action_icon_state = "harchok_hulk"
+	action_background_icon_state = "bg_hulk"
 	allowed_type = /atom
 	charge_max = 250
 	clothes_req = 0
@@ -420,8 +432,10 @@
 	desc = ""
 	panel = "Hulk"
 	invocation_type = "shout"
+	action_icon_state = "lazer_hulk"
+	action_background_icon_state = "bg_hulk"
 	allowed_type = /atom
-	charge_max = 250
+	charge_max = 70
 	clothes_req = 0
 	range = 20
 
