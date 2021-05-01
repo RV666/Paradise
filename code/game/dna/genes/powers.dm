@@ -136,14 +136,15 @@
 	..()
 	block = GLOB.hulkblock
 
-/datum/dna/gene/basic/hulk/activate(mob/M, connected, flags)
+/datum/dna/gene/basic/hulk/activate(mob/M)
 	..()
-	var/status = CANSTUN | CANWEAKEN | CANPARALYSE | CANPUSH
-	M.status_flags &= ~status
+	M.AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/hulk/hulk_transform)
 
-/datum/dna/gene/basic/hulk/deactivate(mob/M, connected, flags)
+/datum/dna/gene/basic/hulk/deactivate(mob/M)
 	..()
-	M.status_flags |= CANSTUN | CANWEAKEN | CANPARALYSE | CANPUSH
+	for(var/obj/effect/proc_holder/spell/S in M.mob_spell_list)
+		if(S==/obj/effect/proc_holder/spell/aoe_turf/hulk/ | /obj/effect/proc_holder/spell/targeted/click/hulk/)
+			M.RemoveSpell(S)
 
 /datum/dna/gene/basic/hulk/OnDrawUnderlays(mob/M, g)
 	if(HULK in M.mutations)
@@ -159,7 +160,6 @@
 		genemutcheck(M, GLOB.hulkblock,null,MUTCHK_FORCED)
 		M.update_mutations()		//update our mutation overlays
 		M.update_body()
-		M.status_flags |= CANSTUN | CANWEAKEN | CANPARALYSE | CANPUSH //temporary fix until the problem can be solved.
 		to_chat(M, "<span class='danger'>You suddenly feel very weak.</span>")
 
 /datum/dna/gene/basic/xray

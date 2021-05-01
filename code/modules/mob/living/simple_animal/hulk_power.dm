@@ -1,6 +1,6 @@
 //Transform spell
 
-/obj/effect/proc_holder/spell/aoe_turf/hulk_transform
+/obj/effect/proc_holder/spell/aoe_turf/hulk/hulk_transform
 	name = "Transform"
 	desc = ""
 	panel = "Hulk"
@@ -9,9 +9,15 @@
 	charge_max = 100
 	clothes_req = 0
 
-/obj/effect/proc_holder/spell/aoe_turf/hulk_transform/cast(list/targets, mob/user = usr)
+/obj/effect/proc_holder/spell/aoe_turf/hulk/hulk_transform/cast(list/targets, mob/user = usr)
+	if(HAS_TRAIT(usr, TRAIT_PACIFISM))
+		to_chat(usr, "<span class='warning'>Not enough angry power")
+		return
+	if(istype(usr,/mob/living/simple_animal/hulk))
+		to_chat(usr, "<span class='warning'>You are already hulk")
+		return
 	to_chat(usr, "<span class='bold notice'>You can feel real POWER.</span>")
-	if(istype(loc, /obj/machinery/dna_scannernew))
+	if(istype(usr.loc, /obj/machinery/dna_scannernew))
 		var/obj/machinery/dna_scannernew/DSN = loc
 		DSN.occupant = null
 		DSN.icon_state = "scanner_0"
@@ -36,7 +42,7 @@
 //HUMAN HULK
 
 //Dash
-/obj/effect/proc_holder/spell/aoe_turf/hulk_dash
+/obj/effect/proc_holder/spell/aoe_turf/hulk/hulk_dash
 	name = "Dash"
 	desc = ""
 	panel = "Hulk"
@@ -46,7 +52,7 @@
 	clothes_req = 0
 	range = 5
 
-/obj/effect/proc_holder/spell/aoe_turf/hulk_dash/cast(list/targets, mob/user = usr)
+/obj/effect/proc_holder/spell/aoe_turf/hulk/hulk_dash/cast(list/targets, mob/user = usr)
 	var/turf/T = get_turf(get_step(usr,usr.dir))
 	for(var/mob/living/M in T.contents)
 		to_chat(usr, "<span class='warning'>Something right in front of you!</span>")
@@ -202,7 +208,7 @@
 	return
 
 //Jump
-/obj/effect/proc_holder/spell/aoe_turf/hulk_jump
+/obj/effect/proc_holder/spell/aoe_turf/hulk/hulk_jump
 	name = "Leap"
 	desc = ""
 	panel = "Hulk"
@@ -212,7 +218,7 @@
 	clothes_req = 0
 	range = 5
 
-/obj/effect/proc_holder/spell/aoe_turf/hulk_jump/cast(list/targets , mob/user = usr)
+/obj/effect/proc_holder/spell/aoe_turf/hulk/hulk_jump/cast(list/targets , mob/user = usr)
 	//for(var/turf/T in targets)
 	var/failure = 0
 	if (istype(usr.loc,/mob) || usr.lying || usr.stunned || usr.buckled || usr.stat)
@@ -313,7 +319,7 @@
 //Clown-Hulk
 
 //Hulk Honk
-/obj/effect/proc_holder/spell/aoe_turf/hulk_honk
+/obj/effect/proc_holder/spell/aoe_turf/hulk/hulk_honk
 	name = "HulkHONK"
 	desc = ""
 	panel = "Hulk"
@@ -323,7 +329,7 @@
 	clothes_req = 0
 	range = 2
 
-/obj/effect/proc_holder/spell/aoe_turf/hulk_honk/cast(list/target,mob/user = usr)
+/obj/effect/proc_holder/spell/aoe_turf/hulk/hulk_honk/cast(list/target,mob/user = usr)
 	if (usr.incapacitated())
 		to_chat(usr, "<span class='red'>You can't right now!</span>")
 		return
@@ -347,7 +353,7 @@
 			victim_loc.MakeSlippery(TURF_WET_LUBE, 5 SECONDS)
 
 //Hulk Joke
-/obj/effect/proc_holder/spell/aoe_turf/hulk_joke
+/obj/effect/proc_holder/spell/aoe_turf/hulk/hulk_joke
 	name = "Joke"
 	desc = ""
 	panel = "Hulk"
@@ -357,7 +363,7 @@
 	clothes_req = 0
 	range = 2
 
-/obj/effect/proc_holder/spell/aoe_turf/hulk_joke/cast(list/targets,mob/user = usr)
+/obj/effect/proc_holder/spell/aoe_turf/hulk/hulk_joke/cast(list/targets,mob/user = usr)
 	if (usr.incapacitated())
 		to_chat(usr, "<span class='warning'>You can't right now!</span>")
 		return
@@ -378,7 +384,7 @@
 //Zilla
 
 //Hulk Mill
-/obj/effect/proc_holder/spell/aoe_turf/hulk_mill
+/obj/effect/proc_holder/spell/aoe_turf/hulk/hulk_mill
 	name = "Windmill"
 	desc = ""
 	panel = "Hulk"
@@ -388,7 +394,7 @@
 	clothes_req = 0
 	range = 2
 
-/obj/effect/proc_holder/spell/aoe_turf/hulk_mill/cast(list/targets,mob/user = usr)
+/obj/effect/proc_holder/spell/aoe_turf/hulk/hulk_mill/cast(list/targets,mob/user = usr)
 	if (usr.lying || usr.incapacitated())
 		to_chat(usr, "<span class='warning'>You can't do that right now!</span>")
 		return
@@ -430,7 +436,7 @@
 		M.adjust_fire_stacks(20)
 		M.IgniteMob()
 
-/obj/effect/proc_holder/spell/targeted/click/hulk_spit
+/obj/effect/proc_holder/spell/targeted/click/hulk/hulk_spit
 	name = "Fire Spit"
 	desc = ""
 	panel = "Hulk"
@@ -442,7 +448,7 @@
 	clothes_req = 0
 	range = 20
 
-/obj/effect/proc_holder/spell/targeted/click/hulk_spit/cast(list/targets,mob/user = usr)
+/obj/effect/proc_holder/spell/targeted/click/hulk/hulk_spit/cast(list/targets,mob/user = usr)
 	var/target = targets[1]
 	if (usr.lying || usr.incapacitated())
 		to_chat(usr, "<span class='warning'>You can't do that right now!</span>")
@@ -462,7 +468,7 @@
 
 //Laser
 
-/obj/effect/proc_holder/spell/targeted/click/hulk_lazor
+/obj/effect/proc_holder/spell/targeted/click/hulk/hulk_lazor
 	name = "LazorZ"
 	desc = ""
 	panel = "Hulk"
@@ -474,7 +480,7 @@
 	clothes_req = 0
 	range = 20
 
-/obj/effect/proc_holder/spell/targeted/click/hulk_lazor/cast(list/targets,mob/user = usr)
+/obj/effect/proc_holder/spell/targeted/click/hulk/hulk_lazor/cast(list/targets,mob/user = usr)
 	var/target = targets[1]
 	if (usr.lying || usr.incapacitated())
 		to_chat(usr, "<span class='warning'>You can't right now!</span>")

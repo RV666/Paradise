@@ -32,8 +32,8 @@
 	var/health_regen = 1.5
 
 /mob/living/simple_animal/hulk/human
-	hulk_powers = list(/obj/effect/proc_holder/spell/aoe_turf/hulk_jump,
-	/obj/effect/proc_holder/spell/aoe_turf/hulk_dash)
+	hulk_powers = list(/obj/effect/proc_holder/spell/aoe_turf/hulk/hulk_jump,
+	/obj/effect/proc_holder/spell/aoe_turf/hulk/hulk_dash)
 
 //Clown Hulk
 
@@ -55,8 +55,8 @@
 	attack_sound = list('sound/items/bikehorn.ogg')
 	health_regen = 6
 
-	hulk_powers = list(/obj/effect/proc_holder/spell/aoe_turf/hulk_honk,
-	/obj/effect/proc_holder/spell/aoe_turf/hulk_joke)
+	hulk_powers = list(/obj/effect/proc_holder/spell/aoe_turf/hulk/hulk_honk,
+	/obj/effect/proc_holder/spell/aoe_turf/hulk/hulk_joke)
 
 //Godzilla
 
@@ -78,9 +78,9 @@
 	attack_sound = list('sound/weapons/bite.ogg')
 	health_regen = 1.5
 
-	hulk_powers = list(/obj/effect/proc_holder/spell/aoe_turf/hulk_mill,
-	/obj/effect/proc_holder/spell/targeted/click/hulk_spit,
-	/obj/effect/proc_holder/spell/targeted/click/hulk_lazor)
+	hulk_powers = list(/obj/effect/proc_holder/spell/aoe_turf/hulk/hulk_mill,
+	/obj/effect/proc_holder/spell/targeted/click/hulk/hulk_spit,
+	/obj/effect/proc_holder/spell/targeted/click/hulk/hulk_lazor)
 
 /mob/living/simple_animal/hulk/Life()
 	if(health < 1)
