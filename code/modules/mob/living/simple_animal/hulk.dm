@@ -132,6 +132,36 @@
 		adjustFireLoss(-health_regen)
 	..()
 
+/mob/living/simple_animal/hulk/death()
+	unmutate()
+
+/mob/living/simple_animal/hulk/proc/unmutate()
+	var/datum/effect_system/smoke_spread/smoke = new
+	smoke.set_up(10, 0, src.loc)
+	smoke.start()
+	playsound(src, 'sound/effects/bamf.ogg', CHANNEL_BUZZ)
+
+	var/obj/effect/decal/remains/human/RH = new /obj/effect/decal/remains/human(src.loc)
+	var/matrix/Mx = matrix()
+	Mx.Scale(1.5)
+	RH.transform = Mx
+
+	for(var/mob/M in contents)
+		M.loc = src.loc
+		if(istype(M, /mob/living))
+			var/mob/living/L = M
+			L.Paralyse(15)
+			L.update_canmove()
+
+	if(mind && original_body)
+		mind.transfer_to(original_body)
+	original_body.mutations.Remove(HULK)
+	original_body.dna.SetSEState(GLOB.hulkblock,0)
+	genemutcheck(original_body, GLOB.hulkblock,null,MUTCHK_FORCED)
+	to_chat(original_body, "<span class='danger'>You suddenly feel very weak.</span>")
+	original_body.update_mutations()		//update our mutation overlays
+	qdel(src)
+
 /mob/living/proc/hulk_scream(obj/target, chance)
 	if(prob(chance))
 		visible_message("<span class='userdanger'>[src] has punched \the [target]!</span>",\

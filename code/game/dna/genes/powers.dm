@@ -142,9 +142,7 @@
 
 /datum/dna/gene/basic/hulk/deactivate(mob/M)
 	..()
-	for(var/obj/effect/proc_holder/spell/S in M.mob_spell_list)
-		if(S==/obj/effect/proc_holder/spell/aoe_turf/hulk/ | /obj/effect/proc_holder/spell/targeted/click/hulk/)
-			M.RemoveSpell(S)
+	M.RemoveSpell(/obj/effect/proc_holder/spell/aoe_turf/hulk/hulk_transform)
 
 /datum/dna/gene/basic/hulk/OnDrawUnderlays(mob/M, g)
 	if(HULK in M.mutations)
