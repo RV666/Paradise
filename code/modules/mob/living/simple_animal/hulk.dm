@@ -167,3 +167,11 @@
 		 the doors and begin to pry them open...</span>")
 		playsound(D, 'sound/machines/airlockforced.ogg', CHANNEL_BUZZ, 30, null, -4)
 		D.open(1)
+
+/mob/living/simple_animal/hulk/New()
+	..()
+	name = text("[initial(name)] ([rand(1, 1000)])")
+	real_name = name
+	status_flags ^= CANPUSH
+	for(var/spell in hulk_powers)
+		src.AddSpell(new spell)

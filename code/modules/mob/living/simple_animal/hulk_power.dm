@@ -1,3 +1,38 @@
+//Transform spell
+
+/obj/effect/proc_holder/spell/aoe_turf/hulk_transform
+	name = "Transform"
+	desc = ""
+	panel = "Hulk"
+	action_icon_state = "transformarion_hulk"
+	action_background_icon_state = "bg_hulk"
+	charge_max = 100
+	clothes_req = 0
+
+/obj/effect/proc_holder/spell/aoe_turf/hulk_transform/cast(list/targets, mob/user = usr)
+	to_chat(usr, "<span class='bold notice'>You can feel real POWER.</span>")
+	if(istype(loc, /obj/machinery/dna_scannernew))
+		var/obj/machinery/dna_scannernew/DSN = loc
+		DSN.occupant = null
+		DSN.icon_state = "scanner_0"
+	var/mob/living/simple_animal/hulk/Monster
+	if(CLUMSY in usr.mutations)
+		Monster = new /mob/living/simple_animal/hulk/clown_hulk(get_turf(usr))
+	else if(isunathi(usr))
+		Monster = new /mob/living/simple_animal/hulk/zilla(get_turf(usr))
+	else
+		Monster = new /mob/living/simple_animal/hulk/human(get_turf(usr))
+
+	var/datum/effect_system/smoke_spread/smoke = new
+	smoke.set_up(10, 0, usr.loc)
+	smoke.start()
+	playsound(usr, 'sound/effects/bamf.ogg', CHANNEL_BUZZ)
+	Monster.original_body = usr
+	usr.forceMove(Monster)
+	usr.mind.transfer_to(Monster)
+	Monster.say(pick("RAAAAAAAARGH!", "HNNNNNNNNNGGGGGGH!", "GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", "AAAAAAARRRGH!" ))
+	return
+
 //HUMAN HULK
 
 //Dash
