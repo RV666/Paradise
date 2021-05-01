@@ -17,7 +17,8 @@ GLOBAL_LIST_INIT(engineering_positions, list(
 	"Chief Engineer",
 	"Station Engineer",
 	"Life Support Specialist",
-	"Mechanic"
+	"Mechanic",
+	"Junior Station Engineer"
 ))
 
 
@@ -29,7 +30,8 @@ GLOBAL_LIST_INIT(medical_positions, list(
 	"Chemist",
 	"Virologist",
 	"Paramedic",
-	"Coroner"
+	"Coroner",
+	"Intern"
 ))
 
 
@@ -38,6 +40,7 @@ GLOBAL_LIST_INIT(science_positions, list(
 	"Scientist",
 	"Geneticist",	//Part of both medical and science
 	"Roboticist",
+	"Junior Scienist"
 ))
 
 //BS12 EDIT
@@ -79,7 +82,8 @@ GLOBAL_LIST_INIT(security_positions, list(
 	"Security Officer",
 	"Brig Physician",
 	"Security Pod Pilot",
-	"Magistrate"
+	"Magistrate",
+	"Security Cadet"
 ))
 
 

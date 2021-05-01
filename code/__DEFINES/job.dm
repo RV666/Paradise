@@ -62,3 +62,8 @@
 #define JOB_BRIGDOC			(1<<5)
 #define JOB_JUDGE				(1<<6)
 #define JOB_PILOT				(1<<7)
+
+#define JOB_JUNIOR_ENGINEER			(1<<8)
+#define JOB_SECURITY_CADET			(1<<9)
+#define JOB_INTERN			(1<<10)
+#define JOB_JUNIOR_SCIENTIST			(1<<11)

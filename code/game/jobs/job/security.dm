@@ -266,3 +266,42 @@
 	satchel = /obj/item/storage/backpack/satchel_sec
 	dufflebag = /obj/item/storage/backpack/duffel/security
 	box = /obj/item/storage/box/engineer
+
+
+/datum/job/security_cadet
+	title = "Security Cadet"
+	flag = JOB_SECURITY_CADET
+	department_flag = JOBCAT_ENGSEC
+	total_positions = 3
+	spawn_positions = 3
+	is_security = 1
+	supervisors = "the head of security"
+	department_head = list("Head of Security")
+	selection_color = "#ffeeee"
+	access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_MAINT_TUNNELS, ACCESS_MORGUE, ACCESS_WEAPONS)
+	minimal_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_MAINT_TUNNELS, ACCESS_WEAPONS)
+	minimal_player_age = 14
+	exp_requirements = 120
+	exp_type = EXP_TYPE_CREW
+	outfit = /datum/outfit/job/security_cadet
+
+/datum/outfit/job/security_cadet
+	name = "Security Cadet"
+	jobtype = /datum/job/security_cadet
+	uniform = /obj/item/clothing/under/rank/security
+	suit = /obj/item/clothing/suit/armor/vest/security
+	gloves = /obj/item/clothing/gloves/color/black
+	shoes = /obj/item/clothing/shoes/jackboots
+	head = /obj/item/clothing/head/helmet
+	l_ear = /obj/item/radio/headset/headset_sec/alt
+	id = /obj/item/card/id/security
+	l_pocket = /obj/item/flash
+	suit_store = /obj/item/gun/energy/gun/advtaser
+	pda = /obj/item/pda/security
+	backpack_contents = list(
+		/obj/item/restraints/handcuffs = 1
+	)
+	implants = list(/obj/item/implant/mindshield)
+	backpack = /obj/item/storage/backpack/security
+	satchel = /obj/item/storage/backpack/satchel_sec
+	dufflebag = /obj/item/storage/backpack/duffel/security

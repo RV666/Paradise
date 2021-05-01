@@ -152,3 +152,39 @@
 	satchel = /obj/item/storage/backpack/satchel_eng
 	dufflebag = /obj/item/storage/backpack/duffel/engineering
 	box = /obj/item/storage/box/engineer
+
+
+/datum/job/junior_engineer
+	title = "Junior Station Engineer"
+	flag = JOB_JUNIOR_ENGINEER
+	department_flag = JOBCAT_ENGSEC
+	total_positions = 3
+	spawn_positions = 3
+	is_engineering = 1
+	supervisors = "the chief engineer"
+	department_head = list("Chief Engineer")
+	selection_color = "#fff5cc"
+	access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_MINERAL_STOREROOM)
+	minimal_access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_MINERAL_STOREROOM)
+	minimal_player_age = 7
+	exp_requirements = 120
+	exp_type = EXP_TYPE_CREW
+	outfit = /datum/outfit/job/junior_engineer
+
+/datum/outfit/job/junior_engineer
+	name = "Junior Station Engineer"
+	jobtype = /datum/job/junior_engineer
+
+	uniform = /obj/item/clothing/under/rank/engineer
+	belt = /obj/item/storage/belt/utility/full
+	shoes = /obj/item/clothing/shoes/workboots
+	head = /obj/item/clothing/head/hardhat
+	l_ear = /obj/item/radio/headset/headset_eng
+	id = /obj/item/card/id/engineering
+	l_pocket = /obj/item/t_scanner
+	pda = /obj/item/pda/engineering
+
+	backpack = /obj/item/storage/backpack/industrial
+	satchel = /obj/item/storage/backpack/satchel_eng
+	dufflebag = /obj/item/storage/backpack/duffel/engineering
+	box = /obj/item/storage/box/engineer
