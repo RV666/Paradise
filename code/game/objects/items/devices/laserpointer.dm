@@ -78,10 +78,6 @@
 		return
 	if(!user.IsAdvancedToolUser())
 		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-
 	add_fingerprint(user)
 
 	//nothing happens if the battery is drained
