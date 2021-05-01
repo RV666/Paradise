@@ -372,7 +372,7 @@
 	var/datum/effect_system/smoke_spread/smoke = new
 	smoke.set_up(10,0, usr.loc)
 	smoke.start()
-	playsound(usr,'sound/spookoween/scary_clown_appear.ogg',CHANNEL_BUZZ, 100)
+	playsound(usr,pick('sound/spookoween/scary_clown_appear.ogg','sound/spookoween/scary_horn.ogg','sound/spookoween/scary_horn2.ogg','sound/spookoween/scary_horn3.ogg'),CHANNEL_BUZZ, 100)
 
 
 //Zilla
