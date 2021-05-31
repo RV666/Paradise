@@ -178,6 +178,11 @@
 	if(user.can_advanced_admin_interact())
 		forcetoggle(TRUE)
 
+/obj/machinery/door/firedoor/attack_animal(mob/user)
+	if(istype(user, /mob/living/simple_animal/hulk))
+		var/mob/living/simple_animal/hulk/H = user
+		H.attack_hulk(src)
+
 /obj/machinery/door/firedoor/attack_alien(mob/user)
 	add_fingerprint(user)
 	if(welded)

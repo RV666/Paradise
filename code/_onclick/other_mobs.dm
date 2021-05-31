@@ -11,12 +11,6 @@
 	var/obj/item/clothing/gloves/G = gloves // not typecast specifically enough in defines
 	if(proximity && istype(G) && G.Touch(A, 1))
 		return
-
-	if(HULK in mutations)
-		if(proximity) //no telekinetic hulk attack
-			if(A.attack_hulk(src))
-				return
-
 	if(buckled && isstructure(buckled))
 		var/obj/structure/S = buckled
 		if(S.prevents_buckled_mobs_attacking())
