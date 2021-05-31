@@ -2,7 +2,7 @@
 /mob/living/simple_animal/hulk
 	name = "Hulk"
 	real_name = "Hulk"
-	desc = ""
+	desc = "Big b♂y"
 	icon = 'icons/mob/Hulk.dmi'
 	icon_state = "Hulk"
 	icon_living = "Hulk"
